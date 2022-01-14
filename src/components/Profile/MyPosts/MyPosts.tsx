@@ -14,7 +14,7 @@ export const MyPosts = () => {
                 <input/>
                 <button> Add Post </button>
             </div>
-            <div>
+            <div  className={s.posts}>
                 {myPostElements}
             </div>
         </div>
