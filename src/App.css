@@ -1,7 +1,7 @@
 .app-wrapper {
     margin: 0 10px;
     display: grid;
-    width: 1100px;
+    width: 100%;
     grid-template-areas:
         'h h'
         'n c';
@@ -12,5 +12,5 @@
 
 .app-wrapper-content {
     grid-area: c;
-    background-color: aliceblue;
+    background-color: white;
 }

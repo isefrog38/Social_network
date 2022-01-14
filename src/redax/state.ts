@@ -6,7 +6,7 @@ export let state = {
         ],
     },
 
-    messagesPage: {
+    dialogsPage: {
         dialogs: [
             {id: 1, name: 'Dimych', },
             {id: 2, name: 'Andrey'},

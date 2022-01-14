@@ -16,7 +16,7 @@
 .dialog a:hover{
     color: gold;
 }
-
-.messages {
-    padding: 10px;
+.dialog a:focus {
+    color: gold;
 }
+

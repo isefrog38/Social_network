@@ -5,63 +5,50 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="98a1d170-3573-4b1f-bfb0-2eadff6cde3e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/my-app.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/logo192.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/logo512.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/robots.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/App.test.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Dialogs/DialogItem/DialogItem.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Dialogs/Message/Message.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Header/Header.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Header/Header.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Music/Music.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Music/Music.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Navbar/Navbar.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Navbar/Navbar.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/News/News.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/News/News.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPosts.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPosts.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Profile/MyPosts/Post/Post.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Profile/MyPosts/Post/Post.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Profile/Profile.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Profile/Profile.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Profile/ProfileInfo/ProfileInfo.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Profile/ProfileInfo/ProfileInfo.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Settings/Setting.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Settings/Settings.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/logo.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/react-app-env.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redax/state.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/reportWebVitals.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/setupTests.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Dialogs/Message/Message.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Navbar/SideBar/SideBar.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Navbar/SideBar/SideBar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/logo192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/logo512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/DialogItem/DialogItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/DialogItem/DialogItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/Message/Message.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/Message/Message.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navbar/Navbar.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar/Navbar.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navbar/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar/Navbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPosts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPosts.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/MyPosts/Post/Post.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MyPosts/Post/Post.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redax/state.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redax/state.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript JSX File" />
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -77,7 +64,8 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../FreeCode_CodeWars/CodeWars/homework_from_INCUBATOR_codeWars" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -101,7 +89,7 @@
       <workItem from="1641977961777" duration="4000" />
       <workItem from="1642140717629" duration="220000" />
       <workItem from="1642140965381" duration="18000" />
-      <workItem from="1642140985806" duration="6635000" />
+      <workItem from="1642140985806" duration="20704000" />
     </task>
     <servers />
   </component>

@@ -6,6 +6,7 @@ import {dialogs} from "../../index";
 import {messages} from "../../index";
 
 const Dialogs = () => {
+    
     let dialogsElements = dialogs.map(d => <DialogItem name={d.name} id={d.id}/>);
     let messagesElements = messages.map(m => <Messages messages={m.messages} id={m.id}/>);
 

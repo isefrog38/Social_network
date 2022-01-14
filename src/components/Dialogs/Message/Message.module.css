@@ -1,0 +1,123 @@
+.grid_container {
+    display: grid;
+    grid-template-columns: 5fr 5fr;
+    background-color: darkgray;
+}
+
+
+.message {
+
+}
+
+.AllBlock {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.container_massage_left {
+    width: 300px;
+    height: 110px;
+    padding-right: 15%;
+}
+
+.container_massage_right {
+    width: 300px;
+    height: 110px;
+    padding-left: 10%;
+}
+
+.container {
+    border: 2px solid black;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    background-color: lightskyblue;
+    padding: 10px;
+    border-radius: 20px;
+    justify-content: space-between
+}
+
+/* Более темный контейнер чата */
+.darker {
+    border-color: black;
+    background-color: royalblue;
+}
+
+/* Стиль изображения */
+.img_users_right {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 12px;
+    box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.55);
+    float: left;
+}
+
+.img_users_left {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 12px;
+    box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.55);
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+/* Стиль время текст */
+.time_right {
+    color: dimgrey;
+    text-align: right;
+}
+
+/*
+.message {
+    display: flex;
+    flex-wrap: wrap;
+    width: 30%;
+}
+
+.card__image {
+    margin-top: 70px;
+    display: flex;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 12px;
+    box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.55);
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    background-color: greenyellow;
+    padding: 7px;
+    border-radius: 30px;
+    box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.05);
+}
+
+.box {
+    width: 250px;
+    height: 110px;
+}
+
+.time {
+    margin-left: 70%;
+    color: slategray;
+    opacity: 80%;
+}
+
+.card h3 {
+    font-size: 20px;
+    color: black;
+}
+
+h5 {
+    font-size: 13px;
+    color: black;
+}
+*/

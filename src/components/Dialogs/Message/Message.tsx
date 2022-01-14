@@ -1,9 +1,32 @@
 import React from "react";
-import s from './../Dialogs.module.css'
+import './../Dialogs.module.css'
+import s from "./Message.module.css";
 
 const Messages = ({messages}: any) => {
     return (
-        <div className={s.message}>{messages}</div>
+        <div className={s.grid_container}>
+
+            <div className={s.container_massage_left}>
+                <img className={s.img_users_left}
+                    src="data:image/png;base64,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"
+                    alt="Аватар"/>
+                <div className={s.container}>
+                    <div className={s.message}>{messages}</div>
+                    <span className={s.time_right}>11:00</span>
+                </div>
+            </div>
+
+
+            <div className={s.container_massage_right}>
+                <img className={`${s.img_users_right} ${s.right}`}
+                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxZtlkHFL5gQf7hDz5ZnkBlWT9H0ETbkWCGKb2ijSZHrvq5CBGoVrajFDfc3dPHv8EQfA&usqp=CAU"
+                     alt="Аватар"/>
+                <div className={`${s.container} ${s.darker}`}>
+                    <div className={s.message}>{messages}</div>
+                    <span className={s.time_right}>11:01</span>
+                </div>
+            </div>
+        </div>
     )
 }
 

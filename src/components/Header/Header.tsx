@@ -7,7 +7,7 @@ const Header = () => {
         <header className={s.header}>
             <img
                 src='https://cdn.worldvectorlogo.com/logos/kangol.svg'/>
-            <h2>Продажа кенгуру</h2>
+            <h2>Selling kangaroos to Europe from Australia</h2>
         </header>
     )
 }

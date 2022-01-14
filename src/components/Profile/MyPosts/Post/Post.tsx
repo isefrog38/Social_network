@@ -9,9 +9,6 @@ const Post = (props: any) => {
                     src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAXSpy0PUas_IlI6LGzLgHFsMj-dzIfBZczg&usqp=CAU'/>
             </span>
             <span className={s.textMessageBlock}>{props.message}</span>
-            <div>
-                <input value={'Введите сообщение'}/>
-            </div>
             <div className={s.likesBlock}>
                 <span> {props.likesCount} </span> <span className={s.like}>❤ Like</span>
             </div>

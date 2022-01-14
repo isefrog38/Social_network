@@ -1,0 +1,25 @@
+.allBlock {
+    display: flex;
+}
+
+.img_right {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+.img_center {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+.img_left {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+.name_friends {
+    font-size: medium;
+}
