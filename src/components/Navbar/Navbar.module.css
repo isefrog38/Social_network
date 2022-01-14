@@ -1,0 +1,18 @@
+.nav {
+    width: 100%;
+    grid-area: n;
+    font-size: 25px ;
+    text-align: center;
+    background-color: dodgerblue;
+    padding-top: 30px;
+}
+
+.item a{
+    text-decoration: none;
+    color: white;
+
+}
+
+.item a:focus {
+    color: gold;
+}

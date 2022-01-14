@@ -1,0 +1,22 @@
+.item img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+
+.textMessageBlock {
+    padding-left: 20px;
+}
+
+.post {
+    padding-bottom: 35px;
+}
+
+.likesBlock {
+padding-top: 10px;
+}
+
+.like {
+    color:red;
+}

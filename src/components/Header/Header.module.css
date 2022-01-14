@@ -1,0 +1,17 @@
+.header {
+    grid-area: h;
+    background-color: dodgerblue;
+    display: grid;
+    grid-template-columns:1fr 3fr;
+}
+
+.header h1 {
+    display: grid;
+    justify-content: center;
+}
+
+.header img {
+    width: 60px;
+    border-radius: 10px;
+}
+
