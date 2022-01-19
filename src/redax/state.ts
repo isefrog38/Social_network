@@ -1,3 +1,5 @@
+import {rerenderEntireTree} from "../render";
+
 export type MessageType = {
     id: number
     message: string
@@ -25,7 +27,7 @@ export type RootStateType = {
     sideBar: Array<SideBarType>
 }
 export type SideBarType = {
-    id:number
+    id: number
     name: string
     avatar: string
 }
@@ -85,8 +87,27 @@ export let state: RootStateType = {
 
     },
     sideBar: [
-        {id:1, name: "Micael Philips", avatar: 'https://oir.mobi/uploads/posts/2021-05/1620197401_11-oir_mobi-p-karlikovii-kenguru-zhivotnie-krasivo-foto-14.jpg'},
+        {
+            id: 1,
+            name: "Micael Philips",
+            avatar: 'https://oir.mobi/uploads/posts/2021-05/1620197401_11-oir_mobi-p-karlikovii-kenguru-zhivotnie-krasivo-foto-14.jpg'
+        },
         {id: 2, name: "Joan Osborne", avatar: 'https://zelenyjmir.ru/wp-content/uploads/2017/06/Kenguru-40.jpg'},
-        {id: 3, name: "Richard Mille", avatar: 'https://yaizakon.com.ua/wp-content/uploads/2019/10/1427402253_kenguru5-e1480942003641.jpg'}
+        {
+            id: 3,
+            name: "Richard Mille",
+            avatar: 'https://yaizakon.com.ua/wp-content/uploads/2019/10/1427402253_kenguru5-e1480942003641.jpg'
+        }
     ]
+}
+
+export let addPost = (postMessage: string) => {
+    debugger
+    let newPost = {
+        id: 5,
+        message: postMessage,
+        likesCount: 0
+    }
+    state.myPostPage.myPostData.push(newPost)
+    rerenderEntireTree(state)
 }
