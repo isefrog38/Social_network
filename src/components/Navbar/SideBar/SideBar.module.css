@@ -1,5 +1,9 @@
-.allBlock {
+.block {
     display: flex;
+}
+
+.allBlock {
+    max-width: 60px;
 }
 
 .img_right {

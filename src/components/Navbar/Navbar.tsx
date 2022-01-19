@@ -2,8 +2,16 @@ import React from "react";
 import s from './Navbar.module.css';
 import {NavLink} from "react-router-dom";
 import SideBar from "./SideBar/SideBar";
+import {SideBarType} from "../../redax/state";
 
-const Navbar = () => {
+type NavBarPropsType = {
+    sideBar: Array<SideBarType>
+}
+
+const Navbar = (props: NavBarPropsType) => {
+
+    const SideBarElement = props.sideBar.map(d => <SideBar name={d.name} id={d.id} avatar={d.avatar}/>);
+
     return (
         <>
             <nav className={s.nav}>
@@ -22,7 +30,10 @@ const Navbar = () => {
                         <NavLink to='/setting'>Setting</NavLink>
                     </div>
                     <div className={s.sideBar}>
-                        <SideBar id={1}/>
+                        <h4>Best Friends</h4>
+                        <div className={s.blockSideImg}>
+                            {SideBarElement}
+                        </div>
                     </div>
                 </div>
             </nav>

@@ -1,123 +1,92 @@
 .grid_container {
     display: grid;
     grid-template-columns: 5fr 5fr;
-    background-color: darkgray;
+    background-color: dodgerblue;
 }
-
 
 .message {
-
-}
-
-.AllBlock {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: center;
+    align-items: flex-end;
+    margin: 10px;
 }
 
-.container_massage_left {
-    width: 300px;
-    height: 110px;
-    padding-right: 15%;
-}
-
-.container_massage_right {
-    width: 300px;
-    height: 110px;
-    padding-left: 10%;
-}
-
-.container {
-    border: 2px solid black;
-    margin-top: 20px;
+.message_2 {
     display: flex;
-    align-items: center;
-    background-color: lightskyblue;
+    align-items: flex-end;
+    margin: 10px;
+    justify-content: flex-end
+}
+
+.avatar {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+.avatar_2 {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+.content {
     padding: 10px;
-    border-radius: 20px;
-    justify-content: space-between
+    border-radius: 7px 7px 7px 0;
+    background-color: #2cffd1;
 }
 
-/* Более темный контейнер чата */
-.darker {
-    border-color: black;
+.content_2 {
+    padding: 10px;
+    border-radius: 7px 7px 7px 0;
     background-color: royalblue;
 }
 
-/* Стиль изображения */
-.img_users_right {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-left: 12px;
-    box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.55);
-    float: left;
+.angle {
+    width: 15px;
+    height: 15px;
+    background: radial-gradient(circle at 0 0, rgba(0, 0, 0, 0) 15px, #2cffd1 0);
 }
 
-.img_users_left {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: 12px;
-    box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.55);
-    float: left;
+.angle_2 {
+    width: 15px;
+    height: 15px;
+    background: radial-gradient(circle at 0 0, rgba(0, 0, 0, 0) 15px, royalblue 0);
 }
 
-.right {
-    float: right;
+.text {
+    min-width: 150px;
+    max-width: 300px;
+    word-wrap: break-word;
+    color: black;
 }
 
-/* Стиль время текст */
-.time_right {
-    color: dimgrey;
-    text-align: right;
+.text_2 {
+    min-width: 150px;
+    max-width: 300px;
+    word-wrap: break-word;
+    color: white;
 }
 
-/*
-.message {
-    display: flex;
-    flex-wrap: wrap;
-    width: 30%;
+.name {
+    font-size: 15px;
+    font-weight: bold;
+    color: black;
 }
 
-.card__image {
-    margin-top: 70px;
-    display: flex;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    margin-right: 12px;
-    box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.55);
-}
-
-.card {
-    display: flex;
-    align-items: center;
-    background-color: greenyellow;
-    padding: 7px;
-    border-radius: 30px;
-    box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.05);
-}
-
-.box {
-    width: 250px;
-    height: 110px;
+.name_2 {
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
 }
 
 .time {
-    margin-left: 70%;
-    color: slategray;
-    opacity: 80%;
+    display: flex;
+    justify-content: flex-end;
+    color: darkgray;
 }
 
-.card h3 {
-    font-size: 20px;
-    color: black;
+.time_2 {
+    display: flex;
+    justify-content: flex-end;
+    color: darkgray;
 }
-
-h5 {
-    font-size: 13px;
-    color: black;
-}
-*/

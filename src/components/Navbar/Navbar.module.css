@@ -1,10 +1,17 @@
 .nav {
-    max-width: 100%;
+    min-height: 100%;
     grid-area: n;
     font-size: 25px ;
     text-align: center;
     background-color: dodgerblue;
     padding-top: 30px;
+}
+
+.blockSideImg {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
 .item a{
