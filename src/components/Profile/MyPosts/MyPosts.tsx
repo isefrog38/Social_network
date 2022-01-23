@@ -17,7 +17,7 @@ export const MyPosts = (props: MyPostsPropsType) => {
     let onChangePost = () => {
         let text = newPostElement?.current?.value
         if (text) {props.addPost(text)}
-        newPostElement.current.value = ""
+         newPostElement.current!.value = "";
     }
 
     return (
@@ -25,7 +25,7 @@ export const MyPosts = (props: MyPostsPropsType) => {
             <h2>My Posts</h2>
             <div>
                 <input ref={newPostElement} onChange={onChangePost}/>
-                <button onClick={props.addPost}> Add Post</button>
+                <button onClick={() => props.addPost(newPostElement.current!.value)}> Add Post</button>
             </div>
             <div className={s.posts}>
                 {myPostElements}
