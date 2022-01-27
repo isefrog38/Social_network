@@ -8,12 +8,19 @@ import {MyPostsDataType} from "../../redax/state";
 type ProfilePropType = {
     myPostData: Array<MyPostsDataType>
     addPost: (postMessage: string) => void
+    newPostText: string
+    updateNewPostText: (newText: string) => void
 }
 
 const Profile = (props: ProfilePropType) => {
     return <div className={s.main}>
         <ProfileInfo/>
-        <MyPosts myPostData={props.myPostData} addPost={props.addPost}/>
+        <MyPosts
+            newPostText={props.newPostText}
+            myPostData={props.myPostData}
+            addPost={props.addPost}
+            updateNewPostText={props.updateNewPostText}
+        />
     </div>
 }
 

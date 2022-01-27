@@ -3,21 +3,80 @@
     grid-template-columns: 2fr 10fr;
 }
 
-.dialog a{
+.addMessageBlock {
+    width: 100%;
+}
+
+.inputAddMessage {
+    resize: vertical;
+    padding: 15px;
+    border-radius: 15px;
+    border: 1px solid black;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.06);
+    height: 10%;
+    width: 90%;
+}
+
+.buttonAddMessage {
+}
+
+.buttonAddMessage {
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 0 16px;
+    margin: 0 15px 15px 0;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 12.5px;
+    font-weight: normal;
+    text-decoration: none;
+    vertical-align: top;
+    color: #55677d;
+    background-color: #dfe6ed;
+    cursor: pointer;
+    user-select: none;
+    appearance: none;
+    touch-action: manipulation;
+    overflow: hidden;
+}
+
+.buttonAddMessage:hover {
+    opacity: 0.88;
+}
+.buttonAddMessage:active {
+    line-height: 32px;
+}
+.buttonAddMessage:disabled {
+    pointer-events: none;
+    opacity: 0.65;
+}
+
+
+
+.messages {
+    width: 70%;
+    padding-top: 1rem;
+}
+
+.dialog a {
     font-size: 20px;
     text-decoration: none;
     color: black;
     padding-left: 15px;
 }
 
-.dialog a:hover{
+.dialog a:hover {
     color: gold;
 }
+
 .dialog a:focus {
     color: gold;
 }
 
-.main_block{
+.main_block {
     display: flex;
     align-items: center;
     padding: 5px;

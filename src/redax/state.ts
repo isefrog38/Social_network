@@ -12,6 +12,7 @@ export type DialogType = {
 export type DialogPageType = {
     dialogs: Array<DialogType>
     messages: Array<MessageType>
+    textMessage: string
 }
 export type MyPostsDataType = {
     id: number
@@ -20,6 +21,7 @@ export type MyPostsDataType = {
 }
 export type MyPostPageType = {
     myPostData: Array<MyPostsDataType>
+    newPostText: string
 }
 export type RootStateType = {
     myPostPage: MyPostPageType
@@ -40,6 +42,7 @@ export let state: RootStateType = {
             {id: 3, message: 'Yea ) ', likesCount: 24},
             {id: 4, message: 'Second post', likesCount: 116},
         ],
+        newPostText: ''
     },
 
     dialogsPage: {
@@ -81,9 +84,8 @@ export let state: RootStateType = {
             {id: 2, message: 'How a you'},
             {id: 3, message: 'Artem?'},
             {id: 4, message: 'Yo'},
-            {id: 5, message: 'Why?'},
-            {id: 6, message: 'Like'}
         ],
+        textMessage: "",
 
     },
     sideBar: [
@@ -92,7 +94,11 @@ export let state: RootStateType = {
             name: "Micael Philips",
             avatar: 'https://oir.mobi/uploads/posts/2021-05/1620197401_11-oir_mobi-p-karlikovii-kenguru-zhivotnie-krasivo-foto-14.jpg'
         },
-        {id: 2, name: "Joan Osborne", avatar: 'https://zelenyjmir.ru/wp-content/uploads/2017/06/Kenguru-40.jpg'},
+        {
+            id: 2,
+            name: "Joan Osborne",
+            avatar: 'https://zelenyjmir.ru/wp-content/uploads/2017/06/Kenguru-40.jpg'
+        },
         {
             id: 3,
             name: "Richard Mille",
@@ -101,13 +107,33 @@ export let state: RootStateType = {
     ]
 }
 
-export let addPost = (postMessage: string) => {
-    debugger
+export let addPost = () => {
     let newPost = {
         id: 5,
-        message: postMessage,
+        message: state.myPostPage.newPostText,
         likesCount: 0
     }
     state.myPostPage.myPostData.push(newPost)
+    rerenderEntireTree(state)
+    updateNewPostText("")
+}
+
+export let updateNewPostText = (newText: string) => {
+    state.myPostPage.newPostText = newText
+    rerenderEntireTree(state)
+}
+
+export let addMessage = () => {
+    let newMessageSet = {
+        id: 5,
+        message: state.dialogsPage.textMessage,
+    }
+    state.dialogsPage.messages.push(newMessageSet)
+    rerenderEntireTree(state)
+    textMessageFromPost("")
+}
+
+export let textMessageFromPost = (newMessage: string) => {
+    state.dialogsPage.textMessage = newMessage
     rerenderEntireTree(state)
 }

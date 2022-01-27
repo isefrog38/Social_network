@@ -13,6 +13,9 @@ import {RootStateType} from "./redax/state";
 type AppPropsType = {
     state: RootStateType
     addPost: (postMessage: string) => void
+    updateNewPostText: (newText: string) => void
+    addMessage: (message: string) => void
+    textMessageFromPost: (newMessage: string) => void
 }
 
 const App = ({state, ...props}: AppPropsType) => {
@@ -23,12 +26,21 @@ const App = ({state, ...props}: AppPropsType) => {
             <Navbar sideBar={state.sideBar}/>
             <div className={'app-wrapper-content'}>
                 <Routes>
-                    <Route path='/dialogs' element={<Dialogs
-                        dialogs={state.dialogsPage.dialogs}
-                        messages={state.dialogsPage.messages}/>}/>
-                    <Route path='/profile' element={<Profile
-                        myPostData={state.myPostPage.myPostData}
-                        addPost={props.addPost}/>}/>
+                    <Route path='/dialogs' element={
+                        <Dialogs
+                            dialogs={state.dialogsPage.dialogs}
+                            messages={state.dialogsPage.messages}
+                            addMessage={props.addMessage}
+                            textMessageFromPost={props.textMessageFromPost}
+                            textMessage={state.dialogsPage.textMessage}
+                        />}/>
+                    <Route path='/profile' element={
+                        <Profile
+                            newPostText={state.myPostPage.newPostText}
+                            updateNewPostText={props.updateNewPostText}
+                            myPostData={state.myPostPage.myPostData}
+                            addPost={props.addPost}
+                        />}/>
                     <Route path='/news' element={<News/>}/>
                     <Route path='/music' element={<Music/>}/>
                     <Route path='/setting' element={<Setting/>}/>
