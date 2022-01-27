@@ -115,7 +115,7 @@ export const addPost = () => {
         message: state.myPostPage.newPostText,
         likesCount: 0
     }
-    state.myPostPage.myPostData.push(newPost)
+    state.myPostPage.myPostData.unshift(newPost)
     rerenderEntireTree(state)
     updateNewPostText("")
 }

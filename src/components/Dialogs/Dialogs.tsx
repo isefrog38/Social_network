@@ -1,4 +1,4 @@
-import React, {RefObject} from "react";
+import React, {ChangeEvent, RefObject} from "react";
 import s from './Dialogs.module.css';
 import DialogItem from "./DialogItem/DialogItem";
 import Messages from "./Message/Message";
@@ -14,17 +14,15 @@ const Dialogs = (props: DialogsPropsType) => {
     let dialogsElements = props.dialogs.map(d => <DialogItem name={d.name} id={d.id} avatar={d.avatar}/>);
     let messagesElements = props.messages.map(m => <Messages message={m.message} id={m.id}/>);
 
-    let newMessageElement: RefObject<HTMLInputElement> = React.createRef();
-
     let addMessage = () => {
-        let text = newMessageElement?.current?.value;
+        let text = props.textMessage;
         if (text) {
             props.addMessage(text);
         }
     }
 
-    let onChangeMessage = () => {
-        let text = newMessageElement?.current?.value
+    let onChangeMessage = (e: ChangeEvent<HTMLInputElement>) => {
+        let text = e.currentTarget.value
         if (text) {
             props.textMessageFromPost(text)
         }
@@ -40,18 +38,19 @@ const Dialogs = (props: DialogsPropsType) => {
                     {messagesElements}
                     <div className={s.addMessageBlock}>
                         <input
-                            ref={newMessageElement}
                             className={s.inputAddMessage}
                             placeholder={"Введите сообщение"}
                             onChange={onChangeMessage}
                             value={props.textMessage}
                         />
-                        <button
-                            onClick={addMessage}
-                            disabled={!props.textMessage}
-                            className={s.buttonAddMessage}>
-                            Add Message
-                        </button>
+                        <div className={s.buttonAddMessage}>
+                            <button
+                                onClick={addMessage}
+                                disabled={!props.textMessage}
+                                className={s.buttonAddMessages}>
+                                Add Message
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -9,7 +9,7 @@ const Post = (props: MyPostsDataType) => {
                 <img alt={"logo"}
                     src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAXSpy0PUas_IlI6LGzLgHFsMj-dzIfBZczg&usqp=CAU'/>
             </span>
-            <span className={s.textMessageBlock}>{props.message}</span>
+            <span className={s.textMessageBlock} key={props.id}>{props.message}</span>
             <div className={s.likesBlock}>
                 <span> {props.likesCount} </span> <span className={s.like}>❤ Like</span>
             </div>

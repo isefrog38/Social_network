@@ -6,11 +6,12 @@
 
 
 .textMessageBlock {
-    padding-left: 20px;
+    padding-left: 30px;
 }
 
 .post {
-    padding-bottom: 35px;
+    padding: 30px;
+    box-shadow: inset -2px -1px 20px 0px lightskyblue;
 }
 
 .likesBlock {

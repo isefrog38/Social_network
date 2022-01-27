@@ -1,4 +1,4 @@
-import React, {RefObject, useState} from "react";
+import React, {ChangeEvent} from "react";
 import s from "./MyPosts.module.css"
 import Post from "./Post/Post";
 import {MyPostsDataType} from "../../../redax/state";
@@ -14,17 +14,17 @@ type MyPostsPropsType = {
 export const MyPosts = (props: MyPostsPropsType) => {
 
     let myPostElements = props.myPostData.map(p => <Post message={p.message} likesCount={p.likesCount} id={p.id}/>);
-    let newPostElement: RefObject<HTMLInputElement> = React.createRef();
+
 
     let addPost = () => {
-            let text = newPostElement?.current?.value;
+            let text = props.newPostText;
             if (text) {
                 props.addPost(text);
             }
     }
 
-    let onChangePost = () => {
-        let text = newPostElement?.current?.value
+    let onChangePost = (e: ChangeEvent<HTMLInputElement>) => {
+        let text = e.currentTarget.value;
         if (text) {
             props.updateNewPostText(text)
         }
@@ -33,16 +33,19 @@ export const MyPosts = (props: MyPostsPropsType) => {
     return (
         <div className={s.postsBlock}>
             <h2>My Posts</h2>
-            <div>
+            <div className={s.addPostBlock}>
                 <input
-                    ref={newPostElement}
+                    className={s.inputAddPost}
                     onChange={onChangePost}
                     value={props.newPostText}
                 />
-                <button
+                <div className={s.buttonAddPost}>
+                <button className={s.buttonAddPosts}
+                    disabled={!props.newPostText}
                     onClick={addPost}>
                     Add Post
                 </button>
+                </div>
             </div>
             <div className={s.posts}>
                 {myPostElements}
