@@ -2,24 +2,20 @@ import React from "react";
 import s from './Profile.module.css'
 import MyPosts from "./MyPosts/MyPosts";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
-import {MyPostsDataType} from "../../redax/state";
+import {ActionsType, MyPostPageType} from "../../redax/state";
 
 
 type ProfilePropType = {
-    myPostData: Array<MyPostsDataType>
-    addPost: (postMessage: string) => void
-    newPostText: string
-    updateNewPostText: (newText: string) => void
+    myProfileData: MyPostPageType
+    dispatch: (action: ActionsType) => void
 }
 
 const Profile = (props: ProfilePropType) => {
     return <div className={s.main}>
         <ProfileInfo/>
         <MyPosts
-            newPostText={props.newPostText}
-            myPostData={props.myPostData}
-            addPost={props.addPost}
-            updateNewPostText={props.updateNewPostText}
+            myProfileData={props.myProfileData}
+            dispatch={props.dispatch}
         />
     </div>
 }

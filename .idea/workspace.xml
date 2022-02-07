@@ -6,16 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="98a1d170-3573-4b1f-bfb0-2eadff6cde3e" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/../.idea/social_networks.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Dialogs/AllMessages.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redax/Dialogs-reducer.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redax/Profile-reducer.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redax/SideBar-reducer.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPosts.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPosts.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPosts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPosts.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/MyPosts/Post/Post.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MyPosts/Post/Post.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/MyPosts/Post/Post.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MyPosts/Post/Post.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/Profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/Profile.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redax/state.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redax/state.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/render.tsx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +57,8 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="js.last.introduce.type" value="CONST" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/redax" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -65,12 +67,13 @@
     <property name="node.js.selected.package.standard" value="" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.DirectoryMappings" />
-    <property name="ts.external.directory.path" value="D:\it-incubator\All_Progects\social_networks\Social_networks_TSX\node_modules\typescript\lib" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="ts.external.directory.path" value="D:\it-incubator\All_Progects\Educational_Projects\social_networks\Social_networks_TSX\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\it-incubator\All_Progects\Educational_Projects\social_networks\Social_networks_TSX\src\redax" />
       <recent name="D:\it-incubator\All_Progects\social_networks\Social_networks_TSX\src" />
     </key>
   </component>
@@ -96,7 +99,14 @@
       <workItem from="1642764158293" duration="2179000" />
       <workItem from="1642947071928" duration="106000" />
       <workItem from="1642951503093" duration="938000" />
-      <workItem from="1643272927339" duration="20990000" />
+      <workItem from="1643272927339" duration="21400000" />
+      <workItem from="1643369059410" duration="636000" />
+      <workItem from="1643454090103" duration="514000" />
+      <workItem from="1643743487883" duration="3000" />
+      <workItem from="1643748020431" duration="130000" />
+      <workItem from="1643896722363" duration="11000000" />
+      <workItem from="1643909737924" duration="1271000" />
+      <workItem from="1644225548394" duration="21011000" />
     </task>
     <servers />
   </component>
@@ -113,5 +123,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
