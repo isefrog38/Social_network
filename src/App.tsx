@@ -1,38 +1,31 @@
 import React from "react";
 import './App.css'
 import Header from "./components/Header/Header";
-import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
-import Dialogs from "./components/Dialogs/Dialogs";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Setting from "./components/Settings/Setting";
 import {Routes, Route} from "react-router-dom";
-import {ActionsType, RootStateType} from "./redax/state";
+import {DialogsContainer} from "./components/Dialogs/DialogsContainer";
+import {UsersContainer} from "./components/FindUsers/UsersContainer";
+import {NavbarContainer} from "./components/Navbar/NavbarContainer";
 
-type AppPropsType = {
-    state: RootStateType
-    dispatch: (action: ActionsType) => void
-}
 
-const App: React.FC<AppPropsType> = ({state, ...props}: AppPropsType) => {
+
+const App  = () => {
 
     return (
         <div className='app-wrapper'>
-            <Header/>
-            <Navbar sideBar={state.sideBar}/>
+            <Header />
+            <NavbarContainer />
             <div className={'app-wrapper-content'}>
                 <Routes>
                     <Route path='/dialogs' element={
-                        <Dialogs
-                            dialogsPage={state.dialogsPage}
-                            dispatch={props.dispatch}
-                        />}/>
+                        <DialogsContainer />}/>
                     <Route path='/profile' element={
-                        <Profile
-                            myProfileData={state.myPostPage}
-                            dispatch={props.dispatch}
-                        />}/>
+                        <Profile />}/>
+                    <Route path='/users' element={
+                        <UsersContainer />}/>
                     <Route path='/news' element={<News/>}/>
                     <Route path='/music' element={<Music/>}/>
                     <Route path='/setting' element={<Setting/>}/>

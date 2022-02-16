@@ -1,18 +1,12 @@
 import React from "react";
 import s from './Dialogs.module.css';
 import DialogItem from "./DialogItem/DialogItem";
-import {ActionsType, DialogPageType} from "../../redax/state";
-import {AllMessages} from "./AllMessages";
+import {AllDialogsPropsType} from "./DialogsContainer";
+import {AllMessagesContainer} from "./AllMessagesContainer";
 
-type DialogsPropsType = {
-    dialogsPage: DialogPageType
-    dispatch: (action: ActionsType) => void
-}
+const Dialogs = (props: AllDialogsPropsType) => {
 
-const Dialogs = (props: DialogsPropsType) => {
-
-    let dialogsElements = props.dialogsPage.dialogs.map(
-        d => <DialogItem name={d.name} id={d.id} avatar={d.avatar}/>);
+    let dialogsElements = props.dialogs.map((d) => <DialogItem key={d.id} name={d.name} id={d.id} avatar={d.avatar}/>);
 
     return (
         <div>
@@ -20,11 +14,7 @@ const Dialogs = (props: DialogsPropsType) => {
                 <div className={s.dialogsItems}>
                     {dialogsElements}
                 </div>
-                <AllMessages
-                    messageText={props.dialogsPage.textMessage}
-                    renderMessages={props.dialogsPage.messages}
-                    dispatch={props.dispatch}
-                />
+                <AllMessagesContainer />
             </div>
 
         </div>

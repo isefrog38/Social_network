@@ -1,8 +1,8 @@
-import {ProfileReducer} from "./Profile-reducer";
-import {DialogsReducer} from "./Dialogs-reducer";
-import {SideBarReducer} from "./SideBar-reducer";
+//import {ProfileReducer} from "./Profile-reducer";
+//import {DialogsReducer} from "./Dialogs-reducer";
+//import {SideBarReducer} from "./SideBar-reducer";
 
-let store: StoreType = {
+export const store: StoreType = {
     _state: {
         myPostPage: {
             myPostData: [
@@ -87,8 +87,8 @@ let store: StoreType = {
     },
 
     dispatch(action: ActionsType) {
-        ProfileReducer(this._state.myPostPage, action)
-        DialogsReducer(this._state.dialogsPage, action)
+        //ProfileReducer(this._state.myPostPage, action)
+        //DialogsReducer(this._state.dialogsPage, action)
         /*SideBarReducer(this._state.sideBar, action)*/
 
         this._callSubscriber(this._state);
@@ -101,60 +101,58 @@ let store: StoreType = {
     }
 }
 
-export default store;
-
-export type MessageType = {
+type MessageType = {
     id: number
     message: string
-}
-export type DialogType = {
+};
+type DialogType = {
     id: number
     name: string
     avatar: string
-}
-export type DialogPageType = {
+};
+type DialogPageType = {
     dialogs: Array<DialogType>
     messages: Array<MessageType>
     textMessage: string
-}
-export type MyPostsDataType = {
+};
+type MyPostsUserType = {
     id: number
     message: string
     likesCount: number
-}
-export type MyPostPageType = {
-    myPostData: Array<MyPostsDataType>
+};
+type MyPostPageType = {
+    myPostData: Array<MyPostsUserType>
     newPostText?: string
-}
-export type RootStateType = {
+};
+type RootStateType = {
     myPostPage: MyPostPageType
     dialogsPage: DialogPageType
     sideBar: Array<SideBarType>
-}
-export type SideBarType = {
+};
+type SideBarType = {
     id: number
     name: string
     avatar: string
-}
-export type StoreType = {
+};
+type StoreType = {
     _state: RootStateType
     _callSubscriber: (_state: RootStateType) => void
     getState: () => RootStateType
     subscriber: (observer: (_state: RootStateType) => void ) => void
     dispatch: ( action: ActionsType) => void
-}
-export type AddPostActionType = {
+};
+type AddPostActionType = {
     type: "ADD-POST"
-}
-export type AddMessageActionType = {
+};
+type AddMessageActionType = {
     type: "ADD-MESSAGE"
-}
-export type UpdateNewPostTextActionType = {
+};
+type UpdateNewPostTextActionType = {
     type : "UPDATE-NEW-POST-TEXT"
     newPostText: string
-}
-export type TextMessageFromPostActionType = {
+};
+type TextMessageFromPostActionType = {
     type: "TEXT-MESSAGE-FROM-POST"
     newTextMessage: string
-}
-export type ActionsType = AddPostActionType | AddMessageActionType | UpdateNewPostTextActionType | TextMessageFromPostActionType
+} ;
+type ActionsType = AddPostActionType | AddMessageActionType | UpdateNewPostTextActionType | TextMessageFromPostActionType

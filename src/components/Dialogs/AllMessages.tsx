@@ -1,26 +1,20 @@
 import React, {ChangeEvent} from 'react';
 import s from "./Dialogs.module.css";
 import Messages from "./Message/Message";
-import {ActionsType, MessageType} from "../../redax/state";
-import {addMessageActionCreator, onChangeMessageActionCreator} from "../../redax/Dialogs-reducer";
+import {AllMessagePropsType} from "./AllMessagesContainer";
 
-type AllMessagesType = {
-    messageText: string
-    renderMessages: Array<MessageType>
-    dispatch: (action: ActionsType) => void
-}
 
-export const AllMessages = (props: AllMessagesType) => {
+export const AllMessages = (props: AllMessagePropsType) => {
 
-    let messagesElements = props.renderMessages.map(m => <Messages message={m.message} id={m.id}/>);
+    let messagesElements = props.renderMessages.map(m => <Messages key={m.id} message={m.message} id={m.id}/>);
 
     let addMessage = () => {
-        props.dispatch( addMessageActionCreator() )
+        props.addMessage()
     }
 
     let onChangeMessage = (e: ChangeEvent<HTMLInputElement>) => {
         let text = e.currentTarget.value;
-        props.dispatch(onChangeMessageActionCreator(text))
+        props.onChangeMessage(text)
     }
 
     return (

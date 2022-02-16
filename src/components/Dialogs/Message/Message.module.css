@@ -13,8 +13,7 @@
 .message_2 {
     display: flex;
     align-items: flex-end;
-    margin: 10px;
-    justify-content: flex-end
+    flex-direction: row-reverse;
 }
 
 .avatar {
@@ -37,7 +36,7 @@
 
 .content_2 {
     padding: 10px;
-    border-radius: 7px 7px 7px 0;
+    border-radius: 7px 7px 0 7px;
     background-color: royalblue;
 }
 
@@ -50,6 +49,7 @@
 .angle_2 {
     width: 15px;
     height: 15px;
+    transform: rotate(0.25turn);
     background: radial-gradient(circle at 0 0, rgba(0, 0, 0, 0) 15px, royalblue 0);
 }
 

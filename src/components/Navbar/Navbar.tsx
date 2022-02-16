@@ -1,16 +1,12 @@
 import React from "react";
 import s from './Navbar.module.css';
 import {NavLink} from "react-router-dom";
-import SideBar from "./SideBar/SideBar";
-import {SideBarType} from "../../redax/state";
+import SideBar from "./SideBar/SideBar"
+import {NavbarContainerProps} from "./NavbarContainer";
 
-type NavBarPropsType = {
-    sideBar: Array<SideBarType>
-}
+const Navbar = (props: NavbarContainerProps) => {
 
-const Navbar = (props: NavBarPropsType) => {
-
-    const SideBarElement = props.sideBar.map(d => <SideBar name={d.name} id={d.id} avatar={d.avatar}/>);
+    const SideBarElement = props.sideBar.map(d => <SideBar key={d.id} name={d.name} id={d.id} avatar={d.avatar}/>);
 
     return (
         <>
@@ -29,6 +25,11 @@ const Navbar = (props: NavBarPropsType) => {
                     <div className={s.item}>
                         <NavLink to='/setting'>Setting</NavLink>
                     </div>
+                     <p className={s.p}>
+                    <div className={s.item}>
+                        <NavLink to='/users'>Find People</NavLink>
+                    </div>
+                     </p>
                     <div className={s.sideBar}>
                         <h4>Best Friends</h4>
                         <div className={s.blockSideImg}>

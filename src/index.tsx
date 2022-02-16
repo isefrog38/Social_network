@@ -3,24 +3,21 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import {BrowserRouter} from "react-router-dom";
-import store, {RootStateType} from "./redax/state";
+import {store} from "./redax/redux-store";
+import {Provider} from "react-redux";
 
 
 
-let rerenderEntireTree = (state: RootStateType) => {
     ReactDOM.render(
         <BrowserRouter>
-            <App
-                state={state}
-                dispatch={store.dispatch.bind(store)}
-            />
+            <Provider store={store}>
+                <App />
+            </Provider>
         </BrowserRouter>,
-        document.getElementById("root")
-    );
-}
+        document.getElementById("root"));
 
 
 
-rerenderEntireTree(store.getState())
-store.subscriber(rerenderEntireTree)
+
+
 

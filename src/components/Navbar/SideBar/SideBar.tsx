@@ -1,7 +1,8 @@
 import React from 'react';
 import s from "./SideBar.module.css";
 import {NavLink} from "react-router-dom";
-import {SideBarType} from "../../../redax/state";
+import {SideBarType} from "../../../redax/SideBar-reducer";
+
 
 const SideBar = (props: SideBarType) => {
     return (

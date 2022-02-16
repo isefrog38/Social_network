@@ -1,26 +1,19 @@
 import React, {ChangeEvent} from "react";
 import s from "./MyPosts.module.css"
 import Post from "./Post/Post";
-import {ActionsType, MyPostPageType} from "../../../redax/state";
-import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../redax/Profile-reducer";
+import {PostPropsType} from "./MyPostsContainer";
 
-type MyPostsPropsType = {
-    myProfileData: MyPostPageType
-    dispatch: (action: ActionsType) => void
-}
+export const MyPosts = (props: PostPropsType) => {
 
-export const MyPosts = (props: MyPostsPropsType) => {
-
-    let myPostElements = props.myProfileData.myPostData.map(p =>
-        <Post message={p.message} likesCount={p.likesCount} id={p.id}/>);
+    let myPostElements = props.myProfileData.map(p =>
+        <Post key={p.id} message={p.message} likesCount={p.likesCount} id={p.id}/>);
 
     let addPost = () => {
-        props.dispatch( addPostActionCreator() )
+        props.addPost()
     }
 
     let onPostChange = (e: ChangeEvent<HTMLInputElement>) => {
-        let text = e.currentTarget.value;
-        props.dispatch(updateNewPostTextActionCreator(text))
+        props.updateNewPostText(e.currentTarget.value)
     }
 
     return (
@@ -30,11 +23,11 @@ export const MyPosts = (props: MyPostsPropsType) => {
                 <input
                     className={s.inputAddPost}
                     onChange={onPostChange}
-                    value={props.myProfileData.newPostText}
+                    value={props.newPostText}
                 />
                 <div className={s.buttonAddPost}>
                     <button className={s.buttonAddPosts}
-                            disabled={!props.myProfileData.newPostText}
+                            disabled={!props.newPostText}
                             onClick={addPost}>
                         Add Post
                     </button>

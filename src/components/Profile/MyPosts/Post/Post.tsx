@@ -1,8 +1,8 @@
 import React from "react";
 import s from './Post.module.css'
-import {MyPostsDataType} from "../../../../redax/state";
+import {MyPostsUserType} from "../../../../redax/Profile-reducer";
 
-const Post = (props: MyPostsDataType) => {
+const Post = (props: MyPostsUserType) => {
     return (
         <div className={s.post}>
             <span className={s.item}>
