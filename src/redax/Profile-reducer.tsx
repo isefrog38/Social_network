@@ -21,7 +21,7 @@ export type TextMessageFromPostActionType = {
     type: "TEXT-MESSAGE-FROM-POST"
     newTextMessage: string
 };
-export type ActionsType = AddPostActionType | AddMessageActionType | UpdateNewPostTextActionType | TextMessageFromPostActionType
+export type ActionsType = AddPostActionType | AddMessageActionType | UpdateNewPostTextActionType | TextMessageFromPostActionType;
 
 const ADD_POST = "ADD-POST";
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
@@ -29,7 +29,7 @@ const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
 export type InitialProfileStateType = {
     myPostData: Array<MyPostsUserType>
     newPostText: string
-}
+};
 
 let initialState: InitialProfileStateType = {
     myPostData: [
@@ -39,7 +39,7 @@ let initialState: InitialProfileStateType = {
         {id: 4, message: 'Second post', likesCount: 116},
     ],
     newPostText: ''
-}
+};
 
 export const ProfileReducer = (state: InitialProfileStateType = initialState, action: ActionsType): InitialProfileStateType => {
     switch (action.type) {

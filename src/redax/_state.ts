@@ -2,7 +2,7 @@
 //import {DialogsReducer} from "./Dialogs-reducer";
 //import {SideBarReducer} from "./SideBar-reducer";
 
-export const store: StoreType = {
+const store: StoreType = {
     _state: {
         myPostPage: {
             myPostData: [
