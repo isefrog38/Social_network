@@ -1,0 +1,19 @@
+.mainDiv {
+    border: 1px solid;
+    display: flex;
+    height: 250px;
+    width: 450px;
+    margin: 10px 0;
+    flex-direction: column-reverse;
+    justify-content:center;
+    align-items:center;
+}
+
+.image {
+    height: 150px;
+    width: 150px;
+}
+
+.button {
+    width: 100%;
+}

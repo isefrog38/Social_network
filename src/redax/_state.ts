@@ -101,7 +101,7 @@ const store: StoreType = {
     }
 }
 
-type MessageType = {
+export type MessageType = {
     id: number
     message: string
 };

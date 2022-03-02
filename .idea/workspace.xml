@@ -5,7 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="98a1d170-3573-4b1f-bfb0-2eadff6cde3e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../.idea/social_networks.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/FindUsers/Users/Users.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/FindUsers/Users/Users.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FindUsers/Users/Users.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redax/Users-reducer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/redax/Users-reducer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redax/_state.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redax/_state.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +55,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.last.introduce.type" value="CONST" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Kapec_kak_Podrobno_TS_TEST" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Doggy_TodoList_IT_INC" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -58,7 +65,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
-    <property name="ts.external.directory.path" value="D:\it-incubator\All_Progects\Educational_Projects\social_networks\Social_networks_TSX\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="D:\PAVEL\My_Lessons\Social_network_TSX_IT_INC\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -122,6 +129,8 @@
       <workItem from="1644918546042" duration="7223000" />
       <workItem from="1644928284838" duration="5946000" />
       <workItem from="1645004570000" duration="19195000" />
+      <workItem from="1646063387390" duration="1582000" />
+      <workItem from="1646210004989" duration="7333000" />
     </task>
     <servers />
   </component>
