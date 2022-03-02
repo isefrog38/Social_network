@@ -1,5 +1,5 @@
 .nav {
-    min-height: 100%;
+    min-height: 100vh;
     grid-area: n;
     font-size: 25px ;
     text-align: center;

@@ -12,7 +12,6 @@ type setUsersType = {
     users: Array<UserType>
 };
 export type UserType = {
-
     "name": string,
     "id": number,
     "uniqueUrlName": any,
