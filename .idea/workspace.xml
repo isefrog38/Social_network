@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="98a1d170-3573-4b1f-bfb0-2eadff6cde3e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +48,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.last.introduce.type" value="CONST" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Todo_list" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -67,6 +66,9 @@
       <recent name="D:\it-incubator\All_Progects\Educational_Projects\social_networks\Social_networks_TSX\src\components\Profile\MyPosts" />
       <recent name="D:\it-incubator\All_Progects\Educational_Projects\social_networks\Social_networks_TSX\src\redax" />
       <recent name="D:\it-incubator\All_Progects\social_networks\Social_networks_TSX\src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\it-incubator\All_Progects\Educational_Projects\social_networks\Social_networks_TSX\src" />
     </key>
   </component>
   <component name="RunManager">
@@ -127,6 +129,7 @@
       <workItem from="1645207398621" duration="63000" />
       <workItem from="1645208137178" duration="2661000" />
       <workItem from="1645454756992" duration="124000" />
+      <workItem from="1646822249901" duration="165000" />
     </task>
     <servers />
   </component>
