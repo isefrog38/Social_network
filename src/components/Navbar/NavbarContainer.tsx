@@ -14,8 +14,4 @@ const MapStateToProps = (state: AppStateType): MapStateToPropsType => {
     }
 }
 
-/*const MapDispatchToProps = () => {
-
-}*/
-
 export const NavbarContainer = connect(MapStateToProps)(Navbar);

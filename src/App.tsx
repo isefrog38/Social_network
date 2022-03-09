@@ -11,25 +11,26 @@ import {UsersContainer} from "./components/FindUsers/UsersContainer";
 import {NavbarContainer} from "./components/Navbar/NavbarContainer";
 
 
-
-const App  = () => {
+const App = () => {
 
     return (
-        <div className='app-wrapper'>
-            <Header />
-            <NavbarContainer />
-            <div className={'app-wrapper-content'}>
-                <Routes>
-                    <Route path='/dialogs' element={
-                        <DialogsContainer />}/>
-                    <Route path='/profile' element={
-                        <Profile />}/>
-                    <Route path='/users' element={
-                        <UsersContainer />}/>
-                    <Route path='/news' element={<News/>}/>
-                    <Route path='/music' element={<Music/>}/>
-                    <Route path='/setting' element={<Setting/>}/>
-                </Routes>
+        <div className={"App"}>
+            <Header/>
+            <div className='app-wrapper'>
+                <NavbarContainer/>
+                <div className={'app-wrapper-content'}>
+                    <Routes>
+                        <Route path='/dialogs' element={
+                            <DialogsContainer/>}/>
+                        <Route path='/profile' element={
+                            <Profile/>}/>
+                        <Route path='/users' element={
+                            <UsersContainer/>}/>
+                        <Route path='/news' element={<News/>}/>
+                        <Route path='/music' element={<Music/>}/>
+                        <Route path='/setting' element={<Setting/>}/>
+                    </Routes>
+                </div>
             </div>
         </div>
     )

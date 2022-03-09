@@ -11,23 +11,25 @@ const Navbar = (props: NavbarContainerProps) => {
     return (
         <>
             <nav className={s.nav}>
-                <div className={s.item}>
-                    <NavLink to='/profile'>Profile </NavLink>
-                    <div className={s.item}>
-                        <NavLink to='/dialogs'>Messages</NavLink>
+                <div className={s.items}>
+                    <div className={s.item_div}>
+                        <NavLink to='/profile' className={s.item} >Profile </NavLink>
                     </div>
-                    <div className={s.item}>
-                        <NavLink to='/news'>News</NavLink>
+                    <div className={s.item_div}>
+                        <NavLink to='/dialogs' className={s.item} >Messages</NavLink>
                     </div>
-                    <div className={s.item}>
-                        <NavLink to='/music'>Music</NavLink>
+                    <div className={s.item_div}>
+                        <NavLink to='/news' className={s.item} >News</NavLink>
                     </div>
-                    <div className={s.item}>
-                        <NavLink to='/setting'>Setting</NavLink>
+                    <div className={s.item_div}>
+                        <NavLink to='/music' className={s.item} >Music</NavLink>
+                    </div>
+                    <div className={s.item_div}>
+                        <NavLink to='/setting' className={s.item} >Setting</NavLink>
                     </div>
                      <p className={s.p}>
-                    <div className={s.item}>
-                        <NavLink to='/users'>Find People</NavLink>
+                    <div className={s.item_div}>
+                        <NavLink to='/users' className={s.item_div} >Find People</NavLink>
                     </div>
                      </p>
                     <div className={s.sideBar}>

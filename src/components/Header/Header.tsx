@@ -5,9 +5,9 @@ import s from './Header.module.css'
 const Header = () => {
     return (
         <header className={s.header}>
-            <img
-                src='https://cdn.worldvectorlogo.com/logos/kangol.svg'/>
-            <h2 className={s.nameHeader}>Selling kangaroos to Europe from Australia</h2>
+            <img className={s.logo}
+                src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoj5hA3jRmBOK-Un1RDWPRz1ymZwRp2lZZ0A&usqp=CAU'/>
+            <h2 className={s.nameHeader}>Pavel Social Network</h2>
         </header>
     )
 }
