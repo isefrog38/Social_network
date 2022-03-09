@@ -1,4 +1,5 @@
 .header {
+    position: fixed;
     grid-area: h;
     background-color: #ffffff;
     display: grid;

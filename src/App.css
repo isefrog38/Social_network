@@ -1,13 +1,13 @@
 .app-wrapper {
-    margin-left: 15px;
-    margin-right: 15px;
+    margin-left: 5%;
+    margin-right: 5%;
     display: grid;
     width: 100%;
     min-height: 100vh;
     grid-template-areas:
-        'h h'
-        'n c';
-    grid-template-rows: 60px 1fr;
+            'h h'
+            'n c';
+    grid-template-rows: 100px 1fr;
     grid-template-columns: 2fr 10fr;
     grid-gap: 3px;
 }
@@ -15,4 +15,5 @@
 .app-wrapper-content {
     grid-area: c;
     background-color: #e5ebf1;
+    width: 90%;
 }

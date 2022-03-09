@@ -3,6 +3,6 @@
 }
 
 .item img {
-    width: 900px;
+    min-width: 700px;
     height: 400px;
 }
