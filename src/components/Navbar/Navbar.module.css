@@ -1,12 +1,11 @@
 .nav {
-    width: 300px;
-    height: auto;
+    width: 240px;
+    height: 700px;
     grid-area: n;
-    font-size: 20px ;
+    font-size: 22px ;
     text-align: center;
     background-color: white;
     padding: 25px 0 0 20px;
-    display: flex;
     border-radius: 20px;
 }
 .items {
@@ -22,21 +21,34 @@
     justify-content: space-evenly;
 }
 
+.item_div {
+    display: flex;
+    width: 170px;
+    height: 35px;
+    justify-content: flex-start;
+    border-radius: 5px;
+    padding: 7px;
+}
+
 .item{
     text-decoration: none;
     color: black;
-
 }
 
-.item a:hover {
-    color: #40b5ff;
+.item_div:hover {
+    background-color: rgba(234, 234, 234, 0.52);
+    box-shadow: 0 2px 5px 1px rgb(64 60 67 / 30%);
 }
-.item a:focus {
-    color: #40b5ff;
+
+.logo {
+    width: 30px;
+    height: 30px;
+    margin-right: 20px;
 }
 
 .sideBar {
     padding-top: 5rem;
+    padding-right: 20px;
 }
 
 .p {

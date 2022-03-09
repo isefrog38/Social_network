@@ -3,7 +3,14 @@
 }
 
 .allBlock {
+    padding: 10px;
     max-width: 60px;
+    border-radius: 5px;
+}
+
+.allBlock:hover {
+    background-color: rgba(234, 234, 234, 0.52);
+    box-shadow: 0 2px 5px 1px rgb(64 60 67 / 30%);
 }
 
 .img_right {

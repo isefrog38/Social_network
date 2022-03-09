@@ -6,14 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="98a1d170-3573-4b1f-bfb0-2eadff6cde3e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/FindUsers/Users/Users.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FindUsers/Users/Users.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Navbar/Navbar.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar/Navbar.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Navbar/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar/Navbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navbar/NavbarContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar/NavbarContainer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navbar/SideBar/SideBar.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar/SideBar/SideBar.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mini img/icon10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mini img/icon15.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mini img/icon20.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mini img/icon35.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mini img/icon36.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mini img/icon4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mini img/icon5.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +138,8 @@
       <workItem from="1646210004989" duration="12515000" />
       <workItem from="1646229048539" duration="759000" />
       <workItem from="1646690118910" duration="9000" />
-      <workItem from="1646813726752" duration="3474000" />
+      <workItem from="1646813726752" duration="4619000" />
+      <workItem from="1646822872549" duration="3366000" />
     </task>
     <servers />
   </component>

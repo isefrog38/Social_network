@@ -1,5 +1,5 @@
 .mainDiv {
-    border: 1px solid;
+    border: 2px dashed ;
     display: flex;
     height: auto;
     width: 450px;
@@ -8,7 +8,8 @@
     justify-content:center;
     align-items:center;
     padding: 5px;
-    background-color: rgba(44, 255, 209, 0.25);
+    background-color: white;
+    border-radius: 20px;
 }
 
 .image {
