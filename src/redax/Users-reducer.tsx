@@ -12,12 +12,15 @@ type setUsersType = {
     users: Array<UserType>
 };
 export type UserType = {
-    id: number
-    avatar: string
-    followed: boolean
-    fullName: string
-    status: string
-    location: { city: string, country: string }
+    "name": string,
+    "id": number,
+    "uniqueUrlName": any,
+    "photos": {
+        "small": string | null,
+        "large": string | null,
+    },
+    "status": string| null,
+    "followed": boolean
 };
 export type InitialUsersStateType = {
     users: Array<UserType>

@@ -31,7 +31,7 @@
 .content {
     padding: 10px;
     border-radius: 7px 7px 7px 0;
-    background-color: #2cffd1;
+    background-color: rgba(44, 255, 209, 0.47);
 }
 
 .content_2 {
@@ -43,7 +43,7 @@
 .angle {
     width: 15px;
     height: 15px;
-    background: radial-gradient(circle at 0 0, rgba(0, 0, 0, 0) 15px, #2cffd1 0);
+    background: radial-gradient(circle at 0 0, rgba(0, 0, 0, 0) 15px, rgba(44, 255, 209, 0.47));
 }
 
 .angle_2 {

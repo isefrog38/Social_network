@@ -4,9 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="98a1d170-3573-4b1f-bfb0-2eadff6cde3e" name="Changes" comment="added xmls">
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="98a1d170-3573-4b1f-bfb0-2eadff6cde3e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navbar/Navbar.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar/Navbar.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navbar/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar/Navbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navbar/NavbarContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar/NavbarContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,9 +23,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -59,17 +66,15 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
-    <property name="ts.external.directory.path" value="D:\it-incubator\All_Progects\Educational_Projects\social_networks\Social_networks_TSX\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="D:\PAVEL\My_Lessons\Social_network_TSX_IT_INC\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\PAVEL\My_Lessons\Social_network_TSX_IT_INC\src\components\FindUsers\Users" />
       <recent name="D:\it-incubator\All_Progects\Educational_Projects\social_networks\Social_networks_TSX\src\components\Profile\MyPosts" />
       <recent name="D:\it-incubator\All_Progects\Educational_Projects\social_networks\Social_networks_TSX\src\redax" />
       <recent name="D:\it-incubator\All_Progects\social_networks\Social_networks_TSX\src" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\it-incubator\All_Progects\Educational_Projects\social_networks\Social_networks_TSX\src" />
     </key>
   </component>
   <component name="RunManager">
@@ -126,21 +131,12 @@
       <workItem from="1644918546042" duration="7223000" />
       <workItem from="1644928284838" duration="5946000" />
       <workItem from="1645004570000" duration="19195000" />
-      <workItem from="1645191197107" duration="978000" />
-      <workItem from="1645207398621" duration="63000" />
-      <workItem from="1645208137178" duration="2661000" />
-      <workItem from="1645454756992" duration="124000" />
-      <workItem from="1646822249901" duration="165000" />
-      <workItem from="1646822472064" duration="844000" />
+      <workItem from="1646063387390" duration="1582000" />
+      <workItem from="1646210004989" duration="12515000" />
+      <workItem from="1646229048539" duration="759000" />
+      <workItem from="1646690118910" duration="9000" />
+      <workItem from="1646813726752" duration="3474000" />
     </task>
-    <task id="LOCAL-00001" summary="added .idea to gitignore">
-      <created>1646823222863</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1646823222863</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -156,11 +152,6 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="added .idea to gitignore" />
-    <MESSAGE value="added xmls" />
-    <option name="LAST_COMMIT_MESSAGE" value="added xmls" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
