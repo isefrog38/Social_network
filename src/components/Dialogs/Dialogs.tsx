@@ -16,7 +16,6 @@ const Dialogs = (props: AllDialogsPropsType) => {
                 </div>
                 <AllMessagesContainer />
             </div>
-
         </div>
     )
 }

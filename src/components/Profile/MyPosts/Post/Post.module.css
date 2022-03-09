@@ -10,8 +10,9 @@
 }
 
 .post {
-    padding: 30px;
-    box-shadow: inset -2px -1px 20px 0px lightskyblue;
+    padding: 25px;
+    margin-bottom: 15px;
+    border: 1px dashed;
 }
 
 .likesBlock {

@@ -1,20 +1,35 @@
 .header {
-    position: fixed;
     grid-area: h;
     background-color: #ffffff;
-    display: grid;
-    grid-template-columns:1fr 3fr;
+    display: flex;
     width: 100%;
     box-shadow: 0 2px 5px 1px rgb(64 60 67 / 30%);
+}
+
+@media (min-width: 200px) and (max-width: 700px) {
+    .header {
+        width: 720px;
+    }
 }
 
 .nameHeader {
     display: flex;
     width: 100%;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
 }
 
 .logo{
-    margin: 10px 0 0 20px;
-    width: 60px;
+    position: absolute;
+    width: 150px;
+    height: 100px;
+    top: -30px;
+    left: -40px;
 }
 
+@media (min-width: 200px) and (max-width: 700px) {
+    .logo {
+        top: -500px;
+    }
+}

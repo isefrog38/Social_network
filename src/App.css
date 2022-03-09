@@ -7,9 +7,15 @@
     grid-template-areas:
             'h h'
             'n c';
-    grid-template-rows: 100px 1fr;
-    grid-template-columns: 2fr 10fr;
-    grid-gap: 3px;
+    grid-template-rows: 30px 1fr;
+    /*grid-template-columns: 2fr 10fr;*/
+    grid-template-columns: 290px auto;
+}
+
+@media (min-width: 200px) and (max-width: 700px) {
+    .app-wrapper {
+        margin-left: 0;
+    }
 }
 
 .app-wrapper-content {

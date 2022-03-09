@@ -18,7 +18,7 @@ export const AllMessages = (props: AllMessagePropsType) => {
     }
 
     return (
-        <div>
+        <div className={s.main_messages_block}>
             <div className={s.messages}>
                 {messagesElements}
                 <div className={s.addMessageBlock}>
