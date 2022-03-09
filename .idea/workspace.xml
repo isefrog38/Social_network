@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="98a1d170-3573-4b1f-bfb0-2eadff6cde3e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../.idea/social_networks.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +49,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.last.introduce.type" value="CONST" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Kapec_kak_Podrobno_TS_TEST" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Todo_list" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -122,6 +123,10 @@
       <workItem from="1644918546042" duration="7223000" />
       <workItem from="1644928284838" duration="5946000" />
       <workItem from="1645004570000" duration="19195000" />
+      <workItem from="1645191197107" duration="978000" />
+      <workItem from="1645207398621" duration="63000" />
+      <workItem from="1645208137178" duration="2661000" />
+      <workItem from="1645454756992" duration="124000" />
     </task>
     <servers />
   </component>
