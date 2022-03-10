@@ -1,38 +1,41 @@
 import React from 'react';
-import {connect} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {AppStateType} from "../../redax/redux-store";
-import {Dispatch} from "redux";
-import {followAC, setUsersAC, unfollowAC, UserType} from "../../redax/Users-reducer";
+import {
+    followAC,
+    InitialUsersStateType,
+    setActivePageUsersAC, setTotalCountPagesAC,
+    setUsersAC,
+    unfollowAC,
+    UserType
+} from "../../redax/Users-reducer";
 import {UsersClass} from "./Users/UsersClass";
 
-type MapStatePropsType = {
-    users: Array<UserType>
-};
-type MapDispatchPropsType = {
-    follow: (userId: number) => void
-    unfollow: (userId: number) => void
-    setUsers: (users: Array<UserType>) => void
-};
-export type UsersPropsType = MapStatePropsType & MapDispatchPropsType;
 
-const mapStateToProps = (state: AppStateType): MapStatePropsType => {
-    return {
-        users: state.UsersReducer.users
-    }
-}
+export const UsersContainer = React.memo(() => {
 
-const mapDispatchToProps = (dispatch: Dispatch): MapDispatchPropsType => {
-    return {
-       follow: (userId: number) => {
-           dispatch(followAC(userId))
-       },
-        unfollow: (userId: number) => {
-            dispatch(unfollowAC(userId))
-        },
-        setUsers: (users) => {
-            dispatch(setUsersAC(users))
-        }
-    }
-}
+    const dispatch = useDispatch();
+    const stateUsers = useSelector<AppStateType, InitialUsersStateType>(state => state.UsersReducer)
 
-export const UsersContainer = connect(mapStateToProps, mapDispatchToProps)(UsersClass);
+    const follow = (userId: number) => dispatch(followAC(userId));
+    const unfollow = (userId: number) => dispatch(unfollowAC(userId));
+    const setUsers = (users: UserType[]) => dispatch(setUsersAC(users));
+    const setActivePage = (page: number) => dispatch(setActivePageUsersAC(page));
+    const setTotalCountPages = (totalCount: number) => dispatch(setTotalCountPagesAC(totalCount));
+
+    return (
+        <div>
+            <UsersClass
+                unfollow={unfollow}
+                follow={follow}
+                users={stateUsers.users}
+                setUsers={setUsers}
+                totalUsersCountPage={stateUsers.totalUsersCountPage}
+                sizeUsersPage={stateUsers.sizeUsersPage}
+                setActivePage={setActivePage}
+                activePage={stateUsers.activePage}
+                setTotalCountPages={setTotalCountPages}
+            />
+        </div>
+    )
+})

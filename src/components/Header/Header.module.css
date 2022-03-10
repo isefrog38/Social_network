@@ -4,20 +4,33 @@
     display: flex;
     width: 100%;
     box-shadow: 0 2px 5px 1px rgb(64 60 67 / 30%);
+    justify-content: space-between;
+}
+
+@media (min-width: 700px) and (max-width: 1200px) {
+    .header {
+        height: 70px;
+    }
 }
 
 @media (min-width: 200px) and (max-width: 700px) {
     .header {
         width: 720px;
+        height: 70px;
     }
 }
 
 .nameHeader {
     display: flex;
-    width: 100%;
+    width: 40%;
     align-items: center;
     justify-content: center;
-    z-index: 5;
+}
+
+.logo_block {
+    display: flex;
+    width: 50px;
+    height: 50px;
 }
 
 .logo{
@@ -33,3 +46,27 @@
         top: -500px;
     }
 }
+
+
+
+.search_panel_block {
+    display: flex;
+    align-items: center;
+}
+
+.icon_search {
+    width: 30px;
+    height: 30px;
+}
+
+.input {
+    margin: 0 10px;
+    width: 200px;
+    height: 20px;
+    padding: 5px;
+    border-radius: 20px;
+    font-size: 1.2rem;
+}
+
+
+

@@ -18,11 +18,11 @@ export const Navbar = (props: NavbarContainerProps) => {
     return (
         <nav className={s.nav}>
             <div className={s.items}>
-                {NavigateItems}
+                {NavigateItems}             {/*NAVIGATION EL*/}
                 <div className={s.sideBar}>
                     <h4>Best Friends</h4>
                     <div className={s.blockSideImg}>
-                        {SideBarElement}
+                        {SideBarElement}                 {/*SIDEBAR EL*/}
                     </div>
                 </div>
             </div>

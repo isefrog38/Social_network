@@ -111,7 +111,7 @@
 .main_messages_block {
     background-color: white;
     border-radius: 20px;
-    margin-left: 50px;
+    margin-left: 20px;
     padding: 0 50px;
     display: flex;
     justify-content: space-around;
@@ -128,7 +128,6 @@
 }
 
 .dialogsItems {
-    margin-left: 20px;
     width: 20%;
     min-width: 160px;
     height: 400px;

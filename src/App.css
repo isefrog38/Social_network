@@ -1,6 +1,6 @@
 .app-wrapper {
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: 3%;
+    margin-right: 3%;
     display: grid;
     width: 100%;
     min-height: 100vh;
@@ -9,7 +9,7 @@
             'n c';
     grid-template-rows: 30px 1fr;
     /*grid-template-columns: 2fr 10fr;*/
-    grid-template-columns: 290px auto;
+    grid-template-columns: 280px auto;
 }
 
 @media (min-width: 200px) and (max-width: 700px) {
