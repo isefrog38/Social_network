@@ -1,54 +1,74 @@
 import React from 'react';
-import {UsersPropsType} from "../UsersContainer";
 import s from "./Users.module.css";
-import axios from "axios";
+import {UserType} from "../../../redax/Users-reducer";
 
-export const Users = (props: UsersPropsType) => {
-    let defaultAvatar = "https://as2.ftcdn.net/v2/jpg/03/08/68/53/1000_F_308685322_QENNJlJFHONQ8FVP2xVsiez6x1almqo2.jpg";
+type UsersType = {
+    unfollow: (id: number) => void
+    follow: (id: number) => void
+    users: UserType[]
+    setActivePage: (page: number) => void
+    activePage: number
+    onClickHandler: (page: number) => void
+    pages: number[]
+    defaultAvatar: string
+}
 
-    let getUsers = () => {
-        if (props.users.length === 0) {
+export const Users = (props: UsersType) => {
 
-            axios.get("https://social-network.samuraijs.com/api/1.0/users").then( response => {
-                props.setUsers(response.data.items)
-            });
-        }
-    }
-
-    return (
-        <>
-            <button onClick={getUsers}>Get Users</button>
-            {
-                props.users.map(u => <div key={u.id} className={s.mainDiv}>
+    let PagesBlock = props.pages.map(page => {
+        return (
+            <div key={page}
+                 onClick={() => {
+                     props.onClickHandler(page)
+                 }}
+                 className={props.activePage === page ? `${s.oneButtonPage} + ${s.active} ` : s.oneButtonPage}>
+                <span className={props.activePage === page ? s.activeButtonPage : ""}>{page}</span>
+            </div>
+        )
+    });
+    let UsersBlock = props.users.map(u => {
+        return (
+            <div key={u.id} className={s.mainDiv}>
                     <span>
                         <div>
                             <img className={s.image}
-                                 src={ u.photos.small !== null ? u.photos.small : defaultAvatar }
+                                 src={u.photos.small !== null ? u.photos.small : props.defaultAvatar}
                                  alt={"ImgPerson"}/>
                         </div>
                         <div>
                             {u.followed
                                 ? <button className={s.button}
-                                    onClick={() => {
-                                    props.unfollow(u.id)
-                                }}>UnFollow</button>
+                                          onClick={() => {
+                                              props.unfollow(u.id)
+                                          }}>UnFollow</button>
                                 : <button className={s.button}
-                                    onClick={() => {
-                                    props.follow(u.id)
-                                }}>Follow</button>
+                                          onClick={() => {
+                                              props.follow(u.id)
+                                          }}>Follow</button>
                             }
                         </div>
                     </span>
-                    <span>
+                <span>
                         <span>
                             <h3>{u.name}</h3>
                             <div>{u.status}</div>
                         </span>
 
                     </span>
-                </div>)
-            }
-        </>
-    );
-};
+            </div>
+        )
+    });
 
+    return (
+        <div>
+            <div className={s.blockButtonsPage}>
+                {PagesBlock}                                 {/*блок с страницами*/}
+            </div>
+            {UsersBlock}                                          {/*блок с пользователями*/}
+            <div className={s.blockButtonsPage}>
+                {PagesBlock}                                   {/*блок с страницами*/}
+            </div>
+        </div>
+    )
+        ;
+};

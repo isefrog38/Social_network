@@ -1,11 +1,20 @@
 .dialogs {
-    display: grid;
-    grid-template-columns: 2fr 10fr;
+    display: flex;
+    justify-content: space-between;
+}
+
+@media (min-width: 200px) and (max-width: 700px) {
+    .dialogs {
+        margin-left: -300px;
+    }
 }
 
 .addMessageBlock {
+    display: flex;
     width: 100%;
     padding-top: 20px;
+    margin-top: 30px;
+    justify-content: space-between;
 }
 
 .inputAddMessage {
@@ -15,7 +24,7 @@
     border: 1px solid black;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.06);
     height: 10%;
-    width: 50%;
+    width: 70%;
 }
 
 .buttonAddMessages {
@@ -30,7 +39,7 @@
     border-radius: 4px;
     height: 40px;
     line-height: 30px;
-    font-size: 12.5px;
+    font-size: 13px;
     font-weight: normal;
     text-decoration: none;
     vertical-align: top;
@@ -43,8 +52,21 @@
     overflow: hidden;
 }
 
+@media (min-width: 200px) and (max-width: 700px) {
+    .buttonAddMessages {
+        padding: 0;
+        margin: 0;
+    }
+}
+
 .buttonAddMessage {
     padding: 4px 20px ;
+}
+
+@media (min-width: 200px) and (max-width: 700px) {
+    .buttonAddMessage {
+        padding: 0;
+    }
 }
 
 .buttonAddMessages:hover {
@@ -58,10 +80,8 @@
     opacity: 0.65;
 }
 
-
-
 .messages {
-    width: 70%;
+    width: 100%;
     padding-top: 1rem;
 }
 
@@ -72,18 +92,54 @@
     padding-left: 15px;
 }
 
-.dialog a:hover {
-    color: gold;
-}
-
-.dialog a:focus {
-    color: gold;
-}
-
 .main_block {
     display: flex;
     align-items: center;
     padding: 5px;
+    border-radius: 10px;
+}
+
+.main_block:hover {
+    background-color: rgba(234, 234, 234, 0.52);
+    box-shadow: 0 2px 5px 1px rgb(64 60 67 / 30%);
+}
+.main_block:focus {
+    background-color: rgba(234, 234, 234, 0.52);
+    box-shadow: 0 2px 5px 1px rgb(64 60 67 / 30%);
+}
+
+.main_messages_block {
+    background-color: white;
+    border-radius: 20px;
+    margin-left: 20px;
+    padding: 0 50px;
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+}
+
+@media (min-width: 200px) and (max-width: 700px) {
+    .main_messages_block {
+        width: 450px;
+        padding: 20px;
+        margin: 0;
+        height: auto;
+    }
+}
+
+.dialogsItems {
+    width: 20%;
+    min-width: 160px;
+    height: 400px;
+    background-color: white;
+    border-radius: 20px;
+}
+
+@media (min-width: 200px) and (max-width: 700px) {
+    .dialogsItems {
+        width: 200px;
+        margin-right: 5px ;
+    }
 }
 
 .img {

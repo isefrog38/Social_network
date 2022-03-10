@@ -1,0 +1,20 @@
+.main_block_preloader {
+    margin-left: 50px;
+}
+
+.preloader {
+    width: 600px;
+    margin-left: 100px;
+}
+
+@media (min-width: 700px) and (max-width: 1200px) {
+    .preloader {
+        width: 400px;
+    }
+}
+
+@media (min-width: 300px) and (max-width: 700px) {
+    .preloader {
+        width: 200px;
+    }
+}

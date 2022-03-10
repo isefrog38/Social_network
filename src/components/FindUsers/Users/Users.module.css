@@ -1,5 +1,5 @@
 .mainDiv {
-    border: 1px solid;
+    border: 2px dashed ;
     display: flex;
     height: auto;
     width: 450px;
@@ -8,7 +8,8 @@
     justify-content:center;
     align-items:center;
     padding: 5px;
-    background-color: rgba(44, 255, 209, 0.25);
+    background-color: white;
+    border-radius: 20px;
 }
 
 .image {
@@ -46,4 +47,39 @@
 .button:disabled {
     pointer-events: none;
     opacity: 0.65;
+}
+
+.blockButtonsPage{
+    display: flex;
+    width: 500px;
+    justify-content: space-between;
+    height: 55px;
+    align-items: flex-end;
+    box-shadow: 0 2px 5px 1px rgba(80, 85, 87, 0.52);
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.oneButtonPage {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    width: 15px;
+    height: 30px;
+    padding: 5px;
+    border: 1px solid;
+    font-size: 1.3rem;
+    float: bottom;
+    border-radius: 5px;
+}
+
+.active {
+    width: 25px;
+    height: 40px;
+    box-shadow: 0 2px 5px 1px rgba(0, 115, 157, 0.52);
+}
+
+.activeButtonPage {
+    font-weight: 1000;
+    font-size: 1.6rem;
 }

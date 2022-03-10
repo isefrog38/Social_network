@@ -1,14 +1,21 @@
 .nav {
-    width: 300px;
-    height: auto;
+    width: 240px;
+    height: 700px;
     grid-area: n;
-    font-size: 20px ;
+    font-size: 22px ;
     text-align: center;
     background-color: white;
-    padding: 25px 0 0 20px;
-    display: flex;
+    padding: 25px 0 10px 20px;
     border-radius: 20px;
 }
+
+@media (min-width: 200px) and (max-width: 700px) {
+    .nav {
+        position: absolute;
+        left: -300px;
+    }
+}
+
 .items {
     display: flex;
     flex-direction: column;
@@ -22,21 +29,34 @@
     justify-content: space-evenly;
 }
 
+.item_div {
+    display: flex;
+    width: 200px;
+    height: 35px;
+    justify-content: flex-start;
+    border-radius: 10px;
+    padding: 7px;
+}
+
 .item{
     text-decoration: none;
     color: black;
-
 }
 
-.item a:hover {
-    color: #40b5ff;
+.item_div:hover {
+    background-color: rgba(234, 234, 234, 0.52);
+    box-shadow: 0 2px 5px 1px rgb(64 60 67 / 30%);
 }
-.item a:focus {
-    color: #40b5ff;
+
+.logo {
+    width: 30px;
+    height: 30px;
+    margin-right: 20px;
 }
 
 .sideBar {
     padding-top: 5rem;
+    padding-right: 20px;
 }
 
 .p {
