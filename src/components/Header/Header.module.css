@@ -15,7 +15,8 @@
 
 @media (min-width: 200px) and (max-width: 700px) {
     .header {
-        width: 720px;
+        position: fixed;
+        width: 495px;
         height: 70px;
     }
 }
@@ -25,6 +26,16 @@
     width: 40%;
     align-items: center;
     justify-content: center;
+}
+
+@media (min-width: 200px) and (max-width: 700px) {
+    .nameHeader {
+        width: 200px;
+        font-weight: 500;
+        font-size: 1.2rem;
+        justify-content: flex-start;
+        margin-left: 100px;
+    }
 }
 
 .logo_block {
@@ -42,6 +53,9 @@
 }
 
 @media (min-width: 200px) and (max-width: 700px) {
+    .logo_block {
+        position: absolute;
+    }
     .logo {
         top: -500px;
     }
@@ -68,5 +82,11 @@
     font-size: 1.2rem;
 }
 
+@media (min-width: 200px) and (max-width: 700px) {
+    .input {
+        position: absolute;
+        top: -500px;
+    }
+}
 
 

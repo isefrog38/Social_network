@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {AppStateType} from "../../redax/redux-store";
 import {
@@ -84,12 +84,12 @@ export const UsersContainer = React.memo(() => {
     const dispatch = useDispatch();
     const stateUsers = useSelector<AppStateType, InitialUsersStateType>(state => state.UsersReducer)
 
-    const follow = (userId: number) => dispatch(followAC(userId));
-    const unfollow = (userId: number) => dispatch(unfollowAC(userId));
-    const setUsers = (users: UserType[]) => dispatch(setUsersAC(users));
-    const setActivePage = (page: number) => dispatch(setActivePageUsersAC(page));
-    const setTotalCountPages = (totalCount: number) => dispatch(setTotalCountPagesAC(totalCount));
-    const showPreloader = (isFetching: boolean) => dispatch(setToggleFetchingAC(isFetching));
+    const follow = useCallback((userId: number) => dispatch(followAC(userId)),[dispatch]);
+    const unfollow = useCallback((userId: number) => dispatch(unfollowAC(userId)),[dispatch]);
+    const setUsers = useCallback((users: UserType[]) => dispatch(setUsersAC(users)),[dispatch]);
+    const setActivePage = useCallback((page: number) => dispatch(setActivePageUsersAC(page)),[dispatch]);
+    const setTotalCountPages = useCallback((totalCount: number) => dispatch(setTotalCountPagesAC(totalCount)),[dispatch]);
+    const showPreloader = useCallback((isFetching: boolean) => dispatch(setToggleFetchingAC(isFetching)),[dispatch]);
 
     return (
         <div>
