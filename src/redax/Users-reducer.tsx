@@ -1,6 +1,4 @@
-import {isNumber} from "util";
-
-type UserActionType = FollowACType | UnFollowACType | setUsersType | setPageUsersType | setTotalCountType;
+type UserActionType = FollowACType | UnFollowACType | setUsersType | setPageUsersType | setTotalCountType | setToggleFetchingType;
 type FollowACType = {
     type: "FOLLOW",
     userId: number
@@ -21,6 +19,10 @@ type setTotalCountType = {
     type: "SET_TOTAL_COUNT"
     totalCount: number
 };
+type setToggleFetchingType = {
+    type: "TOGGLE_FETCHING"
+    isFetching: boolean
+};
 export type UserType = {
     "name": string,
     "id": number,
@@ -37,6 +39,7 @@ export type InitialUsersStateType = {
     totalUsersCountPage: number
     sizeUsersPage: number
     activePage: number
+    isFetching: boolean
 };
 
 const FOLLOW = "FOLLOW";
@@ -44,12 +47,14 @@ const UNFOLLOW = "UNFOLLOW";
 const SET_USERS = "SET_USERS";
 const SET_PAGE_USERS = "SET_PAGE_USERS";
 const SET_TOTAL_COUNT = "SET_TOTAL_COUNT";
+const TOGGLE_FETCHING = "TOGGLE_FETCHING";
 
 let initialState: InitialUsersStateType = {
     users: [],
     totalUsersCountPage: 0,
     sizeUsersPage: 5,
     activePage: 1,
+    isFetching: false,
 };
 
 export const UsersReducer = (state = initialState, action: UserActionType): InitialUsersStateType => {
@@ -78,7 +83,12 @@ export const UsersReducer = (state = initialState, action: UserActionType): Init
         }
         case SET_TOTAL_COUNT : {
             return {
-                ...state, totalUsersCountPage: action.totalCount
+                ...state, totalUsersCountPage: action.totalCount > 75 ? 75 : action.totalCount
+            }
+        }
+        case TOGGLE_FETCHING : {
+            return {
+                ...state, isFetching: action.isFetching
             }
         }
         default:
@@ -92,3 +102,4 @@ export const unfollowAC = (userId: number): UnFollowACType => ({type: UNFOLLOW, 
 export const setUsersAC = (users: Array<UserType>): setUsersType => ({type: SET_USERS, users} as const);
 export const setActivePageUsersAC = (page: number): setPageUsersType => ({type: SET_PAGE_USERS, page} as const);
 export const setTotalCountPagesAC = (totalCount: number): setTotalCountType => ({type: SET_TOTAL_COUNT, totalCount} as const);
+export const setToggleFetchingAC = (isFetching: boolean): setToggleFetchingType => ({type: TOGGLE_FETCHING, isFetching} as const);

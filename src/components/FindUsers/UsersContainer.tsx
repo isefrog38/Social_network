@@ -4,13 +4,80 @@ import {AppStateType} from "../../redax/redux-store";
 import {
     followAC,
     InitialUsersStateType,
-    setActivePageUsersAC, setTotalCountPagesAC,
+    setActivePageUsersAC, setToggleFetchingAC, setTotalCountPagesAC,
     setUsersAC,
     unfollowAC,
     UserType
 } from "../../redax/Users-reducer";
-import {UsersClass} from "./Users/UsersClass";
+import axios from "axios";
+import {Users} from "./Users/Users";
+import {Preloader} from "../Preloader/Preloader";
 
+type UsersClassPropsType = {
+    unfollow: (id: number) => void
+    follow: (id: number) => void
+    users: UserType[]
+    setUsers: (users: UserType[]) => void
+    totalUsersCountPage: number
+    sizeUsersPage: number
+    setActivePage: (page: number) => void
+    activePage: number
+    setTotalCountPages: (totalCount: number) => void
+    isFetching: boolean
+    showPreloader: (isFetching: boolean) => void
+}
+
+class UsersClassContainer extends React.Component<UsersClassPropsType> {
+
+    defaultAvatar = "https://as2.ftcdn.net/v2/jpg/03/08/68/53/1000_F_308685322_QENNJlJFHONQ8FVP2xVsiez6x1almqo2.jpg";
+
+    componentDidMount() {
+        this.props.showPreloader(true)
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.activePage}&count=${this.props.sizeUsersPage}`)
+            .then(response => {
+                this.props.showPreloader(false)
+                this.props.setUsers(response.data.items)
+                this.props.setTotalCountPages(response.data.totalCount)
+            });
+    }
+
+    onClickHandler = (page: number) => {
+        this.props.setActivePage(page)
+        this.props.showPreloader(true)
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${this.props.sizeUsersPage}`)
+            .then(response => {
+                this.props.showPreloader(false)
+                this.props.setUsers(response.data.items)
+            });
+    }
+
+    render() {
+
+        let calculationPage = Math.ceil(this.props.totalUsersCountPage / this.props.sizeUsersPage);
+        let pages = [];
+        for(let i=1; i <= calculationPage; i++){
+            pages.push(i)
+        }
+
+        return (
+            <>
+                {this.props.isFetching
+                    ? <Preloader />
+                    : <Users
+                        setActivePage={this.props.setActivePage}
+                        pages={pages}
+                        unfollow={this.props.unfollow}
+                        follow={this.props.follow}
+                        users={this.props.users}
+                        onClickHandler={this.onClickHandler}
+                        activePage={this.props.activePage}
+                        defaultAvatar={this.defaultAvatar}
+                    />
+                }
+            </>
+        )
+    }
+}
 
 export const UsersContainer = React.memo(() => {
 
@@ -22,10 +89,11 @@ export const UsersContainer = React.memo(() => {
     const setUsers = (users: UserType[]) => dispatch(setUsersAC(users));
     const setActivePage = (page: number) => dispatch(setActivePageUsersAC(page));
     const setTotalCountPages = (totalCount: number) => dispatch(setTotalCountPagesAC(totalCount));
+    const showPreloader = (isFetching: boolean) => dispatch(setToggleFetchingAC(isFetching));
 
     return (
         <div>
-            <UsersClass
+            <UsersClassContainer
                 unfollow={unfollow}
                 follow={follow}
                 users={stateUsers.users}
@@ -35,6 +103,8 @@ export const UsersContainer = React.memo(() => {
                 setActivePage={setActivePage}
                 activePage={stateUsers.activePage}
                 setTotalCountPages={setTotalCountPages}
+                isFetching={stateUsers.isFetching}
+                showPreloader={showPreloader}
             />
         </div>
     )

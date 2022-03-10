@@ -45,7 +45,7 @@ let initialState: InitialSideBarType = {
         {
             to: '/users',
             alt: "img_users",
-            nameOfPage: "Find People",
+            nameOfPage: "Find Friends",
             srcImg: imgUser
         },
         {

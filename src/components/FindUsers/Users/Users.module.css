@@ -51,7 +51,7 @@
 
 .blockButtonsPage{
     display: flex;
-    width: 60%;
+    width: 500px;
     justify-content: space-between;
     height: 55px;
     align-items: flex-end;
