@@ -12,6 +12,14 @@
     grid-template-columns: 280px auto;
 }
 
+@media (min-width: 700px) and (max-width: 1200px) {
+    .app-wrapper {
+        margin-left: 0;
+        grid-template-rows: 100px 1fr;
+        grid-template-columns: 10px auto;
+    }
+}
+
 @media (min-width: 200px) and (max-width: 700px) {
     .app-wrapper {
         margin-left: 0;

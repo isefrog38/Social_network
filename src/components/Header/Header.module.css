@@ -7,8 +7,11 @@
     justify-content: space-between;
 }
 
+
 @media (min-width: 700px) and (max-width: 1200px) {
     .header {
+        position: fixed;
+        width: 815px;
         height: 70px;
     }
 }
@@ -26,6 +29,17 @@
     width: 40%;
     align-items: center;
     justify-content: center;
+}
+
+
+@media (min-width: 700px) and (max-width: 1200px) {
+    .nameHeader {
+        width: 200px;
+        font-weight: 500;
+        font-size: 1.2rem;
+        justify-content: flex-start;
+        margin-left: 100px;
+    }
 }
 
 @media (min-width: 200px) and (max-width: 700px) {
@@ -61,7 +75,14 @@
     }
 }
 
-
+@media (min-width: 700px) and (max-width: 1200px) {
+    .logo_block {
+        position: absolute;
+    }
+    .logo {
+        top: -500px;
+    }
+}
 
 .search_panel_block {
     display: flex;
@@ -82,7 +103,11 @@
     font-size: 1.2rem;
 }
 
-@media (min-width: 200px) and (max-width: 700px) {
+@media (min-width: 200px) and (max-width: 1200px) {
+    .icon_search {
+        margin-right: 30px;
+    }
+
     .input {
         position: absolute;
         top: -500px;

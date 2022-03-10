@@ -9,6 +9,13 @@
     border-radius: 20px;
 }
 
+@media (min-width: 700px) and (max-width: 1200px) {
+    .nav {
+        position: absolute;
+        left: -300px;
+    }
+}
+
 @media (min-width: 200px) and (max-width: 700px) {
     .nav {
         position: absolute;
