@@ -1,7 +1,6 @@
 import React from "react";
 import s from './ProfileInfo.module.css'
 import {AxiosResponseTypeProfile} from "../../../redax/Profile-reducer";
-import {Preloader} from "../../Preloader/Preloader";
 
 type ProfileInfoType = {
     profileState: null | AxiosResponseTypeProfile
@@ -10,7 +9,7 @@ type ProfileInfoType = {
 export const ProfileInfo = (props: ProfileInfoType) => {
     let state = props.profileState;
 
-    if(!state) return <Preloader />                // Preloader
+    if(!state) return <></>
     else return (
 
         <div className={s.main}>

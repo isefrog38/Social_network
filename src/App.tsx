@@ -19,12 +19,11 @@ const App = () => {
                 <div className={'app-wrapper-content'}>
                     <Routes>
                         <Route path={'/'} element={<Navigate to={'/profile'}/>}/>
-                        <Route path='/dialogs' element={
-                            <DialogsContainer/>}/>
-                        <Route path='/profile' element={
-                            <ProfileContainer/>}/>
-                        <Route path='/users' element={
-                            <UsersContainer/>}/>
+                        <Route path='/dialogs' element={<DialogsContainer/>}/>
+                        <Route path='/profile' element={<ProfileContainer/>}>
+                            <Route path=":userId" element={<ProfileContainer />} />
+                        </Route>
+                        <Route path='/users' element={<UsersContainer/>}/>
                         <Route path='/news' element={<News/>}/>
                         <Route path='/music' element={<Music/>}/>
                         <Route path='/setting' element={<Setting/>}/>

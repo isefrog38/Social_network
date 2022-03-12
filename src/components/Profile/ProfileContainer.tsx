@@ -8,6 +8,19 @@ import {
     changeProfileForUser,
     ProfileStateType
 } from "../../redax/Profile-reducer";
+import {useParams} from 'react-router-dom';
+
+const withRouter = (WrappedComponent: any) => (props: any) => {
+    const params = useParams();
+
+    return (
+        <WrappedComponent
+            {...props}
+            params={params}
+            // etc...
+        />
+    );
+};
 
 export const ProfileContainer = () => {
 
@@ -15,10 +28,9 @@ export const ProfileContainer = () => {
     let dispatch = useDispatch();
 
     const setUsersProfile = useCallback((profile) => dispatch(changeProfileForUser(profile)), [dispatch]);
-
     return (
         <>
-            <ProfileClassContainer profile={stateProfile.profileUser} setUsersProfile={setUsersProfile}/>
+            {withRouter(<ProfileClassContainer profile={stateProfile.profileUser} setUsersProfile={setUsersProfile}/>)}
         </>
     )
 }
@@ -30,9 +42,14 @@ type ProfileContainerType = {
 
 class ProfileClassContainer extends React.Component<ProfileContainerType> {
 
+
     componentDidMount() {
-        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/2`)
-            .then(response => this.props.setUsersProfile(response.data));
+        console.log(this.props)
+        let userId = this.props.match.params.userId;
+
+        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
+            .then(response =>
+                this.props.setUsersProfile(response.data))
     }
 
     render() {
