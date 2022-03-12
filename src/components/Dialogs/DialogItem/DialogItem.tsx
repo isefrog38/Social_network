@@ -7,8 +7,8 @@ const DialogItem = ({id, name, avatar}: DialogType) => {
     return (
         <div className={s.main_block}>
             <div>
-                <NavLink to={`${id}`}><img className={s.img}
-                     src={avatar}/>
+                <NavLink to={`${id}`}>
+                    <img className={s.img} src={avatar}/>
                 </NavLink>
             </div>
             <div className={s.dialog}>

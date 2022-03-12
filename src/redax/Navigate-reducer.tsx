@@ -31,6 +31,12 @@ let initialState: InitialSideBarType = {
             srcImg: imgMessage
         },
         {
+            to: '/users',
+            alt: "img_users",
+            nameOfPage: "Users",
+            srcImg: imgUser
+        },
+        {
             to: '/news',
             alt: "img_news",
             nameOfPage: "News",
@@ -41,12 +47,6 @@ let initialState: InitialSideBarType = {
             alt: "img_music",
             nameOfPage: "Music",
             srcImg: imgMusic
-        },
-        {
-            to: '/users',
-            alt: "img_users",
-            nameOfPage: "Find Friends",
-            srcImg: imgUser
         },
         {
             to: '/music',

@@ -1,20 +1,17 @@
-import {connect} from "react-redux";
+import {useSelector} from "react-redux";
 import {Navbar} from "./Navbar";
 import {AppStateType} from "../../redax/redux-store";
-import {SideBarType} from "../../redax/SideBar-reducer";
 import {NavigateBarType} from "../../redax/Navigate-reducer";
+import {SideBarType} from "../../redax/SideBar-reducer";
 
-export type NavbarContainerProps = MapStateToPropsType;
-type MapStateToPropsType = {
-    navigateBar: NavigateBarType[]
-    sideBar: Array<SideBarType>
+export const NavbarContainer = () => {
+
+    let stateNavBar = useSelector<AppStateType, NavigateBarType[]>(state => state.NavigateBarReducer.navigateBar)
+    let stateSideBar = useSelector<AppStateType, SideBarType[]>(state => state.SideBarReducer.sideBar)
+
+    return (
+        <div>
+            <Navbar sideBar={stateSideBar} navigateBar={stateNavBar}/>
+        </div>
+    )
 }
-
-const MapStateToProps = (state: AppStateType): MapStateToPropsType => {
-    return {
-        navigateBar: state.NavigateBarReducer.navigateBar,
-        sideBar: state.SideBarReducer.sideBar
-    }
-}
-
-export const NavbarContainer = connect(MapStateToProps)(Navbar);

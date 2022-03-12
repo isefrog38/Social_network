@@ -10,7 +10,6 @@ export const Burger = () => {
     let state = useSelector<AppStateType, NavigateBarType[]>(state => state.NavigateBarReducer.navigateBar)
 
     const [showBurger, setShowBurger] = useState<boolean>(false);
-    /*const [menuActive, setMenuActive] = useState<boolean>(false);*/
 
     const menuItems = state.map(el => (
         <NavLink to={el.to} className={s.item}>

@@ -1,6 +1,7 @@
 import React from 'react';
 import s from "./Users.module.css";
 import {UserType} from "../../../redax/Users-reducer";
+import {NavLink} from "react-router-dom";
 
 type UsersType = {
     unfollow: (id: number) => void
@@ -30,11 +31,11 @@ export const Users = (props: UsersType) => {
         return (
             <div key={u.id} className={s.mainDiv}>
                     <span>
-                        <div>
+                        <NavLink to={`/profile/${u.id}`}>
                             <img className={s.image}
                                  src={u.photos.small !== null ? u.photos.small : props.defaultAvatar}
                                  alt={"ImgPerson"}/>
-                        </div>
+                        </NavLink>
                         <div>
                             {u.followed
                                 ? <button className={s.button}
@@ -62,11 +63,11 @@ export const Users = (props: UsersType) => {
     return (
         <div>
             <div className={s.blockButtonsPage}>
-                {PagesBlock}                                 {/*блок с страницами*/}
+                {PagesBlock} {/*блок с страницами*/}
             </div>
-            {UsersBlock}                                          {/*блок с пользователями*/}
+            {UsersBlock} {/*блок с пользователями*/}
             <div className={s.blockButtonsPage}>
-                {PagesBlock}                                   {/*блок с страницами*/}
+                {PagesBlock} {/*блок с страницами*/}
             </div>
         </div>
     )

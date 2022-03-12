@@ -1,14 +1,25 @@
 import React from "react";
 import s from './Navbar.module.css';
 import {NavLink} from "react-router-dom";
-import SideBar from "./SideBar/SideBar"
-import {NavbarContainerProps} from "./NavbarContainer";
+import SideBar from "./SideBar/SideBar";
+import {NavigateBarType} from "../../redax/Navigate-reducer";
+import {SideBarType} from "../../redax/SideBar-reducer";
 
-export const Navbar = (props: NavbarContainerProps) => {
+type NavbarPropsType = {
+    sideBar: SideBarType[]
+    navigateBar: NavigateBarType[]
+}
+
+export const Navbar = (props: NavbarPropsType) => {
+
+    /*function getRandomInt(min: number, max: number) {
+        return Math.floor(Math.random() * (max - min) + min);
+    }
+    console.log(getRandomInt(0, props.dialogsItem.length))*/
 
     const SideBarElement = props.sideBar.map(d => <SideBar key={d.id} name={d.name} id={d.id} avatar={d.avatar}/>);
     const NavigateItems = props.navigateBar.map(el => (
-        <NavLink to={el.to} className={s.item}>
+        <NavLink key={el.alt} to={el.to} className={s.item}>
             <div className={s.item_div}>
                 <img className={s.logo} src={el.srcImg} alt={el.alt}/>
                 {el.nameOfPage}

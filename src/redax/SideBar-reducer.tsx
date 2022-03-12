@@ -12,19 +12,19 @@ let initialState: InitialSideBarType = {
     sideBar: [
         {
             id: 1,
-            name: "Micael Philips",
-            avatar: 'https://oir.mobi/uploads/posts/2021-05/1620197401_11-oir_mobi-p-karlikovii-kenguru-zhivotnie-krasivo-foto-14.jpg'
+            name: 'Dimych',
+            avatar: 'https://image.freepik.com/free-vector/flat-doctor-avatar-for-website-chat-window-support-message-chatting-app-isolated-on-white-background_111651-583.jpg'
         },
         {
             id: 2,
-            name: "Joan Osborne",
-            avatar: 'https://zelenyjmir.ru/wp-content/uploads/2017/06/Kenguru-40.jpg'
+            name: 'Andrey',
+            avatar: 'https://image.freepik.com/vecteurs-libre/icone-personnage-avatar-masculin-isole_24877-23105.jpg'
         },
         {
             id: 3,
-            name: "Richard Mille",
-            avatar: 'https://yaizakon.com.ua/wp-content/uploads/2019/10/1427402253_kenguru5-e1480942003641.jpg'
-        }
+            name: 'Sveta',
+            avatar: 'https://media.istockphoto.com/vectors/people-happy-face-woman-icon-vector-id650937050'
+        },
     ]
 };
 

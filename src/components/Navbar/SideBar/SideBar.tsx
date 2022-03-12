@@ -1,13 +1,13 @@
 import React from 'react';
 import s from "./SideBar.module.css";
 import {NavLink} from "react-router-dom";
-import {SideBarType} from "../../../redax/SideBar-reducer";
+import {DialogType} from "../../../redax/Dialogs-reducer";
 
 
-const SideBar = (props: SideBarType) => {
+const SideBar = (props: DialogType) => {
     return (
         <div className={s.allBlock}>
-            <NavLink to={`/dialogs/${props.id}`}>
+            <NavLink to={`/dialogs/${props.id}`} className={s.navlink}>
                 <img className={s.img_left}
                      src={props.avatar}
                     alt={`logo_${props.id}`}/>

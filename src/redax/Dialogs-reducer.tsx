@@ -8,7 +8,7 @@ export type DialogType = {
     name: string
     avatar: string
 };
-export type DialogPageType = {
+export type DialogReducerPageType = {
     dialogs: Array<DialogType>
     messages: Array<MessageType>
     textMessage: string
@@ -17,13 +17,7 @@ export type DialogPageType = {
 const ADD_MESSAGE = "ADD-MESSAGE";
 const TEXT_MESSAGE_FROM_POST = "TEXT-MESSAGE-FROM-POST";
 
-type InitilaStateType = {
-    dialogs: Array<DialogType>
-    messages: Array<MessageType>
-    textMessage: string
-}
-
-let initialState: InitilaStateType = {
+let initialState: DialogReducerPageType = {
     dialogs: [
         {
             id: 1,
@@ -66,7 +60,7 @@ let initialState: InitilaStateType = {
 
 }
 
-export const DialogsReducer = (state: DialogPageType = initialState, action: ActionsType): DialogPageType => {
+export const DialogsReducer = (state: DialogReducerPageType = initialState, action: ActionsType): DialogReducerPageType => {
     switch (action.type) {
         case ADD_MESSAGE:
         return {
