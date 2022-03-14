@@ -1,7 +1,8 @@
 import React from 'react';
 import s from "./Users.module.css";
 import {UserType} from "../../../redax/Users-reducer";
-import {NavLink} from "react-router-dom";
+import {UsersBlock} from "./UsersBlock/UsersBlock";
+import {Pages} from "./Pages/Pages";
 
 type UsersType = {
     unfollow: (id: number) => void
@@ -16,58 +17,30 @@ type UsersType = {
 
 export const Users = (props: UsersType) => {
 
-    let PagesBlock = props.pages.map(page => {
-        return (
-            <div key={page}
-                 onClick={() => {
-                     props.onClickHandler(page)
-                 }}
-                 className={props.activePage === page ? `${s.oneButtonPage} + ${s.active} ` : s.oneButtonPage}>
-                <span className={props.activePage === page ? s.activeButtonPage : ""}>{page}</span>
-            </div>
-        )
-    });
-    let UsersBlock = props.users.map(u => {
-        return (
-            <div key={u.id} className={s.mainDiv}>
-                    <span>
-                        <NavLink to={`/profile/${u.id}`}>
-                            <img className={s.image}
-                                 src={u.photos.small !== null ? u.photos.small : props.defaultAvatar}
-                                 alt={"ImgPerson"}/>
-                        </NavLink>
-                        <div>
-                            {u.followed
-                                ? <button className={s.button}
-                                          onClick={() => {
-                                              props.unfollow(u.id)
-                                          }}>UnFollow</button>
-                                : <button className={s.button}
-                                          onClick={() => {
-                                              props.follow(u.id)
-                                          }}>Follow</button>
-                            }
-                        </div>
-                    </span>
-                <span>
-                        <span>
-                            <h3>{u.name}</h3>
-                            <div>{u.status}</div>
-                        </span>
-
-                    </span>
-            </div>
-        )
-    });
+    let PagesBlock = props.pages.map(page => <Pages
+                                                key={page}
+                                                onClickHandler={props.onClickHandler}
+                                                activePage={props.activePage}
+                                                page={page}
+                                            />
+    );
+    let Users = props.users.map(user => <UsersBlock
+                                                key={user.id}
+                                                {...user}
+                                                unfollow={props.unfollow}
+                                                follow={props.follow}
+                                                defaultAvatar={props.defaultAvatar}
+                                               />
+    );
 
     return (
-        <div>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
             <div className={s.blockButtonsPage}>
-                {PagesBlock} {/*блок с страницами*/}
+                {PagesBlock}                             {/*блок с страницами*/}
             </div>
-            {UsersBlock} {/*блок с пользователями*/}
+            {Users}                                   {/*блок с пользователями*/}
             <div className={s.blockButtonsPage}>
-                {PagesBlock} {/*блок с страницами*/}
+                {PagesBlock}                                {/*блок с страницами*/}
             </div>
         </div>
     )

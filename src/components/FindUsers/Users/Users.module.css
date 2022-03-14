@@ -1,57 +1,6 @@
-.mainDiv {
-    border: 2px dashed ;
-    display: flex;
-    height: auto;
-    width: 450px;
-    margin: 10px;
-    flex-direction: column-reverse;
-    justify-content:center;
-    align-items:center;
-    padding: 5px;
-    background-color: white;
-    border-radius: 20px;
-}
-
-.image {
-    height: 150px;
-    width: 150px;
-}
-
-.button {
-    display: inline-block;
-    box-shadow: -1px -1px 1px 2px gray;
-    box-sizing: border-box;
-    padding: 0 16px;
-    margin: 10px 15px 15px 0;
-    outline: none;
-    border: none;
-    border-radius: 4px;
-    height: 40px;
-    line-height: 30px;
-    font-size: 1.2rem;
-    font-weight: normal;
-    text-decoration: none;
-    vertical-align: top;
-    color: #000000;
-    background-color: #dfe6ed;
-    cursor: pointer;
-    user-select: none;
-    appearance: none;
-    touch-action: manipulation;
-    overflow: hidden;
-    width: 100%;
-}
-.button:hover {
-    opacity: 0.88;
-}
-.button:disabled {
-    pointer-events: none;
-    opacity: 0.65;
-}
-
 .blockButtonsPage{
     display: flex;
-    width: 500px;
+    width: 600px;
     justify-content: space-between;
     height: 55px;
     align-items: flex-end;
@@ -59,28 +8,4 @@
     border-radius: 5px;
     margin-bottom: 20px;
     cursor: pointer;
-}
-
-.oneButtonPage {
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    width: 15px;
-    height: 30px;
-    padding: 5px;
-    border: 1px solid;
-    font-size: 1.3rem;
-    float: bottom;
-    border-radius: 5px;
-}
-
-.active {
-    width: 25px;
-    height: 40px;
-    box-shadow: 0 2px 5px 1px rgba(0, 115, 157, 0.52);
-}
-
-.activeButtonPage {
-    font-weight: 1000;
-    font-size: 1.6rem;
 }

@@ -24,15 +24,15 @@ type setToggleFetchingType = {
     isFetching: boolean
 };
 export type UserType = {
-    "name": string,
-    "id": number,
-    "uniqueUrlName": any,
-    "photos": {
-        "small": string | null,
-        "large": string | null,
+    name: string,
+    id: number,
+    uniqueUrlName: any,
+    photos: {
+        small: string | null,
+        large: string | null,
     },
-    "status": string| null,
-    "followed": boolean
+    status: string| null,
+    followed: boolean
 };
 export type InitialUsersStateType = {
     users: Array<UserType>

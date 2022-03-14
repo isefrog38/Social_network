@@ -9,9 +9,9 @@ import {
     unfollowAC,
     UserType
 } from "../../redax/Users-reducer";
-import axios from "axios";
 import {Users} from "./Users/Users";
 import {Preloader} from "../Preloader/Preloader";
+import {getUsers, onPageChanged} from "../../Api/Api";
 
 type UsersClassPropsType = {
     unfollow: (id: number) => void
@@ -33,21 +33,21 @@ class UsersClassContainer extends React.Component<UsersClassPropsType> {
 
     componentDidMount() {
         this.props.showPreloader(true)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.activePage}&count=${this.props.sizeUsersPage}`)
-            .then(response => {
-                this.props.showPreloader(false)
-                this.props.setUsers(response.data.items)
-                this.props.setTotalCountPages(response.data.totalCount)
+        getUsers(this.props.activePage, this.props.sizeUsersPage)
+            .then(data => {
+                this.props.showPreloader(false);
+                this.props.setUsers(data.items);
+                this.props.setTotalCountPages(data.totalCount);
             });
     }
 
     onClickHandler = (page: number) => {
         this.props.setActivePage(page)
         this.props.showPreloader(true)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${this.props.sizeUsersPage}`)
-            .then(response => {
+        onPageChanged(page, this.props.sizeUsersPage)
+            .then(data => {
                 this.props.showPreloader(false)
-                this.props.setUsers(response.data.items)
+                this.props.setUsers(data.items)
             });
     }
 
@@ -55,14 +55,14 @@ class UsersClassContainer extends React.Component<UsersClassPropsType> {
 
         let calculationPage = Math.ceil(this.props.totalUsersCountPage / this.props.sizeUsersPage);
         let pages = [];
-        for(let i=1; i <= calculationPage; i++){
+        for (let i = 1; i <= calculationPage; i++) {
             pages.push(i)
         }
 
         return (
             <div style={{display: "flex", justifyContent: "center"}}>
                 {this.props.isFetching
-                    ? <Preloader />
+                    ? <Preloader/>
                     : <Users
                         setActivePage={this.props.setActivePage}
                         pages={pages}
@@ -84,26 +84,26 @@ export const UsersContainer = React.memo(() => {
     const dispatch = useDispatch();
     const stateUsers = useSelector<AppStateType, InitialUsersStateType>(state => state.UsersReducer)
 
-    const follow = useCallback((userId: number) => dispatch(followAC(userId)),[dispatch]);
-    const unfollow = useCallback((userId: number) => dispatch(unfollowAC(userId)),[dispatch]);
-    const setUsers = useCallback((users: UserType[]) => dispatch(setUsersAC(users)),[dispatch]);
-    const setActivePage = useCallback((page: number) => dispatch(setActivePageUsersAC(page)),[dispatch]);
-    const setTotalCountPages = useCallback((totalCount: number) => dispatch(setTotalCountPagesAC(totalCount)),[dispatch]);
-    const showPreloader = useCallback((isFetching: boolean) => dispatch(setToggleFetchingAC(isFetching)),[dispatch]);
+    const follow = useCallback((userId: number) => dispatch(followAC(userId)), [dispatch]);
+    const unfollow = useCallback((userId: number) => dispatch(unfollowAC(userId)), [dispatch]);
+    const setUsers = useCallback((users: UserType[]) => dispatch(setUsersAC(users)), [dispatch]);
+    const setActivePage = useCallback((page: number) => dispatch(setActivePageUsersAC(page)), [dispatch]);
+    const setTotalCountPages = useCallback((totalCount: number) => dispatch(setTotalCountPagesAC(totalCount)), [dispatch]);
+    const showPreloader = useCallback((isFetching: boolean) => dispatch(setToggleFetchingAC(isFetching)), [dispatch]);
 
     return (
-            <UsersClassContainer
-                unfollow={unfollow}
-                follow={follow}
-                users={stateUsers.users}
-                setUsers={setUsers}
-                totalUsersCountPage={stateUsers.totalUsersCountPage}
-                sizeUsersPage={stateUsers.sizeUsersPage}
-                setActivePage={setActivePage}
-                activePage={stateUsers.activePage}
-                setTotalCountPages={setTotalCountPages}
-                isFetching={stateUsers.isFetching}
-                showPreloader={showPreloader}
-            />
+        <UsersClassContainer
+            unfollow={unfollow}
+            follow={follow}
+            users={stateUsers.users}
+            setUsers={setUsers}
+            totalUsersCountPage={stateUsers.totalUsersCountPage}
+            sizeUsersPage={stateUsers.sizeUsersPage}
+            setActivePage={setActivePage}
+            activePage={stateUsers.activePage}
+            setTotalCountPages={setTotalCountPages}
+            isFetching={stateUsers.isFetching}
+            showPreloader={showPreloader}
+        />
     )
 })

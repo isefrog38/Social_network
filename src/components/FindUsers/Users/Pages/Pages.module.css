@@ -1,0 +1,24 @@
+
+.oneButtonPage {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    width: 15px;
+    height: 30px;
+    padding: 5px;
+    border: 1px solid;
+    font-size: 1.3rem;
+    float: bottom;
+    border-radius: 5px;
+}
+
+.active {
+    width: 25px;
+    height: 40px;
+    box-shadow: 0 2px 5px 1px rgba(0, 115, 157, 0.52);
+}
+
+.activeButtonPage {
+    font-weight: 1000;
+    font-size: 1.6rem;
+}
