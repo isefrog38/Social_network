@@ -1,5 +1,4 @@
 .app-wrapper {
-    margin-left: 3%;
     margin-right: 3%;
     display: grid;
     width: 100%;
@@ -32,4 +31,5 @@
     grid-area: c;
     background-color: #e5ebf1;
     width: 90%;
+    margin: 0 auto;
 }

@@ -6,15 +6,15 @@ import {AxiosResponseTypeProfile} from "../../redax/Profile-reducer";
 import {Preloader} from "../Preloader/Preloader";
 
 type ProfileType = {
-    profileState: null | AxiosResponseTypeProfile
+    profile: null | AxiosResponseTypeProfile
 }
 
 const Profile = (props: ProfileType) => {
 
-    if(!props.profileState) return <Preloader />                // Preloader
+    if(!props.profile) return <Preloader />                // Preloader
     else return (
-        <div className={s.main}>
-            <ProfileInfo profileState={props.profileState}/>
+        <div>
+            <ProfileInfo profileState={props.profile}/>
             <MyPostsContainer />
         </div>
     )

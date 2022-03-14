@@ -1,6 +1,13 @@
+.block_all_dialogs {
+    display: flex;
+    justify-content: center;
+}
+
 .dialogs {
     display: flex;
     justify-content: space-between;
+    width: 100%;
+    margin-left: 30px;
 }
 
 @media (min-width: 200px) and (max-width: 700px) {
@@ -13,8 +20,8 @@
     display: flex;
     width: 100%;
     padding-top: 20px;
-    margin-top: 30px;
     justify-content: space-between;
+    margin: 30px 30px 15px 0;
 }
 
 .inputAddMessage {
@@ -28,12 +35,12 @@
 }
 
 .buttonAddMessages {
+    width: 150px;
     float:right;
     display: inline-block;
     box-shadow: -1px -1px 1px 2px gray;
     box-sizing: border-box;
-    padding: 0 16px;
-    margin: 0 15px 15px 0;
+    padding: 0 10px;
     outline: none;
     border: none;
     border-radius: 4px;

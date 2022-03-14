@@ -58,6 +58,7 @@
     box-shadow: 0 2px 5px 1px rgba(80, 85, 87, 0.52);
     border-radius: 5px;
     margin-bottom: 20px;
+    cursor: pointer;
 }
 
 .oneButtonPage {

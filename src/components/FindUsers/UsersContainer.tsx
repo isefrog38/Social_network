@@ -60,7 +60,7 @@ class UsersClassContainer extends React.Component<UsersClassPropsType> {
         }
 
         return (
-            <>
+            <div style={{display: "flex", justifyContent: "center"}}>
                 {this.props.isFetching
                     ? <Preloader />
                     : <Users
@@ -74,7 +74,7 @@ class UsersClassContainer extends React.Component<UsersClassPropsType> {
                         defaultAvatar={this.defaultAvatar}
                     />
                 }
-            </>
+            </div>
         )
     }
 }
@@ -92,7 +92,6 @@ export const UsersContainer = React.memo(() => {
     const showPreloader = useCallback((isFetching: boolean) => dispatch(setToggleFetchingAC(isFetching)),[dispatch]);
 
     return (
-        <div>
             <UsersClassContainer
                 unfollow={unfollow}
                 follow={follow}
@@ -106,6 +105,5 @@ export const UsersContainer = React.memo(() => {
                 isFetching={stateUsers.isFetching}
                 showPreloader={showPreloader}
             />
-        </div>
     )
 })

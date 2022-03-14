@@ -1,0 +1,26 @@
+.main_div_auth {
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    width: 75px;
+    border: 1px solid rgba(44, 44, 44, 0.6);
+    border-radius: 10px;
+    background-color: #e5ebf1;
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin: 0 auto;
+}
+
+.button:hover {
+    border: none;
+    background-color: white;
+    box-shadow: 0 2px 5px 1px rgb(64 60 67 / 30%);
+}

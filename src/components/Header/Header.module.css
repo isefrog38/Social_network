@@ -84,34 +84,3 @@
     }
 }
 
-.search_panel_block {
-    display: flex;
-    align-items: center;
-}
-
-.icon_search {
-    width: 30px;
-    height: 30px;
-}
-
-.input {
-    margin: 0 10px;
-    width: 200px;
-    height: 20px;
-    padding: 5px;
-    border-radius: 20px;
-    font-size: 1.2rem;
-}
-
-@media (min-width: 200px) and (max-width: 1200px) {
-    .icon_search {
-        margin-right: 30px;
-    }
-
-    .input {
-        position: absolute;
-        top: -500px;
-    }
-}
-
-
