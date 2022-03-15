@@ -13,7 +13,6 @@ export const ProfileContainer = () => {
     let { id } = useSelector<AppStateType, initialStateAuthorizationType>(state => state.AuthorizationReducer);
     let dispatch = useDispatch();
     let { userId } = useParams();
-    console.log(userId)
 
     useEffect(() => {
             if (!userId || userId === ":userId") {
