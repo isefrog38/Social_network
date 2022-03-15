@@ -19,7 +19,7 @@
 @media (min-width: 200px) and (max-width: 700px) {
     .header {
         position: fixed;
-        width: 495px;
+        width: 380px;
         height: 70px;
     }
 }
@@ -44,11 +44,8 @@
 
 @media (min-width: 200px) and (max-width: 700px) {
     .nameHeader {
-        width: 200px;
-        font-weight: 500;
-        font-size: 1.2rem;
-        justify-content: flex-start;
-        margin-left: 100px;
+        position: absolute;
+        top: -500px;
     }
 }
 
@@ -66,7 +63,7 @@
     left: -40px;
 }
 
-@media (min-width: 200px) and (max-width: 700px) {
+@media (min-width: 300px) and (max-width: 700px) {
     .logo_block {
         position: absolute;
     }
@@ -78,6 +75,7 @@
 @media (min-width: 700px) and (max-width: 1200px) {
     .logo_block {
         position: absolute;
+        top: -500px;
     }
     .logo {
         top: -500px;

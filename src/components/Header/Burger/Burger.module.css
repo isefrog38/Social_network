@@ -15,6 +15,7 @@
 @media (min-width: 300px) and (max-width: 1200px) {
     .headerParent {
         position: fixed;
+        width: 20px;
         display: flex;
         align-items: center;
         justify-content: flex-start;
@@ -89,8 +90,8 @@
         flex-wrap: wrap;
         justify-content: space-evenly;
         align-items: center;
-        width: 740px;
-        height: 200px;
+        width: 350px;
+        height: 350px;
     }
 
     .item_div {
@@ -107,7 +108,7 @@
         color: black;
         display: flex;
         flex-wrap: wrap;
-        width: 180px;
+        width: 150px;
         height: 70px;
         align-items: center;
         background-color: white;

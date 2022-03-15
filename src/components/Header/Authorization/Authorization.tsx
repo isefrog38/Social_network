@@ -1,26 +1,47 @@
-import React from 'react';
+import React, {useState} from 'react';
 import s from './Authorization.module.css';
-import {NavLink} from "react-router-dom";
 import {initialStateAuthorizationType} from "../../../redax/Authorization-reducer";
+import {SignUp} from "../../LoginizationPage/SignUp";
+import {SignIn} from "../../LoginizationPage/SignIn";
 
 type AuthorizationType = {
     stateUser: initialStateAuthorizationType
 }
 
 export const Authorization = (props: AuthorizationType) => {
-    return (
-        <div className={s.main_div_auth}>
-            {props.stateUser.isAuth
-                ? <h2>{props.stateUser.login}</h2>
-                : <>
-                    <NavLink to={'/signIn'} className={s.button}>
+
+        let [showSignIn, setShowSignIn] = useState<boolean>(false);
+        let [showSignUp, setShowSignUp] = useState<boolean>(false);
+
+        const onClickHandlerSignIn = () => {
+            setShowSignIn(!showSignIn)
+        }
+
+        const onClickHandlerSignUp = () => {
+            setShowSignUp(!showSignUp)
+        }
+
+        return (
+            <div className={s.main_div_auth}>
+                {props.stateUser.isAuth
+                    ? <h2>{props.stateUser.login}</h2>
+                    : <>{/*<NavLink to={'/signIn'} className={s.button} onClick={onClickHandler}>
                         Sign In
                     </NavLink>
-                    <NavLink to={'/SignUp'} className={s.button}>
+                    <NavLink to={'/SignUp'} className={s.button} onClick={onClickHandler}>
                         Sign Up
-                    </NavLink>
-                </>
-            }
-        </div>
-    );
-};
+                    </NavLink>*/}
+                        <a className={s.button} onClick={onClickHandlerSignIn}>
+                            Sign In
+                        </a>
+                        <a className={s.button} onClick={onClickHandlerSignUp}>
+                            Sign Up
+                        </a>
+                    </>
+                }
+                {showSignIn && <SignIn setShowSignIn={setShowSignIn}/>}
+                {showSignUp && <SignUp setShowSignUp={setShowSignUp}/>}
+            </div>
+        );
+    }
+;
