@@ -16,29 +16,29 @@ export const getUsers = (activePage: number = 1, sizeUsersPage: number = 10) => 
        })
 }
 
-export const onPageChanged = (activePage: number, sizeUsersPage: number) => {
-   return instance.get(`users?page=${activePage}&count=${sizeUsersPage}`)
+export const onPageChanged = (page: number, sizeUsersPage: number) => {
+   return instance.get(`users?page=${page}&count=${sizeUsersPage}`)
        .then(response => {
            return response.data;
        })
 }
 
 export const getUserProfile = (userId: string) => {
-    return axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
+    return instance.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
         .then(response => {
             return response.data
         })
 }
 
 export const followFunction = (id: number) => {
-    return axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${id}`)
+    return instance.post(`https://social-network.samuraijs.com/api/1.0/follow/${id}`)
         .then(response => {
             return response.data
         })
 }
 
 export const unfollowFunction = (id: number) => {
-    return axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${id}`)
+    return instance.delete(`https://social-network.samuraijs.com/api/1.0/follow/${id}`)
         .then(response => {
             return response.data
         })

@@ -4,7 +4,7 @@ import {AppStateType} from "../../redax/redux-store";
 import {
     followAC,
     InitialUsersStateType,
-    setActivePageUsersAC, setToggleFetchingAC, setTotalCountPagesAC,
+    setActivePageUsersAC, setDisabledButtonFollowAC, setToggleFetchingAC, setTotalCountPagesAC,
     setUsersAC,
     unfollowAC,
     UserType
@@ -24,7 +24,9 @@ type UsersClassPropsType = {
     activePage: number
     setTotalCountPages: (totalCount: number) => void
     isFetching: boolean
+    disabled: Array<number>
     showPreloader: (isFetching: boolean) => void
+    setDisabled: (isDisabled: boolean, userId: number) => void
 }
 
 class UsersClassContainer extends React.Component<UsersClassPropsType> {
@@ -64,14 +66,16 @@ class UsersClassContainer extends React.Component<UsersClassPropsType> {
                 {this.props.isFetching
                     ? <Preloader/>
                     : <Users
+                        onClickHandler={this.onClickHandler}
                         setActivePage={this.props.setActivePage}
                         pages={pages}
                         unfollow={this.props.unfollow}
                         follow={this.props.follow}
                         users={this.props.users}
-                        onClickHandler={this.onClickHandler}
                         activePage={this.props.activePage}
                         defaultAvatar={this.defaultAvatar}
+                        disabled={this.props.disabled}
+                        setDisabled={this.props.setDisabled}
                     />
                 }
             </div>
@@ -90,6 +94,8 @@ export const UsersContainer = React.memo(() => {
     const setActivePage = useCallback((page: number) => dispatch(setActivePageUsersAC(page)), [dispatch]);
     const setTotalCountPages = useCallback((totalCount: number) => dispatch(setTotalCountPagesAC(totalCount)), [dispatch]);
     const showPreloader = useCallback((isFetching: boolean) => dispatch(setToggleFetchingAC(isFetching)), [dispatch]);
+    const disabledAxiosFunc = useCallback((isDisabled: boolean, userId: number) => dispatch(setDisabledButtonFollowAC(isDisabled, userId)), [dispatch]);
+
 
     return (
         <UsersClassContainer
@@ -104,6 +110,8 @@ export const UsersContainer = React.memo(() => {
             setTotalCountPages={setTotalCountPages}
             isFetching={stateUsers.isFetching}
             showPreloader={showPreloader}
+            disabled={stateUsers.isDisabled}
+            setDisabled={disabledAxiosFunc}
         />
     )
 })

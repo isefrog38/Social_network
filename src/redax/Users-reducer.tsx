@@ -1,4 +1,6 @@
-type UserActionType = FollowACType | UnFollowACType | setUsersType | setPageUsersType | setTotalCountType | setToggleFetchingType;
+import {isDisabled} from "@testing-library/user-event/dist/utils";
+
+type UserActionType = FollowACType | UnFollowACType | setUsersType | setPageUsersType | setTotalCountType | setToggleFetchingType | setDisabledButtonFollow;
 type FollowACType = {
     type: "FOLLOW",
     userId: number
@@ -23,6 +25,11 @@ type setToggleFetchingType = {
     type: "TOGGLE_FETCHING"
     isFetching: boolean
 };
+type setDisabledButtonFollow = {
+    type: "DISABLED_FOLLOW_BUTTON"
+    isDisabled: boolean
+    userId: number
+};
 export type UserType = {
     name: string,
     id: number,
@@ -40,6 +47,7 @@ export type InitialUsersStateType = {
     sizeUsersPage: number
     activePage: number
     isFetching: boolean
+    isDisabled: Array<number>
 };
 
 const FOLLOW = "FOLLOW";
@@ -48,6 +56,7 @@ const SET_USERS = "SET_USERS";
 const SET_PAGE_USERS = "SET_PAGE_USERS";
 const SET_TOTAL_COUNT = "SET_TOTAL_COUNT";
 const TOGGLE_FETCHING = "TOGGLE_FETCHING";
+const DISABLED_FOLLOW_BUTTON = "DISABLED_FOLLOW_BUTTON";
 
 let initialState: InitialUsersStateType = {
     users: [],
@@ -55,6 +64,7 @@ let initialState: InitialUsersStateType = {
     sizeUsersPage: 5,
     activePage: 1,
     isFetching: false,
+    isDisabled: [],
 };
 
 export const UsersReducer = (state = initialState, action: UserActionType): InitialUsersStateType => {
@@ -91,6 +101,14 @@ export const UsersReducer = (state = initialState, action: UserActionType): Init
                 ...state, isFetching: action.isFetching
             }
         }
+        case DISABLED_FOLLOW_BUTTON : {
+            return {
+                ...state,
+                isDisabled: action.isDisabled
+                    ? [...state.isDisabled, action.userId]
+                    : state.isDisabled.filter(id => id !== action.userId)
+            }
+        }
         default:
             return state
     }
@@ -103,3 +121,4 @@ export const setUsersAC = (users: Array<UserType>): setUsersType => ({type: SET_
 export const setActivePageUsersAC = (page: number): setPageUsersType => ({type: SET_PAGE_USERS, page} as const);
 export const setTotalCountPagesAC = (totalCount: number): setTotalCountType => ({type: SET_TOTAL_COUNT, totalCount} as const);
 export const setToggleFetchingAC = (isFetching: boolean): setToggleFetchingType => ({type: TOGGLE_FETCHING, isFetching} as const);
+export const setDisabledButtonFollowAC = (isDisabled: boolean, userId: number): setDisabledButtonFollow => ({type: DISABLED_FOLLOW_BUTTON, isDisabled, userId} as const);

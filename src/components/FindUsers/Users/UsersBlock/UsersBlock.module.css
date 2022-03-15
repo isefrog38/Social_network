@@ -45,6 +45,6 @@
     opacity: 0.88;
 }
 .button:disabled {
-    pointer-events: none;
-    opacity: 0.65;
+    cursor: no-drop;
+    opacity: 0.55;
 }

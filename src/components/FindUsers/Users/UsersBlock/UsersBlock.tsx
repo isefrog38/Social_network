@@ -16,24 +16,33 @@ type UsersBlockType = {
     unfollow: (id: number) => void
     follow: (id: number) => void
     defaultAvatar: string
+    disabled: Array<number>
+    setDisabled: (isDisabled: boolean, userId: number) => void
 }
 
 export const UsersBlock = (props: UsersBlockType) => {
 
     const onClickHandlerFollow = () => {
-        followFunction(props.id).then(data => {
+        props.setDisabled(true, props.id)
+        followFunction(props.id)
+            .then(data => {
             if (data.resultCode === 0) {
                 props.follow(props.id)
             }
+            props.setDisabled(false, props.id)
         })
     };
     const onClickHandlerUnfollow = () => {
-        unfollowFunction(props.id).then(data => {
+        props.setDisabled(true, props.id)
+        unfollowFunction(props.id)
+            .then(data => {
             if (data.resultCode === 0) {
-                props.follow(props.id)
+                props.unfollow(props.id)
             }
+            props.setDisabled(false, props.id)
         })
     };
+    const disabled = props.disabled.some(id => id === props.id);
 
     return (
         <div key={props.id} className={s.mainDiv}>
@@ -45,9 +54,9 @@ export const UsersBlock = (props: UsersBlockType) => {
                 </NavLink>
                 <div>
                     {!props.followed
-                        ? <button className={s.button}
+                        ? <button className={s.button} disabled={disabled}
                                   onClick={ onClickHandlerFollow }>Follow</button>
-                        : <button className={s.button}
+                        : <button className={s.button} disabled={disabled}
                                   onClick={ onClickHandlerUnfollow }>UnFollow</button>
                     }
                 </div>

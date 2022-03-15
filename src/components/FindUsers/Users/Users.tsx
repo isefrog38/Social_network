@@ -13,6 +13,8 @@ type UsersType = {
     onClickHandler: (page: number) => void
     pages: number[]
     defaultAvatar: string
+    disabled: Array<number>
+    setDisabled: (isDisabled: boolean, userId: number) => void
 }
 
 export const Users = (props: UsersType) => {
@@ -27,9 +29,11 @@ export const Users = (props: UsersType) => {
     let Users = props.users.map(user => <UsersBlock
                                                 key={user.id}
                                                 {...user}
+                                                disabled={props.disabled}
                                                 unfollow={props.unfollow}
                                                 follow={props.follow}
                                                 defaultAvatar={props.defaultAvatar}
+                                                setDisabled={props.setDisabled}
                                                />
     );
 
