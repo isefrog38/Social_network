@@ -16,7 +16,7 @@ type DataType = {
 type SetUserDataAC = ReturnType<typeof setAuthUserDataAC>;
 let initialStateAuthorization: initialStateAuthorizationType = {
     /*userId: 38,
-    email: 'pavel@virtualbrest.com ',
+    email: 'pavel@virtualbrest.com',
     login: 'IseFrog',
     isFetching: false*/
     id: null,

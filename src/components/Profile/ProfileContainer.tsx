@@ -10,13 +10,14 @@ import {getUserProfile} from "../../Api/Api";
 export const ProfileContainer = () => {
 
     let stateProfile = useSelector<AppStateType, ProfileStateType>(state => state.ProfileReducer);
-    let { id } = useSelector<AppStateType, initialStateAuthorizationType>(state => state.AuthorizationReducer)
+    let { id } = useSelector<AppStateType, initialStateAuthorizationType>(state => state.AuthorizationReducer);
     let dispatch = useDispatch();
     let { userId } = useParams();
+    console.log(userId)
 
     useEffect(() => {
-            if (!userId) {
-                userId = `${id}`;
+            if (!userId || userId === ":userId") {
+                userId = `/${id}`;
             }
             getUserProfile(userId).then(data => {
                 dispatch(setUsersProfile(data))

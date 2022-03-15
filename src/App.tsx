@@ -9,8 +9,14 @@ import {UsersContainer} from "./components/FindUsers/UsersContainer";
 import {NavbarContainer} from "./components/Navbar/NavbarContainer";
 import {ProfileContainer} from "./components/Profile/ProfileContainer";
 import {HeaderContainer} from "./components/Header/HeaderContainer";
+import {useSelector} from "react-redux";
+import {AppStateType} from "./redax/redux-store";
+import {initialStateAuthorizationType} from "./redax/Authorization-reducer";
 
 const App = () => {
+
+    let { id } = useSelector<AppStateType, initialStateAuthorizationType>(state => state.AuthorizationReducer)
+    console.log(id)
     return (
         <div className={"App"}>
             <HeaderContainer/>
@@ -18,7 +24,8 @@ const App = () => {
                 <NavbarContainer/>
                 <div className={'app-wrapper-content'}>
                     <Routes>
-                        <Route path={'/'} element={<Navigate to={'/profile/22589'}/>}/>
+                            <Route path={'/'} element={<Navigate to={'/profile'}/>}/>   {/*my profile 22589*/}
+                        {id &&  <Route path={'/profile'} element={<Navigate to={`/profile/${id}`}/>}/>}
                         <Route path='/dialogs' element={<DialogsContainer/>}/>
                         <Route path='/profile/:userId' element={<ProfileContainer/>}/>
                         <Route path='/users' element={<UsersContainer/>}/>
