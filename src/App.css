@@ -1,5 +1,4 @@
 .app-wrapper {
-    margin-right: 3%;
     display: grid;
     width: 100%;
     min-height: 100vh;
@@ -13,7 +12,7 @@
 
 @media (min-width: 700px) and (max-width: 1200px) {
     .app-wrapper {
-        margin-left: 0;
+        margin: 0 auto;
         grid-template-rows: 100px 1fr;
         grid-template-columns: 10px auto;
     }
@@ -21,15 +20,15 @@
 
 @media (min-width: 300px) and (max-width: 700px) {
     .app-wrapper {
-        margin-left: 0;
+        margin: 0 auto;
         grid-template-rows: 100px 1fr;
-        grid-template-columns: 10px 400px;
+        grid-template-columns: 10px auto;
     }
 }
 
 .app-wrapper-content {
     grid-area: c;
     background-color: #e5ebf1;
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
 }

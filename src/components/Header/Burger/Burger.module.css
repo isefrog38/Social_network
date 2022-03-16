@@ -79,7 +79,7 @@
     .block_burger_menu {
         display: flex;
         width: 820px;
-        height: 200px;
+        height: 340px;
         background-color: rgba(255, 255, 255, 0.53);
         margin-top: 70px;
         opacity: 0.88;
@@ -90,7 +90,7 @@
         flex-wrap: wrap;
         justify-content: space-evenly;
         align-items: center;
-        width: 350px;
+        width: 520px;
         height: 350px;
     }
 

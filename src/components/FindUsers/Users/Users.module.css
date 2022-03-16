@@ -9,3 +9,9 @@
     margin-bottom: 20px;
     cursor: pointer;
 }
+
+@media (min-width: 200px) and (max-width: 700px) {
+    .blockButtonsPage {
+        width: 100%;
+    }
+}
