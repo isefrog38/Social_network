@@ -16,7 +16,7 @@ import {initialStateAuthorizationType} from "./redax/Authorization-reducer";
 const App = () => {
 
     let { id } = useSelector<AppStateType, initialStateAuthorizationType>(state => state.AuthorizationReducer)
-    console.log(id)
+
     return (
         <div className={"App"}>
             <HeaderContainer/>

@@ -5,14 +5,14 @@
 
 .dialogs {
     display: flex;
-    justify-content: space-between;
-    width: 100%;
-    margin-left: 30px;
+    justify-content: center;
+    height: auto;
+    margin: 0 30px;
 }
 
 @media (min-width: 200px) and (max-width: 700px) {
     .dialogs {
-        margin-left: -300px;
+        margin: 0 auto;
     }
 }
 
@@ -118,34 +118,32 @@
 .main_messages_block {
     background-color: white;
     border-radius: 20px;
-    margin-left: 20px;
     padding: 0 50px;
     display: flex;
     justify-content: space-around;
-    width: 80%;
+    width: 70%;
 }
 
 @media (min-width: 200px) and (max-width: 700px) {
     .main_messages_block {
-        width: 450px;
-        padding: 20px;
-        margin: 0;
-        height: auto;
+        width: 100%;
+        padding: 5px;
+        margin-right: 10px;
     }
 }
 
 .dialogsItems {
     width: 20%;
     min-width: 160px;
-    height: 400px;
+    height: auto;
     background-color: white;
     border-radius: 20px;
+    margin-right: 20px;
 }
 
-@media (min-width: 200px) and (max-width: 700px) {
+@media (min-width: 100px) and (max-width: 700px) {
     .dialogsItems {
-        width: 200px;
-        margin-right: 5px ;
+        display: none;
     }
 }
 

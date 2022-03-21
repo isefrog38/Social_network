@@ -6,8 +6,7 @@
             'h h'
             'n c';
     grid-template-rows: 30px 1fr;
-    /*grid-template-columns: 2fr 10fr;*/
-    grid-template-columns: 280px auto;
+    grid-template-columns: 320px auto;
 }
 
 @media (min-width: 700px) and (max-width: 1200px) {

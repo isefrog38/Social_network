@@ -2,12 +2,12 @@
     border: 2px dashed ;
     display: flex;
     height: auto;
-    width: 450px;
-    margin: 10px;
+    width: 90%;
+    margin: 10px 0;
     flex-direction: column-reverse;
     justify-content:center;
     align-items:center;
-    padding: 5px;
+    padding: 10px 0;
     background-color: white;
     border-radius: 20px;
 }

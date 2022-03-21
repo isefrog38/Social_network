@@ -1,0 +1,11 @@
+.main_profile_block {
+    width: 90%;
+    margin: 0 auto;
+}
+
+@media (min-width: 300px) and (max-width: 700px) {
+    .main_profile_block {
+        width: 100%;
+        margin: 1px;
+    }
+}

@@ -11,10 +11,12 @@ const Dialogs = (props: AllDialogsPropsType) => {
     return (
         <div>
             <div className={s.dialogs}>
-                <div className={s.dialogsItems}>
-                    {dialogsElements}
+                <div>
+                    <div className={s.dialogsItems}>
+                        {dialogsElements}
+                    </div>
                 </div>
-                <AllMessagesContainer />
+                <AllMessagesContainer/>
             </div>
         </div>
     )

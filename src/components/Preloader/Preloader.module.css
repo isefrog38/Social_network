@@ -2,6 +2,12 @@
     margin-left: 50px;
 }
 
+@media (min-width: 300px) and (max-width: 700px) {
+    .main_block_preloader {
+        margin: 0 auto;
+    }
+}
+
 .preloader {
     width: 600px;
     margin-left: 100px;
