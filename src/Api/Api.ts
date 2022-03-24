@@ -11,36 +11,26 @@ export const instance = axios.create({
 
 export const getUsers = (activePage: number = 1, sizeUsersPage: number = 10) => {
    return instance.get(`users?page=${activePage}&count=${sizeUsersPage}`)
-       .then(response => {
-           return response.data;
-       })
+       .then(response => response.data);
 }
 
 export const onPageChanged = (page: number, sizeUsersPage: number) => {
    return instance.get(`users?page=${page}&count=${sizeUsersPage}`)
-       .then(response => {
-           return response.data;
-       })
+       .then(response => response.data);
 }
 
 export const getUserProfile = (userId: string) => {
     return instance.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
-        .then(response => {
-            return response.data
-        })
+        .then(response => response.data);
 }
 
 export const followFunction = (id: number) => {
     return instance.post(`https://social-network.samuraijs.com/api/1.0/follow/${id}`)
-        .then(response => {
-            return response.data
-        })
+        .then(response => response.data);
 }
 
 export const unfollowFunction = (id: number) => {
     return instance.delete(`https://social-network.samuraijs.com/api/1.0/follow/${id}`)
-        .then(response => {
-            return response.data
-        })
+        .then(response => response.data);
 }
 
