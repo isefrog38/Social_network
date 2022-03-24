@@ -27,7 +27,7 @@ export const SignIn = (props: SignInType) => {
                     </p>
                 </form>
             </div>
-            <div className={s.overlay} onClick={() => props.setShowSignIn(false)}></div>
+            <div className={s.overlay} onClick={() => props.setShowSignIn(false)}/>
         </div>
     );
 };

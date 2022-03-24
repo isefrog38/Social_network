@@ -13,7 +13,7 @@ import {useSelector} from "react-redux";
 import {AppStateType} from "./redax/redux-store";
 import {initialStateAuthorizationType} from "./redax/Authorization-reducer";
 
-const App = () => {
+export const App = () => {
 
     let { id } = useSelector<AppStateType, initialStateAuthorizationType>(state => state.AuthorizationReducer)
 
@@ -24,7 +24,7 @@ const App = () => {
                 <NavbarContainer/>
                 <div className={'app-wrapper-content'}>
                     <Routes>
-                            <Route path={'/'} element={<Navigate to={'/profile'}/>}/>   {/*my profile 22589*/}
+                        <Route path={'/'} element={<Navigate to={'/profile'}/>}/>   {/*my profile 22589*/}
                         {id &&  <Route path={'/profile'} element={<Navigate to={`/profile/${id}`}/>}/>}
                         <Route path='/dialogs' element={<DialogsContainer/>}/>
                         <Route path='/profile/:userId' element={<ProfileContainer/>}/>
@@ -37,6 +37,4 @@ const App = () => {
             </div>
         </div>
     )
-}
-
-export default App;
+};
