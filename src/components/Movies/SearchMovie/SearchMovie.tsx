@@ -1,7 +1,7 @@
 import React, {FC, useState} from 'react';
 import s from './SearchMovie.module.css';
 import {MovieResponceType, searchFilmsByTitle} from "../../../Api/Api";
-import {SearchPanel} from "../../Header/SearchPanel/SearchPanel";
+import {SearchPanel} from "../../SearchPanel/SearchPanel";
 
 type SearchMovieType = {
     setSearchResult: (result: Array<MovieResponceType>) => void
@@ -45,23 +45,28 @@ export const SearchMovie: FC<SearchMovieType> = ({setSearchResult, setPreloader}
     return (
         <div>
             <h1>Search your movie</h1>
-            <div className={s.main_search_block}>
+            <div className={s.main_search}>
+                <div className={s.main_search_block}>
                     <SearchPanel
                         type="text"
                         value={searchName}
                         onChange={(e) => setSearchName(e.currentTarget.value)}
                         placeholderTitle={'Search by name'}
                     />
+                </div>
                 <div className={s.error_message_search}> {searchError} </div>
                 <button onClick={searchFilm} className={s.buttons}>Search</button>
             </div>
-            <div className={s.main_search_block}>
-                <SearchPanel
-                    type="text"
-                    value={searchNameByType}
-                    onChange={(e) => setSearchNameByType(e.currentTarget.value)}
-                    placeholderTitle={'Search by type'}
-                />
+
+            <div className={s.main_search}>
+                <div className={s.main_search_block}>
+                    <SearchPanel
+                        type="text"
+                        value={searchNameByType}
+                        onChange={(e) => setSearchNameByType(e.currentTarget.value)}
+                        placeholderTitle={'Search by type'}
+                    />
+                </div>
                 <div className={s.error_message_search}> {searchResultByType} </div>
                 <div className={s.buttons_block}>
                     <button onClick={searchByType} data-t='movie' className={s.buttons}>Movie</button>

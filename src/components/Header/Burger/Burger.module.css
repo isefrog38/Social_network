@@ -1,7 +1,6 @@
 .headerParent {
     width: 100%;
-    position: absolute;
-    top: -500px;
+    display: none;
     height: 60px;
 }
 
@@ -20,6 +19,7 @@
         align-items: center;
         justify-content: flex-start;
         top: 0;
+        z-index: 9;
     }
 
     /*.headerChild {
@@ -39,6 +39,7 @@
 
     .main_block {
         display: flex;
+        z-index: 9;
     }
 
     .one_block {
@@ -48,6 +49,7 @@
         display: flex;
         left: 30px;
         padding: 2px;
+        z-index: 9;
     }
 
     .one_block:hover {
@@ -82,6 +84,7 @@
         background-color: rgba(255, 255, 255, 0.53);
         margin-top: 70px;
         opacity: 0.88;
+        z-index: 9;
     }
 
     .menu_items {
@@ -91,6 +94,7 @@
         align-items: center;
         width: 370px;
         height: 400px;
+        z-index: 9;
     }
 
     .item_div {
@@ -99,6 +103,7 @@
         justify-content: center;
         border-radius: 10px;
         padding: 7px;
+        z-index: 9;
     }
 
     .item {

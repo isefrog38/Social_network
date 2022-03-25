@@ -28,7 +28,12 @@ export const ResultSearchMovie: FC<SearchResultType> = ({searchResult}) => {
     const resultsSearch = searchResult.map(el => {
         return (
             <div className={s.block_one_film}>
-                <img id={el.imdbID} src={el.Poster !== "N/A" ? el.Poster : altarnativePoster} alt={el.Title}/>
+                <img
+                    className={s.image}
+                    id={el.imdbID}
+                    src={el.Poster !== "N/A" ? el.Poster : altarnativePoster}
+                    alt={el.Title}
+                />
                 <div className={s.title}>{el.Title}</div>
                 <div className={s.type}>{el.Type}</div>
                 <div className={s.year}>{el.Year}th year</div>

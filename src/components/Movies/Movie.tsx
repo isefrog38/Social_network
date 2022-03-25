@@ -1,14 +1,29 @@
-import React, {useState} from "react";
+import React, {FC, useState} from "react";
 import s from './Movie.module.css'
 import {SearchMovie} from "./SearchMovie/SearchMovie";
 import {ResultSearchMovie} from "./ResultSearchMovie/ResultSearchMovie";
 import {MovieResponceType} from "../../Api/Api";
 import {Preloader2} from "../Preloader/Preloader2/Preloader2";
+import {Pages} from "../Pages/Pages";
 
-export const Movie = () => {
+type MovieType = {
+    pages: number[]
+    activePage: number
+    onClickHandler: (page: number) => void
+}
+
+export const Movie: FC<MovieType> = ({onClickHandler, activePage, pages}) => {
 
     const [searchResult, setSearchResult] = useState<Array<MovieResponceType>>([]);
     const [preloader, setPreloader] = useState<boolean>(false);
+
+
+    let PagesBlock = pages.map(page => <Pages
+        key={page}
+        onClickHandler={onClickHandler}
+        activePage={activePage}
+        page={page}
+    />);
 
     return (
         <div className={s.main_search_block}>
@@ -18,7 +33,11 @@ export const Movie = () => {
             <div className={s.results_show_films}>
                 {preloader
                         ? <Preloader2/>
-                        : <ResultSearchMovie searchResult={searchResult} />
+                        : <>
+                            {PagesBlock}
+                            <ResultSearchMovie searchResult={searchResult} />
+                            {PagesBlock}
+                          </>
                 }
             </div>
         </div>

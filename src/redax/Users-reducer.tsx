@@ -1,5 +1,3 @@
-import {isDisabled} from "@testing-library/user-event/dist/utils";
-
 type UserActionType = FollowACType | UnFollowACType | setUsersType | setPageUsersType | setTotalCountType | setToggleFetchingType | setDisabledButtonFollow;
 type FollowACType = {
     type: "FOLLOW",

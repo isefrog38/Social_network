@@ -1,16 +1,11 @@
 .search_panel_block {
     display: flex;
-    align-items: center;
-    margin-top: 20px;
-    height: 10px;
-    border-radius: 20px;
-    border: 1px solid;
-    padding: 10px;
 }
 
 .icon_search {
     width: 20px;
     height: 20px;
+    margin-top: 1px;
 }
 
 .input {
@@ -18,7 +13,7 @@
     width: 200px;
     height: 20px;
     border: none;
-    font-size: 1rem;
+    font-size: 1.2rem;
 }
 
 .input:active {
@@ -34,12 +29,3 @@
     outline: none;
 }
 
-@media (min-width: 300px) and (max-width: 1200px) {
-    .icon_search {
-        display: none;
-    }
-
-    .input {
-        display: none;
-    }
-}

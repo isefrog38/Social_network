@@ -1,6 +1,6 @@
 import React, {ChangeEvent, FC} from 'react';
 import s from "./SearchPanel.module.css";
-import SearchIcon from "../../../mini img/Search.png";
+import SearchIcon from "../../mini img/Search.png";
 
 type SearchPanelType = {
     placeholderTitle: string

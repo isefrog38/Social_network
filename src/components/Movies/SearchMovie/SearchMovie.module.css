@@ -3,10 +3,20 @@
     font-weight: 600;
     color: #e12424;
     margin-left: 10px;
+
+}
+
+.main_search {
+    margin: 50px 0;
 }
 
 .main_search_block {
-    margin: 50px 0;
+    display: flex;
+    align-items: center;
+    height: 15px;
+    border-radius: 20px;
+    border: 1px solid;
+    padding: 12px;
 }
 
 .inputs_block {
