@@ -1,4 +1,5 @@
 import axios from "axios";
+import {log} from "util";
 
 export type MovieResponceType = {
     Poster: string
@@ -44,12 +45,18 @@ export const unfollowFunction = (id: number) => {
 let key = '93abb66b';
 
 export const instanceMovies = axios.create({
-    baseURL: "http://www.omdbapi.com/",
+    baseURL: `http://www.omdbapi.com/`,
 })
 
 export const  searchFilmsByTitle = (title: string) => {
     return instanceMovies.get(`?apikey=${key}&s=${title}`)
 }
+
+export const onPageMoviesChanged = (page: number, sizeUsersPage: number) => {
+    return instanceMovies.get(`?apikey=${key}&page=${page}&count=${sizeUsersPage}`)
+        .then(data => console.log(data))
+}
+onPageMoviesChanged(2,10)
 
 
 

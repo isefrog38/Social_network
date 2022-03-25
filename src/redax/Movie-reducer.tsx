@@ -1,6 +1,6 @@
-type UserActionType = setPageUsersType | setTotalCountType | setToggleFetchingType | setDisabledButtonFollow;
+type UserActionType = setPageUsersType | setTotalCountType | setToggleFetchingType;
 type setPageUsersType = {
-    type: "SET_PAGE_USERS"
+    type: "SET_PAGE_MOVIES"
     page: number
 };
 type setTotalCountType = {
@@ -9,57 +9,41 @@ type setTotalCountType = {
 };
 type setToggleFetchingType = {
     type: "TOGGLE_FETCHING"
-    isFetching: boolean
-};
-type setDisabledButtonFollow = {
-    type: "DISABLED_FOLLOW_BUTTON"
-    isDisabled: boolean
-    userId: number
+    preloader: boolean
 };
 export type InitialMovieStateType = {
     totalUsersCountPage: number
     sizeUsersPage: number
     activePage: number
-    isFetching: boolean
-    isDisabled: Array<number>
+    preloader: boolean
 };
 
-const SET_PAGE_USERS = "SET_PAGE_USERS";
+const SET_PAGE_MOVIES = "SET_PAGE_MOVIES";
 const SET_TOTAL_COUNT = "SET_TOTAL_COUNT";
 const TOGGLE_FETCHING = "TOGGLE_FETCHING";
-const DISABLED_FOLLOW_BUTTON = "DISABLED_FOLLOW_BUTTON";
 
 let initialState: InitialMovieStateType = {
     totalUsersCountPage: 0,
     sizeUsersPage: 10,
     activePage: 1,
-    isFetching: false,
-    isDisabled: [],
+    preloader: false,
 };
 
 export const MovieReducer = (state = initialState, action: UserActionType): InitialMovieStateType => {
     switch (action.type) {
-        case SET_PAGE_USERS : {
+        case SET_PAGE_MOVIES : {
             return {
                 ...state, activePage: action.page
             }
         }
         case SET_TOTAL_COUNT : {
             return {
-                ...state, totalUsersCountPage: action.totalCount > 75 ? 75 : action.totalCount
+                ...state, totalUsersCountPage: Number(action.totalCount) > 75 ? 75 : Number(action.totalCount)
             }
         }
         case TOGGLE_FETCHING : {
             return {
-                ...state, isFetching: action.isFetching
-            }
-        }
-        case DISABLED_FOLLOW_BUTTON : {
-            return {
-                ...state,
-                isDisabled: action.isDisabled
-                    ? [...state.isDisabled, action.userId]
-                    : state.isDisabled.filter(id => id !== action.userId)
+                ...state, preloader: action.preloader
             }
         }
         default:
@@ -67,7 +51,6 @@ export const MovieReducer = (state = initialState, action: UserActionType): Init
     }
 }
 
-export const setActivePageMovieAC = (page: number): setPageUsersType => ({type: SET_PAGE_USERS, page} as const);
+export const setActivePageMovieAC = (page: number): setPageUsersType => ({type: SET_PAGE_MOVIES, page} as const);
 export const setTotalCountMoviePagesAC = (totalCount: number): setTotalCountType => ({type: SET_TOTAL_COUNT, totalCount} as const);
-export const setMovieToggleFetchingAC = (isFetching: boolean): setToggleFetchingType => ({type: TOGGLE_FETCHING, isFetching} as const);
-export const setDisabledButtonMovieAC = (isDisabled: boolean, userId: number): setDisabledButtonFollow => ({type: DISABLED_FOLLOW_BUTTON, isDisabled, userId} as const);
+export const setMovieToggleFetchingAC = (preloader: boolean): setToggleFetchingType => ({type: TOGGLE_FETCHING, preloader} as const);

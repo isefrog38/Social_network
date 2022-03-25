@@ -10,6 +10,13 @@
     font-size: 1.3rem;
     float: bottom;
     border-radius: 5px;
+    margin-right: 10px;
+}
+
+@media (min-width: 200px) and (max-width: 800px) {
+    .oneButtonPage {
+
+    }
 }
 
 .active {

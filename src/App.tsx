@@ -12,7 +12,7 @@ import {HeaderContainer} from "./components/Header/HeaderContainer";
 import {useSelector} from "react-redux";
 import {AppStateType} from "./redax/redux-store";
 import {initialStateAuthorizationType} from "./redax/Authorization-reducer";
-import {Movie} from "./components/Movies/Movie";
+import {MovieContainer} from "./components/Movies/MovieContainer";
 
 export const App = () => {
 
@@ -32,7 +32,7 @@ export const App = () => {
                         <Route path='/users' element={<UsersContainer/>}/>
                         <Route path='/news' element={<News/>}/>
                         <Route path='/music' element={<Music/>}/>
-                        <Route path='/movies' element={<Movie/>}/>
+                        <Route path='/movies' element={<MovieContainer/>}/>
                         <Route path='/settings' element={<Setting/>}/>
                     </Routes>
                 </div>

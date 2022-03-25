@@ -8,7 +8,6 @@ type UsersType = {
     unfollow: (id: number) => void
     follow: (id: number) => void
     users: UserType[]
-    setActivePage: (page: number) => void
     activePage: number
     onClickHandler: (page: number) => void
     pages: number[]

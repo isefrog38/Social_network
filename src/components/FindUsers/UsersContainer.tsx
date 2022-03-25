@@ -23,9 +23,9 @@ type UsersClassPropsType = {
     sizeUsersPage: number
     setActivePage: (page: number) => void
     activePage: number
-    setTotalCountPages: (totalCount: number) => void
     isFetching: boolean
     disabled: Array<number>
+    setTotalCountPages: (totalCount: number) => void
     showPreloader: (isFetching: boolean) => void
     setDisabled: (isDisabled: boolean, userId: number) => void
 }
@@ -68,7 +68,6 @@ class UsersClassContainer extends React.Component<UsersClassPropsType> {
                     ? <Preloader/>
                     : <Users
                         onClickHandler={this.onClickHandler}
-                        setActivePage={this.props.setActivePage}
                         pages={pages}
                         unfollow={this.props.unfollow}
                         follow={this.props.follow}

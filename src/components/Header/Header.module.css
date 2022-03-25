@@ -15,7 +15,7 @@
     .header {
         position: fixed;
         height: 70px;
-
+        z-index: 999;
     }
 }
 
@@ -23,6 +23,7 @@
     .header {
         position: fixed;
         height: 70px;
+        z-index: 999;
     }
 }
 

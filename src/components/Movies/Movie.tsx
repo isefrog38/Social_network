@@ -9,13 +9,15 @@ import {Pages} from "../Pages/Pages";
 type MovieType = {
     pages: number[]
     activePage: number
+    preloader: boolean
     onClickHandler: (page: number) => void
+    setTotalCountPages: (totalCount: number) => void
+    setPreloader: (isFetching: boolean) => void
 }
 
-export const Movie: FC<MovieType> = ({onClickHandler, activePage, pages}) => {
+export const Movie: FC<MovieType> = ({onClickHandler, activePage, preloader, pages, setTotalCountPages, setPreloader}) => {
 
     const [searchResult, setSearchResult] = useState<Array<MovieResponceType>>([]);
-    const [preloader, setPreloader] = useState<boolean>(false);
 
 
     let PagesBlock = pages.map(page => <Pages
@@ -28,15 +30,15 @@ export const Movie: FC<MovieType> = ({onClickHandler, activePage, pages}) => {
     return (
         <div className={s.main_search_block}>
             <div className={s.search_block}>
-                <SearchMovie setSearchResult={setSearchResult} setPreloader={setPreloader}/>
+                <SearchMovie setSearchResult={setSearchResult} setPreloader={setPreloader} setTotalCountPages={setTotalCountPages}/>
             </div>
             <div className={s.results_show_films}>
                 {preloader
                         ? <Preloader2/>
                         : <>
-                            {PagesBlock}
+                            <div className={s.pages_block}> { PagesBlock } </div>
                             <ResultSearchMovie searchResult={searchResult} />
-                            {PagesBlock}
+                            <div className={s.pages_block}> { PagesBlock } </div>
                           </>
                 }
             </div>

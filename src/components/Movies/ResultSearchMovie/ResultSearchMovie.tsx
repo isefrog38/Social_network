@@ -1,4 +1,4 @@
-import React, {FC, useEffect} from 'react';
+import React, {FC} from 'react';
 import s from './ResultSearchMovie.module.css';
 import {MovieResponceType} from "../../../Api/Api";
 import altarnativePoster from '../../../mini img/NoPoster.jpg';
@@ -8,8 +8,8 @@ type SearchResultType = {
 }
 
 export const ResultSearchMovie: FC<SearchResultType> = ({searchResult}) => {
-    console.log(searchResult)
-    useEffect(() => {
+
+    /*useEffect(() => {
 
         let func = () => {
             return <>
@@ -23,7 +23,7 @@ export const ResultSearchMovie: FC<SearchResultType> = ({searchResult}) => {
         return () => {
             window.removeEventListener('mouseout', func)
         }
-    })
+    })*/
 
     const resultsSearch = searchResult.map(el => {
         return (

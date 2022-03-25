@@ -6,9 +6,10 @@ import {SearchPanel} from "../../SearchPanel/SearchPanel";
 type SearchMovieType = {
     setSearchResult: (result: Array<MovieResponceType>) => void
     setPreloader: (show: boolean) => void
+    setTotalCountPages: (totalCount: number) => void
 }
 
-export const SearchMovie: FC<SearchMovieType> = ({setSearchResult, setPreloader}) => {
+export const SearchMovie: FC<SearchMovieType> = ({setTotalCountPages, setSearchResult, setPreloader}) => {
     const [searchName, setSearchName] = useState('');
     const [searchError, setSearchError] = useState('');
     const [searchNameByType, setSearchNameByType] = useState('');
@@ -31,6 +32,7 @@ export const SearchMovie: FC<SearchMovieType> = ({setSearchResult, setPreloader}
             const {data} = await searchFilmsByTitle(searchName);
             const {Search, Error, Response} = data;
             Response === 'True' ? setSearchResult(Search) : setSearchError(Error);
+            setTotalCountPages(data.totalResults) //set total pages
         } catch (error) {
             console.warn(error)
         }
