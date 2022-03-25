@@ -8,13 +8,13 @@ import {AppStateType} from "../../../redax/redux-store";
 export const Burger = () => {
 
     const [showBurger, setShowBurger] = useState<boolean>(false);
-    const {pathname} = useLocation();
+    /*const {pathname} = useLocation();
 
     useEffect(() => {
 
       setShowBurger(!showBurger)
 
-    }, [pathname]);
+    }, [pathname]);*/
 
     return (
          <div className={s.headerParent}>
@@ -38,7 +38,7 @@ const BurgerOn: FC<BurgerOnType> = ({setShowBurger, showBurger}) => {
     let state = useSelector<AppStateType, NavigateBarType[]>(state => state.NavigateBarReducer.navigateBar)
 
     const menuItems = state.map(el => (
-        <NavLink key={el.alt} to={el.to} className={s.item}>
+        <NavLink key={el.alt} to={el.to} className={s.item} onClick={() => setShowBurger(!showBurger)}>
             <div className={s.item_div}>
                 <img className={s.logo} src={el.srcImg} alt={el.alt}/>
                 {el.nameOfPage}
@@ -46,14 +46,13 @@ const BurgerOn: FC<BurgerOnType> = ({setShowBurger, showBurger}) => {
         </NavLink>));
 
     return (
-        <div className={s.two_block}>
+        <div className={s.two_block} onClick={() => setShowBurger(!showBurger)}>
             <div className={s.two_block_two}>
-                         <span onClick={() => setShowBurger(!showBurger)}
-                               className={s.spanOpenInvisible}/>
+                         <span className={s.spanOpenInvisible}/>
             </div>
             <div className={s.block_burger_menu}>
                 <div className={s.menu_items}>
-                    {menuItems}
+                    {menuItems}  {/* items*/}
                 </div>
             </div>
         </div>

@@ -1,4 +1,4 @@
-import React  from "react";
+import React, {useState} from "react";
 import s from './Header.module.css';
 import LogoHeader from "../../mini img/logoHEADER.jpg";
 import {Burger} from "./Burger/Burger";
@@ -9,6 +9,26 @@ import {initialStateAuthorizationType} from "../../redax/Authorization-reducer";
 type HeaderType = {
     stateUser: initialStateAuthorizationType
 }
+
+const Header = (props: HeaderType) => {
+
+    const [value, setValue] = useState('')
+
+    return (
+        <header className={s.header}>
+            <Logo />
+            <Burger />
+            <TitlePage />
+            <SearchPanel
+                placeholderTitle={'Search friends'}
+                value={value}
+                type={'text'}
+                onChange={(e) => setValue(e.currentTarget.value)}
+            />
+            <Authorization stateUser={props.stateUser}/>
+        </header>
+    )
+};
 
 const TitlePage = () => {
     return <h2 className={s.nameHeader}>Pavel Social Network</h2>
@@ -21,17 +41,5 @@ const Logo = () => {
         </div>
     )
 };
-
-const Header = (props: HeaderType) => {
-    return (
-        <header className={s.header}>
-            <Logo />
-            <Burger />
-            <TitlePage />
-            <SearchPanel />
-            <Authorization stateUser={props.stateUser}/>
-        </header>
-    )
-}
 
 export default Header;

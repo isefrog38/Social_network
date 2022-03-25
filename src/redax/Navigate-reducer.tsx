@@ -3,6 +3,7 @@ import imgMessage from "../mini img/message.png";
 import imgNews from "../mini img/News.png";
 import imgMusic from "../mini img/music.png";
 import imgUser from "../mini img/frend.png";
+import imgMovie from "../mini img/1179120.png";
 import imgSettings from "../mini img/setting.png";
 
 export type NavigateBarType = {
@@ -49,7 +50,13 @@ let initialState: InitialSideBarType = {
             srcImg: imgMusic
         },
         {
-            to: '/music',
+            to: '/movies',
+            alt: "img_movies",
+            nameOfPage: "Movies",
+            srcImg: imgMovie
+        },
+        {
+            to: '/settings',
             alt: "img_setting",
             nameOfPage: "Setting",
             srcImg: imgSettings

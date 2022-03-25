@@ -1,7 +1,14 @@
 import axios from "axios";
 
+export type MovieResponceType = {
+    Poster: string
+    Title: string
+    Type: string
+    Year: string
+    imdbID: string
+}
 
-export const instance = axios.create({
+export const instanceUsers = axios.create({
     baseURL: "https://social-network.samuraijs.com/api/1.0/",
     withCredentials: true,
     headers: {
@@ -10,27 +17,45 @@ export const instance = axios.create({
 })
 
 export const getUsers = (activePage: number = 1, sizeUsersPage: number = 10) => {
-   return instance.get(`users?page=${activePage}&count=${sizeUsersPage}`)
+   return instanceUsers.get(`users?page=${activePage}&count=${sizeUsersPage}`)
        .then(response => response.data);
 }
 
 export const onPageChanged = (page: number, sizeUsersPage: number) => {
-   return instance.get(`users?page=${page}&count=${sizeUsersPage}`)
+   return instanceUsers.get(`users?page=${page}&count=${sizeUsersPage}`)
        .then(response => response.data);
 }
 
 export const getUserProfile = (userId: string) => {
-    return instance.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
+    return instanceUsers.get(`profile/${userId}`)
         .then(response => response.data);
 }
 
 export const followFunction = (id: number) => {
-    return instance.post(`https://social-network.samuraijs.com/api/1.0/follow/${id}`)
+    return instanceUsers.post(`follow/${id}`)
         .then(response => response.data);
 }
 
 export const unfollowFunction = (id: number) => {
-    return instance.delete(`https://social-network.samuraijs.com/api/1.0/follow/${id}`)
+    return instanceUsers.delete(`follow/${id}`)
         .then(response => response.data);
 }
+
+let key = '93abb66b';
+
+export const instanceMovies = axios.create({
+    baseURL: "http://www.omdbapi.com/",
+})
+
+export const  searchFilmsByTitle = (title: string) => {
+    return instanceMovies.get(`?apikey=${key}&s=${title}`)
+}
+
+
+
+
+
+    /*searchFilmsByType: (title: string, type: string) => {
+    }*/
+
 

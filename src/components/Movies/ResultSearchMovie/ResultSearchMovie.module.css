@@ -1,0 +1,50 @@
+.main_block_result_search {
+    width: 100%;
+    display: flex;
+}
+
+.block_result_search {
+    width: 100%;
+    display: flex;
+}
+
+.results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 20px;
+}
+
+.block_one_film {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    border: 2px solid darkgrey;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    padding: 35px;
+}
+
+.title {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.type {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.year {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.warning {
+    margin: 100px 0;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #52a5fa;
+}

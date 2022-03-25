@@ -2,3 +2,19 @@
     display: flex;
     justify-content: center
 }
+
+.main_users_block {
+    padding: 40px;
+    background-color: white;
+    margin: 0 auto;
+    border-radius: 20px;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+}
+
+@media (min-width: 200px) and (max-width: 700px) {
+    .main_users_block {
+        background-color: transparent;
+    }
+}

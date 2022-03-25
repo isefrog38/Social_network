@@ -1,4 +1,5 @@
 import React, {useCallback} from 'react';
+import s from './UsersContainer.module.css';
 import {useDispatch, useSelector} from "react-redux";
 import {AppStateType} from "../../redax/redux-store";
 import {
@@ -62,7 +63,7 @@ class UsersClassContainer extends React.Component<UsersClassPropsType> {
         }
 
         return (
-            <div style={{display: "flex", justifyContent: "center"}}>
+            <div className={s.main_users_block}>
                 {this.props.isFetching
                     ? <Preloader/>
                     : <Users

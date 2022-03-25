@@ -1,8 +1,8 @@
 import React from 'react';
-import s from "./Preloader.module.css";
-import preloader from "../../mini img/preloader0.svg";
+import s from "./Preloader2.module.css";
+import preloader from "../../../mini img/loaders/Magnify-1s-200px.svg";
 
-export const Preloader = () => {
+export const Preloader2 = () => {
     return (
         <div className={s.main_block_preloader}>
             <img className={s.preloader} src={preloader}/>

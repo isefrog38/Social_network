@@ -1,0 +1,45 @@
+.error_message_search {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #e12424;
+    margin-left: 10px;
+}
+
+.main_search_block {
+    margin: 50px 0;
+}
+
+.inputs_block {
+    display: flex;
+    border-radius: 30px;
+    border: 1px solid ;
+}
+
+.inputs {
+    border: none;
+}
+
+.buttons_block {
+    display: flex;
+}
+
+.buttons {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid;
+    border-radius: 30px;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: black;
+    margin: 10px 5px;
+}
+
+.buttons:active {
+    background-color: white;
+    color: black;
+}
+
+.buttons:hover {
+    background-color: #4f4f4f;
+}
