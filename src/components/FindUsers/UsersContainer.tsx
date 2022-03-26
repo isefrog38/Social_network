@@ -63,22 +63,24 @@ class UsersClassContainer extends React.Component<UsersClassPropsType> {
         }
 
         return (
-            <div className={s.main_users_block}>
+            <>
                 {this.props.isFetching
                     ? <Preloader/>
-                    : <Users
-                        onClickHandler={this.onClickHandler}
-                        pages={pages}
-                        unfollow={this.props.unfollow}
-                        follow={this.props.follow}
-                        users={this.props.users}
-                        activePage={this.props.activePage}
-                        defaultAvatar={this.defaultAvatar}
-                        disabled={this.props.disabled}
-                        setDisabled={this.props.setDisabled}
-                    />
+                    : <div className={s.main_users_block}>
+                        <Users
+                            onClickHandler={this.onClickHandler}
+                            pages={pages}
+                            unfollow={this.props.unfollow}
+                            follow={this.props.follow}
+                            users={this.props.users}
+                            activePage={this.props.activePage}
+                            defaultAvatar={this.defaultAvatar}
+                            disabled={this.props.disabled}
+                            setDisabled={this.props.setDisabled}
+                        />
+                    </div>
                 }
-            </div>
+            </>
         )
     }
 }

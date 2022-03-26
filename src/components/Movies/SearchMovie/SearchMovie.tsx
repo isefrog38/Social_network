@@ -1,48 +1,37 @@
-import React, {FC, useState} from 'react';
+import React, {ChangeEvent, FC, useState} from 'react';
 import s from './SearchMovie.module.css';
-import {MovieResponceType, searchFilmsByTitle} from "../../../Api/Api";
 import {SearchPanel} from "../../SearchPanel/SearchPanel";
 
 type SearchMovieType = {
-    setSearchResult: (result: Array<MovieResponceType>) => void
-    setPreloader: (show: boolean) => void
-    setTotalCountPages: (totalCount: number) => void
+    searchError: string
+    searchErrorByType: string
+    searchFilm: (searchTitle: string) => void
+    searchByType: (titleSearch: string) => void
 }
 
-export const SearchMovie: FC<SearchMovieType> = ({setTotalCountPages, setSearchResult, setPreloader}) => {
-    const [searchName, setSearchName] = useState('');
-    const [searchError, setSearchError] = useState('');
-    const [searchNameByType, setSearchNameByType] = useState('');
-    const [searchResultByType, setSearchResultByType] = useState('');
+export const SearchMovie: FC<SearchMovieType> = ({searchError, searchByType, searchFilm, searchErrorByType}) => {
 
-    /*const searchFilm = () => {
-        searchFilmsByTitle(searchName)
-            .then( ({data}) => {
-                const { Search, Error, Response } = data
-                Response === 'True' ? setSerachResult(JSON.stringify(Search)) : setSerachResult(Error)
-            })
-            .catch((error) => {
-                console.warn(error)
-            })
-    };*/
+    const [searchName, setSearchName] = useState<string>('');
+    const [searchNameByType, setSearchNameByType] = useState<string>('');
 
-    const searchFilm = async () => {
-        setPreloader(true)
-        try {
-            const {data} = await searchFilmsByTitle(searchName);
-            const {Search, Error, Response} = data;
-            Response === 'True' ? setSearchResult(Search) : setSearchError(Error);
-            setTotalCountPages(data.totalResults) //set total pages
-        } catch (error) {
-            console.warn(error)
+    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        setSearchName(e.currentTarget.value)
+    }
+    const onChangeHandlerByType = (e: ChangeEvent<HTMLInputElement>) => {
+        setSearchNameByType(e.currentTarget.value)
+    }
+    const onClickHandler = () => {
+        if (searchName.trim() !== "") {
+            searchFilm(searchName.trim())
+            setSearchName("")
         }
-        setPreloader(false)
-    };
-
-    const searchByType = (e: React.MouseEvent<HTMLButtonElement>) => {
-        const type: string = e.currentTarget.dataset.t ? e.currentTarget.dataset.t : '';
-        /*API.searchFilmsByType(searchNameByType, type)*/
-    };
+    }
+    const onClickHandlerByType = () => {
+        if (searchNameByType.trim() !== "") {
+            searchByType(searchNameByType.trim())
+            setSearchNameByType("")
+        }
+    }
 
     return (
         <div>
@@ -52,12 +41,13 @@ export const SearchMovie: FC<SearchMovieType> = ({setTotalCountPages, setSearchR
                     <SearchPanel
                         type="text"
                         value={searchName}
-                        onChange={(e) => setSearchName(e.currentTarget.value)}
+                        onChange={onChangeHandler}
+                        onClickHandler={onClickHandler}
                         placeholderTitle={'Search by name'}
                     />
                 </div>
                 <div className={s.error_message_search}> {searchError} </div>
-                <button onClick={searchFilm} className={s.buttons}>Search</button>
+                <button onClick={onClickHandler} className={s.buttons}>Search</button>
             </div>
 
             <div className={s.main_search}>
@@ -65,17 +55,28 @@ export const SearchMovie: FC<SearchMovieType> = ({setTotalCountPages, setSearchR
                     <SearchPanel
                         type="text"
                         value={searchNameByType}
-                        onChange={(e) => setSearchNameByType(e.currentTarget.value)}
+                        onChange={onChangeHandlerByType}
                         placeholderTitle={'Search by type'}
                     />
                 </div>
-                <div className={s.error_message_search}> {searchResultByType} </div>
+                <div className={s.error_message_search}> {searchErrorByType} </div>
                 <div className={s.buttons_block}>
-                    <button onClick={searchByType} data-t='movie' className={s.buttons}>Movie</button>
-                    <button onClick={searchByType} data-t='series' className={s.buttons}>Series</button>
+                    <button onClick={onClickHandlerByType} data-t='movie' className={s.buttons}>Movie</button>
+                    <button onClick={onClickHandlerByType} data-t='series' className={s.buttons}>Series</button>
                 </div>
             </div>
         </div>
-    )
-        ;
+    );
 }
+
+
+/*const searchFilm = () => {
+        searchFilmsByTitle(searchName)
+            .then( ({data}) => {
+                const { Search, Error, Response } = data
+                Response === 'True' ? setSerachResult(JSON.stringify(Search)) : setSerachResult(Error)
+            })
+            .catch((error) => {
+                console.warn(error)
+            })
+    };*/

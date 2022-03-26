@@ -1,13 +1,18 @@
 import React, {FC} from 'react';
 import s from './ResultSearchMovie.module.css';
-import {MovieResponceType} from "../../../Api/Api";
 import altarnativePoster from '../../../mini img/NoPoster.jpg';
+import {Pages} from "../../Pages/Pages";
+import {MovieResponseType} from "../../../redax/Movie-reducer";
 
 type SearchResultType = {
-    searchResult: Array<MovieResponceType>
+    searchResult: Array<MovieResponseType>
+    searchResultByType: Array<MovieResponseType>
+    pages: number[]
+    activePage: number
+    onClickHandler: (page: number) => void
 }
 
-export const ResultSearchMovie: FC<SearchResultType> = ({searchResult}) => {
+export const ResultSearchMovie: FC<SearchResultType> = ({searchResult, pages, activePage, onClickHandler, searchResultByType}) => {
 
     /*useEffect(() => {
 
@@ -25,9 +30,18 @@ export const ResultSearchMovie: FC<SearchResultType> = ({searchResult}) => {
         }
     })*/
 
+
+
+    let PagesBlock = pages.map(page => <Pages
+        key={page}
+        onClickHandler={onClickHandler}
+        activePage={activePage}
+        page={page}
+    />);
+
     const resultsSearch = searchResult.map(el => {
         return (
-            <div className={s.block_one_film}>
+            <div className={s.block_one_film} key={el.imdbID}>
                 <img
                     className={s.image}
                     id={el.imdbID}
@@ -41,21 +55,44 @@ export const ResultSearchMovie: FC<SearchResultType> = ({searchResult}) => {
         )
     });
 
+    const resultsSearchByType = searchResultByType.map(el => {
+        return (
+            <div className={s.block_one_film} key={el.imdbID}>
+                <img
+                    className={s.image}
+                    id={el.imdbID}
+                    src={el.Poster !== "N/A" ? el.Poster : altarnativePoster}
+                    alt={el.Title}
+                />
+                <div className={s.title}>{el.Title}</div>
+                <div className={s.type}>{el.Type}</div>
+                <div className={s.year}>{el.Year}th year</div>
+            </div>
+        )
+    });
 
     return (
-        <div className={s.main_block_result_search}>
-            <div className={s.block_result_search}>
-                <div className={s.results}>
-                    {resultsSearch.length === 0
-                        ? <div className={s.warning}>{
-                            <>
-                                <div>{`Please select a movie by title or type!`}</div>
-                                <div>{`(Only English Language)`}</div>
-                            </>
-                        }</div>
-                        : resultsSearch}
+        <>
+            {resultsSearchByType.length === 0 || resultsSearch.length === 0
+                ? <div className={s.warning}>
+                    <div className={s.warning_small_block}>
+                        <div>{`Please select a movie by title or type!`}</div>
+                        <div>{`(Only English Language)`}</div>
+                    </div>
                 </div>
-            </div>
-        </div>
+                :
+                    <div className={s.results_show_films}>
+                    <div className={s.main_block_result_search}>
+                        <div className={s.block_result_search}>
+                            <div className={s.results}>
+                                <div className={s.pages_block} style={{margin: "0 0 20px 0"}}> {PagesBlock} </div>
+                                {resultsSearch}
+                                <div className={s.pages_block} style={{margin: "-5px 0 0 0"}}> {PagesBlock} </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </>
     );
 };

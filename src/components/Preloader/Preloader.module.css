@@ -1,5 +1,7 @@
 .main_block_preloader {
-    margin-left: 50px;
+    width: 100%;
+    height: 100%;
+    margin: 15% 20%;
 }
 
 @media (min-width: 300px) and (max-width: 700px) {

@@ -1,4 +1,4 @@
-import React, {ChangeEvent, FC} from 'react';
+import React, {ChangeEvent, FC, useState} from 'react';
 import s from "./SearchPanel.module.css";
 import SearchIcon from "../../mini img/Search.png";
 
@@ -7,9 +7,23 @@ type SearchPanelType = {
     onChange: (e: ChangeEvent<HTMLInputElement>) => void
     value: string
     type: string
+    onClickHandler?: () => void
 }
 
-export const SearchPanel: FC<SearchPanelType> = ({placeholderTitle, value, type, onChange}) => {
+export const SearchPanel: FC<SearchPanelType> = ({placeholderTitle, value, type, onChange, onClickHandler}) => {
+
+    const [error, setError] = useState<string | null>(null);
+
+    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        onChange(e)
+    }
+    const onKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (error !== null) setError(null)
+        if (e.ctrlKey || e.key === "Enter") {
+            onClickHandler && onClickHandler()
+        }
+    }
+
     return (
         <>
             <div className={s.search_panel_block}>
@@ -19,7 +33,8 @@ export const SearchPanel: FC<SearchPanelType> = ({placeholderTitle, value, type,
                     className={s.input}
                     placeholder={placeholderTitle}
                     value={value}
-                    onChange={(e) => onChange(e)}
+                    onChange={onChangeHandler}
+                    onKeyPress={onKeyPress}
                 />
             </div>
         </>

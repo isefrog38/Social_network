@@ -11,24 +11,6 @@
     }
 }
 
-.pages_block {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    box-shadow: 0 2px 5px 1px rgba(80, 85, 87, 0.52);
-    border-radius: 20px;
-    cursor: pointer;
-    padding: 10px;
-}
-
-@media (min-width: 200px) and (max-width: 800px) {
-    .pages_block {
-        width: 100%;
-        padding: 0;
-        border-radius: 20px;
-    }
-}
-
 .search_block {
     position: fixed;
     right: 15px;
@@ -49,16 +31,3 @@
     }
 }
 
-.results_show_films {
-    width: 66%;
-    height: 100%;
-    background-color: white;
-    border-radius: 20px;
-}
-
-@media (min-width: 200px) and (max-width: 700px) {
-    .results_show_films {
-        width: 100%;
-        margin: 20px -15px;
-    }
-}

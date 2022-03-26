@@ -1,13 +1,5 @@
 import axios from "axios";
-import {log} from "util";
 
-export type MovieResponceType = {
-    Poster: string
-    Title: string
-    Type: string
-    Year: string
-    imdbID: string
-}
 
 export const instanceUsers = axios.create({
     baseURL: "https://social-network.samuraijs.com/api/1.0/",
@@ -42,27 +34,22 @@ export const unfollowFunction = (id: number) => {
         .then(response => response.data);
 }
 
-let key = '93abb66b';
+let apiKey = '93abb66b';
 
 export const instanceMovies = axios.create({
-    baseURL: `http://www.omdbapi.com/`,
+    baseURL: `https://www.omdbapi.com/`,
 })
 
 export const  searchFilmsByTitle = (title: string) => {
-    return instanceMovies.get(`?apikey=${key}&s=${title}`)
+    return instanceMovies.get(`?apikey=${apiKey}&s=${title}`)
 }
 
-export const onPageMoviesChanged = (page: number, sizeUsersPage: number) => {
-    return instanceMovies.get(`?apikey=${key}&page=${page}&count=${sizeUsersPage}`)
-        .then(data => console.log(data))
+export const onPageMoviesChanged = (title: string, page: number) => {
+    return instanceMovies.get(`?apikey=${apiKey}&s=${title}&type=movie&page=${page}`)
 }
-onPageMoviesChanged(2,10)
 
-
-
-
-
-    /*searchFilmsByType: (title: string, type: string) => {
-    }*/
+export const searchFilmsByType = (title: string, type: string) => {
+    return instanceMovies.get(`?apikey=${apiKey}&s=${title}&type=${type}`)
+}
 
 
