@@ -12,15 +12,17 @@ type SearchPanelType = {
 
 export const SearchPanel: FC<SearchPanelType> = ({placeholderTitle, value, type, onChange, onClickHandler}) => {
 
-    const [error, setError] = useState<string | null>(null);
+    const [error, setError] = useState<string>('');
 
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         onChange(e)
     }
     const onKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
-        if (error !== null) setError(null)
+        if (error.trim() !== '') setError('')
         if (e.ctrlKey || e.key === "Enter") {
             onClickHandler && onClickHandler()
+        } else {
+            setError('bla bla')
         }
     }
 

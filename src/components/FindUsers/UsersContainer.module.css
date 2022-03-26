@@ -1,3 +1,7 @@
+.main_users {
+    width: 100%;
+}
+
 .users_and_preloader_block {
     display: flex;
     justify-content: center
@@ -15,6 +19,8 @@
 
 @media (min-width: 200px) and (max-width: 700px) {
     .main_users_block {
+        padding: 0;
+        width: 100%;
         background-color: transparent;
     }
 }

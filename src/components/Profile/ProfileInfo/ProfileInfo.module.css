@@ -1,3 +1,7 @@
+.main {
+    width: 100%;
+}
+
 .descriptionsBlock {
     padding: 10px;
 }
@@ -8,12 +12,11 @@
 }
 
 @media (min-width: 300px) and (max-width: 700px) {
-
     .item {
-        width: 500px;
+        width: 100%;
     }
-
     .image {
-        width: 470px;
+        width: 100%;
+        height: auto;
     }
 }

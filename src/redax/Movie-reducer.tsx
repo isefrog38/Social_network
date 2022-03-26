@@ -5,7 +5,7 @@ export type MovieResponseType = {
     Year: string
     imdbID: string
 };
-type UserActionType = SearchTitle | setPageUsersType | setTotalCountType | setToggleFetchingType | SearchResultType | SearchErrorType | SearchTypeByType | SearchErrorTypeByType;
+type UserActionType = TypeSelectType | SearchTitle | setPageUsersType | setTotalCountType | setToggleFetchingType | SearchResultType | SearchErrorType | SearchTypeByType | SearchErrorTypeByType;
 type setPageUsersType = {
     type: "SET_PAGE_MOVIES"
     page: number
@@ -38,7 +38,13 @@ type SearchErrorTypeByType = {
     type: "SEARCH_ERROR_BY_TYPE"
     errorByType: string
 };
+type TypeSelectType = {
+    type: "TYPE"
+    selectType: 'series' | 'movie'
+};
+export type SelectTypeMovieType = 'series' | 'movie'
 export type InitialMovieStateType = {
+    type: SelectTypeMovieType
     searchTitle: string
     searchResult: Array<MovieResponseType>
     searchResultByType: Array<MovieResponseType>
@@ -50,6 +56,7 @@ export type InitialMovieStateType = {
     preloader: boolean
 };
 
+const TYPE = "TYPE";
 const SET_PAGE_MOVIES = "SET_PAGE_MOVIES";
 const SET_TOTAL_COUNT = "SET_TOTAL_COUNT";
 const TOGGLE_FETCHING = "TOGGLE_FETCHING";
@@ -60,6 +67,7 @@ const SEARCH_TITLE = "SEARCH_TITLE";
 const SEARCH_ERROR_BY_TYPE = "SEARCH_ERROR_BY_TYPE";
 
 let initialState: InitialMovieStateType = {
+    type: 'movie',
     searchTitle: '',
     searchResult: [],
     searchResultByType: [],
@@ -73,6 +81,11 @@ let initialState: InitialMovieStateType = {
 
 export const MovieReducer = (state = initialState, action: UserActionType): InitialMovieStateType => {
     switch (action.type) {
+        case TYPE : {
+            return {
+                ...state, type: action.selectType
+            }
+        }
         case SEARCH_TITLE : {
             return {
                 ...state, searchTitle: action.title
@@ -118,6 +131,7 @@ export const MovieReducer = (state = initialState, action: UserActionType): Init
     }
 }
 
+export const selectTypeAC = (selectType: 'series' | 'movie'): TypeSelectType => ({type: TYPE, selectType} as const);
 export const setActivePageMovieAC = (page: number): setPageUsersType => ({type: SET_PAGE_MOVIES, page} as const);
 export const setTotalCountMoviePagesAC = (totalCount: number): setTotalCountType => ({type: SET_TOTAL_COUNT, totalCount} as const);
 export const setMovieToggleFetchingAC = (preloader: boolean): setToggleFetchingType => ({type: TOGGLE_FETCHING, preloader} as const);

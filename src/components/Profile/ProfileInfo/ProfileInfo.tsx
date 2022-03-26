@@ -11,7 +11,6 @@ export const ProfileInfo = (props: ProfileInfoType) => {
 
     if(!state) return <></>
     else return (
-
         <div className={s.main}>
             <div className={s.item}>
                 <img className={s.image}

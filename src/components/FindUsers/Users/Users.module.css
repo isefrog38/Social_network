@@ -1,3 +1,15 @@
+.main_users_block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (min-width: 200px) and (max-width: 800px) {
+    .main_users_block {
+        width: 95%;
+    }
+}
+
 .blockButtonsPage{
     display: flex;
     width: 600px;
@@ -13,7 +25,11 @@
 
 @media (min-width: 200px) and (max-width: 800px) {
     .blockButtonsPage {
-        width: 100%;
-        padding: 5px;
+        width: 90%;
+        flex-wrap: wrap;
+        justify-content: center;
+        height: 50%;
+        padding: 5px ;
+        margin: 0 auto;
     }
 }

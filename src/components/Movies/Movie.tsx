@@ -7,7 +7,7 @@ import {MovieResponseType} from "../../redax/Movie-reducer";
 
 type MovieType = {
     searchFilm: (searchTitle: string) => void
-    searchByType: (titleSearch: string) => void
+    searchByType: (searchTitle: string) => void
     searchResultByType: Array<MovieResponseType>
     searchError: string
     pages: number[]

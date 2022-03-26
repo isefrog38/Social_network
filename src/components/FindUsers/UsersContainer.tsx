@@ -63,7 +63,7 @@ class UsersClassContainer extends React.Component<UsersClassPropsType> {
         }
 
         return (
-            <>
+            <div className={s.main_users}>
                 {this.props.isFetching
                     ? <Preloader/>
                     : <div className={s.main_users_block}>
@@ -80,7 +80,7 @@ class UsersClassContainer extends React.Component<UsersClassPropsType> {
                         />
                     </div>
                 }
-            </>
+            </div>
         )
     }
 }

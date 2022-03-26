@@ -37,7 +37,7 @@ export const Users = (props: UsersType) => {
     );
 
     return (
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+        <div className={s.main_users_block}>
             <div className={s.blockButtonsPage}>
                 {PagesBlock}                             {/*блок с страницами*/}
             </div>

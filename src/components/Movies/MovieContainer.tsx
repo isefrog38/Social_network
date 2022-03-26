@@ -20,11 +20,18 @@ export const MovieContainer = () => {
     const setActivePage = useCallback((page: number) => dispatch(setActivePageMovieAC(page)), [dispatch]);
     const setTotalCountPages = useCallback((totalCount: number) => dispatch(setTotalCountMoviePagesAC(totalCount)), [dispatch]);
     const setPreloader = useCallback((isFetching: boolean) => dispatch(setMovieToggleFetchingAC(isFetching)), [dispatch]);
-    const setSearchResult = useCallback((searchResult: Array<MovieResponseType>) => dispatch(setSearchResultAC(searchResult)), [dispatch]);
+    const setSearchResult = useCallback((searchResult: Array<MovieResponseType>) => {
+        setSearchError('')
+        dispatch(setSearchResultAC(searchResult))
+    }, [dispatch]);
     const setSearchError = useCallback((error: string) => dispatch(setSearchErrorAC(error)), [dispatch]);
     const setSearchErrorByType = useCallback((errorByType: string) => dispatch(setSearchErrorByTypeAC(errorByType)), [dispatch]);
-    const setSearchResultByType = useCallback((searchResultByType: Array<MovieResponseType>) => dispatch(setSearchResultByTypeAC(searchResultByType)), [dispatch]);
+    const setSearchResultByType = useCallback((searchResultByType: Array<MovieResponseType>) => {
+        setSearchErrorByType('')
+        dispatch(setSearchResultByTypeAC(searchResultByType))
+    }, [dispatch]);
     const setSearchTitle = useCallback((title: string) => dispatch(setSearchTitleAC(title)), [dispatch]);
+    /*const selectType = useCallback((selectType: SelectTypeMovieType) => dispatch(selectTypeAC(selectType)), [dispatch]);*/
 
     const searchFilm = async (searchTitle: string) => {
         setSearchTitle(searchTitle);
@@ -33,34 +40,25 @@ export const MovieContainer = () => {
             const {data} = await searchFilmsByTitle(searchTitle);
             const {Search, Error, Response} = data;
             Response === 'True' ? setSearchResult(Search) : setSearchError(Error);
-            setTotalCountPages(data.totalResults) //set total pages
-
-            console.log(data)
-
+            setTotalCountPages(data.totalResults)
         } catch (error) {
             console.log(error)
         }
         setPreloader(false)
     };
-
-    const searchByType = async (titleSearch: string) => {
-        const type: string = titleSearch ? titleSearch : '';
-        setSearchTitle(titleSearch);
+    const searchByType = async (searchTitle: string) => {
+        setSearchTitle(searchTitle);
         setPreloader(true)
         try {
-            const {data} = await searchFilmsByType(titleSearch, type);
+            const {data} = await searchFilmsByType(searchTitle, stateMovie.type);
             const {Search, Error, Response} = data;
             Response === 'True' ? setSearchResultByType(Search) : setSearchErrorByType(Error);
-            setTotalCountPages(data.totalResults) //set total pages
-
-            console.log(data)
-
+            setTotalCountPages(data.totalResults);
         } catch (error) {
             console.log(error)
         }
         setPreloader(false)
     };
-
     const onClickHandlerPage = async (page: number) => {
         setActivePage(page)
         setPreloader(true)
@@ -68,15 +66,11 @@ export const MovieContainer = () => {
             const {data} = await onPageMoviesChanged(stateMovie.searchTitle, page);
             const {Search, Error, Response} = data;
             Response === 'True' ? setSearchResult(Search) : setSearchError(Error);
-            setTotalCountPages(data.totalResults) //set total pages
-
-            console.log(data)
-
         } catch (error) {
             console.warn(error)
         }
         setPreloader(false)
-    }
+    };
 
     let calculationPage = Math.ceil(stateMovie.totalUsersCountPage / stateMovie.sizeUsersPage);
     let pages = [];

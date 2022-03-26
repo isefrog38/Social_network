@@ -73,7 +73,7 @@ export const ResultSearchMovie: FC<SearchResultType> = ({searchResult, pages, ac
 
     return (
         <>
-            {resultsSearchByType.length === 0 || resultsSearch.length === 0
+            {resultsSearchByType.length === 0 && resultsSearch.length === 0
                 ? <div className={s.warning}>
                     <div className={s.warning_small_block}>
                         <div>{`Please select a movie by title or type!`}</div>
@@ -87,6 +87,7 @@ export const ResultSearchMovie: FC<SearchResultType> = ({searchResult, pages, ac
                             <div className={s.results}>
                                 <div className={s.pages_block} style={{margin: "0 0 20px 0"}}> {PagesBlock} </div>
                                 {resultsSearch}
+                                {resultsSearchByType}
                                 <div className={s.pages_block} style={{margin: "-5px 0 0 0"}}> {PagesBlock} </div>
                             </div>
                         </div>

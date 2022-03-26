@@ -9,29 +9,30 @@ type SearchMovieType = {
     searchByType: (titleSearch: string) => void
 }
 
-export const SearchMovie: FC<SearchMovieType> = ({searchError, searchByType, searchFilm, searchErrorByType}) => {
+export const SearchMovie: FC<SearchMovieType> = ({searchError, searchByType, searchFilm}) => {
 
     const [searchName, setSearchName] = useState<string>('');
-    const [searchNameByType, setSearchNameByType] = useState<string>('');
+    const [valueSearchByType, setValueSearchByType] = useState<string>('');
 
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         setSearchName(e.currentTarget.value)
-    }
+    };
     const onChangeHandlerByType = (e: ChangeEvent<HTMLInputElement>) => {
-        setSearchNameByType(e.currentTarget.value)
-    }
+        setValueSearchByType(e.currentTarget.value)
+    };
     const onClickHandler = () => {
         if (searchName.trim() !== "") {
             searchFilm(searchName.trim())
             setSearchName("")
         }
-    }
+    };
     const onClickHandlerByType = () => {
-        if (searchNameByType.trim() !== "") {
-            searchByType(searchNameByType.trim())
-            setSearchNameByType("")
+        if (valueSearchByType.trim() !== "") {
+            searchByType(valueSearchByType.trim())
+            setValueSearchByType("")
         }
-    }
+    };
+
 
     return (
         <div>
@@ -54,15 +55,17 @@ export const SearchMovie: FC<SearchMovieType> = ({searchError, searchByType, sea
                 <div className={s.main_search_block}>
                     <SearchPanel
                         type="text"
-                        value={searchNameByType}
+                        value={valueSearchByType}
                         onChange={onChangeHandlerByType}
+                        onClickHandler={onClickHandlerByType}
                         placeholderTitle={'Search by type'}
                     />
                 </div>
-                <div className={s.error_message_search}> {searchErrorByType} </div>
+                <div className={s.error_message_search}> {searchError} </div>
                 <div className={s.buttons_block}>
-                    <button onClick={onClickHandlerByType} data-t='movie' className={s.buttons}>Movie</button>
-                    <button onClick={onClickHandlerByType} data-t='series' className={s.buttons}>Series</button>
+                    <button onClick={onClickHandler} datatype={'movie'} className={s.buttons}>Movie</button>
+                    <button onClick={onClickHandler} datatype={'series'} className={s.buttons}>Series</button>
+                    <button onClick={onClickHandler} datatype={'season'} className={s.buttons}>Season</button>
                 </div>
             </div>
         </div>

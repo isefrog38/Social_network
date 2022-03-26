@@ -2,9 +2,9 @@ import React, {useState} from "react";
 import s from './Header.module.css';
 import LogoHeader from "../../mini img/logoHEADER.jpg";
 import {Burger} from "./Burger/Burger";
-import {SearchPanel} from "../SearchPanel/SearchPanel";
 import {Authorization} from "./Authorization/Authorization";
 import {initialStateAuthorizationType} from "../../redax/Authorization-reducer";
+import {SearchPanel} from "../SearchPanel/SearchPanel";
 
 type HeaderType = {
     stateUser: initialStateAuthorizationType
@@ -12,7 +12,7 @@ type HeaderType = {
 
 const Header = (props: HeaderType) => {
 
-    const [value, setValue] = useState('')
+    const [value, setValue] = useState<string>('')
 
     return (
         <header className={s.header}>
