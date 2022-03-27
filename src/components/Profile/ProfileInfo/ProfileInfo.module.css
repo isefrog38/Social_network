@@ -1,5 +1,10 @@
 .main {
     width: 100%;
+    margin: 0 auto;
+}
+
+.item {
+    margin: 0 20px;
 }
 
 .descriptionsBlock {
@@ -11,12 +16,17 @@
     height: 400px;
 }
 
-@media (min-width: 300px) and (max-width: 700px) {
+@media (min-width: 50px) and (max-width: 1000px) {
     .item {
         width: 100%;
+        margin: 0;
     }
     .image {
         width: 100%;
         height: auto;
     }
+    .full_name {
+        margin: 10px;
+    }
 }
+

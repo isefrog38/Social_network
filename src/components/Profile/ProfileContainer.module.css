@@ -1,0 +1,10 @@
+.main_profile {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+@media (min-width: 50px) and (max-width: 1000px) {
+    .main_profile {
+        display: block;
+    }
+}

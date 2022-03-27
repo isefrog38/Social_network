@@ -1,4 +1,5 @@
 import React, {useCallback, useEffect} from 'react';
+import s from './ProfileContainer.module.css';
 import Profile from "./Profile";
 import {useDispatch, useSelector} from "react-redux";
 import {AppStateType} from "../../redax/redux-store";
@@ -6,6 +7,7 @@ import {changeProfileForUser, ProfileStateType} from "../../redax/Profile-reduce
 import {useParams} from 'react-router-dom';
 import {initialStateAuthorizationType} from "../../redax/Authorization-reducer";
 import {getUserProfile} from "../../Api/Api";
+import {InfoPanel} from "./InfoPanel/InfoPanel";
 
 export const ProfileContainer = () => {
 
@@ -27,6 +29,9 @@ export const ProfileContainer = () => {
 
     const setUsersProfile = useCallback((profile) => dispatch(changeProfileForUser(profile)), [dispatch]);
     return (
+        <div className={s.main_profile}>
+            <InfoPanel />
             <Profile profile={stateProfile.profileUser} />
+        </div>
     )
 }

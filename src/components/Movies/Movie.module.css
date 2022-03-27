@@ -4,10 +4,9 @@
     display: flex;
 }
 
-@media (min-width: 200px) and (max-width: 700px) {
+@media (min-width: 50px) and (max-width: 1000px) {
     .main_search_block {
         flex-direction: column;
-        margin-left: 15px;
     }
 }
 
@@ -23,11 +22,11 @@
     z-index: 1;
 }
 
-@media (min-width: 200px) and (max-width: 700px) {
+@media (min-width: 50px) and (max-width: 1000px) {
     .search_block {
         position: relative;
-        width: 100%;
+        width: 95%;
         z-index: 1;
+        margin: 0 0 0 25px;
     }
 }
-

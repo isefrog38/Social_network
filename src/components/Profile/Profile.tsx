@@ -11,7 +11,7 @@ type ProfileType = {
 
 const Profile = (props: ProfileType) => {
 
-    if(!props.profile) return <Preloader />                // Preloader2
+    if(!props.profile) return <Preloader />                // Preloader
     else return (
         <div className={s.main_profile_block}>
             <ProfileInfo profileState={props.profile}/>

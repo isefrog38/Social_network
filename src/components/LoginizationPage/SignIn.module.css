@@ -11,7 +11,7 @@
     z-index:100;
 }
 
-@media (min-width: 300px) and (max-width: 1200px) {
+@media (min-width: 50px) and (max-width: 1000px) {
     .modal_wrapper {
         margin-left: -10px;
     }

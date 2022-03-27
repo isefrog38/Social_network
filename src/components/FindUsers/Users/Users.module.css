@@ -4,7 +4,7 @@
     align-items: center;
 }
 
-@media (min-width: 200px) and (max-width: 800px) {
+@media (min-width: 50px) and (max-width: 1000px) {
     .main_users_block {
         width: 95%;
     }
@@ -23,7 +23,7 @@
     padding: 10px;
 }
 
-@media (min-width: 200px) and (max-width: 800px) {
+@media (min-width: 50px) and (max-width: 1000px) {
     .blockButtonsPage {
         width: 90%;
         flex-wrap: wrap;

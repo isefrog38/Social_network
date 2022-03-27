@@ -9,7 +9,7 @@
     grid-template-columns: 310px auto;
 }
 
-@media (min-width: 300px) and (max-width: 1200px) {
+@media (min-width: 50px) and (max-width: 1000px) {
     .app-wrapper {
         margin: 0 auto;
         grid-template-rows: 100px 1fr;

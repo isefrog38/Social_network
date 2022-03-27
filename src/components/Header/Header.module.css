@@ -11,7 +11,7 @@
     width: 100px;
 }
 
-@media (min-width: 700px) and (max-width: 1200px) {
+@media (min-width: 50px) and (max-width: 1000px) {
     .header {
         position: fixed;
         height: 70px;
@@ -19,7 +19,7 @@
     }
 }
 
-@media (min-width: 200px) and (max-width: 700px) {
+@media (min-width: 50px) and (max-width: 1000px) {
     .header {
         position: fixed;
         height: 70px;
@@ -35,7 +35,7 @@
 }
 
 
-@media (min-width: 700px) and (max-width: 1200px) {
+@media (min-width: 50px) and (max-width: 1000px) {
     .nameHeader {
         display: block;
         width: 200px;
@@ -46,7 +46,7 @@
     }
 }
 
-@media (min-width: 200px) and (max-width: 700px) {
+@media (min-width: 50px) and (max-width: 1000px) {
     .nameHeader {
         position: absolute;
         top: -500px;
@@ -67,7 +67,7 @@
     left: -40px;
 }
 
-@media (min-width: 300px) and (max-width: 1200px) {
+@media (min-width: 50px) and (max-width: 1000px) {
     .logo_block {
        display: none;
     }
@@ -83,7 +83,7 @@
     padding: 12px;
 }
 
-@media (min-width: 300px) and (max-width: 1200px) {
+@media (min-width: 50px) and (max-width: 800px) {
     .search {
         display: none;
     }

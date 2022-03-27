@@ -10,7 +10,7 @@
     margin: 0 30px;
 }
 
-@media (min-width: 200px) and (max-width: 700px) {
+@media (min-width: 50px) and (max-width: 1000px) {
     .dialogs {
         margin: 0 auto;
     }
@@ -59,7 +59,7 @@
     overflow: hidden;
 }
 
-@media (min-width: 200px) and (max-width: 700px) {
+@media (min-width: 50px) and (max-width: 1000px) {
     .buttonAddMessages {
         padding: 0;
         margin: 0;
@@ -70,7 +70,7 @@
     padding: 4px 20px ;
 }
 
-@media (min-width: 200px) and (max-width: 700px) {
+@media (min-width: 50px) and (max-width: 1000px) {
     .buttonAddMessage {
         padding: 0;
     }
@@ -124,11 +124,11 @@
     width: 70%;
 }
 
-@media (min-width: 200px) and (max-width: 700px) {
+@media (min-width: 50px) and (max-width: 1000px) {
     .main_messages_block {
         width: 100%;
         padding: 5px;
-        margin-right: 10px;
+        margin: 0 10px;
     }
 }
 
@@ -141,7 +141,7 @@
     margin-right: 20px;
 }
 
-@media (min-width: 100px) and (max-width: 700px) {
+@media (min-width: 50px) and (max-width: 1000px) {
     .dialogsItems {
         display: none;
     }

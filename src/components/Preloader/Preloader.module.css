@@ -4,7 +4,7 @@
     margin: 15% 20%;
 }
 
-@media (min-width: 300px) and (max-width: 700px) {
+@media (min-width: 50px) and (max-width: 1000px) {
     .main_block_preloader {
         margin: 0 auto;
     }
@@ -21,7 +21,7 @@
     }
 }
 
-@media (min-width: 300px) and (max-width: 700px) {
+@media (min-width: 50px) and (max-width: 700px) {
     .preloader {
         width: 200px;
     }

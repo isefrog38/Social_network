@@ -13,11 +13,11 @@
     margin-right: 10px;
 }
 
-@media (min-width: 200px) and (max-width: 800px) {
+/*@media (min-width: 50px) and (max-width: 1000px) {
     .oneButtonPage {
 
     }
-}
+}*/
 
 .active {
     width: 25px;

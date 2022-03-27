@@ -32,25 +32,27 @@ export const Movie: FC<MovieType> = ({
                                      }) => {
 
     return (
-        <div className={s.main_search_block}>
-            <div className={s.search_block}>
-                <SearchMovie
-                    searchError={searchError}
-                    searchByType={searchByType}
-                    searchFilm={searchFilm}
-                    searchErrorByType={searchErrorByType}
-                />
-            </div>
+        <>
             {preloader
                 ? <Preloader2/>
-                : <ResultSearchMovie
-                    searchResultByType={searchResultByType}
-                    searchResult={searchResult}
-                    pages={pages}
-                    onClickHandler={onClickHandler}
-                    activePage={activePage}
-                />
+                : <div className={s.main_search_block}>
+                    <div className={s.search_block}>
+                        <SearchMovie
+                            searchError={searchError}
+                            searchByType={searchByType}
+                            searchFilm={searchFilm}
+                            searchErrorByType={searchErrorByType}
+                        />
+                    </div>
+                    <ResultSearchMovie
+                        searchResultByType={searchResultByType}
+                        searchResult={searchResult}
+                        pages={pages}
+                        onClickHandler={onClickHandler}
+                        activePage={activePage}
+                    />
+                </div>
             }
-        </div>
+        </>
     )
 };

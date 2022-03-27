@@ -5,10 +5,10 @@
     border-radius: 20px;
 }
 
-@media (min-width: 200px) and (max-width: 700px) {
+@media (min-width: 50px) and (max-width: 1000px) {
     .results_show_films {
-        width: 100%;
-        margin: 20px -15px;
+        width: 95%;
+        margin: 20px 7px;
     }
 }
 
@@ -42,9 +42,10 @@
     padding: 35px;
 }
 
-@media (min-width: 200px) and (max-width: 1200px) {
+@media (min-width: 50px) and (max-width: 1000px) {
     .block_one_film {
-        width: 80%;
+        width: 70%;
+        padding: 25px;
     }
 }
 
@@ -82,7 +83,7 @@
 
 }
 
-@media (min-width: 200px) and (max-width: 1200px) {
+@media (min-width: 50px) and (max-width: 1000px) {
     .image {
         width: 100%;
         height: 100%;
@@ -100,7 +101,7 @@
     padding: 10px;
 }
 
-@media (min-width: 200px) and (max-width: 800px) {
+@media (min-width: 50px) and (max-width: 1000px) {
     .pages_block {
         width: 100%;
         padding: 0;
