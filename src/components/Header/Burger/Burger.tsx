@@ -18,7 +18,7 @@ export const Burger = () => {
 
     return (
          <div className={s.headerParent}>
-             {!showBurger
+             {showBurger
                  ? <BurgerOn showBurger={showBurger} setShowBurger={setShowBurger} />
                  : <BurgerOff showBurger={showBurger} setShowBurger={setShowBurger} />
              }
