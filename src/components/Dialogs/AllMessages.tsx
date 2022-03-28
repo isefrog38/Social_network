@@ -2,7 +2,7 @@ import React, {ChangeEvent} from 'react';
 import s from "./Dialogs.module.css";
 import Messages from "./Message/Message";
 import {AllMessagePropsType} from "./AllMessagesContainer";
-import {ClearButton} from "../SmallComponents/ClearButton";
+import {ClearButton} from "../SmallComponents/ClearButton/ClearButton";
 
 
 export const AllMessages = (props: AllMessagePropsType) => {

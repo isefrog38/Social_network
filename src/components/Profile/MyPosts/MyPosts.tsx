@@ -2,7 +2,7 @@ import React, {ChangeEvent} from "react";
 import s from "./MyPosts.module.css"
 import {Post} from "./Post/Post";
 import {AxiosResponseTypeProfile, MyPostsUserType} from "../../../redax/Profile-reducer";
-import {ClearButton} from "../../SmallComponents/ClearButton";
+import {ClearButton} from "../../SmallComponents/ClearButton/ClearButton";
 
 type MyPostsType = {
     profileState: null | AxiosResponseTypeProfile

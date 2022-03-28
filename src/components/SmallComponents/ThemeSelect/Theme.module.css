@@ -1,0 +1,70 @@
+.main_image_sun {
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    top: 4px;
+    left: 5px;
+}
+.main_image_moon {
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    top: 4px;
+    left: 5px;
+    transform: translateX(30px);
+}
+
+.dark-theme {
+    background-color: #494d54;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+}
+
+.toggle label::after .image {
+    box-sizing: border-box;
+    z-index: 5;
+}
+
+.toggle input[type=checkbox] {
+    display: none;
+}
+
+.toggle label {
+    background-color: #777;
+    border: 2px solid #555;
+    border-radius: 50px;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: all ease-in-out 0.3s;
+    margin-top: 25px;
+    width: 57px;
+    height: 26px;
+}
+
+.toggle label::after {
+    background-color: #555;
+    border-radius: 50%;
+    content: ' ';
+    cursor: pointer;
+    display: inline-block;
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    transition: all ease-in-out 0.3s;
+    width: 22px;
+    height: 22px;
+}
+
+.toggle input[type=checkbox]:checked ~ label {
+    background-color: #ffdf2a;
+    border: 2px solid #ffbc0a;
+}
+
+.toggle input[type=checkbox]:checked ~ label::after {
+    background-color: #ffa123;
+    transform: translateX(30px);
+}

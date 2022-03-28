@@ -5,6 +5,7 @@ import {Burger} from "./Burger/Burger";
 import {Authorization} from "./Authorization/Authorization";
 import {initialStateAuthorizationType} from "../../redax/Authorization-reducer";
 import {SearchPanel} from "../SearchPanel/SearchPanel";
+import {Theme} from "../SmallComponents/ThemeSelect/Theme";
 
 type HeaderType = {
     stateUser: initialStateAuthorizationType
@@ -16,11 +17,12 @@ const Header = (props: HeaderType) => {
 
     return (
         <header className={s.header}>
-            <Logo />
+            <Logo/>
             <div className={s.burger}>
-                <Burger />
+                <Burger/>
             </div>
-            <TitlePage />
+            <TitlePage/>
+            <Theme/>
             <div className={s.search}>
                 <SearchPanel
                     placeholderTitle={'Search friends'}
@@ -41,7 +43,9 @@ const Logo = () => {
     return (
         <div className={s.logo_block}>
             <img className={s.logo}
-                 src={LogoHeader}/>
+                 src={LogoHeader}
+                alt={"logo"}
+            />
         </div>
     )
 };

@@ -12,11 +12,6 @@ type NavbarPropsType = {
 
 export const Navbar = (props: NavbarPropsType) => {
 
-    /*function getRandomInt(min: number, max: number) {
-        return Math.floor(Math.random() * (max - min) + min);
-    }
-    console.log(getRandomInt(0, props.dialogsItem.length))*/
-
     const SideBarElement = props.sideBar.map(d => <SideBar key={d.id} name={d.name} id={d.id} avatar={d.avatar}/>);
     const NavigateItems = props.navigateBar.map(el => (
         <NavLink key={el.alt} to={el.to} className={s.item}>
