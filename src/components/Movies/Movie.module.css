@@ -19,14 +19,15 @@
     justify-content: center;
     width: 25%;
     height: 50%;
-    z-index: 1;
 }
 
 @media (min-width: 50px) and (max-width: 1000px) {
     .search_block {
         position: relative;
         width: 95%;
+        height: 70%;
         z-index: 1;
         margin: 0 0 0 25px;
+        padding-bottom: 20px;
     }
 }

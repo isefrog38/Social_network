@@ -7,7 +7,7 @@ import {changeProfileForUser, ProfileStateType} from "../../redax/Profile-reduce
 import {useParams} from 'react-router-dom';
 import {initialStateAuthorizationType} from "../../redax/Authorization-reducer";
 import {getUserProfile} from "../../Api/Api";
-import {InfoPanel} from "./InfoPanel/InfoPanel";
+import {ToolBar} from "./ToolBar/ToolBar";
 
 export const ProfileContainer = () => {
 
@@ -30,7 +30,7 @@ export const ProfileContainer = () => {
     const setUsersProfile = useCallback((profile) => dispatch(changeProfileForUser(profile)), [dispatch]);
     return (
         <div className={s.main_profile}>
-            <InfoPanel />
+            <ToolBar />
             <Profile profile={stateProfile.profileUser} />
         </div>
     )

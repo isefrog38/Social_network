@@ -98,7 +98,7 @@ export const MovieReducer = (state = initialState, action: UserActionType): Init
         }
         case SET_TOTAL_COUNT : {
             return {
-                ...state, totalUsersCountPage: Number(action.totalCount) > 75 ? 75 : Number(action.totalCount)
+                ...state, totalUsersCountPage: Number(action.totalCount) > 100 ? 100 : Number(action.totalCount)
             }
         }
         case TOGGLE_FETCHING : {

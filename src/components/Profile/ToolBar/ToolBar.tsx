@@ -1,11 +1,11 @@
 import React from 'react';
-import s from "./InfoPanel.module.css";
+import s from "./ToolBar.module.css";
 
-export const InfoPanel = () => {
+export const ToolBar = () => {
     return (
         <div className={s.other_block}>
             <div className={s.other_block_two}>
-                2
+                some text
             </div>
         </div>
     );

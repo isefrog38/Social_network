@@ -30,8 +30,8 @@ export const SignUp = (props: SignUpType) => {
                         <input type="submit" name="submit" value="Submit"/>
                     </p>
                 </form>
+                <div className={s.overlay} onClick={() => props.setShowSignUp(false)}/>
             </div>
-            <div className={s.overlay} onClick={() => props.setShowSignUp(false)}/>
         </div>
     );
 };

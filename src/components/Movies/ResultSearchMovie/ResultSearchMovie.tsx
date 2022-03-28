@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FC, memo} from 'react';
 import s from './ResultSearchMovie.module.css';
 import altarnativePoster from '../../../mini img/NoPoster.jpg';
 import {Pages} from "../../Pages/Pages";
@@ -12,7 +12,7 @@ type SearchResultType = {
     onClickHandler: (page: number) => void
 }
 
-export const ResultSearchMovie: FC<SearchResultType> = ({searchResult, pages, activePage, onClickHandler, searchResultByType}) => {
+export const ResultSearchMovie: FC<SearchResultType> = memo(({searchResult, pages, activePage, onClickHandler, searchResultByType}) => {
 
     /*useEffect(() => {
 
@@ -96,4 +96,4 @@ export const ResultSearchMovie: FC<SearchResultType> = ({searchResult, pages, ac
             }
         </>
     );
-};
+});

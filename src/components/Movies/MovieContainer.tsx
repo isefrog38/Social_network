@@ -41,6 +41,7 @@ export const MovieContainer = () => {
             const {Search, Error, Response} = data;
             Response === 'True' ? setSearchResult(Search) : setSearchError(Error);
             setTotalCountPages(data.totalResults)
+            console.log(data)
         } catch (error) {
             console.log(error)
         }

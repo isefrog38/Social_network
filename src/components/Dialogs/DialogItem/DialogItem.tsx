@@ -1,9 +1,9 @@
-import React from "react";
+import React, {memo} from "react";
 import s from '../Dialogs.module.css'
 import {NavLink} from "react-router-dom";
 import {DialogType} from "../../../redax/Dialogs-reducer";
 
-const DialogItem = ({id, name, avatar}: DialogType) => {
+export const DialogItem = memo(({id, name, avatar}: DialogType) => {
     return (
         <div className={s.main_block}>
             <div>
@@ -16,6 +16,4 @@ const DialogItem = ({id, name, avatar}: DialogType) => {
             </div>
         </div>
     )
-}
-
-export default DialogItem
+})

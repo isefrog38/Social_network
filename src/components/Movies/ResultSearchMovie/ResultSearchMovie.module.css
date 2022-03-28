@@ -73,14 +73,15 @@
 }
 
 .warning_small_block {
-    margin: 100px 0;
     font-size: 1.6rem;
     font-weight: 700;
     color: #3b3939;
 }
 
-.image {
-
+@media (min-width: 50px) and (max-width: 1000px) {
+    .warning {
+        margin: 0 auto;
+    }
 }
 
 @media (min-width: 50px) and (max-width: 1000px) {

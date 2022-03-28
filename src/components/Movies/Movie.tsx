@@ -1,4 +1,4 @@
-import React, {FC} from "react";
+import React, {FC, memo} from "react";
 import s from './Movie.module.css'
 import {SearchMovie} from "./SearchMovie/SearchMovie";
 import {ResultSearchMovie} from "./ResultSearchMovie/ResultSearchMovie";
@@ -18,7 +18,7 @@ type MovieType = {
     onClickHandler: (page: number) => void
 }
 
-export const Movie: FC<MovieType> = ({
+export const Movie: FC<MovieType> = memo(({
                                          onClickHandler,
                                          activePage,
                                          preloader,
@@ -55,4 +55,4 @@ export const Movie: FC<MovieType> = ({
             }
         </>
     )
-};
+});

@@ -1,4 +1,4 @@
-import React, {ChangeEvent, FC, useState} from 'react';
+import React, {ChangeEvent, FC, memo, useState} from 'react';
 import s from './SearchMovie.module.css';
 import {SearchPanel} from "../../SearchPanel/SearchPanel";
 
@@ -9,7 +9,7 @@ type SearchMovieType = {
     searchByType: (titleSearch: string) => void
 }
 
-export const SearchMovie: FC<SearchMovieType> = ({searchError, searchByType, searchFilm}) => {
+export const SearchMovie: FC<SearchMovieType> = memo(({searchError, searchByType, searchFilm}) => {
 
     const [searchName, setSearchName] = useState<string>('');
     const [valueSearchByType, setValueSearchByType] = useState<string>('');
@@ -70,7 +70,7 @@ export const SearchMovie: FC<SearchMovieType> = ({searchError, searchByType, sea
             </div>
         </div>
     );
-}
+})
 
 
 /*const searchFilm = () => {

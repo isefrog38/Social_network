@@ -24,6 +24,12 @@
     margin: 30px 30px 15px 0;
 }
 
+@media (min-width: 50px) and (max-width: 1000px) {
+    .addMessageBlock {
+        flex-wrap: wrap;
+    }
+}
+
 .inputAddMessage {
     resize: vertical;
     padding: 15px;
@@ -32,6 +38,13 @@
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.06);
     height: 10%;
     width: 70%;
+}
+
+@media (min-width: 50px) and (max-width: 1000px) {
+    .inputAddMessage {
+        width: 100%;
+        margin: 0 30px;
+    }
 }
 
 .buttonAddMessages {
@@ -46,8 +59,8 @@
     border-radius: 4px;
     height: 40px;
     line-height: 30px;
-    font-size: 13px;
-    font-weight: normal;
+    font-size: 1.0rem;
+    font-weight: 600;
     text-decoration: none;
     vertical-align: top;
     color: #55677d;
@@ -62,7 +75,7 @@
 @media (min-width: 50px) and (max-width: 1000px) {
     .buttonAddMessages {
         padding: 0;
-        margin: 0;
+        width: 100%;
     }
 }
 
@@ -73,6 +86,8 @@
 @media (min-width: 50px) and (max-width: 1000px) {
     .buttonAddMessage {
         padding: 0;
+        margin: 15px 40px;
+        width: 100%;
     }
 }
 

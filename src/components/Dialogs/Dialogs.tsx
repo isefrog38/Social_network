@@ -1,19 +1,23 @@
 import React from "react";
 import s from './Dialogs.module.css';
-import DialogItem from "./DialogItem/DialogItem";
-import {AllDialogsPropsType} from "./DialogsContainer";
+import {DialogItem} from "./DialogItem/DialogItem";
 import {AllMessagesContainer} from "./AllMessagesContainer";
+import {DialogType} from "../../redax/Dialogs-reducer";
 
-const Dialogs = (props: AllDialogsPropsType) => {
+type DialogsType = {
+   dialogs: DialogType[]
+}
 
-    let dialogsElements = props.dialogs.map((d) => <DialogItem key={d.id} name={d.name} id={d.id} avatar={d.avatar}/>);
+const Dialogs = ({dialogs}: DialogsType) => {
 
     return (
         <div>
             <div className={s.dialogs}>
                 <div>
                     <div className={s.dialogsItems}>
-                        {dialogsElements}
+                        {dialogs.map((d) =>
+                            <DialogItem key={d.id} name={d.name} id={d.id} avatar={d.avatar}/>
+                        )}
                     </div>
                 </div>
                 <AllMessagesContainer/>
