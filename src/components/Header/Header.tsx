@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import s from './Header.module.css';
-import LogoHeader from "../../mini img/logoHEADER.jpg";
+import LogoHeader from "../../Assets/mini img/logoHEADER.jpg";
 import {Burger} from "./Burger/Burger";
 import {Authorization} from "./Authorization/Authorization";
 import {initialStateAuthorizationType} from "../../redax/Authorization-reducer";

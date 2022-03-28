@@ -65,6 +65,7 @@ const SEARCH_RESULT = "SEARCH_RESULT";
 const SEARCH_RESULT_BY_TYPE = "SEARCH_RESULT_BY_TYPE";
 const SEARCH_TITLE = "SEARCH_TITLE";
 const SEARCH_ERROR_BY_TYPE = "SEARCH_ERROR_BY_TYPE";
+const maxValue = 100;
 
 let initialState: InitialMovieStateType = {
     type: 'movie',
@@ -98,7 +99,7 @@ export const MovieReducer = (state = initialState, action: UserActionType): Init
         }
         case SET_TOTAL_COUNT : {
             return {
-                ...state, totalUsersCountPage: Number(action.totalCount) > 100 ? 100 : Number(action.totalCount)
+                ...state, totalUsersCountPage: Number(action.totalCount) > maxValue ? maxValue : Number(action.totalCount)
             }
         }
         case TOGGLE_FETCHING : {

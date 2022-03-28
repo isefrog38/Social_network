@@ -1,10 +1,10 @@
-import imgProfile from "../mini img/home.png";
-import imgMessage from "../mini img/message.png";
-import imgNews from "../mini img/News.png";
-import imgMusic from "../mini img/music.png";
-import imgUser from "../mini img/frend.png";
-import imgMovie from "../mini img/1179120.png";
-import imgSettings from "../mini img/setting.png";
+import imgProfile from "../Assets/mini img/home.png";
+import imgMessage from "../Assets/mini img/message.png";
+import imgNews from "../Assets/mini img/News.png";
+import imgMusic from "../Assets/mini img/music.png";
+import imgUser from "../Assets/mini img/frend.png";
+import imgMovie from "../Assets/mini img/1179120.png";
+import imgSettings from "../Assets/mini img/setting.png";
 
 export type NavigateBarType = {
     to: string

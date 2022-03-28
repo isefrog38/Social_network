@@ -41,15 +41,16 @@
     color: white;
     font-size: 1rem;
     font-weight: 600;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.89);
     margin: 10px 5px;
+    display: flex;
+    justify-content: center;
 }
 
 .buttons:active {
-    background-color: white;
-    color: black;
+    background-color: #818181;
 }
 
 .buttons:hover {
-    background-color: #4f4f4f;
+    opacity: 0.78;
 }

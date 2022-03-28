@@ -1,7 +1,3 @@
-//import {ProfileReducer} from "./Profile-reducer";
-//import {DialogsReducer} from "./Dialogs-reducer";
-//import {SideBarReducer} from "./SideBar-reducer";
-
 const store: StoreType = {
     _state: {
         myPostPage: {

@@ -34,7 +34,6 @@ export const unfollowFunction = (id: number) => {
         .then(response => response.data);
 }
 
-
 /// next api
 
 let apiKey = '93abb66b';

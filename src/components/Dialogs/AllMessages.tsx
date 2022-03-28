@@ -2,6 +2,7 @@ import React, {ChangeEvent} from 'react';
 import s from "./Dialogs.module.css";
 import Messages from "./Message/Message";
 import {AllMessagePropsType} from "./AllMessagesContainer";
+import {ClearButton} from "../SmallComponents/ClearButton";
 
 
 export const AllMessages = (props: AllMessagePropsType) => {
@@ -29,12 +30,7 @@ export const AllMessages = (props: AllMessagePropsType) => {
                         value={props.messageText}
                     />
                     <div className={s.buttonAddMessage}>
-                        <button
-                            onClick={addMessage}
-                            disabled={!props.messageText}
-                            className={s.buttonAddMessages}>
-                            Add Message
-                        </button>
+                        <ClearButton onClick={addMessage} name={'Add Message'} disabled={!props.messageText}/>
                     </div>
                 </div>
             </div>

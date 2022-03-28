@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import s from "./Users.module.css";
 import {UserType} from "../../../redax/Users-reducer";
 import {UsersBlock} from "./UsersBlock/UsersBlock";
@@ -16,7 +16,7 @@ type UsersType = {
     setDisabled: (isDisabled: boolean, userId: number) => void
 }
 
-export const Users = (props: UsersType) => {
+export const Users = memo((props: UsersType) => {
 
     let PagesBlock = props.pages.map(page => <Pages
                                                 key={page}
@@ -48,4 +48,4 @@ export const Users = (props: UsersType) => {
         </div>
     )
         ;
-};
+});

@@ -55,6 +55,7 @@ const SET_PAGE_USERS = "SET_PAGE_USERS";
 const SET_TOTAL_COUNT = "SET_TOTAL_COUNT";
 const TOGGLE_FETCHING = "TOGGLE_FETCHING";
 const DISABLED_FOLLOW_BUTTON = "DISABLED_FOLLOW_BUTTON";
+const maxValue = 75;
 
 let initialState: InitialUsersStateType = {
     users: [],
@@ -91,7 +92,7 @@ export const UsersReducer = (state = initialState, action: UserActionType): Init
         }
         case SET_TOTAL_COUNT : {
             return {
-                ...state, totalUsersCountPage: action.totalCount > 75 ? 75 : action.totalCount
+                ...state, totalUsersCountPage: action.totalCount > maxValue ? maxValue : action.totalCount
             }
         }
         case TOGGLE_FETCHING : {

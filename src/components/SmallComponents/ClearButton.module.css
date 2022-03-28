@@ -1,0 +1,42 @@
+.buttonAddMessages {
+    width: 150px;
+    float:right;
+    display: inline-block;
+    box-shadow: -1px -1px 1px 2px gray;
+    box-sizing: border-box;
+    padding: 0 10px;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    height: 40px;
+    line-height: 30px;
+    font-size: 1.0rem;
+    font-weight: 600;
+    text-decoration: none;
+    vertical-align: top;
+    color: #55677d;
+    background-color: #dfe6ed;
+    cursor: pointer;
+    user-select: none;
+    appearance: none;
+    touch-action: manipulation;
+    overflow: hidden;
+}
+
+@media (min-width: 50px) and (max-width: 1000px) {
+    .buttonAddMessages {
+        padding: 0;
+        width: 100%;
+    }
+}
+
+.buttonAddMessages:hover {
+    opacity: 0.88;
+}
+.buttonAddMessages:active {
+    line-height: 32px;
+}
+.buttonAddMessages:disabled {
+    pointer-events: none;
+    opacity: 0.65;
+}

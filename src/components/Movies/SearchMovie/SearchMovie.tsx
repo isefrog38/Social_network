@@ -63,9 +63,9 @@ export const SearchMovie: FC<SearchMovieType> = memo(({searchError, searchByType
                 </div>
                 <div className={s.error_message_search}> {searchError} </div>
                 <div className={s.buttons_block}>
-                    <button onClick={onClickHandler} datatype={'movie'} className={s.buttons}>Movie</button>
-                    <button onClick={onClickHandler} datatype={'series'} className={s.buttons}>Series</button>
-                    <button onClick={onClickHandler} datatype={'season'} className={s.buttons}>Season</button>
+                    <div onClick={onClickHandler} datatype={'movie'} className={s.buttons}>Movie</div>
+                    <div onClick={onClickHandler} datatype={'series'} className={s.buttons}>Series</div>
+                    <div onClick={onClickHandler} datatype={'season'} className={s.buttons}>Season</div>
                 </div>
             </div>
         </div>

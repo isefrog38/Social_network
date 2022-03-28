@@ -1,6 +1,6 @@
 import React, {FC, memo} from 'react';
 import s from './ResultSearchMovie.module.css';
-import altarnativePoster from '../../../mini img/NoPoster.jpg';
+import altarnativePoster from '../../../Assets/mini img/NoPoster.jpg';
 import {Pages} from "../../Pages/Pages";
 import {MovieResponseType} from "../../../redax/Movie-reducer";
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import s from "./UsersBlock.module.css";
 import {NavLink} from "react-router-dom";
 import {followFunction, unfollowFunction} from "../../../../Api/Api";
@@ -20,7 +20,7 @@ type UsersBlockType = {
     setDisabled: (isDisabled: boolean, userId: number) => void
 }
 
-export const UsersBlock = (props: UsersBlockType) => {
+export const UsersBlock = memo((props: UsersBlockType) => {
 
     const onClickHandlerFollow = () => {
         props.setDisabled(true, props.id)
@@ -69,4 +69,4 @@ export const UsersBlock = (props: UsersBlockType) => {
             </span>
         </div>
     );
-};
+});

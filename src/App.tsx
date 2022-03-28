@@ -12,7 +12,7 @@ import {HeaderContainer} from "./components/Header/HeaderContainer";
 import {useSelector} from "react-redux";
 import {AppStateType} from "./redax/redux-store";
 import {initialStateAuthorizationType} from "./redax/Authorization-reducer";
-import {MovieContainer} from "./components/Movies/MovieContainer";
+import {MovieContainer} from "./components/Movies";
 
 export const App = () => {
 
