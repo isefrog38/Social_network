@@ -29,6 +29,16 @@ export const UsersAPI = {
             .then(response => response.data);
     },
 
+    updateStatus (status: string) {
+        return instanceUsers.put(`status`, {status: `${status}`})
+            .then(response => response.data);
+    },
+
+    getStatus (userId: string) {
+        return instanceUsers.get(`status/${userId}`)
+            .then(response => response.data);
+    },
+
     followFunction (id: number) {
         return instanceUsers.post(`follow/${id}`)
             .then(response => response.data);

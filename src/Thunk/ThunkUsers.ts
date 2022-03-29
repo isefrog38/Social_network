@@ -7,6 +7,7 @@ import {
     setUsersAC, unfollowAC
 } from "../redax/Users-reducer";
 import {UsersAPI} from "../Api/Api";
+import {changeProfileForUser, getStatusAC, updateStatusAC} from "../redax/Profile-reducer";
 
 export const getUsersTC = (activePage: number, sizeUsersPage: number) => (dispatch: Dispatch) => {
     dispatch(setToggleFetchingAC(true));
@@ -48,5 +49,29 @@ export const changeUnFollowTC = (id: number) => (dispatch: Dispatch) => {
                 }
                 dispatch(setDisabledButtonFollowAC(false, id));
             })
+}
+
+export const getUsersProfileTC = (userId: string) => (dispatch: Dispatch) => {
+    UsersAPI.getUserProfile(userId)
+        .then(data => dispatch(changeProfileForUser(data)))
+}
+
+export const getStatusTC = (userId: string) => (dispatch: Dispatch) => {
+    UsersAPI.getStatus(userId)
+        .then(data => {
+            console.log(data)
+                if (data.resultCode === 0) {
+                    dispatch(getStatusAC(data.status));
+                }
+        })
+}
+
+export const updateStatusTC = (status: string) => (dispatch: Dispatch) => {
+    UsersAPI.updateStatus(status)
+        .then(data => {
+                if (data.resultCode === 0) {
+                    dispatch(updateStatusAC(status));
+                }
+        })
 }
 

@@ -25,6 +25,10 @@ export type TextMessageFromPostActionType = {
     type: "TEXT_MESSAGE_FROM_POST"
     newTextMessage: string
 };
+export type GetStatusType = {
+    type: "GET_STATUS"
+    status: string
+};
 export type changeProfileForUserActionType = {
     type: "SET_USER_PROFILE"
     profile: AxiosResponseTypeProfile | null
@@ -50,7 +54,7 @@ export type AxiosResponseTypeProfile = {
         "large": string
     }
 }
-export type ActionsType = AddPostActionType | AddMessageActionType | UpdateNewPostTextActionType | TextMessageFromPostActionType | changeProfileForUserActionType | UpdateNewStatusType;
+export type ActionsType = GetStatusType | AddPostActionType | AddMessageActionType | UpdateNewPostTextActionType | TextMessageFromPostActionType | changeProfileForUserActionType | UpdateNewStatusType;
 export type ProfileStateType = {
     myPostData: Array<MyPostsUserType>
     newPostText: string
@@ -63,6 +67,7 @@ const ADD_MESSAGE = "ADD_MESSAGE";
 const UPDATE_NEW_POST_TEXT = "UPDATE_NEW_POST_TEXT";
 const SET_USER_PROFILE = "SET_USER_PROFILE";
 const SET_NEW_STATUS = "SET_NEW_STATUS";
+const GET_STATUS = "GET_STATUS";
 
 let initialState: ProfileStateType = {
     myPostData: [
@@ -91,6 +96,8 @@ export const ProfileReducer = (state: ProfileStateType = initialState, action: A
             return {...state, profileUser: action.profile}
         case SET_NEW_STATUS:
             return {...state, status: action.status}
+        case GET_STATUS:
+            return {...state, status: action.status}
         default:
             return state;
     }
@@ -100,3 +107,4 @@ export const addPostActionCreator = (): AddPostActionType => ({type: ADD_POST} a
 export const changeProfileForUser = (profile: AxiosResponseTypeProfile): changeProfileForUserActionType => ({type: SET_USER_PROFILE , profile} as const);
 export const updateNewPostTextActionCreator = (text: string): UpdateNewPostTextActionType => ({type: UPDATE_NEW_POST_TEXT, newPostText: text} as const );
 export const updateStatusAC = (status: string): UpdateNewStatusType => ({type: SET_NEW_STATUS, status} as const );
+export const getStatusAC = (status: string): GetStatusType => ({type: GET_STATUS, status} as const);
