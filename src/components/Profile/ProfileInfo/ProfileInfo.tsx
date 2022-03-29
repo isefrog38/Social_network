@@ -3,7 +3,6 @@ import s from './ProfileInfo.module.css';
 import {AxiosResponseTypeProfile} from "../../../redax/Profile-reducer";
 import {RenameSpan} from "../../SmallComponents/RenameSpan/RenameSpanFunction";
 
-const mainLogo = 'https://images.unsplash.com/photo-1625721838087-c46e51c89558?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80';
 const defaultAvatar = "https://as2.ftcdn.net/v2/jpg/03/08/68/53/1000_F_308685322_QENNJlJFHONQ8FVP2xVsiez6x1almqo2.jpg";
 
 type ProfileInfoType = {
@@ -34,14 +33,16 @@ export const ProfileInfo = ({profileState, updateStatus, statusTitle}: ProfileIn
                             </div>
                         </div>
                         <div className={s.social_link}>
-                            SOCIAL LINK
-                            {/*
-                            <div>{state.contacts.vk}</div>
-                            <div>{state.contacts.github}</div>
-                            <div>{state.contacts.facebook}</div>
-                            <div>{state.contacts.twitter}</div>
-                            <div>{state.contacts.instagram}</div>
+                            <div>
+                                SOCIAL LINK
+                                {/*
+                                <div>{state.contacts.vk}</div>
+                                <div>{state.contacts.github}</div>
+                                <div>{state.contacts.facebook}</div>
+                                <div>{state.contacts.twitter}</div>
+                                <div>{state.contacts.instagram}</div>
                             */}
+                            </div>
                         </div>
                     </div>
                 </div>

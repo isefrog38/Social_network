@@ -1,6 +1,6 @@
 import React from 'react';
 import s from "./Preloader.module.css";
-import preloader from "../../Assets/mini img/preloader0.svg";
+import preloader from "../../../Assets/mini img/preloader0.svg";
 
 export const Preloader = () => {
     return (

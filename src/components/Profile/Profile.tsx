@@ -3,7 +3,7 @@ import s from './Profile.module.css';
 import {ProfileInfo} from "./ProfileInfo/ProfileInfo";
 import {MyPostsContainer} from "./MyPosts/MyPostsContainer";
 import {AxiosResponseTypeProfile} from "../../redax/Profile-reducer";
-import {Preloader} from "../Preloader/Preloader";
+import {Preloader} from "../SmallComponents/Preloader/Preloader";
 
 type ProfileType = {
     profile: null | AxiosResponseTypeProfile

@@ -2,7 +2,7 @@ import React, {memo} from 'react';
 import s from "./Users.module.css";
 import {UserType} from "../../../redax/Users-reducer";
 import {UsersBlock} from "./UsersBlock/UsersBlock";
-import {Pages} from "../../Pages/Pages";
+import {Pages} from "../../Pagination/Pages";
 
 type UsersType = {
     users: UserType[]

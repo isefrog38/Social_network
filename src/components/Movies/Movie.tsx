@@ -2,7 +2,7 @@ import React, {FC, memo} from "react";
 import s from './Movie.module.css'
 import {SearchMovie} from "./SearchMovie/SearchMovie";
 import {ResultSearchMovie} from "./ResultSearchMovie/ResultSearchMovie";
-import {Preloader2} from "../Preloader/Preloader2/Preloader2";
+import {Preloader2} from "../SmallComponents/Preloader/Preloader2/Preloader2";
 import {MovieResponseType} from "../../redax/Movie-reducer";
 
 type MovieType = {

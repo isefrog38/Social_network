@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {AppStateType} from "../../redax/redux-store";
 import {InitialUsersStateType, setDisabledButtonFollowAC} from "../../redax/Users-reducer";
 import {Users} from "./Users/Users";
-import {Preloader} from "../Preloader/Preloader";
+import {Preloader} from "../SmallComponents/Preloader/Preloader";
 import {changeFollowTC, changePageTC, changeUnFollowTC, getUsersTC} from "../../Thunk/ThunkUsers";
 import {WithAuthRedirect} from "../../HOC/withAuthRedirect";
 
