@@ -25,12 +25,7 @@ export const Authorization = (props: AuthorizationType) => {
             <div className={s.main_div_auth}>
                 {props.stateUser.isAuth
                     ? <h2>{props.stateUser.login}</h2>
-                    : <>{/*<NavLink to={'/signIn'} className={s.button} onClick={onClickHandler}>
-                        Sign In
-                    </NavLink>
-                    <NavLink to={'/SignUp'} className={s.button} onClick={onClickHandler}>
-                        Sign Up
-                    </NavLink>*/}
+                    : <>
                         <a className={s.button} onClick={onClickHandlerSignIn}>
                             Sign In
                         </a>

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import s from './Header.module.css';
 import LogoHeader from "../../Assets/mini img/logoHEADER.jpg";
 import {Burger} from "./Burger/Burger";
@@ -6,6 +6,7 @@ import {Authorization} from "./Authorization/Authorization";
 import {initialStateAuthorizationType} from "../../redax/Authorization-reducer";
 import {SearchPanel} from "../SearchPanel/SearchPanel";
 import {Theme} from "../SmallComponents/ThemeSelect/Theme";
+import {Context} from "../../App";
 
 type HeaderType = {
     stateUser: initialStateAuthorizationType
@@ -14,16 +15,16 @@ type HeaderType = {
 
 const Header = (props: HeaderType) => {
 
+    const theme = useContext(Context)
     const [value, setValue] = useState<string>('')
 
     return (
-        <header className={s.header}>
+        <header className={theme === 'on' ? s.header : s.header_dark}>
             <Logo/>
             <div className={s.burger}>
                 <Burger/>
             </div>
             <TitlePage/>
-            <Theme setShowTheme={props.setShowTheme}/>
             <div className={s.search}>
                 <SearchPanel
                     placeholderTitle={'Search friends'}
@@ -32,6 +33,7 @@ const Header = (props: HeaderType) => {
                     onChange={(e) => setValue(e.currentTarget.value)}
                 />
             </div>
+            <Theme setShowTheme={props.setShowTheme}/>
             <Authorization stateUser={props.stateUser}/>
         </header>
     )

@@ -2,7 +2,7 @@
     width: 250px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .button {
@@ -30,7 +30,7 @@
 }
 
 .button:hover {
-    border: none;
+    border: 1px sodid white;
     background-color: white;
     box-shadow: 0 2px 5px 1px rgb(64 60 67 / 30%);
 }
