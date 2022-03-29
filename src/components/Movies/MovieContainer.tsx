@@ -10,7 +10,7 @@ import {
     setTotalCountMoviePagesAC
 } from "../../redax/Movie-reducer";
 import {AppStateType} from "../../redax/redux-store";
-import {onPageMoviesChanged, searchFilmsByTitle, searchFilmsByType} from "../../Api/Api";
+import {MoviesAPI} from "../../Api/Api";
 
 export const MovieContainer = () => {
 
@@ -37,7 +37,7 @@ export const MovieContainer = () => {
         setSearchTitle(searchTitle);
         setPreloader(true)
         try {
-            const {data} = await searchFilmsByTitle(searchTitle);
+            const {data} = await MoviesAPI.searchFilmsByTitle(searchTitle);
             const {Search, Error, Response} = data;
             Response === 'True' ? setSearchResult(Search) : setSearchError(Error);
             setTotalCountPages(data.totalResults)
@@ -51,7 +51,7 @@ export const MovieContainer = () => {
         setSearchTitle(searchTitle);
         setPreloader(true)
         try {
-            const {data} = await searchFilmsByType(searchTitle, stateMovie.type);
+            const {data} = await MoviesAPI.searchFilmsByType(searchTitle, stateMovie.type);
             const {Search, Error, Response} = data;
             Response === 'True' ? setSearchResultByType(Search) : setSearchErrorByType(Error);
             setTotalCountPages(data.totalResults);
@@ -64,7 +64,7 @@ export const MovieContainer = () => {
         setActivePage(page)
         setPreloader(true)
         try {
-            const {data} = await onPageMoviesChanged(stateMovie.searchTitle, page);
+            const {data} = await MoviesAPI.onPageMoviesChanged(stateMovie.searchTitle, page);
             const {Search, Error, Response} = data;
             Response === 'True' ? setSearchResult(Search) : setSearchError(Error);
         } catch (error) {

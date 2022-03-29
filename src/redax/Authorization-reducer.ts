@@ -15,10 +15,6 @@ type DataType = {
 };
 type SetUserDataAC = ReturnType<typeof setAuthUserDataAC>;
 let initialStateAuthorization: initialStateAuthorizationType = {
-    /*userId: 38,
-    email: 'pavel@virtualbrest.com',
-    login: 'IseFrog',
-    isFetching: false*/
     id: null,
     login: null,
     email: null,
@@ -42,3 +38,8 @@ export const AuthorizationReducer = (state = initialStateAuthorization, action: 
 export const setAuthUserDataAC = (data: DataType) => {
     return {type: SET_USER_DATA, data} as const
 }
+
+///*userId: 38,
+//     email: 'pavel@virtualbrest.com',
+//     login: 'IseFrog',
+//     isFetching: false*/

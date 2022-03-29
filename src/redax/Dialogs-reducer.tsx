@@ -14,8 +14,8 @@ export type DialogReducerPageType = {
     textMessage: string
 };
 
-const ADD_MESSAGE = "ADD-MESSAGE";
-const TEXT_MESSAGE_FROM_POST = "TEXT-MESSAGE-FROM-POST";
+const ADD_MESSAGE = "ADD_MESSAGE";
+const TEXT_MESSAGE_FROM_POST = "TEXT_MESSAGE_FROM_POST";
 
 let initialState: DialogReducerPageType = {
     dialogs: [

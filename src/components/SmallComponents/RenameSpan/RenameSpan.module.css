@@ -1,0 +1,35 @@
+.input_block {
+    margin: 0 10px;
+    width: 200px;
+    height: 20px;
+    border: none;
+    font-size: 1.2rem;
+}
+
+.input_block {
+    background-color: white;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    border: 1px solid black;
+    padding: 12px;
+}
+
+.input_block:active {
+    outline: none;
+}
+.input_block:focus {
+    outline: none;
+}
+.input_block:hover {
+    outline: none;
+}
+
+.text_block {
+    box-sizing: border-box;
+    width: 100%;
+    font-weight: 500;
+    font-size: 1.2rem;
+    color: #242524;
+}

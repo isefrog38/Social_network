@@ -1,6 +1,5 @@
 import axios from "axios";
 
-
 export const instanceUsers = axios.create({
     baseURL: "https://social-network.samuraijs.com/api/1.0/",
     withCredentials: true,
@@ -9,29 +8,36 @@ export const instanceUsers = axios.create({
     },
 })
 
-export const getUsers = (activePage: number = 1, sizeUsersPage: number = 10) => {
-   return instanceUsers.get(`users?page=${activePage}&count=${sizeUsersPage}`)
-       .then(response => response.data);
-}
+export const UsersAPI = {
+    AuthUser () {
+        return instanceUsers.get (`auth/me`)
+            .then(response => response.data);
+    },
 
-export const onPageChanged = (page: number, sizeUsersPage: number) => {
-   return instanceUsers.get(`users?page=${page}&count=${sizeUsersPage}`)
-       .then(response => response.data);
-}
+    getUsers (activePage: number = 1, sizeUsersPage: number = 10)  {
+        return instanceUsers.get(`users?page=${activePage}&count=${sizeUsersPage}`)
+            .then(response => response.data);
+    },
 
-export const getUserProfile = (userId: string) => {
-    return instanceUsers.get(`profile/${userId}`)
-        .then(response => response.data);
-}
+    onPageChanged (page: number, sizeUsersPage: number) {
+        return instanceUsers.get(`users?page=${page}&count=${sizeUsersPage}`)
+            .then(response => response.data);
+    },
 
-export const followFunction = (id: number) => {
-    return instanceUsers.post(`follow/${id}`)
-        .then(response => response.data);
-}
+    getUserProfile (userId: string) {
+        return instanceUsers.get(`profile/${userId}`)
+            .then(response => response.data);
+    },
 
-export const unfollowFunction = (id: number) => {
-    return instanceUsers.delete(`follow/${id}`)
-        .then(response => response.data);
+    followFunction (id: number) {
+        return instanceUsers.post(`follow/${id}`)
+            .then(response => response.data);
+    },
+
+    unfollowFunction (id: number) {
+        return instanceUsers.delete(`follow/${id}`)
+            .then(response => response.data);
+    },
 }
 
 /// next api
@@ -42,16 +48,19 @@ export const instanceMovies = axios.create({
     baseURL: `https://www.omdbapi.com/`,
 })
 
-export const  searchFilmsByTitle = (title: string) => {
-    return instanceMovies.get(`?apikey=${apiKey}&s=${title}`)
-}
 
-export const onPageMoviesChanged = (title: string, page: number) => {
-    return instanceMovies.get(`?apikey=${apiKey}&s=${title}&type=movie&page=${page}`)
-}
+export const MoviesAPI = {
+    searchFilmsByTitle (title: string) {
+        return instanceMovies.get(`?apikey=${apiKey}&s=${title}`)
+    },
 
-export const searchFilmsByType = (title: string, type: string) => {
-    return instanceMovies.get(`?apikey=${apiKey}&s=${title}&type=${type}`)
+    onPageMoviesChanged (title: string, page: number) {
+        return instanceMovies.get(`?apikey=${apiKey}&s=${title}&type=movie&page=${page}`)
+    },
+
+    searchFilmsByType (title: string, type: string) {
+        return instanceMovies.get(`?apikey=${apiKey}&s=${title}&type=${type}`)
+    },
 }
 
 

@@ -3,29 +3,30 @@ import {useDispatch, useSelector} from "react-redux";
 import {AppStateType} from "../../redax/redux-store";
 import {initialStateAuthorizationType, setAuthUserDataAC} from "../../redax/Authorization-reducer";
 import Header from "./Header";
-import axios from "axios";
+import {UsersAPI} from "../../Api/Api";
+import {ThemeType} from "../../App";
 
 type HeaderContainerType = {
-    setShowTheme: (value: 'on' | 'off') => void
+    setShowTheme: (value: ThemeType) => void
+    theme: ThemeType
 }
 
-export const HeaderContainer = ({setShowTheme}: HeaderContainerType) => {
+export const HeaderContainer = ({setShowTheme, theme}: HeaderContainerType) => {
 
     let state = useSelector<AppStateType, initialStateAuthorizationType>(state => state.AuthorizationReducer);
     let dispatch = useDispatch();
 
     useEffect(() => {
-            axios.get(`https://social-network.samuraijs.com/api/1.0/auth/me`, {
-                withCredentials: true
-            }).then(response => {
-                if (response.data.resultCode === 0) {
-                    dispatch(setAuthUserDataAC(response.data.data))
-                }
-            })
-        }, []
-    )
+        UsersAPI.AuthUser()
+            .then(data => {
+            if (data.resultCode === 0) {
+                dispatch(setAuthUserDataAC(data.data))
+            }
+        })
+        }, [])
+
 
     return (
-        <Header stateUser={state} setShowTheme={setShowTheme}/>
+        <Header stateUser={state} setShowTheme={setShowTheme} theme={theme}/>
     )
 }

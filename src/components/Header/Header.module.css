@@ -27,6 +27,11 @@
         height: 70px;
         z-index: 999;
     }
+    .header_dark {
+        position: fixed;
+        height: 70px;
+        z-index: 999;
+    }
 }
 
 @media (min-width: 50px) and (max-width: 1000px) {
@@ -107,6 +112,9 @@
 
 @media (min-width: 50px) and (max-width: 800px) {
     .search {
+        display: none;
+    }
+    .header_dark .search {
         display: none;
     }
 }

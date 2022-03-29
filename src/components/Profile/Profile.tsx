@@ -7,14 +7,20 @@ import {Preloader} from "../Preloader/Preloader";
 
 type ProfileType = {
     profile: null | AxiosResponseTypeProfile
+    statusTitle: string
+    updateStatus: (status: string) => void
 }
 
-const Profile = (props: ProfileType) => {
+const Profile = ({profile, updateStatus, statusTitle}: ProfileType) => {
 
-    if(!props.profile) return <Preloader />                // Preloader
+    if(!profile) return <Preloader />                // Preloader
     else return (
         <div className={s.main_profile_block}>
-            <ProfileInfo profileState={props.profile}/>
+            <ProfileInfo
+                profileState={profile}
+                statusTitle={statusTitle}
+                updateStatus={updateStatus}
+            />
             <MyPostsContainer />
         </div>
     )

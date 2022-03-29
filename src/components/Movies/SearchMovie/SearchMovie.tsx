@@ -1,6 +1,6 @@
 import React, {ChangeEvent, FC, memo, useState} from 'react';
 import s from './SearchMovie.module.css';
-import {SearchPanel} from "../../SearchPanel/SearchPanel";
+import {SearchPanel} from "../../SmallComponents/SearchPanel/SearchPanel";
 
 type SearchMovieType = {
     searchError: string

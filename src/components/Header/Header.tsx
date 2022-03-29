@@ -4,13 +4,14 @@ import LogoHeader from "../../Assets/mini img/logoHEADER.jpg";
 import {Burger} from "./Burger/Burger";
 import {Authorization} from "./Authorization/Authorization";
 import {initialStateAuthorizationType} from "../../redax/Authorization-reducer";
-import {SearchPanel} from "../SearchPanel/SearchPanel";
+import {SearchPanel} from "../SmallComponents/SearchPanel/SearchPanel";
 import {Theme} from "../SmallComponents/ThemeSelect/Theme";
-import {Context} from "../../App";
+import {Context, ThemeType} from "../../App";
 
 type HeaderType = {
     stateUser: initialStateAuthorizationType
-    setShowTheme: (value: 'on' | 'off') => void
+    setShowTheme: (value: ThemeType) => void
+    theme: ThemeType
 }
 
 const Header = (props: HeaderType) => {
@@ -22,7 +23,7 @@ const Header = (props: HeaderType) => {
         <header className={theme === 'on' ? s.header : s.header_dark}>
             <Logo/>
             <div className={s.burger}>
-                <Burger/>
+                <Burger theme={props.theme}/>
             </div>
             <TitlePage/>
             <div className={s.search}>

@@ -121,3 +121,15 @@ export const setActivePageUsersAC = (page: number): setPageUsersType => ({type: 
 export const setTotalCountPagesAC = (totalCount: number): setTotalCountType => ({type: SET_TOTAL_COUNT, totalCount} as const);
 export const setToggleFetchingAC = (isFetching: boolean): setToggleFetchingType => ({type: TOGGLE_FETCHING, isFetching} as const);
 export const setDisabledButtonFollowAC = (isDisabled: boolean, userId: number): setDisabledButtonFollow => ({type: DISABLED_FOLLOW_BUTTON, isDisabled, userId} as const);
+
+
+
+
+
+
+
+
+
+
+
+

@@ -8,17 +8,21 @@ export type MyPostsUserType = {
     likesCount: number
 };
 export type AddPostActionType = {
-    type: "ADD-POST"
+    type: "ADD_POST"
 };
 export type AddMessageActionType = {
-    type: "ADD-MESSAGE"
+    type: "ADD_MESSAGE"
 };
 export type UpdateNewPostTextActionType = {
-    type : "UPDATE-NEW-POST-TEXT"
+    type : "UPDATE_NEW_POST_TEXT"
     newPostText: string
 };
+export type UpdateNewStatusType = {
+    type : "SET_NEW_STATUS"
+    status: string
+};
 export type TextMessageFromPostActionType = {
-    type: "TEXT-MESSAGE-FROM-POST"
+    type: "TEXT_MESSAGE_FROM_POST"
     newTextMessage: string
 };
 export type changeProfileForUserActionType = {
@@ -46,16 +50,19 @@ export type AxiosResponseTypeProfile = {
         "large": string
     }
 }
-export type ActionsType = AddPostActionType | AddMessageActionType | UpdateNewPostTextActionType | TextMessageFromPostActionType | changeProfileForUserActionType;
+export type ActionsType = AddPostActionType | AddMessageActionType | UpdateNewPostTextActionType | TextMessageFromPostActionType | changeProfileForUserActionType | UpdateNewStatusType;
 export type ProfileStateType = {
     myPostData: Array<MyPostsUserType>
     newPostText: string
     profileUser: null | AxiosResponseTypeProfile
+    status: string
 };
 
-const ADD_POST = "ADD-POST";
-const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
+const ADD_POST = "ADD_POST";
+const ADD_MESSAGE = "ADD_MESSAGE";
+const UPDATE_NEW_POST_TEXT = "UPDATE_NEW_POST_TEXT";
 const SET_USER_PROFILE = "SET_USER_PROFILE";
+const SET_NEW_STATUS = "SET_NEW_STATUS";
 
 let initialState: ProfileStateType = {
     myPostData: [
@@ -65,7 +72,8 @@ let initialState: ProfileStateType = {
         {id: 4, message: 'Second post', likesCount: 116},
     ],
     newPostText: '',
-    profileUser: null
+    profileUser: null,
+    status: 'This could be your status',
 };
 
 export const ProfileReducer = (state: ProfileStateType = initialState, action: ActionsType): ProfileStateType => {
@@ -81,6 +89,8 @@ export const ProfileReducer = (state: ProfileStateType = initialState, action: A
             return {...state, newPostText: action.newPostText};
         case SET_USER_PROFILE:
             return {...state, profileUser: action.profile}
+        case SET_NEW_STATUS:
+            return {...state, status: action.status}
         default:
             return state;
     }
@@ -88,6 +98,5 @@ export const ProfileReducer = (state: ProfileStateType = initialState, action: A
 
 export const addPostActionCreator = (): AddPostActionType => ({type: ADD_POST} as const);
 export const changeProfileForUser = (profile: AxiosResponseTypeProfile): changeProfileForUserActionType => ({type: SET_USER_PROFILE , profile} as const);
-export const updateNewPostTextActionCreator = (text: string): UpdateNewPostTextActionType => {
-    return {type: UPDATE_NEW_POST_TEXT, newPostText: text} as const ;
-}
+export const updateNewPostTextActionCreator = (text: string): UpdateNewPostTextActionType => ({type: UPDATE_NEW_POST_TEXT, newPostText: text} as const );
+export const updateStatusAC = (status: string): UpdateNewStatusType => ({type: SET_NEW_STATUS, status} as const );

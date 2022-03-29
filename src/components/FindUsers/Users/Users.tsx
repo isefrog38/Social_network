@@ -5,8 +5,6 @@ import {UsersBlock} from "./UsersBlock/UsersBlock";
 import {Pages} from "../../Pages/Pages";
 
 type UsersType = {
-    unfollow: (id: number) => void
-    follow: (id: number) => void
     users: UserType[]
     activePage: number
     onClickHandler: (page: number) => void
@@ -14,6 +12,8 @@ type UsersType = {
     defaultAvatar: string
     disabled: Array<number>
     setDisabled: (isDisabled: boolean, userId: number) => void
+    changeUnFollowThunk: (id: number) => void
+    changeFollowThunk: (id: number) => void
 }
 
 export const Users = memo((props: UsersType) => {
@@ -29,10 +29,10 @@ export const Users = memo((props: UsersType) => {
                                                 key={user.id}
                                                 {...user}
                                                 disabled={props.disabled}
-                                                unfollow={props.unfollow}
-                                                follow={props.follow}
                                                 defaultAvatar={props.defaultAvatar}
                                                 setDisabled={props.setDisabled}
+                                                changeFollowThunk={props.changeFollowThunk}
+                                                changeUnFollowThunk={props.changeUnFollowThunk}
                                                />
     );
 

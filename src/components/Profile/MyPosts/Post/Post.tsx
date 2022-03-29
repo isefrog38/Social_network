@@ -11,7 +11,7 @@ type PostType = {
 
 export const Post = (props: PostType) => {
     let state = props.profileState;
-    let defaultPhoto = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAXSpy0PUas_IlI6LGzLgHFsMj-dzIfBZczg&usqp=CAU';
+    let defaultAvaMini = 'https://deti.digital/wp-content/plugins/buddyboss-platform/bp-core/images/profile-avatar-buddyboss.png';
 
     if (!state) return <div>Error...</div>
 
@@ -19,7 +19,7 @@ export const Post = (props: PostType) => {
         <div className={s.post}>
             <span className={s.item}>
                 <img alt={"logo" + state.userId}
-                    src={ state ? `${state.photos.small}` : defaultPhoto} />
+                    src={ state.photos.small === null ? defaultAvaMini : `${state.photos.small}`} />
             </span>
             <span className={s.textMessageBlock} key={props.id}>{props.message}</span>
             <div className={s.likesBlock}>

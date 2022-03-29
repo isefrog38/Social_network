@@ -1,119 +1,61 @@
-import React, {useCallback} from 'react';
+import React, {useCallback, useEffect} from 'react';
 import s from './UsersContainer.module.css';
 import {useDispatch, useSelector} from "react-redux";
 import {AppStateType} from "../../redax/redux-store";
-import {
-    followAC,
-    InitialUsersStateType,
-    setActivePageUsersAC, setDisabledButtonFollowAC, setToggleFetchingAC, setTotalCountPagesAC,
-    setUsersAC,
-    unfollowAC,
-    UserType
-} from "../../redax/Users-reducer";
+import {InitialUsersStateType, setDisabledButtonFollowAC} from "../../redax/Users-reducer";
 import {Users} from "./Users/Users";
 import {Preloader} from "../Preloader/Preloader";
-import {getUsers, onPageChanged} from "../../Api/Api";
+import {changeFollowTC, changePageTC, changeUnFollowTC, getUsersTC} from "../../Thunk/ThunkUsers";
+import {WithAuthRedirect} from "../../HOC/withAuthRedirect";
 
-type UsersClassPropsType = {
-    unfollow: (id: number) => void
-    follow: (id: number) => void
-    users: UserType[]
-    setUsers: (users: UserType[]) => void
-    totalUsersCountPage: number
-    sizeUsersPage: number
-    setActivePage: (page: number) => void
-    activePage: number
-    isFetching: boolean
-    disabled: Array<number>
-    setTotalCountPages: (totalCount: number) => void
-    showPreloader: (isFetching: boolean) => void
-    setDisabled: (isDisabled: boolean, userId: number) => void
-}
-
-class UsersClassContainer extends React.Component<UsersClassPropsType> {
-
-    defaultAvatar = "https://as2.ftcdn.net/v2/jpg/03/08/68/53/1000_F_308685322_QENNJlJFHONQ8FVP2xVsiez6x1almqo2.jpg";
-
-    componentDidMount() {
-        this.props.showPreloader(true)
-        getUsers(this.props.activePage, this.props.sizeUsersPage)
-            .then(data => {
-                this.props.showPreloader(false);
-                this.props.setUsers(data.items);
-                this.props.setTotalCountPages(data.totalCount);
-            });
-    }
-
-    onClickHandler = (page: number) => {
-        this.props.setActivePage(page)
-        this.props.showPreloader(true)
-        onPageChanged(page, this.props.sizeUsersPage)
-            .then(data => {
-                this.props.showPreloader(false)
-                this.props.setUsers(data.items)
-            });
-    }
-
-    render() {
-
-        let calculationPage = Math.ceil(this.props.totalUsersCountPage / this.props.sizeUsersPage);
-        let pages = [];
-        for (let i = 1; i <= calculationPage; i++) {
-            pages.push(i)
-        }
-
-        return (
-            <div className={s.main_users}>
-                {this.props.isFetching
-                    ? <Preloader/>
-                    : <div className={s.main_users_block}>
-                        <Users
-                            onClickHandler={this.onClickHandler}
-                            pages={pages}
-                            unfollow={this.props.unfollow}
-                            follow={this.props.follow}
-                            users={this.props.users}
-                            activePage={this.props.activePage}
-                            defaultAvatar={this.defaultAvatar}
-                            disabled={this.props.disabled}
-                            setDisabled={this.props.setDisabled}
-                        />
-                    </div>
-                }
-            </div>
-        )
-    }
-}
-
-export const UsersContainer = React.memo(() => {
+export const UsersContainer = () => {
 
     const dispatch = useDispatch();
     const stateUsers = useSelector<AppStateType, InitialUsersStateType>(state => state.UsersReducer)
 
-    const follow = useCallback((userId: number) => dispatch(followAC(userId)), [dispatch]);
-    const unfollow = useCallback((userId: number) => dispatch(unfollowAC(userId)), [dispatch]);
-    const setUsers = useCallback((users: UserType[]) => dispatch(setUsersAC(users)), [dispatch]);
-    const setActivePage = useCallback((page: number) => dispatch(setActivePageUsersAC(page)), [dispatch]);
-    const setTotalCountPages = useCallback((totalCount: number) => dispatch(setTotalCountPagesAC(totalCount)), [dispatch]);
-    const showPreloader = useCallback((isFetching: boolean) => dispatch(setToggleFetchingAC(isFetching)), [dispatch]);
     const disabledAxiosFunc = useCallback((isDisabled: boolean, userId: number) => dispatch(setDisabledButtonFollowAC(isDisabled, userId)), [dispatch]);
 
+    const getUsersThunk = useCallback((activePage: number, sizePage: number) => dispatch(getUsersTC(activePage, sizePage)),[dispatch]);
+    const changePageThunk = useCallback((page: number, sizePage: number) => dispatch(changePageTC(page, sizePage)),[dispatch]);
+    const changeFollowThunk = useCallback((id: number) => dispatch(changeFollowTC(id)),[dispatch]);
+    const changeUnFollowThunk = useCallback((id: number) => dispatch(changeUnFollowTC(id)),[dispatch]);
+
+    const defaultAvatar = "https://as2.ftcdn.net/v2/jpg/03/08/68/53/1000_F_308685322_QENNJlJFHONQ8FVP2xVsiez6x1almqo2.jpg";
+
+    let calculationPage = Math.ceil(stateUsers.totalUsersCountPage / stateUsers.sizeUsersPage);
+    let pages = [];
+    for (let i = 1; i <= calculationPage; i++) {
+        pages.push(i)
+    }
+
+    useEffect(() => {
+        getUsersThunk(stateUsers.activePage, stateUsers.sizeUsersPage);
+    },[])
+
+    const onClickHandler = (page: number) => {
+        changePageThunk(page, stateUsers.sizeUsersPage)
+    }
 
     return (
-        <UsersClassContainer
-            unfollow={unfollow}
-            follow={follow}
-            users={stateUsers.users}
-            setUsers={setUsers}
-            totalUsersCountPage={stateUsers.totalUsersCountPage}
-            sizeUsersPage={stateUsers.sizeUsersPage}
-            setActivePage={setActivePage}
-            activePage={stateUsers.activePage}
-            setTotalCountPages={setTotalCountPages}
-            isFetching={stateUsers.isFetching}
-            showPreloader={showPreloader}
-            disabled={stateUsers.isDisabled}
-            setDisabled={disabledAxiosFunc}
-        />
+        <div className={s.main_users}>
+            {stateUsers.isFetching
+                ? <Preloader/>
+                : <div className={s.main_users_block}>
+                    <Users
+                        changeFollowThunk={changeFollowThunk}
+                        changeUnFollowThunk={changeUnFollowThunk}
+                        onClickHandler={onClickHandler}
+                        pages={pages}
+                        users={stateUsers.users}
+                        activePage={stateUsers.activePage}
+                        defaultAvatar={defaultAvatar}
+                        disabled={stateUsers.isDisabled}
+                        setDisabled={disabledAxiosFunc}
+                    />
+                </div>
+            }
+        </div>
     )
-})
+};
+
+export default WithAuthRedirect(UsersContainer);

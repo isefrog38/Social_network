@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import s from './Authorization.module.css';
 import {initialStateAuthorizationType} from "../../../redax/Authorization-reducer";
-import {SignUp} from "../../LoginizationPage/SignUp";
-import {SignIn} from "../../LoginizationPage/SignIn";
+import {SignUp} from "../../LoginizationPage/SignUp/SignUp";
+import {SignIn} from "../../LoginizationPage/SignIn/SignIn";
 
 type AuthorizationType = {
     stateUser: initialStateAuthorizationType

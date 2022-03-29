@@ -4,23 +4,21 @@ import {NavLink} from "react-router-dom";
 import {useSelector} from "react-redux";
 import {NavigateBarType} from "../../../redax/Navigate-reducer";
 import {AppStateType} from "../../../redax/redux-store";
+import {ThemeType} from "../../../App";
 
-export const Burger = () => {
+type BurgerType = {
+    theme: ThemeType
+}
+
+export const Burger = ({theme}: BurgerType) => {
 
     const [showBurger, setShowBurger] = useState<boolean>(false);
-    /*const {pathname} = useLocation();
-
-    useEffect(() => {
-
-      setShowBurger(!showBurger)
-
-    }, [pathname]);*/
 
     return (
          <div className={s.headerParent}>
              {showBurger
-                 ? <BurgerOn showBurger={showBurger} setShowBurger={setShowBurger} />
-                 : <BurgerOff showBurger={showBurger} setShowBurger={setShowBurger} />
+                 ? <BurgerOn showBurger={showBurger} setShowBurger={setShowBurger} theme={theme}/>
+                 : <BurgerOff showBurger={showBurger} setShowBurger={setShowBurger} theme={theme}/>
              }
          </div>
     );
@@ -30,10 +28,11 @@ export const Burger = () => {
 type BurgerOnType = {
     setShowBurger: (show :boolean) => void
     showBurger: boolean
+    theme: ThemeType
 }
 
 
-const BurgerOn: FC<BurgerOnType> = ({setShowBurger, showBurger}) => {
+const BurgerOn: FC<BurgerOnType> = ({setShowBurger, showBurger, theme}) => {
 
     let state = useSelector<AppStateType, NavigateBarType[]>(state => state.NavigateBarReducer.navigateBar)
 
@@ -48,8 +47,8 @@ const BurgerOn: FC<BurgerOnType> = ({setShowBurger, showBurger}) => {
 
     return (
         <div className={s.two_block} onClick={() => setShowBurger(!showBurger)} onBlur={() => setShowBurger(!showBurger)}>
-            <div className={s.two_block_two}>
-                         <span className={s.spanOpenInvisible}/>
+            <div className={theme === 'on' ? s.two_block_two : s.two_block_two_dark}>
+                         <span className={theme === 'on' ? s.spanOpenInvisible : s.spanOpenInvisible_dark}/>
             </div>
             <div className={s.block_burger_menu}>
                 <div className={s.menu_items}>
@@ -63,20 +62,14 @@ const BurgerOn: FC<BurgerOnType> = ({setShowBurger, showBurger}) => {
 type BurgerOffType = {
     setShowBurger: (show :boolean) => void
     showBurger: boolean
+    theme: ThemeType
 }
 
-const BurgerOff: FC<BurgerOffType> = ({setShowBurger, showBurger}) => {
-
-    /*const close = () => window.onclick = function(event) {
-        let el = document.getElementById('burger_modal');
-        if (event.target !== el) {
-            setShowBurger(!showBurger)
-        }
-    }*/
+const BurgerOff: FC<BurgerOffType> = ({setShowBurger, showBurger, theme}) => {
 
     return (
         <div onClick={() => setShowBurger(!showBurger)} className={s.one_block}>
-            <span onClick={() => setShowBurger(!showBurger)} className={s.spanClosedInvisible}/>
+            <span onClick={() => setShowBurger(!showBurger)} className={theme === 'on' ? s.spanClosedInvisible : s.spanClosedInvisible_dark}/>
         </div>
     )
 }

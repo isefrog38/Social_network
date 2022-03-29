@@ -2,13 +2,13 @@ import React, {useContext} from 'react';
 import s from "./Theme.module.css";
 import sun from "../../../Assets/mini img/sun.png";
 import moon from "../../../Assets/mini img/moon.png";
-import {Context} from "../../../App";
+import {Context, ThemeType} from "../../../App";
 
-type ThemeType = {
-    setShowTheme: (value: 'on' | 'off') => void
+type ThemesType = {
+    setShowTheme: (value: ThemeType) => void
 }
 
-export const Theme = ({setShowTheme}: ThemeType) => {
+export const Theme = ({setShowTheme}: ThemesType) => {
 
     const showTheme = useContext(Context);
     

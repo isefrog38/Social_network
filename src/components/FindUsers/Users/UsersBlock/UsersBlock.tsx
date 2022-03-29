@@ -1,46 +1,23 @@
 import React, {memo} from 'react';
 import s from "./UsersBlock.module.css";
 import {NavLink} from "react-router-dom";
-import {followFunction, unfollowFunction} from "../../../../Api/Api";
+import {UserType} from "../../../../redax/Users-reducer";
 
-type UsersBlockType = {
-    name: string,
-    id: number,
-    uniqueUrlName: any,
-    photos: {
-        small: string | null,
-        large: string | null,
-    },
-    status: string| null,
-    followed: boolean
-    unfollow: (id: number) => void
-    follow: (id: number) => void
+type UsersBlockType = UserType & {
     defaultAvatar: string
     disabled: Array<number>
     setDisabled: (isDisabled: boolean, userId: number) => void
+    changeUnFollowThunk: (id: number) => void
+    changeFollowThunk: (id: number) => void
 }
 
 export const UsersBlock = memo((props: UsersBlockType) => {
 
     const onClickHandlerFollow = () => {
-        props.setDisabled(true, props.id)
-        followFunction(props.id)
-            .then(data => {
-            if (data.resultCode === 0) {
-                props.follow(props.id)
-            }
-            props.setDisabled(false, props.id)
-        })
+        props.changeFollowThunk(props.id);
     };
     const onClickHandlerUnfollow = () => {
-        props.setDisabled(true, props.id)
-        unfollowFunction(props.id)
-            .then(data => {
-            if (data.resultCode === 0) {
-                props.unfollow(props.id)
-            }
-            props.setDisabled(false, props.id)
-        })
+        props.changeUnFollowThunk(props.id);
     };
     const disabled = props.disabled.some(id => id === props.id);
 
