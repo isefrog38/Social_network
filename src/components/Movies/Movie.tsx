@@ -19,30 +19,32 @@ type MovieType = {
 }
 
 export const Movie: FC<MovieType> = memo(({
-                                         onClickHandler,
-                                         activePage,
-                                         preloader,
-                                         pages,
-                                         searchError,
-                                         searchResult,
-                                         searchResultByType,
-                                         searchByType,
-                                         searchFilm,
-                                         searchErrorByType,
-                                     }) => {
+                                              onClickHandler,
+                                              activePage,
+                                              preloader,
+                                              pages,
+                                              searchError,
+                                              searchResult,
+                                              searchResultByType,
+                                              searchByType,
+                                              searchFilm,
+                                              searchErrorByType,
+                                          }) => {
 
     return (
         <>
             {preloader
                 ? <Preloader2/>
                 : <div className={s.main_search_block}>
-                    <div className={s.search_block}>
-                        <SearchMovie
-                            searchError={searchError}
-                            searchByType={searchByType}
-                            searchFilm={searchFilm}
-                            searchErrorByType={searchErrorByType}
-                        />
+                    <div className={s.flex_block}>
+                        <div className={s.search_block}>
+                            <SearchMovie
+                                searchError={searchError}
+                                searchByType={searchByType}
+                                searchFilm={searchFilm}
+                                searchErrorByType={searchErrorByType}
+                            />
+                        </div>
                     </div>
                     <ResultSearchMovie
                         searchResultByType={searchResultByType}

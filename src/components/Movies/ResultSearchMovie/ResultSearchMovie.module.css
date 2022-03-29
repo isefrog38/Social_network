@@ -5,7 +5,13 @@
     border-radius: 20px;
 }
 
-@media (min-width: 50px) and (max-width: 1000px) {
+@media (min-width: 1200px) and (max-width: 1350px) {
+    .results_show_films {
+        margin-right: 20px;
+    }
+}
+
+@media (min-width: 50px) and (max-width: 1200px) {
     .results_show_films {
         width: 95%;
         margin: 20px 7px;

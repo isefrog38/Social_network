@@ -73,8 +73,7 @@
     margin-top: 20px;
 }
 
-
-@media (min-width: 50px) and (max-width: 800px) {
+@media (min-width: 50px) and (max-width: 1000px) {
     .social_link {
         margin: 10px 0;
     }
@@ -82,6 +81,7 @@
 
 .avatar {
     display: flex;
+    margin-right: 20px;
 }
 
 .avatar_mini {

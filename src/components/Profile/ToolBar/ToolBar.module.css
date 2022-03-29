@@ -14,8 +14,8 @@
     height: 100%;
 }
 
-@media (min-width: 50px) and (max-width: 1000px) {
- .other_block {
-     display: none;
- }
+@media (min-width: 50px) and (max-width: 1200px) {
+     .other_block {
+         display: none;
+     }
 }
