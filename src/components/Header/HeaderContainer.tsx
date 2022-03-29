@@ -5,8 +5,11 @@ import {initialStateAuthorizationType, setAuthUserDataAC} from "../../redax/Auth
 import Header from "./Header";
 import axios from "axios";
 
+type HeaderContainerType = {
+    setShowTheme: (value: 'on' | 'off') => void
+}
 
-export const HeaderContainer = () => {
+export const HeaderContainer = ({setShowTheme}: HeaderContainerType) => {
 
     let state = useSelector<AppStateType, initialStateAuthorizationType>(state => state.AuthorizationReducer);
     let dispatch = useDispatch();
@@ -23,6 +26,6 @@ export const HeaderContainer = () => {
     )
 
     return (
-        <Header stateUser={state}/>
+        <Header stateUser={state} setShowTheme={setShowTheme}/>
     )
 }

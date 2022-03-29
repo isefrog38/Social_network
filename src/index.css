@@ -8,13 +8,6 @@ body {
   background-color: #e5ebf1;
 }
 
-.dark-theme {
-  background-color: rgba(38, 38, 38, 0.65);
-}
-
-
-
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;

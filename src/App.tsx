@@ -1,4 +1,4 @@
-import React from "react";
+import React, {createContext, useState} from "react";
 import './App.css';
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
@@ -14,29 +14,34 @@ import {AppStateType} from "./redax/redux-store";
 import {initialStateAuthorizationType} from "./redax/Authorization-reducer";
 import {MovieContainer} from "./components/Movies";
 
+export const Context = createContext('on');
+
 export const App = () => {
 
-    let { id } = useSelector<AppStateType, initialStateAuthorizationType>(state => state.AuthorizationReducer)
+    let {id} = useSelector<AppStateType, initialStateAuthorizationType>(state => state.AuthorizationReducer);
+    const [showTheme, setShowTheme] = useState<'on' | 'off'>('on');
 
     return (
-        <div className={"App"}>
-            <HeaderContainer/>
-            <div className='app-wrapper'>
-                <NavbarContainer/>
-                <div className={'app-wrapper-content'}>
-                    <Routes>
-                        <Route path={'/'} element={<Navigate to={'/profile'}/>}/>   {/*my profile 22589*/}
-                        {id &&  <Route path={'/profile'} element={<Navigate to={`/profile/${id}`}/>}/>}
-                        <Route path='/dialogs' element={<DialogsContainer/>}/>
-                        <Route path='/profile/:userId' element={<ProfileContainer/>}/>
-                        <Route path='/users' element={<UsersContainer/>}/>
-                        <Route path='/news' element={<News/>}/>
-                        <Route path='/music' element={<Music/>}/>
-                        <Route path='/movies' element={<MovieContainer/>}/>
-                        <Route path='/settings' element={<Setting/>}/>
-                    </Routes>
+        <Context.Provider value={showTheme}>
+            <div className={showTheme === "on" ? "App" : "App_dark"}>
+                <HeaderContainer setShowTheme={setShowTheme}/>
+                <div className='app-wrapper'>
+                    <NavbarContainer/>
+                    <div className={'app-wrapper-content'}>
+                        <Routes>
+                            <Route path={'/'} element={<Navigate to={'/profile'}/>}/> {/*my profile 22589*/}
+                            {id && <Route path={'/profile'} element={<Navigate to={`/profile/${id}`}/>}/>}
+                            <Route path='/dialogs' element={<DialogsContainer/>}/>
+                            <Route path='/profile/:userId' element={<ProfileContainer/>}/>
+                            <Route path='/users' element={<UsersContainer/>}/>
+                            <Route path='/news' element={<News/>}/>
+                            <Route path='/music' element={<Music/>}/>
+                            <Route path='/movies' element={<MovieContainer/>}/>
+                            <Route path='/settings' element={<Setting/>}/>
+                        </Routes>
+                    </div>
                 </div>
             </div>
-        </div>
+        </Context.Provider>
     )
 };

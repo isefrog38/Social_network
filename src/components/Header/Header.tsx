@@ -9,6 +9,7 @@ import {Theme} from "../SmallComponents/ThemeSelect/Theme";
 
 type HeaderType = {
     stateUser: initialStateAuthorizationType
+    setShowTheme: (value: 'on' | 'off') => void
 }
 
 const Header = (props: HeaderType) => {
@@ -22,7 +23,7 @@ const Header = (props: HeaderType) => {
                 <Burger/>
             </div>
             <TitlePage/>
-            <Theme/>
+            <Theme setShowTheme={props.setShowTheme}/>
             <div className={s.search}>
                 <SearchPanel
                     placeholderTitle={'Search friends'}
