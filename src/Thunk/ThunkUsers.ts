@@ -59,10 +59,7 @@ export const getUsersProfileTC = (userId: string) => (dispatch: Dispatch) => {
 export const getStatusTC = (userId: string) => (dispatch: Dispatch) => {
     UsersAPI.getStatus(userId)
         .then(data => {
-            console.log(data)
-                if (data.resultCode === 0) {
-                    dispatch(getStatusAC(data.status));
-                }
+            dispatch(getStatusAC(data));
         })
 }
 

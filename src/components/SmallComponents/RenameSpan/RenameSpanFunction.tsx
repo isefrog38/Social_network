@@ -14,7 +14,10 @@ export const RenameSpan = memo(({statusTitle, setTitle}: TodoListHeaderPropsType
 
     const maxLengthInInput = 85;
 
-    const onClick = () => setShowInput(!show)
+    const onClick = () => {
+        setTitle(newTitle)
+        setShowInput(!show)
+    }
     const onBlurHandler = () => {
         setTitle(newTitle)
         setShowInput(!show)
@@ -22,12 +25,12 @@ export const RenameSpan = memo(({statusTitle, setTitle}: TodoListHeaderPropsType
     const onKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (error.trim() !== '') setError('')
         if (e.ctrlKey || e.key === "Enter") {
-            onBlurHandler()
+            onClick()
         } else {
             setError('bla bla')
         }
-    }
-    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => setNewTitle(e.currentTarget.value)
+    };
+    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => setNewTitle(e.currentTarget.value);
 
     return (
         show

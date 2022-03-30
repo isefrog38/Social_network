@@ -27,7 +27,6 @@ export const ProfileContainer = () => {
         }
             setUsersProfile(userId);
             getStatus(userId);
-            updateStatus(status);
         /*UsersAPI.getStatus(userId)
             .then(data => {
                 console.log(data)

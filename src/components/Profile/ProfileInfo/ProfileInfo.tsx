@@ -27,7 +27,7 @@ export const ProfileInfo = ({profileState, updateStatus, statusTitle}: ProfileIn
                     <div className={s.main_n_and_s}>
                         <div className={s.name_and_status_block}>
                             <h1 className={s.full_name}>{state.fullName}</h1>
-                            <div className={s.status}>
+                            <div className={s.status}>                               {/*status*/}
                                 <RenameSpan statusTitle={statusTitle}
                                             setTitle={updateStatus}/>
                             </div>

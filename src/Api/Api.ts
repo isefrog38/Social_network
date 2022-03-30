@@ -30,12 +30,12 @@ export const UsersAPI = {
     },
 
     updateStatus (status: string) {
-        return instanceUsers.put(`status`, {status: `${status}`})
+        return instanceUsers.put(`profile/status/`, {status: status})
             .then(response => response.data);
     },
 
     getStatus (userId: string) {
-        return instanceUsers.get(`status/${userId}`)
+        return instanceUsers.get(`profile/status/${userId}`)
             .then(response => response.data);
     },
 
