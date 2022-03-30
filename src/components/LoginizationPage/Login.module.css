@@ -1,5 +1,8 @@
 
 .form_3 {
+    display: flex;
+    flex-direction: column;
+
     font-family: 'Ubuntu', 'Lato', sans-serif;
     font-weight: 400;
     /* Size and position */
@@ -40,7 +43,7 @@
 .form_3 input[type=password],
 .form_3 input[type=email] {
     /* Size and position */
-    width: 90%;
+    width: 96%;
     float: left;
     padding: 8px 5px;
     margin-bottom: 10px;
@@ -74,10 +77,13 @@
     outline: none; /* Remove Chrome outline */
 }
 
-.form_3 p:nth-child(3),
 .form_3 p:nth-child(4){
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     float: left;
-    width: 50%;
+    width: 100%;
 }
 
 .form_3 label[for=remember] {
@@ -95,7 +101,7 @@
     vertical-align: middle;
 }
 
-.form_3 input[type=submit] {
+.form_3 button[type=submit] {
     /* Width and position */
     width: 100%;
     padding: 8px 5px;
@@ -117,11 +123,11 @@
     text-shadow: 0 -1px 0 rgba(0,0,0,0.8);
 }
 
-.form_3 input[type=submit]:hover {
+.form_3 button[type=submit]:hover {
     box-shadow: 2px 2px 30px rgb(255, 255, 255), -2px -2px 30px rgb(255, 255, 255);
 }
 
-.form_3 input[type=submit]:active {
+.form_3 button[type=submit]:active {
     color: #ffffff;
     background: rgba(232, 232, 232, 0.77);
     box-shadow: 2px 2px 30px rgb(255, 255, 255), -2px -2px 30px rgb(255, 255, 255);
@@ -180,5 +186,18 @@
     .form_3 {
         width: 250px;
     }
+}
+
+.clearfix {
+    display: flex;
+    flex-direction: column;
+}
+
+.register {
+    display: flex;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: white;
+    font-weight: 600;
 }
 

@@ -1,0 +1,36 @@
+.validateContainer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.validateChecklist {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+.validateChecklist div {
+  margin-top: 5px;
+}
+.validateChecklist span {
+  margin-left: 6px;
+}
+/*
+.invalidStyle {
+  background-image: url('/src/images/RegistrationImages/wrongIcon.png');
+  width: 16px;
+  height: 14px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.validStyle {
+  background-image: url('/src/images/RegistrationImages/wrightIcon.png');
+  width: 16px;
+  height: 14px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+*/

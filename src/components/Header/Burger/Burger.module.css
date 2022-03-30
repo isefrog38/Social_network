@@ -53,18 +53,10 @@
         top: -35px;
     }
 
-    .one_block:hover {
-        background-color: rgba(234, 234, 234, 0.42);
-        box-shadow: 0 3px 5px 2px rgb(64 60 67 / 30%);
-    }
     .two_block {
         display: flex;
     }
 
-    .two_block_two:hover {
-        background-color: rgba(234, 234, 234, 0.42);
-        box-shadow: 0 3px 5px 2px rgb(64 60 67 / 30%);
-    }
     .two_block_two {
         position: absolute;
         display: flex;
@@ -72,7 +64,6 @@
         top: -35px;
         padding: 2px;
     }
-
 
 
 
@@ -233,18 +224,10 @@
         top: -35px;
     }
 
-    .one_block:hover {
-        background-color: rgba(234, 234, 234, 0.42);
-        box-shadow: 0 3px 5px 2px rgb(64 60 67 / 30%);
-    }
     .two_block {
         display: flex;
     }
 
-    .two_block_two:hover {
-        background-color: rgba(234, 234, 234, 0.42);
-        box-shadow: 0 3px 5px 2px rgb(64 60 67 / 30%);
-    }
     .two_block_two_dark {
         position: absolute;
         display: flex;
