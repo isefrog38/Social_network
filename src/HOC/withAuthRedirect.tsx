@@ -8,7 +8,7 @@ export function WithAuthRedirect<T> (Component: ComponentType<T>) {
     const RedirectComponent = (props: any) => {
 
         const isAuth  = useSelector<AppStateType, boolean>(state => state.AuthorizationReducer.isAuth);
-        if (!isAuth) return (<Navigate to='/login' />);
+        if (!isAuth) return (<Navigate to='/signIn' />);
 
         return <Component {...props as T}/>
 

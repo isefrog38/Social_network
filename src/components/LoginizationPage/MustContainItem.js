@@ -1,6 +1,4 @@
 import React from "react";
-//styling
-import "./MustContainItem.css";
 
 const MustContainItem = (props) => {
   const { data } = props;
@@ -14,12 +12,12 @@ const MustContainItem = (props) => {
   };
 
   return (
-    <div>
+    <span style={{fontWeight: "500", fontSize: "1rem"}}>
       <div className={"validateChecklist"}>
-        <span>{label}</span>
+        <span >{label}</span>
         <div className={setClass()} />
       </div>
-    </div>
+    </span>
   );
 };
 

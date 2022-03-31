@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
 import s from './Authorization.module.css';
 import {initialStateAuthorizationType} from "../../../redax/Authorization-reducer";
-import {SignUp} from "../../LoginizationPage/SignUp/SignUp";
-import {SignIn} from "../../LoginizationPage/SignIn/SignIn";
+import {NavLink} from "react-router-dom";
 
 type AuthorizationType = {
     stateUser: initialStateAuthorizationType
@@ -26,16 +25,14 @@ export const Authorization = (props: AuthorizationType) => {
                 {props.stateUser.isAuth
                     ? <h2>{props.stateUser.login}</h2>
                     : <>
-                        <a className={s.button} onClick={onClickHandlerSignIn}>
+                        <NavLink to={'/signIn'} className={s.button} onClick={onClickHandlerSignIn}>
                             Sign In
-                        </a>
-                        <a className={s.button} onClick={onClickHandlerSignUp}>
+                        </NavLink>
+                        <NavLink to={'/signUp'} className={s.button} onClick={onClickHandlerSignUp}>
                             Sign Up
-                        </a>
+                        </NavLink>
                     </>
                 }
-                {showSignIn && <SignIn setShowSignIn={setShowSignIn}/>}
-                {showSignUp && <SignUp setShowSignUp={setShowSignUp}/>}
             </div>
         );
     }
