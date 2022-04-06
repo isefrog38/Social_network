@@ -115,7 +115,7 @@ export const SignUp = ({theme}: SignUpType) => {
                                 id="remember"
                                 {...registrationForm.getFieldProps("rememberMe")}
                             />
-                            <label htmlFor="remember" style={{fontSize: "0.8rem", fontWeight: "400", width: "50%", marginRight: "80px"}}>
+                            <label htmlFor="remember" className={s.label_rememberMe_block}>
                                 Remember me
                             </label>
 

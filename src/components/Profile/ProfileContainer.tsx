@@ -13,9 +13,9 @@ import {getStatusTC, getUsersProfileTC, updateStatusTC} from "../../Thunk/ThunkU
 export const ProfileContainer = () => {
 
     let stateProfile = useSelector<AppStateType, ProfileStateType>(state => state.ProfileReducer);
-    let { id } = useSelector<AppStateType, initialStateAuthorizationType>(state => state.AuthorizationReducer);
+    let {id} = useSelector<AppStateType, initialStateAuthorizationType>(state => state.AuthorizationReducer);
     let dispatch = useDispatch();
-    let { userId } = useParams();
+    let {userId} = useParams();
 
     const setUsersProfile = useCallback((userId: string) => dispatch(getUsersProfileTC(userId)), [dispatch]);
     const updateStatus = useCallback((status: string) => dispatch(updateStatusTC(status)), [dispatch]);
@@ -25,13 +25,15 @@ export const ProfileContainer = () => {
         if (!userId || userId === ":userId") {
             userId = `/${id}`;
         }
-            setUsersProfile(userId);
-            getStatus(userId);
+
+        setUsersProfile(userId);
+        getStatus(userId);
+
     }, []);
 
     return (
         <div className={s.main_profile}>
-            <ToolBar />
+            <ToolBar/>
             <Profile
                 profile={stateProfile.profileUser}
                 updateStatus={updateStatus}

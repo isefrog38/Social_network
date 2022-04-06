@@ -17,7 +17,9 @@ export const HeaderContainer = ({setShowTheme, theme}: HeaderContainerType) => {
     let dispatch = useDispatch();
 
     useEffect(() => {
+
         dispatch(AuthMeTC())
+
         }, [])
 
 

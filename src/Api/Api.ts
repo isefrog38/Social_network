@@ -1,4 +1,5 @@
 import axios from "axios";
+import {ResponseGetAuthType, ResponseType} from "../Type/API-types/API-Types";
 
 export const instanceUsers = axios.create({
     baseURL: "https://social-network.samuraijs.com/api/1.0/",
@@ -81,7 +82,7 @@ export const instanceAuthLogin = axios.create({
 
 export const AuthAPI = {
     AuthUser () {
-        return instanceUsers.get (`auth/me`)
+        return instanceUsers.get<ResponseGetAuthType>(`auth/me`)
             .then(response => response.data);
     },
 
@@ -93,13 +94,5 @@ export const AuthAPI = {
     LogOut () {
         return instanceAuthLogin.delete<ResponseType>(`auth/login`)
             .then(response => response.data)
-    }
-}
-
-type ResponseType = {
-    resultCode: number
-    messages: Array<string>,
-    data: {
-        userId: number
     }
 }

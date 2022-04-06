@@ -12,9 +12,9 @@ import {HeaderContainer} from "./components/Header/HeaderContainer";
 import {useSelector} from "react-redux";
 import {AppStateType} from "./redax/redux-store";
 import {initialStateAuthorizationType} from "./redax/Authorization-reducer";
-import {MovieContainer} from "./components/Movies";
 import SignIn from "./components/LoginizationPage/SignIn/SignIn";
 import {SignUp} from "./components/LoginizationPage/SignUp/SignUp";
+import MovieContainer from "./components/Movies/MovieContainer";
 
 export const Context = createContext('on');
 export type ThemeType = 'on' | 'off';
@@ -43,8 +43,8 @@ export const App = () => {
                             <Route path='/music' element={<Music/>}/>
                             <Route path='/movies' element={<MovieContainer/>}/>
                             <Route path='/settings' element={<Setting/>}/>
-                            <Route path='/signIn' element={<SignIn />}/>
-                            <Route path='/signUp' element={<SignUp theme={showTheme}/>}/>
+                            <Route path='/signIn' element={<SignIn theme={showTheme} />}/>
+                            <Route path='/signUp' element={<SignUp theme={showTheme} />}/>
                         </Routes>
                     </div>
                 </div>

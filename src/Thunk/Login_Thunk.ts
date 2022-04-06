@@ -4,8 +4,10 @@ import {setAuthUserDataAC} from "../redax/Authorization-reducer";
 
 export const AuthMeTC = (): AppThunk => async dispatch => {
     const response = await AuthAPI.AuthUser()
-    if (response.data.resultCode === 0) {
-        dispatch(setAuthUserDataAC(response.data))
+    if (response.resultCode === 0) {
+        let {login, email, id} = response.data
+        dispatch(setAuthUserDataAC({id, email, login, isAuth: true}))
+        console.log(response.data)
     }
 }
 
@@ -13,7 +15,9 @@ export const getAccountAuthTC = (values: { email: string, password: string, reme
     const response = await AuthAPI.SignIn(values.email, values.password, values.rememberMe, values.captcha);
     const responseAuth = await AuthAPI.AuthUser();
     if (response.resultCode === 0) {
-        dispatch(setAuthUserDataAC(responseAuth.data));
+        let {login, email, id} = responseAuth.data
+        dispatch(setAuthUserDataAC({id, email, login, isAuth: true}))
+        console.log(response.data)
     }
 }
 

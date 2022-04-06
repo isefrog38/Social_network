@@ -23,13 +23,6 @@
     align-items: flex-start;
 }
 
-.blockSideImg {
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    justify-content: space-evenly;
-}
-
 .item_div {
     display: flex;
     width: 200px;
@@ -53,11 +46,6 @@
     width: 30px;
     height: 30px;
     margin-right: 20px;
-}
-
-.sideBar {
-    padding-top: 5rem;
-    padding-right: 20px;
 }
 
 .p {

@@ -23,5 +23,6 @@ const Setting = () => {
         </div>
     )
 }
-/*export default AuthRedirect(Setting);*/
-export default Setting;
+
+
+export default AuthRedirect(Setting);

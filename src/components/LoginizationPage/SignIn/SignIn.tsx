@@ -8,11 +8,12 @@ import {getAccountAuthTC} from "../../../Thunk/Login_Thunk";
 import {RedirectToProfile} from "../../../HOC/AuthRedirect";
 
 type SignInType = {
-    theme?: ThemeType
+    theme: ThemeType
 }
 type FormikErrorType = {
     email?: string;
     password?: string;
+    rememberMe?: boolean
 };
 
 const SignIn = ({theme}: SignInType) => {
@@ -99,7 +100,7 @@ const SignIn = ({theme}: SignInType) => {
                                     id="remember"
                                     {...registrationForm.getFieldProps("rememberMe")}
                                 />
-                                <label htmlFor="remember" style={{fontSize: "0.8rem", fontWeight: "400", width: "50%", marginRight: "80px"}}>
+                                <label htmlFor="remember" className={s.label_rememberMe_block}>
                                     Remember me
                                 </label>
 

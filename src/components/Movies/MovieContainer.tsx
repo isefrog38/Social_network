@@ -11,11 +11,12 @@ import {
 } from "../../redax/Movie-reducer";
 import {AppStateType} from "../../redax/redux-store";
 import {MoviesAPI} from "../../Api/Api";
+import {AuthRedirect} from "../../HOC/AuthRedirect";
 
-export const MovieContainer = () => {
+const MovieContainer = () => {
 
     const dispatch = useDispatch();
-    const stateMovie = useSelector<AppStateType, InitialMovieStateType>(state => state.MovieReducer)
+    const stateMovie = useSelector<AppStateType, InitialMovieStateType>(state => state.MovieReducer);
 
     const setActivePage = useCallback((page: number) => dispatch(setActivePageMovieAC(page)), [dispatch]);
     const setTotalCountPages = useCallback((totalCount: number) => dispatch(setTotalCountMoviePagesAC(totalCount)), [dispatch]);
@@ -79,8 +80,7 @@ export const MovieContainer = () => {
         pages.push(i)
     }
 
-    return (
-        <Movie
+    return <Movie
             searchResultByType={stateMovie.searchResultByType}
             searchErrorByType={stateMovie.searchErrorByType}
             searchFilm={searchFilm}
@@ -92,5 +92,6 @@ export const MovieContainer = () => {
             preloader={stateMovie.preloader}
             onClickHandler={onClickHandlerPage}
         />
-    )
 }
+
+export default AuthRedirect(MovieContainer);

@@ -1,0 +1,13 @@
+
+.sideBar {
+    padding-top: 5rem;
+    padding-right: 20px;
+}
+
+
+.blockSideImg {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
