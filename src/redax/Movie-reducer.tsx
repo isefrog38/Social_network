@@ -5,7 +5,7 @@ export type MovieResponseType = {
     Year: string
     imdbID: string
 };
-type UserActionType = TypeSelectType | SearchTitle | setPageUsersType | setTotalCountType | setToggleFetchingType | SearchResultType | SearchErrorType | SearchTypeByType | SearchErrorTypeByType;
+export type MoviesActionType = TypeSelectType | SearchTitle | setPageUsersType | setTotalCountType | setToggleFetchingType | SearchResultType | SearchErrorType | SearchTypeByType | SearchErrorTypeByType;
 type setPageUsersType = {
     type: "SET_PAGE_MOVIES"
     page: number
@@ -80,7 +80,7 @@ let initialState: InitialMovieStateType = {
     preloader: false,
 };
 
-export const MovieReducer = (state = initialState, action: UserActionType): InitialMovieStateType => {
+export const MovieReducer = (state = initialState, action: MoviesActionType): InitialMovieStateType => {
     switch (action.type) {
         case TYPE : {
             return {

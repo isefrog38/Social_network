@@ -1,6 +1,6 @@
 let SET_USER_DATA = "SET_USER_DATA";
 
-type ActionType = SetUserDataAC;
+export type AuthActionType = SetUserDataAC;
 export type initialStateAuthorizationType = {
     id: number | null
     email: string | null
@@ -9,9 +9,10 @@ export type initialStateAuthorizationType = {
     isAuth: boolean
 };
 type DataType = {
-    id: number
-    email: string
-    login: string
+    id: number | null
+    email: string | null
+    login: string | null
+    isAuth: boolean
 };
 type SetUserDataAC = ReturnType<typeof setAuthUserDataAC>;
 let initialStateAuthorization: initialStateAuthorizationType = {
@@ -22,12 +23,12 @@ let initialStateAuthorization: initialStateAuthorizationType = {
     isAuth: false,
 };
 
-export const AuthorizationReducer = (state = initialStateAuthorization, action: ActionType): initialStateAuthorizationType => {
+export const AuthorizationReducer = (state = initialStateAuthorization, action: AuthActionType): initialStateAuthorizationType => {
     switch (action.type) {
         case SET_USER_DATA :
             return {
                 ...state,
-                ...action.data,
+                ...action.payload,
                 isAuth: true
             }
         default:
@@ -35,11 +36,6 @@ export const AuthorizationReducer = (state = initialStateAuthorization, action: 
     }
 }
 
-export const setAuthUserDataAC = (data: DataType) => {
-    return {type: SET_USER_DATA, data} as const
+export const setAuthUserDataAC = (payload: DataType) => {
+    return {type: SET_USER_DATA, payload} as const
 }
-
-///*userId: 38,
-//     email: 'pavel@virtualbrest.com',
-//     login: 'IseFrog',
-//     isFetching: false*/

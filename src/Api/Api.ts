@@ -9,10 +9,6 @@ export const instanceUsers = axios.create({
 })
 
 export const UsersAPI = {
-    AuthUser () {
-        return instanceUsers.get (`auth/me`)
-            .then(response => response.data);
-    },
 
     getUsers (activePage: number = 1, sizeUsersPage: number = 10)  {
         return instanceUsers.get(`users?page=${activePage}&count=${sizeUsersPage}`)
@@ -74,3 +70,36 @@ export const MoviesAPI = {
 }
 
 
+
+export const instanceAuthLogin = axios.create({
+    baseURL: "https://social-network.samuraijs.com/api/1.0/",
+    withCredentials: true,
+    headers: {
+        "API-KEY": "46d03c13-5122-4b12-95a1-e807d8a6bece"
+    },
+})
+
+export const AuthAPI = {
+    AuthUser () {
+        return instanceUsers.get (`auth/me`)
+            .then(response => response.data);
+    },
+
+    SignIn (email: string, password: string, rememberMe: boolean, captcha: boolean) {
+        return instanceAuthLogin.post<ResponseType>(`auth/login`, {email, password, rememberMe, captcha})
+            .then(response => response.data)
+    },
+
+    LogOut () {
+        return instanceAuthLogin.delete<ResponseType>(`auth/login`)
+            .then(response => response.data)
+    }
+}
+
+type ResponseType = {
+    resultCode: number
+    messages: Array<string>,
+    data: {
+        userId: number
+    }
+}

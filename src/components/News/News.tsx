@@ -1,8 +1,14 @@
 import React from "react";
-import s from './News.module.css'
+import {InputForm} from "../SmallComponents/InputForm/InputForm";
 
 const News = () => {
-    return <div>
-    </div>
+
+
+
+    return (
+        <div>
+            <InputForm />
+        </div>
+    )
 }
 export default News

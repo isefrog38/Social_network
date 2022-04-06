@@ -7,7 +7,7 @@ import {ProfileStateType} from "../../redax/Profile-reducer";
 import {useParams} from 'react-router-dom';
 import {initialStateAuthorizationType} from "../../redax/Authorization-reducer";
 import {ToolBar} from "./ToolBar/ToolBar";
-import {WithAuthRedirect} from "../../HOC/withAuthRedirect";
+import {AuthRedirect} from "../../HOC/AuthRedirect";
 import {getStatusTC, getUsersProfileTC, updateStatusTC} from "../../Thunk/ThunkUsers";
 
 export const ProfileContainer = () => {
@@ -27,16 +27,6 @@ export const ProfileContainer = () => {
         }
             setUsersProfile(userId);
             getStatus(userId);
-        /*UsersAPI.getStatus(userId)
-            .then(data => {
-                console.log(data)
-                if (data.resultCode === 0) {
-                    dispatch(getStatusAC(data.status));
-                }
-            })
-
-        UsersAPI.getUserProfile(userId)
-            .then(data => dispatch(setUsersProfile(data)))*/
     }, []);
 
     return (
@@ -51,4 +41,4 @@ export const ProfileContainer = () => {
     )
 };
 
-export default WithAuthRedirect(ProfileContainer);
+export default AuthRedirect(ProfileContainer);

@@ -6,7 +6,7 @@ import {InitialUsersStateType, setDisabledButtonFollowAC} from "../../redax/User
 import {Users} from "./Users/Users";
 import {Preloader} from "../SmallComponents/Preloader/Preloader";
 import {changeFollowTC, changePageTC, changeUnFollowTC, getUsersTC} from "../../Thunk/ThunkUsers";
-import {WithAuthRedirect} from "../../HOC/withAuthRedirect";
+import {AuthRedirect} from "../../HOC/AuthRedirect";
 
 export const UsersContainer = () => {
 
@@ -58,4 +58,4 @@ export const UsersContainer = () => {
     )
 };
 
-export default WithAuthRedirect(UsersContainer);
+export default AuthRedirect(UsersContainer);

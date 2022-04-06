@@ -1,10 +1,10 @@
 import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {AppStateType} from "../../redax/redux-store";
-import {initialStateAuthorizationType, setAuthUserDataAC} from "../../redax/Authorization-reducer";
+import {initialStateAuthorizationType} from "../../redax/Authorization-reducer";
 import Header from "./Header";
-import {UsersAPI} from "../../Api/Api";
 import {ThemeType} from "../../App";
+import {AuthMeTC} from "../../Thunk/Login_Thunk";
 
 type HeaderContainerType = {
     setShowTheme: (value: ThemeType) => void
@@ -17,12 +17,7 @@ export const HeaderContainer = ({setShowTheme, theme}: HeaderContainerType) => {
     let dispatch = useDispatch();
 
     useEffect(() => {
-        UsersAPI.AuthUser()
-            .then(data => {
-            if (data.resultCode === 0) {
-                dispatch(setAuthUserDataAC(data.data))
-            }
-        })
+        dispatch(AuthMeTC())
         }, [])
 
 

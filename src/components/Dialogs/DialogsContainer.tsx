@@ -3,7 +3,7 @@ import Dialogs from "./Dialogs";
 import {AppStateType} from "../../redax/redux-store";
 import {DialogReducerPageType} from "../../redax/Dialogs-reducer";
 import {useSelector} from "react-redux";
-import {WithAuthRedirect} from "../../HOC/withAuthRedirect";
+import {AuthRedirect} from "../../HOC/AuthRedirect";
 
 
 
@@ -14,4 +14,4 @@ const DialogsContainer = () => {
     return <Dialogs dialogs={state.dialogs} />
 };
 
-export default WithAuthRedirect(DialogsContainer);
+export default AuthRedirect(DialogsContainer);

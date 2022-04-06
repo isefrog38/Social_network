@@ -1,4 +1,4 @@
-import {ActionsType, AddMessageActionType, TextMessageFromPostActionType} from "./Profile-reducer";
+import {ProfileActionsType, AddMessageActionType, TextMessageFromPostActionType} from "./Profile-reducer";
 export type MessageType = {
     id: number
     message: string
@@ -60,7 +60,7 @@ let initialState: DialogReducerPageType = {
 
 }
 
-export const DialogsReducer = (state: DialogReducerPageType = initialState, action: ActionsType): DialogReducerPageType => {
+export const DialogsReducer = (state: DialogReducerPageType = initialState, action: ProfileActionsType): DialogReducerPageType => {
     switch (action.type) {
         case ADD_MESSAGE:
         return {

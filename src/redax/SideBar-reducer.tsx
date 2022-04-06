@@ -1,3 +1,5 @@
+import {UserType} from "./Users-reducer";
+
 export type SideBarType = {
     id: number
     name: string
@@ -6,7 +8,11 @@ export type SideBarType = {
 type InitialSideBarType = {
     sideBar: Array<SideBarType>
 };
-type ActionsSideBarType = {};
+type Type = {
+    type: "SET_USERS"
+    users: Array<UserType>
+};
+export type ActionsSideBarType = Type;
 
 let initialState: InitialSideBarType = {
     sideBar: [

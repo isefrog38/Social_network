@@ -1,4 +1,4 @@
-type UserActionType = FollowACType | UnFollowACType | setUsersType | setPageUsersType | setTotalCountType | setToggleFetchingType | setDisabledButtonFollow;
+export type UserActionType = FollowACType | UnFollowACType | setUsersType | setPageUsersType | setTotalCountType | setToggleFetchingType | setDisabledButtonFollow;
 type FollowACType = {
     type: "FOLLOW",
     userId: number

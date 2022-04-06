@@ -53,8 +53,8 @@ export type AxiosResponseTypeProfile = {
         "small": string
         "large": string
     }
-}
-export type ActionsType = GetStatusType | AddPostActionType | AddMessageActionType | UpdateNewPostTextActionType | TextMessageFromPostActionType | changeProfileForUserActionType | UpdateNewStatusType;
+};
+export type ProfileActionsType = GetStatusType | AddPostActionType | AddMessageActionType | UpdateNewPostTextActionType | TextMessageFromPostActionType | changeProfileForUserActionType | UpdateNewStatusType;
 export type ProfileStateType = {
     myPostData: Array<MyPostsUserType>
     newPostText: string
@@ -81,7 +81,7 @@ let initialState: ProfileStateType = {
     status: '',
 };
 
-export const ProfileReducer = (state: ProfileStateType = initialState, action: ActionsType): ProfileStateType => {
+export const ProfileReducer = (state: ProfileStateType = initialState, action: ProfileActionsType): ProfileStateType => {
     switch (action.type) {
         case ADD_POST:
             let newPost = {

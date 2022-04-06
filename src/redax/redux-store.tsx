@@ -1,12 +1,12 @@
 import {applyMiddleware, combineReducers, createStore} from "redux";
-import {ProfileReducer} from "./Profile-reducer";
+import {ProfileActionsType, ProfileReducer} from "./Profile-reducer";
 import {DialogsReducer} from "./Dialogs-reducer";
-import {SideBarReducer} from "./SideBar-reducer";
-import {UsersReducer} from "./Users-reducer";
-import {NavigateBarReducer} from "./Navigate-reducer";
-import {AuthorizationReducer} from "./Authorization-reducer";
-import {MovieReducer} from "./Movie-reducer";
-import thunkMiddleware from "redux-thunk";
+import {ActionsSideBarType, SideBarReducer} from "./SideBar-reducer";
+import {UserActionType, UsersReducer} from "./Users-reducer";
+import {ActionsNavigateType, NavigateBarReducer} from "./Navigate-reducer";
+import {AuthActionType, AuthorizationReducer} from "./Authorization-reducer";
+import {MovieReducer, MoviesActionType} from "./Movie-reducer";
+import thunkMiddleware, {ThunkAction} from "redux-thunk";
 
 export type AppStateType = ReturnType<typeof rootReducer>
 
@@ -21,6 +21,16 @@ const rootReducer = combineReducers({
 })
 
 export const store = createStore(rootReducer, applyMiddleware(thunkMiddleware));
+
+export type GlobalActionType =
+    | ProfileActionsType
+    | ActionsSideBarType
+    | UserActionType
+    | ActionsNavigateType
+    | AuthActionType
+    | MoviesActionType;
+
+export type AppThunk<ReturnType = void> = ThunkAction<ReturnType, AppStateType, unknown, GlobalActionType> ;
 
 // @ts-ignore
 window.store = store;

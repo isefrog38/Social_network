@@ -5,6 +5,7 @@ import imgMusic from "../Assets/mini img/music.png";
 import imgUser from "../Assets/mini img/frend.png";
 import imgMovie from "../Assets/mini img/1179120.png";
 import imgSettings from "../Assets/mini img/setting.png";
+import {UserType} from "./Users-reducer";
 
 export type NavigateBarType = {
     to: string
@@ -15,7 +16,11 @@ export type NavigateBarType = {
 type InitialSideBarType = {
     navigateBar: Array<NavigateBarType>
 };
-type ActionsSideBarType = {};
+type Types = {
+    type: "SET_USERS"
+    users: Array<UserType>
+};
+export type ActionsNavigateType = Types;
 
 let initialState: InitialSideBarType = {
     navigateBar: [
@@ -64,7 +69,7 @@ let initialState: InitialSideBarType = {
     ]
 };
 
-export const NavigateBarReducer = (state = initialState, action: ActionsSideBarType)/*: InitialSideBarType */=> {
+export const NavigateBarReducer = (state = initialState, action: ActionsNavigateType)/*: InitialSideBarType */=> {
     switch (action) {
 
         default:
