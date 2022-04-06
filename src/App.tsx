@@ -1,4 +1,4 @@
-import React, {createContext, useState} from "react";
+import React, {createContext, useEffect, useState} from "react";
 import './App.css';
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
@@ -9,17 +9,26 @@ import UsersContainer from "./components/FindUsers/UsersContainer";
 import {NavbarContainer} from "./components/Navbar/NavbarContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import {HeaderContainer} from "./components/Header/HeaderContainer";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {AppStateType} from "./redax/redux-store";
 import {initialStateAuthorizationType} from "./redax/Authorization-reducer";
 import SignIn from "./components/LoginizationPage/SignIn/SignIn";
 import {SignUp} from "./components/LoginizationPage/SignUp/SignUp";
 import MovieContainer from "./components/Movies/MovieContainer";
+import {AuthMeTC} from "./Thunk/Login_Thunk";
 
 export const Context = createContext('on');
 export type ThemeType = 'on' | 'off';
 
 export const App = () => {
+
+    let dispatch = useDispatch();
+
+    useEffect(() => {
+
+        dispatch(AuthMeTC())
+
+    }, [])
 
     let {id} = useSelector<AppStateType, initialStateAuthorizationType>(state => state.AuthorizationReducer);
     const [showTheme, setShowTheme] = useState<ThemeType>('on');

@@ -7,7 +7,6 @@ export const AuthMeTC = (): AppThunk => async dispatch => {
     if (response.resultCode === 0) {
         let {login, email, id} = response.data
         dispatch(setAuthUserDataAC({id, email, login, isAuth: true}))
-        console.log(response.data)
     }
 }
 
@@ -17,7 +16,6 @@ export const getAccountAuthTC = (values: { email: string, password: string, reme
     if (response.resultCode === 0) {
         let {login, email, id} = responseAuth.data
         dispatch(setAuthUserDataAC({id, email, login, isAuth: true}))
-        console.log(response.data)
     }
 }
 

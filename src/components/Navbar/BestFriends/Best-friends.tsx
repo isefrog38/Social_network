@@ -2,7 +2,6 @@ import React from 'react';
 import s from "./Best-friends.module.css";
 import SideBar from "../SideBar/SideBar";
 import {SideBarType} from "../../../redax/SideBar-reducer";
-import {AuthRedirect} from "../../../HOC/AuthRedirect";
 
 
 type BestFriendsType = {
@@ -24,6 +23,5 @@ const BestFriends = ({sideBar}: BestFriendsType) => {
 };
 
 
-/*export default AuthRedirect(BestFriends);*/
 export default BestFriends;
 
