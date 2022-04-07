@@ -7,25 +7,32 @@ import {initialStateAuthorizationType} from "../../redax/Authorization-reducer";
 import {SearchPanel} from "../SmallComponents/SearchPanel/SearchPanel";
 import {Theme} from "../SmallComponents/ThemeSelect/Theme";
 import {Context, ThemeType} from "../../App";
+import {NavLink} from "react-router-dom";
 
 type HeaderType = {
     stateUser: initialStateAuthorizationType
     setShowTheme: (value: ThemeType) => void
     theme: ThemeType
-}
+};
 
 const Header = (props: HeaderType) => {
 
-    const theme = useContext(Context)
-    const [value, setValue] = useState<string>('')
+    const theme = useContext(Context);
+    const [value, setValue] = useState<string>('');
 
     return (
         <header className={theme === 'on' ? s.header : s.header_dark}>
-            <Logo/>
+
+            <NavLink to={`/`}>
+                <Logo/>
+                </NavLink>
+
             <div className={s.burger}>
                 <Burger theme={props.theme}/>
             </div>
+
             <TitlePage/>
+
             <div className={s.search}>
                 <SearchPanel
                     placeholderTitle={'Search friends'}
@@ -34,8 +41,11 @@ const Header = (props: HeaderType) => {
                     onChange={(e) => setValue(e.currentTarget.value)}
                 />
             </div>
+
             <Theme setShowTheme={props.setShowTheme}/>
+
             <Authorization stateUser={props.stateUser}/>
+
         </header>
     )
 };
