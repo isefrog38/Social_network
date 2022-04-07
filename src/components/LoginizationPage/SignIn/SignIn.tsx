@@ -31,14 +31,14 @@ const SignIn = ({theme}: SignInType) => {
             ) {
                 errors.email = "Invalid email address";
             }
-            if (!values.password || values.password.length < 6) {
+            if (!values.password || values.password.length < 4) {
                 errors.password = "Password is required";
             }
             return errors;
         },
         onSubmit: (values) => {
             dispatch(getAccountAuthTC(values));
-            console.log(JSON.stringify(values, null, 2));
+            /*console.log(JSON.stringify(values, null, 2));*/
             registrationForm.resetForm();
         },
     });
@@ -48,7 +48,7 @@ const SignIn = ({theme}: SignInType) => {
         ["заглавную букву", passwordOne.toLowerCase() !== passwordOne],
         ["строчную букву", passwordOne.toUpperCase() !== passwordOne],
         ["цифру", /\d/.test(passwordOne)],
-        ["8 символов", passwordOne.length >= 8],
+        ["5 символов", passwordOne.length >= 4],
     ];
 
     return (

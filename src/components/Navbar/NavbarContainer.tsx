@@ -3,7 +3,6 @@ import {Navbar} from "./Navbar";
 import {AppStateType} from "../../redax/redux-store";
 import {NavigateBarType} from "../../redax/Navigate-reducer";
 import {SideBarType} from "../../redax/SideBar-reducer";
-import {AuthRedirect} from "../../HOC/AuthRedirect";
 
 export const NavbarContainer = () => {
 
@@ -17,5 +16,3 @@ export const NavbarContainer = () => {
     )
 }
 
-/*
-export default AuthRedirect(NavbarContainer);*/

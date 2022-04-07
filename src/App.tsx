@@ -2,7 +2,6 @@ import React, {createContext, useEffect, useState} from "react";
 import './App.css';
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
-import Setting from "./components/Settings/Setting";
 import {Routes, Route, Navigate} from "react-router-dom";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/FindUsers/UsersContainer";
@@ -16,6 +15,7 @@ import SignIn from "./components/LoginizationPage/SignIn/SignIn";
 import {SignUp} from "./components/LoginizationPage/SignUp/SignUp";
 import MovieContainer from "./components/Movies/MovieContainer";
 import {AuthMeTC} from "./Thunk/Login_Thunk";
+import {SettingsContainer} from "./components/Settings/SettingsContainer";
 
 export const Context = createContext('on');
 export type ThemeType = 'on' | 'off';
@@ -31,14 +31,15 @@ export const App = () => {
     }, [])
 
     let {id} = useSelector<AppStateType, initialStateAuthorizationType>(state => state.AuthorizationReducer);
+    let {isAuth} = useSelector<AppStateType, initialStateAuthorizationType>(state => state.AuthorizationReducer);
     const [showTheme, setShowTheme] = useState<ThemeType>('on');
 
     return (
         <Context.Provider value={showTheme}>
             <div className={showTheme === "on" ? "App" : "App_dark"}>
-                <HeaderContainer setShowTheme={setShowTheme} theme={showTheme}/>
+                { isAuth && <HeaderContainer setShowTheme={setShowTheme} theme={showTheme}/> }
                 <div className='app-wrapper'>
-                    <NavbarContainer/>
+                    { isAuth && <NavbarContainer/> }
                     <div className={'app-wrapper-content'}>
                         <Routes>
                             <Route path={'/'} element={<Navigate to={'/news'}/>}/> {/* default page */}
@@ -51,7 +52,7 @@ export const App = () => {
                             <Route path='/news' element={<News/>}/>
                             <Route path='/music' element={<Music/>}/>
                             <Route path='/movies' element={<MovieContainer/>}/>
-                            <Route path='/settings' element={<Setting/>}/>
+                            <Route path='/settings' element={<SettingsContainer/>}/>
                             <Route path='/signIn' element={<SignIn theme={showTheme} />}/>
                             <Route path='/signUp' element={<SignUp theme={showTheme} />}/>
                         </Routes>

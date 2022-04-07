@@ -9,20 +9,20 @@ import facebook from "../../../Assets/socialIcon/facebook.png";
 import linkedIn from "../../../Assets/socialIcon/Linked.png";
 import git from "../../../Assets/socialIcon/git.png";
 
-const defaultAvatar = "https://as2.ftcdn.net/v2/jpg/03/08/68/53/1000_F_308685322_QENNJlJFHONQ8FVP2xVsiez6x1almqo2.jpg";
-
 type ProfileInfoType = {
     statusTitle: string
     updateStatus: (status: string) => void
     profileState: null | AxiosResponseTypeProfile
 }
 
-export const LinkedIn = 'https://www.linkedin.com/in/pashka-kuharchik-74b4b722a/',
+export const
+    LinkedIn = 'https://www.linkedin.com/in/pashka-kuharchik-74b4b722a/',
     Vkontakte = 'https://vk.com/pashkakyharchik',
     Telegram = 'https://t.me/PashkaKuh',
     Facebook = 'https://www.facebook.com/profile.php?id=100005190454942',
     Twitter = 'https://twitter.com/juk_nevyvojuk',
-    Git = 'https://github.com/isefrog38';
+    Git = 'https://github.com/isefrog38',
+    defaultAvatar = "https://as2.ftcdn.net/v2/jpg/03/08/68/53/1000_F_308685322_QENNJlJFHONQ8FVP2xVsiez6x1almqo2.jpg";
 
 export const ProfileInfo = ({profileState, updateStatus, statusTitle}: ProfileInfoType) => {
     let state = profileState;
@@ -55,17 +55,18 @@ export const ProfileInfo = ({profileState, updateStatus, statusTitle}: ProfileIn
                                 <a href={Vkontakte}><img className={s.socialNetwork} src={Vk} alt="mail"/></a>
                                 <a href={Git}><img className={s.socialNetwork} src={git} alt="git"/></a>
                             </div>
-                            {/*<div>
-                                SOCIAL LINK
-
+                        </div>
+                        {/*
+                        <div className={s.social_link}>
+                            <div className={s.CNBlock}>
                                 <div>{state.contacts.vk}</div>
                                 <div>{state.contacts.github}</div>
                                 <div>{state.contacts.facebook}</div>
                                 <div>{state.contacts.twitter}</div>
                                 <div>{state.contacts.instagram}</div>
-
-                            </div>*/}
+                            </div>
                         </div>
+                        */}
                     </div>
                 </div>
             </div>

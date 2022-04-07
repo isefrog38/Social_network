@@ -1,13 +1,12 @@
 import React from "react";
-import {InputForm} from "../SmallComponents/InputForm/InputForm";
+import s from "./News.module.css";
 
 const News = () => {
-
-
-
     return (
-        <div>
-            <InputForm />
+        <div className={s.main_block_news}>
+            <div className={s.small_main_block}>
+
+            </div>
         </div>
     )
 }

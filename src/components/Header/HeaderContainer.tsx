@@ -4,7 +4,6 @@ import {AppStateType} from "../../redax/redux-store";
 import {initialStateAuthorizationType} from "../../redax/Authorization-reducer";
 import Header from "./Header";
 import {ThemeType} from "../../App";
-import {AuthRedirect} from "../../HOC/AuthRedirect";
 
 type HeaderContainerType = {
     setShowTheme: (value: ThemeType) => void
@@ -21,5 +20,3 @@ export const HeaderContainer = ({setShowTheme, theme}: HeaderContainerType) => {
     )
 }
 
-/*
-export default AuthRedirect(HeaderContainer);*/

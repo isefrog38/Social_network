@@ -16,51 +16,6 @@
     }
 }
 
-.addMessageBlock {
-    display: flex;
-    width: 100%;
-    padding-top: 20px;
-    justify-content: space-between;
-    margin: 30px 30px 15px 0;
-}
-
-@media (min-width: 50px) and (max-width: 1000px) {
-    .addMessageBlock {
-        flex-wrap: wrap;
-    }
-}
-
-.inputAddMessage {
-    resize: vertical;
-    padding: 15px;
-    border-radius: 15px;
-    border: 1px solid black;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.06);
-    height: 10%;
-    width: 70%;
-}
-
-@media (min-width: 50px) and (max-width: 1000px) {
-    .inputAddMessage {
-        width: 100%;
-        margin: 0 30px;
-    }
-}
-
-
-
-.buttonAddMessage {
-    padding: 4px 20px ;
-}
-
-@media (min-width: 50px) and (max-width: 1000px) {
-    .buttonAddMessage {
-        padding: 0;
-        margin: 15px 40px;
-        width: 100%;
-    }
-}
-
 .messages {
     width: 100%;
     padding-top: 1rem;

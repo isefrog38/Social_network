@@ -1,8 +1,7 @@
 .buttonAddMessages {
     width: 150px;
-    float:right;
     display: inline-block;
-    box-shadow: -1px -1px 1px 2px gray;
+    box-shadow: 0px 3px 10px 2px #696969;
     box-sizing: border-box;
     padding: 0 10px;
     outline: none;
@@ -14,7 +13,7 @@
     font-weight: 600;
     text-decoration: none;
     vertical-align: top;
-    color: #373738;
+    color: #252525;
     background-color: #ffffff;
     cursor: pointer;
     user-select: none;
@@ -31,6 +30,7 @@
 }
 
 .buttonAddMessages:hover {
+    box-shadow: 0px 3px 10px 2px #3b3b3b;
     opacity: 0.88;
 }
 .buttonAddMessages:active {

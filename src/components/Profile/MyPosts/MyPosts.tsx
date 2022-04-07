@@ -2,7 +2,7 @@ import React, {ChangeEvent} from "react";
 import s from "./MyPosts.module.css"
 import {Post} from "./Post/Post";
 import {AxiosResponseTypeProfile, MyPostsUserType} from "../../../redax/Profile-reducer";
-import {ClearButton} from "../../SmallComponents/ClearButton/ClearButton";
+import {InputForm} from "../../SmallComponents/InputForm/InputForm";
 
 type MyPostsType = {
     profileState: null | AxiosResponseTypeProfile
@@ -23,17 +23,7 @@ export const MyPosts = (props: MyPostsType) => {
     return (
         <div className={s.postsBlock}>
             <h2>My Posts</h2>
-            <div className={s.addPostBlock}>
-                <input
-                    placeholder={'Add new post'}
-                    className={s.inputAddPost}
-                    onChange={onPostChange}
-                    value={props.newPostText}
-                />
-                <div className={s.buttonAddPost}>
-                    <ClearButton name={'Add Post'} disabled={!props.newPostText} onClick={addPost} />
-                </div>
-            </div>
+            <InputForm value={props.newPostText} onClickHandler={addPost} onChangeHandler={onPostChange}/>
             <div className={s.posts}>
                 {myPostElements}
             </div>

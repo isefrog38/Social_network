@@ -3,12 +3,12 @@ import {Navigate} from "react-router-dom";
 import {useSelector} from "react-redux";
 import {AppStateType} from "../redax/redux-store";
 
-export function AuthRedirect<T> (Component: ComponentType<T>) {
+export function AuthRedirect<T>(Component: ComponentType<T>) {
 
     const RedirectComponent = (props: any) => {
 
-        const isAuth  = useSelector<AppStateType, boolean>(state => state.AuthorizationReducer.isAuth);
-        if (!isAuth) return (<Navigate to='/signIn' />);
+        const isAuth = useSelector<AppStateType, boolean>(state => state.AuthorizationReducer.isAuth);
+        if (!isAuth) return (<Navigate to='/signIn'/>);
 
         return <Component {...props as T}/>
 
@@ -17,12 +17,12 @@ export function AuthRedirect<T> (Component: ComponentType<T>) {
     return RedirectComponent
 }
 
-export function RedirectToProfile<T> (Component: ComponentType<T>) {
+export function RedirectToProfile<T>(Component: ComponentType<T>) {
 
     const RedirectComponent = (props: any) => {
 
-        const isAuth  = useSelector<AppStateType, boolean>(state => state.AuthorizationReducer.isAuth);
-        if (isAuth) return (<Navigate to='/profile/:userId' />);
+        const isAuth = useSelector<AppStateType, boolean>(state => state.AuthorizationReducer.isAuth);
+        if (isAuth) return (<Navigate to='/profile/:userId'/>);
 
         return <Component {...props as T}/>
 
@@ -30,4 +30,5 @@ export function RedirectToProfile<T> (Component: ComponentType<T>) {
 
     return RedirectComponent
 }
+
 
