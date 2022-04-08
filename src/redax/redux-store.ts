@@ -8,6 +8,7 @@ import {AuthActionType, AuthorizationReducer} from "./Authorization-reducer";
 import {MovieReducer, MoviesActionType} from "./Movie-reducer";
 import thunkMiddleware, {ThunkAction} from "redux-thunk";
 import {NewsActionType, NewsReducer} from "./News-reducer";
+import {AppActionType, AppReducer} from "./App-reduser";
 
 export type AppStateType = ReturnType<typeof rootReducer>
 
@@ -19,12 +20,14 @@ const rootReducer = combineReducers({
     NavigateBarReducer,
     AuthorizationReducer,
     MovieReducer,
-    NewsReducer
+    NewsReducer,
+    AppReducer,
 })
 
 export const store = createStore(rootReducer, applyMiddleware(thunkMiddleware));
 
 export type GlobalActionType =
+    | AppActionType
     | NewsActionType
     | ProfileActionsType
     | ActionsSideBarType

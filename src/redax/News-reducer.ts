@@ -1,9 +1,11 @@
 let GET_NEWS = "GET_NEWS";
 
 export type NewsResponseType = {
-    title: string
     content: string
     data: string
+    img: string
+    img_pervaya: string
+    title: string
 };
 type GetNewsActionType = ReturnType<typeof getNewsAC>;
 export type NewsActionType = GetNewsActionType;
@@ -27,7 +29,7 @@ export const NewsReducer = (state = NewsState, action: NewsActionType): NewsInit
     }
 }
 
-export const getNewsAC = (payload: { title: string, content: string, data: string }) => {
+export const getNewsAC = (payload: NewsResponseType) => {
     return {type: GET_NEWS, payload} as const
 }
 
