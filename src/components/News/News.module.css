@@ -29,7 +29,8 @@
     align-items: flex-end;
     background-color: rgba(255, 255, 255, 0.63);
     border-radius: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
+    border: 1px solid black;
 }
 
 @media (min-width: 50px) and (max-width: 1200px) {
@@ -38,7 +39,7 @@
 
 .title_block {
     width: 98%;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     padding: 15px 5px;
     border-radius: 5px;
     box-shadow: 0px 5px 20px 1px #bebebe;

@@ -1,16 +1,19 @@
-import React from "react";
+import React, {useEffect} from "react";
 import s from "./News.module.css";
-import {getNewsTC} from "../../Thunk/News_Thunk";
 import {useDispatch, useSelector} from "react-redux";
 import {AppStateType} from "../../redax/redux-store";
 import {NewsInitialStateType} from "../../redax/News-reducer";
 import {AuthRedirect} from "../../HOC/AuthRedirect";
+import {getFirstNewsTC} from "../../Thunk/News_Thunk";
 
 const News = () => {
 
     const stateNews = useSelector<AppStateType, NewsInitialStateType>(state => state.NewsReducer);
     const dispatch = useDispatch();
 
+    useEffect(() => {
+        dispatch(getFirstNewsTC())
+    },[])
 
     const MapingNews = stateNews.map(el => (
         <div className={s.small_block_news}>
@@ -34,7 +37,7 @@ const News = () => {
             </div>
 
             <div className={s.block_tools_news}>
-                <button onClick={() => dispatch(getNewsTC())}>NEWS GET</button>
+                ADD
             </div>
         </div>
     )

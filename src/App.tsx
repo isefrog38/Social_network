@@ -42,7 +42,7 @@ export const App = () => {
                     { isAuth && <NavbarContainer/> }
                     <div className={'app-wrapper-content'}>
                         <Routes>
-                            <Route path={'/'} element={<Navigate to={'/news'}/>}/> {/* default page */}
+                            <Route path={'/' || '/Social_network'} element={<Navigate to={'/news'}/>}/> {/* default page */}
 
                             {id && <Route path={'/profile'} element={<Navigate to={`/profile/${id}`}/>}/>} {/* my page */}
 

@@ -3,16 +3,29 @@ import {NewsAPI} from "../Api/NewsAPI";
 import {getNewsAC} from "../redax/News-reducer";
 
 
+/*
 function random(min: number, max: number) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+*/
 
 
-
-export const getNewsTC = (): AppThunk => async dispatch => {
-    const response = await NewsAPI.getNews(random(1, 100000).toString());
-    let {data, content, title} = response;
-    let  response1 = {data, content, title};
-    console.log(response1)
-        dispatch(getNewsAC(response1));
+export const getNewsTC = (newsId: string): AppThunk => async dispatch => {
+    const response = await NewsAPI.getNews(newsId);
+    dispatch(getNewsAC(response));
 }
+
+
+export const getFirstNewsTC = (): AppThunk => async dispatch => {
+    const response = await NewsAPI.getFirstNews();
+    response.map(el => {
+            NewsAPI.getNews(el.toString())
+                .then(response =>
+                    dispatch(getNewsAC(response))
+                )
+        }
+    )
+
+}
+
+
