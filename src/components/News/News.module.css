@@ -4,7 +4,7 @@
 }
 
 .block_news {
-    width: 60%;
+    width: 80%;
     background-color: transparent;
     border-radius: 20px;
     margin-left: 20px;
@@ -12,10 +12,12 @@
 }
 
 .block_tools_news {
-    width: 30%;
+    width: 10%;
     background-color: white;
     border-radius: 20px;
 }
+
+
 
 
 
@@ -24,8 +26,8 @@
     padding: 40px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    background-color: white;
+    align-items: flex-end;
+    background-color: rgba(255, 255, 255, 0.63);
     border-radius: 20px;
     margin-bottom: 30px;
 }
@@ -34,9 +36,55 @@
 
 }
 
-.name_news {
-    font-weight: 600;
-    font-size: 1.3rem;
+.title_block {
+    width: 98%;
+    margin-bottom: 30px;
+    padding: 15px 5px;
+    border-radius: 5px;
+    box-shadow: 0px 5px 20px 1px #bebebe;
+    background-color: white;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.5rem;
     color: #27292c;
+}
+
+.photo_news {
+    border-radius: 5px;
+    margin: 20px 0;
+    width: 100%;
+    height: 300px;
     border: 1px solid;
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 93%;
+    margin-bottom: 30px;
+    padding: 30px;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0px 5px 10px 1px #bebebe;
+}
+
+.date_block {
+    display: flex;
+    justify-content: flex-end
+}
+
+.date {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0px 5px 10px 1px #bebebe;
 }
