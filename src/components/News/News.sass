@@ -1,0 +1,177 @@
+.main_news_block
+  display: flex
+  height: 81%
+
+.block_news
+  width: 80%
+  background-color: transparent
+  border-radius: 20px
+  margin-left: 20px
+  margin-right: 50px
+
+.block_tools_news
+  width: 10%
+  background-color: white
+  border-radius: 20px
+
+.small_block_news
+  width: 90%
+  height: 3%
+  padding: 40px
+  display: flex
+  justify-content: space-between
+  flex-direction: row-reverse
+  align-items: center
+  background-color: rgba(255, 255, 255, 0.56)
+  border-radius: 20px
+  margin-bottom: 50px
+  border: 1px solid #818181
+  transition: width 4s, height 4s
+
+  &:hover
+    width: 100%
+    height: 5%
+
+  &:nth-child(1):hover
+    opacity: 0
+
+.image_preview
+
+.title_block
+  display: flex
+  width: 80%
+  margin: 0 10px
+  padding: 15px 5px
+  border-radius: 5px
+  box-shadow: 0px 5px 20px 1px #bebebe
+  background-color: white
+  justify-content: center
+  align-items: center
+
+.title
+  width: 100%
+  display: flex
+  align-items: center
+  justify-content: center
+  font-weight: 700
+  font-size: 1.5rem
+  color: #27292c
+
+.photo_news
+  border-radius: 5px
+  margin: 20px 0
+  width: 100%
+  border: 1px solid
+
+.img_news
+  width: 100%
+  height: 100%
+
+.block_title_and_description
+  width: 70%
+  display: flex
+  flex-direction: column
+  align-items: center
+
+.description
+  display: flex
+  flex-direction: column
+  align-items: center
+  width: 90%
+  padding: 15px
+  margin: 10px
+  border-radius: 5px
+  background-color: white
+  box-shadow: 0px 5px 10px 1px #bebebe
+  max-height: 6em
+  overflow: hidden
+  height: 100%
+
+.date_block
+  display: flex
+  justify-content: flex-end
+
+.date
+  font-size: 1.2rem
+  font-weight: 700
+  margin-bottom: 30px
+  padding: 10px
+  border-radius: 5px
+  background-color: white
+  box-shadow: 0px 5px 10px 1px #bebebe
+
+@media (min-width: 50px) and (max-width: 1200px)
+
+/* ARROW SCROLL
+
+.arrow_down
+  position: fixed
+  top: 88%
+  left: 90%
+  margin: 30px
+
+  span
+    cursor: pointer
+    display: block
+    width: 30px
+    height: 30px
+    border-bottom: 5px solid #337AB7
+    border-right: 5px solid #337AB7
+    transform: rotate(45deg)
+    margin: -16px
+    animation: arrow-down 2s infinite
+
+    &:nth-child(2)
+      animation-delay: -0.2s
+
+    &:nth-child(3)
+      animation-delay: -0.4s
+
+@keyframes arrow_down
+  0%
+    opacity: 0
+    transform: rotate(45deg) translate(-20px, -20px)
+
+  50%
+    opacity: 1
+
+  100%
+    opacity: 0
+    transform: rotate(45deg) translate(20px, 20px)
+
+/*///// up  /////
+
+.arrow_up
+  position: fixed
+  top: 10%
+  left: 90%
+  margin: 30px
+
+  span
+    cursor: pointer
+    display: block
+    width: 30px
+    height: 30px
+    border-bottom: 5px solid #337AB7
+    border-right: 5px solid #337AB7
+    transform: rotate(225deg)
+    margin: -16px
+    animation: arrow-down 2s infinite
+
+    &:nth-child(2)
+      animation-delay: -0.2s
+
+    &:nth-child(3)
+      animation-delay: -0.4s
+
+@keyframes arrow_up
+  0%
+    opacity: 0
+    transform: rotate(45deg) translate(-20px, -20px)
+
+  50%
+    opacity: 1
+
+  100%
+    opacity: 0
+    transform: rotate(45deg) translate(20px, 20px)

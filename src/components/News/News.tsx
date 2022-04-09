@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import s from "./News.module.css";
 import {useDispatch, useSelector} from "react-redux";
 import {AppStateType} from "../../redax/redux-store";
@@ -11,6 +11,7 @@ import {animateScroll as scroll} from 'react-scroll';
 
 const News = () => {
 
+    const [activeNews, setActiveNews] = useState<boolean>(false);
     const stateNews = useSelector<AppStateType, NewsInitialStateType>(state => state.NewsReducer);
     const {isFetching} = useSelector<AppStateType, AppInitialStateType>(state => state.AppReducer);
     const dispatch = useDispatch();
@@ -20,9 +21,13 @@ const News = () => {
     }, [])
 
 
-    const MapingNews = stateNews.map(el => (
-        <div className={s.small_block_news}>
-            <div>
+    const onClickNewsHandler = () => {
+        setActiveNews(!activeNews)
+    }
+
+    const MapingNews = stateNews.map((el, i) => (
+        <div className={s.small_block_news} key={i}>
+            <div className={s.image_preview}>
                 <img className={s.img_small} src={el.img} alt={el.data}/>
             </div>
             <div className={s.block_title_and_description}>
@@ -31,32 +36,34 @@ const News = () => {
                 </div>
                 <div className={s.description} dangerouslySetInnerHTML={{__html: el.content}}/>
             </div>
+            {/*<div className={s.exemple}><div dangerouslySetInnerHTML={{__html: el.content}}/></div>*/}
         </div>
     ));
 
     if (isFetching) return <Preloader/>
 
     return (
-        <div className={s.main_news_block}>
-            <div className={s.block_news}>
-                {MapingNews}
+        <>
+            <div className={s.main_news_block}>
+                <div className={s.block_news}>
+                    {MapingNews}
+                </div>
             </div>
 
 
-            <div className={s.arrow_down} onClick={() => scroll.scrollToBottom()}>
-                <span></span>
-                <span></span>
-                <span></span>
+            <div className={s.block_tools_news}>
+                <div className={s.arrow_down} onClick={() => scroll.scrollToBottom()}>
+                    <span/>
+                    <span/>
+                    <span/>
+                </div>
+                <div className={s.arrow_up} onClick={() => scroll.scrollToTop()}>
+                    <span/>
+                    <span/>
+                    <span/>
+                </div>
             </div>
-            <div className={s.arrow_up} onClick={() => scroll.scrollToTop()}>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            {/*<div className={s.block_tools_news}>
-                ADD
-            </div>*/}
-        </div>
+        </>
     )
 }
 
