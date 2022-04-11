@@ -7,7 +7,7 @@ a:active {
 }
 
 .main_news_block {
-    display: flex;
+    width: 90%;
     margin: 0 auto;
 }
 
