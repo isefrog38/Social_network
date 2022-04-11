@@ -2,6 +2,7 @@ import React from 'react';
 import {useParams, Navigate} from "react-router-dom";
 import s from "./OneNews.module.css";
 import {NewsResponseType} from "../../../redax/News-reducer";
+import {useSelector} from "react-redux";
 
 type OneNewsProps = {
     stateNews: NewsResponseType[]

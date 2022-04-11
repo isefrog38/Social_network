@@ -19,16 +19,13 @@ const NewsState: NewsInitialStateType = [];
 export const NewsReducer = (state = NewsState, action: NewsActionType): NewsInitialStateType => {
     switch (action.type) {
         case GET_NEWS :
-            return [
-                action.payload,
-                ...state,
-            ]
+            return [...action.payload]
         default:
             return state
     }
 }
 
-export const getNewsAC = (payload: NewsResponseType) => {
+export const getNewsAC = (payload: NewsResponseType[]) => {
     return {type: GET_NEWS, payload} as const
 }
 
