@@ -2,7 +2,8 @@ import React, {memo} from 'react';
 import s from "./Users.module.css";
 import {UserType} from "../../../redax/Users-reducer";
 import {UsersBlock} from "./UsersBlock/UsersBlock";
-import {Pages} from "../../Pagination/Pages";
+import {Pages} from "../../SmallComponents/Pagination/Pages";
+import {ArrowScroll} from "../../SmallComponents/ArrowScroll/ArrowScroll";
 
 type UsersType = {
     users: UserType[]
@@ -45,6 +46,7 @@ export const Users = memo((props: UsersType) => {
             <div className={s.blockButtonsPage}>
                 {PagesBlock}                                {/*блок с страницами*/}
             </div>
+            <ArrowScroll />
         </div>
     )
         ;

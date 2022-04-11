@@ -1,5 +1,5 @@
 import React, {memo} from "react";
-import s from '../Dialogs.module.css'
+import s from '../Dialogs.module.css';
 import {NavLink} from "react-router-dom";
 import {DialogType} from "../../../redax/Dialogs-reducer";
 

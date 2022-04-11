@@ -16,6 +16,7 @@ import {SignUp} from "./components/LoginizationPage/SignUp/SignUp";
 import MovieContainer from "./components/Movies/MovieContainer";
 import {AuthMeTC} from "./Thunk/Login_Thunk";
 import {SettingsContainer} from "./components/Settings/SettingsContainer";
+import {NewsContainer} from "./components/News/NewsContainer";
 
 export const Context = createContext('on');
 export type ThemeType = 'on' | 'off';
@@ -42,7 +43,7 @@ export const App = () => {
                     { isAuth && <NavbarContainer/> }
                     <div className={'app-wrapper-content'}>
                         <Routes>
-                            <Route path={'/' || '/Social_network'} element={<Navigate to={'/news'}/>}/> {/* default page */}
+                            <Route path={'/'} element={<Navigate to={'/news'}/>}/> {/* default page */}
 
                             {id && <Route path={'/profile'} element={<Navigate to={`/profile/${id}`}/>}/>} {/* my page */}
 
@@ -50,6 +51,7 @@ export const App = () => {
                             <Route path='/profile/:userId' element={<ProfileContainer/>}/>
                             <Route path='/users' element={<UsersContainer/>}/>
                             <Route path='/news' element={<News/>}/>
+                            <Route path='/news/:newsId' element={<NewsContainer/>}/>
                             <Route path='/music' element={<Music/>}/>
                             <Route path='/movies' element={<MovieContainer/>}/>
                             <Route path='/settings' element={<SettingsContainer/>}/>

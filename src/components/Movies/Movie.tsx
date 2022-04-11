@@ -4,6 +4,7 @@ import {SearchMovie} from "./SearchMovie/SearchMovie";
 import {ResultSearchMovie} from "./ResultSearchMovie/ResultSearchMovie";
 import {Preloader2} from "../SmallComponents/Preloader/Preloader2/Preloader2";
 import {MovieResponseType} from "../../redax/Movie-reducer";
+import {ArrowScroll} from "../SmallComponents/ArrowScroll/ArrowScroll";
 
 type MovieType = {
     searchFilm: (searchTitle: string) => void
@@ -53,6 +54,7 @@ export const Movie: FC<MovieType> = memo(({
                         onClickHandler={onClickHandler}
                         activePage={activePage}
                     />
+                    <ArrowScroll />
                 </div>
             }
         </>

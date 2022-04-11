@@ -63,7 +63,6 @@ export type ProfileStateType = {
 };
 
 const ADD_POST = "ADD_POST";
-const ADD_MESSAGE = "ADD_MESSAGE";
 const UPDATE_NEW_POST_TEXT = "UPDATE_NEW_POST_TEXT";
 const SET_USER_PROFILE = "SET_USER_PROFILE";
 const UPDATE_STATUS = "UPDATE_STATUS";

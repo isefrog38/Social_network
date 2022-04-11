@@ -1,6 +1,7 @@
 let GET_NEWS = "GET_NEWS";
 
 export type NewsResponseType = {
+    id: any
     content: string
     data: string
     img: string
@@ -12,9 +13,7 @@ export type NewsActionType = GetNewsActionType;
 export type NewsInitialStateType = Array<NewsResponseType>;
 
 
-const NewsState: NewsInitialStateType = [
-
-];
+const NewsState: NewsInitialStateType = [];
 
 
 export const NewsReducer = (state = NewsState, action: NewsActionType): NewsInitialStateType => {
