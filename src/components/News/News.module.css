@@ -8,14 +8,13 @@ a:active {
 
 .main_news_block {
     display: flex;
-    justify-content: space-around;
+    margin: 0 auto;
 }
 
 .block_news {
     width: 80%;
     background-color: transparent;
     border-radius: 20px;
-    margin-left: 20px;
     margin-right: 50px;
 }
 
