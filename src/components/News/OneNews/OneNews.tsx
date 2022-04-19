@@ -1,14 +1,15 @@
 import React from 'react';
-import {useParams, Navigate} from "react-router-dom";
+import {useParams, Navigate, NavLink} from "react-router-dom";
 import s from "./OneNews.module.css";
 import {NewsResponseType} from "../../../redax/News-reducer";
-import {useSelector} from "react-redux";
+import {ArrowBackOrNext} from "../../SmallComponents/ArrowBack/ArrowBackOrNext";
 
 type OneNewsProps = {
+    nextPath: string
     stateNews: NewsResponseType[]
 }
 
-export const OneNews = ({stateNews}: OneNewsProps) => {
+export const OneNews = ({stateNews, nextPath}: OneNewsProps) => {
 
     let {newsId} = useParams();
 
@@ -31,6 +32,23 @@ export const OneNews = ({stateNews}: OneNewsProps) => {
                     <div className={s.date}>{resultFilter[0].data}</div>
                 </div>
             </div>
+
+            {/* Back */}
+            <NavLink to={"/news"} className={s.main_arrow_block}>
+                <div className={s.arrow_back}>
+                    <div className={s.arrow_container}>
+                        <div className={s.arrow}/>
+                        <div className={s.arrow}/>
+                        <div className={s.arrow}/>
+                    </div>
+                </div>
+                <div className={s.name_arrow}>{"Back"}</div>
+            </NavLink>
+            {/* Next */}
+            <div className={s.arrow_next}>
+                <ArrowBackOrNext path={nextPath} nameArrow={"Next"}/>
+            </div>
+
         </div>
     );
 };

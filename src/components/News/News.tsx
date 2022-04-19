@@ -48,7 +48,9 @@ const News = () => {
                 </div>
             </div>
             {/*ARROW*/}
-            <ArrowScroll />
+            <div className={s.position_arrow_scroll}>
+                <ArrowScroll/>
+            </div>
         </>
     )
 }

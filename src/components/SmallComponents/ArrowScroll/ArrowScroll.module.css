@@ -11,8 +11,8 @@
     display: block;
     width: 30px;
     height: 30px;
-    border-bottom: 5px solid #337AB7;
-    border-right: 5px solid #337AB7;
+    border-bottom: 5px solid #333333;
+    border-right: 5px solid #333333;
     transform: rotate(45deg);
     margin: -16px;
     animation: arrow-down 2s infinite;
@@ -50,8 +50,8 @@
     display: block;
     width: 30px;
     height: 30px;
-    border-bottom: 5px solid #337AB7;
-    border-right: 5px solid #337AB7;
+    border-bottom: 5px solid #333333;
+    border-right: 5px solid #333333;
     transform: rotate(225deg);
     margin: -16px;
     animation: arrow-down 2s infinite;

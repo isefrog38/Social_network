@@ -10,8 +10,7 @@ export const NewsContainer = () => {
 
     return (
         <>
-            <OneNews stateNews={stateNews}/>
-
+            <OneNews stateNews={stateNews} nextPath={"/news"}/>
         </>
     );
 };
