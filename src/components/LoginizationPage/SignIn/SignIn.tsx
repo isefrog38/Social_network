@@ -21,24 +21,25 @@ const SignIn = ({theme}: SignInType) => {
     const dispatch = useDispatch();
 
     const registrationForm = useFormik({
-        initialValues: { email: "", password: "" , rememberMe: false, captcha: true},
+        initialValues: {email: "", password: "", rememberMe: false, captcha: true},
         validate: (values) => {
             const errors: FormikErrorType = {};
             if (!values.email) {
                 errors.email = "Field is required";
-            } else if (
-                !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
-            ) {
+            }
+            else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
                 errors.email = "Invalid email address";
             }
-            if (!values.password || values.password.length < 4) {
+            if (!values.password) {
                 errors.password = "Password is required";
+            }
+            else if (values.password.length < 4) {
+                errors.password = "Password must be more than 4 characters"
             }
             return errors;
         },
         onSubmit: (values) => {
             dispatch(getAccountAuthTC(values));
-            /*console.log(JSON.stringify(values, null, 2));*/
             registrationForm.resetForm();
         },
     });
@@ -48,7 +49,7 @@ const SignIn = ({theme}: SignInType) => {
         ["заглавную букву", passwordOne.toLowerCase() !== passwordOne],
         ["строчную букву", passwordOne.toUpperCase() !== passwordOne],
         ["цифру", /\d/.test(passwordOne)],
-        ["5 символов", passwordOne.length >= 4],
+        ["4 символов", passwordOne.length >= 4],
     ];
 
     return (
@@ -73,47 +74,50 @@ const SignIn = ({theme}: SignInType) => {
                         </p>
 
                         <p className={s.clearfix}>
-                                <label htmlFor="password">Password</label>
-                                <input
-                                    type="password"
-                                    id="password"
-                                    placeholder="password"
-                                    {...registrationForm.getFieldProps("password")}
-                                />
-                                {registrationForm.values.password ? (
-                                    <div className={s.text_helper}>
-                                        <div className={s.angle}/>
-                                        <span>Пароль должен содержать как минимум:</span>
-                                        <div className={s.text_helper_small_text}>
-                                            {mustContainData.map((data) => (
-                                                <MustContainItem key={data} data={data}/>
-                                            ))}
-                                        </div>
+                            <label htmlFor="password">Password</label>
+                            <input
+                                type="password"
+                                id="password"
+                                placeholder="password"
+                                {...registrationForm.getFieldProps("password")}
+                            />
+                            {registrationForm.touched.password && registrationForm.errors.password ? (
+                                <div style={{color: "red", fontSize: "1.2rem"}}>{registrationForm.errors.password}</div>
+                            ) : null}
+                            {registrationForm.values.password ? (
+                                <div className={s.text_helper}>
+                                    <div className={s.angle}/>
+                                    <span>Пароль должен содержать как минимум:</span>
+                                    <div className={s.text_helper_small_text}>
+                                        {mustContainData.map((data) => (
+                                            <MustContainItem key={data} data={data}/>
+                                        ))}
                                     </div>
-                                ) : null}
-                            </p>
+                                </div>
+                            ) : null}
+                        </p>
 
                         <p className={s.clearfix}>
-                                <input
-                                    style={{width: "50px", height: "50px"}}
-                                    type="checkbox"
-                                    id="remember"
-                                    {...registrationForm.getFieldProps("rememberMe")}
-                                />
-                                <label htmlFor="remember" className={s.label_rememberMe_block}>
-                                    Remember me
-                                </label>
+                            <input
+                                style={{width: "50px", height: "50px"}}
+                                type="checkbox"
+                                id="remember"
+                                {...registrationForm.getFieldProps("rememberMe")}
+                            />
+                            <label htmlFor="remember" className={s.label_rememberMe_block}>
+                                Remember me
+                            </label>
 
-                                <button
-                                    className={s.button}
-                                    type="submit"
-                                    name="submit"
-                                    value="Submit"
-                                    disabled={!(registrationForm.isValid && registrationForm.dirty)}
-                                >
-                                    Submit
-                                </button>
-                            </p>
+                            <button
+                                className={s.button}
+                                type="submit"
+                                name="submit"
+                                value="Submit"
+                                disabled={!(registrationForm.isValid && registrationForm.dirty)}
+                            >
+                                Submit
+                            </button>
+                        </p>
 
                         <p className={s.clearfix}>
                             <span className={s.register}>You don't have an account ?    SignUp !</span>
@@ -136,7 +140,7 @@ export default RedirectToProfile(SignIn);
 
 
 const MustContainItem = (props: any) => {
-    const { data } = props;
+    const {data} = props;
     const label = data[0];
     const meetsReq = data[1];
 
@@ -149,8 +153,8 @@ const MustContainItem = (props: any) => {
     return (
         <span style={{fontWeight: "500", fontSize: "1rem"}}>
       <div className={"validateChecklist"}>
-        <span >{label}</span>
-        <div className={setClass()} />
+        <span>{label}</span>
+        <div className={setClass()}/>
       </div>
     </span>
     );

@@ -1,4 +1,4 @@
-let GET_NEWS = "GET_NEWS";
+let GET_NEWS = "samurai_network/getNewsPage/GET_NEWS";
 
 export type NewsResponseType = {
     id: any

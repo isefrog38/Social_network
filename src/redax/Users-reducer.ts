@@ -1,33 +1,12 @@
-export type UserActionType = FollowACType | UnFollowACType | setUsersType | setPageUsersType | setTotalCountType | setToggleFetchingType | setDisabledButtonFollow;
-type FollowACType = {
-    type: "FOLLOW",
-    userId: number
-};
-type UnFollowACType = {
-    type: "UNFOLLOW",
-    userId: number
-};
-type setUsersType = {
-    type: "SET_USERS"
-    users: Array<UserType>
-};
-type setPageUsersType = {
-    type: "SET_PAGE_USERS"
-    page: number
-};
-type setTotalCountType = {
-    type: "SET_TOTAL_COUNT"
-    totalCount: number
-};
-type setToggleFetchingType = {
-    type: "TOGGLE_FETCHING"
-    isFetching: boolean
-};
-type setDisabledButtonFollow = {
-    type: "DISABLED_FOLLOW_BUTTON"
-    isDisabled: boolean
-    userId: number
-};
+export type UserActionType =
+    | ReturnType<typeof followAC>
+    | ReturnType<typeof unfollowAC>
+    | ReturnType<typeof setUsersAC>
+    | ReturnType<typeof setActivePageUsersAC>
+    | ReturnType<typeof setTotalCountPagesAC>
+    | ReturnType<typeof setToggleFetchingAC>
+    | ReturnType<typeof setDisabledButtonFollowAC>;
+
 export type UserType = {
     name: string,
     id: number,
@@ -48,13 +27,13 @@ export type InitialUsersStateType = {
     isDisabled: Array<number>
 };
 
-const FOLLOW = "FOLLOW";
-const UNFOLLOW = "UNFOLLOW";
-const SET_USERS = "SET_USERS";
-const SET_PAGE_USERS = "SET_PAGE_USERS";
-const SET_TOTAL_COUNT = "SET_TOTAL_COUNT";
-const TOGGLE_FETCHING = "TOGGLE_FETCHING";
-const DISABLED_FOLLOW_BUTTON = "DISABLED_FOLLOW_BUTTON";
+const FOLLOW = "samurai_network/followUser/FOLLOW";
+const UNFOLLOW = "samurai_network/unFollowUser/UNFOLLOW";
+const SET_USERS = "samurai_network/setUser/SET_USERS";
+const SET_PAGE_USERS = "samurai_network/setUserInProfile/SET_PAGE_USERS";
+const SET_TOTAL_COUNT = "samurai_network/setTotalCuntInUsersPage/SET_TOTAL_COUNT";
+const TOGGLE_FETCHING = "samurai_network/toggleFetching/TOGGLE_FETCHING";
+const DISABLED_FOLLOW_BUTTON = "samurai_network/disabledFollowButton/DISABLED_FOLLOW_BUTTON";
 const maxValue = 75;
 
 let initialState: InitialUsersStateType = {
@@ -114,13 +93,13 @@ export const UsersReducer = (state = initialState, action: UserActionType): Init
 }
 
 
-export const followAC = (userId: number): FollowACType => ({type: FOLLOW, userId} as const);
-export const unfollowAC = (userId: number): UnFollowACType => ({type: UNFOLLOW, userId} as const);
-export const setUsersAC = (users: Array<UserType>): setUsersType => ({type: SET_USERS, users} as const);
-export const setActivePageUsersAC = (page: number): setPageUsersType => ({type: SET_PAGE_USERS, page} as const);
-export const setTotalCountPagesAC = (totalCount: number): setTotalCountType => ({type: SET_TOTAL_COUNT, totalCount} as const);
-export const setToggleFetchingAC = (isFetching: boolean): setToggleFetchingType => ({type: TOGGLE_FETCHING, isFetching} as const);
-export const setDisabledButtonFollowAC = (isDisabled: boolean, userId: number): setDisabledButtonFollow => ({type: DISABLED_FOLLOW_BUTTON, isDisabled, userId} as const);
+export const followAC = (userId: number) => ({type: FOLLOW, userId} as const);
+export const unfollowAC = (userId: number) => ({type: UNFOLLOW, userId} as const);
+export const setUsersAC = (users: Array<UserType>) => ({type: SET_USERS, users} as const);
+export const setActivePageUsersAC = (page: number) => ({type: SET_PAGE_USERS, page} as const);
+export const setTotalCountPagesAC = (totalCount: number) => ({type: SET_TOTAL_COUNT, totalCount} as const);
+export const setToggleFetchingAC = (isFetching: boolean) => ({type: TOGGLE_FETCHING, isFetching} as const);
+export const setDisabledButtonFollowAC = (isDisabled: boolean, userId: number) => ({type: DISABLED_FOLLOW_BUTTON, isDisabled, userId} as const);
 
 
 

@@ -32,6 +32,8 @@ export const SignUp = ({theme}: SignUpType) => {
             }
             if (!values.password) {
                 errors.password = "Password is required";
+            } else if (values.password.length < 4) {
+                errors.password = "Password must be more than 4 characters"
             }
             return errors;
         },
@@ -48,7 +50,7 @@ export const SignUp = ({theme}: SignUpType) => {
         ["заглавную букву", passwordOne.toLowerCase() !== passwordOne],
         ["строчную букву", passwordOne.toUpperCase() !== passwordOne],
         ["цифру", /\d/.test(passwordOne)],
-        ["8 символов", passwordOne.length >= 8],
+        ["4 символов", passwordOne.length >= 4],
     ];
 
     return (
@@ -93,7 +95,9 @@ export const SignUp = ({theme}: SignUpType) => {
                                 placeholder="password"
                                 {...registrationForm.getFieldProps("password")}
                             />
-
+                            {registrationForm.touched.password && registrationForm.errors.password ? (
+                                <div style={{color: "red", fontSize: "1.2rem"}}>{registrationForm.errors.password}</div>
+                            ) : null}
                             {registrationForm.values.password ? (
                                 <div className={s.text_helper}>
                                     <div className={s.angle}/>

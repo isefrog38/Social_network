@@ -1,3 +1,14 @@
+export type MoviesActionType =
+    | ReturnType<typeof selectTypeAC>
+    | ReturnType<typeof setActivePageMovieAC>
+    | ReturnType<typeof setTotalCountMoviePagesAC>
+    | ReturnType<typeof setMovieToggleFetchingAC>
+    | ReturnType<typeof setSearchErrorAC>
+    | ReturnType<typeof setSearchErrorByTypeAC>
+    | ReturnType<typeof setSearchResultByTypeAC>
+    | ReturnType<typeof setSearchTitleAC>
+    | ReturnType<typeof setSearchResultAC>;
+
 export type MovieResponseType = {
     Poster: string
     Title: string
@@ -5,44 +16,7 @@ export type MovieResponseType = {
     Year: string
     imdbID: string
 };
-export type MoviesActionType = TypeSelectType | SearchTitle | setPageUsersType | setTotalCountType | setToggleFetchingType | SearchResultType | SearchErrorType | SearchTypeByType | SearchErrorTypeByType;
-type setPageUsersType = {
-    type: "SET_PAGE_MOVIES"
-    page: number
-};
-type setTotalCountType = {
-    type: "SET_TOTAL_COUNT"
-    totalCount: number
-};
-type setToggleFetchingType = {
-    type: "TOGGLE_FETCHING"
-    preloader: boolean
-};
-type SearchResultType = {
-    type: "SEARCH_RESULT"
-    searchResult: Array<MovieResponseType>
-};
-type SearchErrorType = {
-    type: "SEARCH_ERROR"
-    error: string
-};
-type SearchTypeByType = {
-    type: "SEARCH_RESULT_BY_TYPE"
-    searchResultByType: Array<MovieResponseType>
-};
-type SearchTitle = {
-    type: "SEARCH_TITLE"
-    title: string
-};
-type SearchErrorTypeByType = {
-    type: "SEARCH_ERROR_BY_TYPE"
-    errorByType: string
-};
-type TypeSelectType = {
-    type: "TYPE"
-    selectType: 'series' | 'movie'
-};
-export type SelectTypeMovieType = 'series' | 'movie'
+export type SelectTypeMovieType = 'series' | 'movie';
 export type InitialMovieStateType = {
     type: SelectTypeMovieType
     searchTitle: string
@@ -56,15 +30,15 @@ export type InitialMovieStateType = {
     preloader: boolean
 };
 
-const TYPE = "TYPE";
-const SET_PAGE_MOVIES = "SET_PAGE_MOVIES";
-const SET_TOTAL_COUNT = "SET_TOTAL_COUNT";
-const TOGGLE_FETCHING = "TOGGLE_FETCHING";
-const SEARCH_ERROR = "SEARCH_ERROR";
-const SEARCH_RESULT = "SEARCH_RESULT";
-const SEARCH_RESULT_BY_TYPE = "SEARCH_RESULT_BY_TYPE";
-const SEARCH_TITLE = "SEARCH_TITLE";
-const SEARCH_ERROR_BY_TYPE = "SEARCH_ERROR_BY_TYPE";
+const TYPE = "samurai_network/typeMoviesInMoviePage/TYPE";
+const SET_PAGE_MOVIES = "samurai_network/setPageMovies/SET_PAGE_MOVIES";
+const SET_TOTAL_COUNT = "samurai_network/setTotalCountPage/SET_TOTAL_COUNT";
+const TOGGLE_FETCHING = "samurai_network/toggleFetchingInMoviePage/TOGGLE_FETCHING";
+const SEARCH_ERROR = "samurai_network/ErrorSearch/SEARCH_ERROR";
+const SEARCH_RESULT = "samurai_network/searchResultByTitleInMovie/SEARCH_RESULT";
+const SEARCH_RESULT_BY_TYPE = "samurai_network/searchResultByTypeInMovie/SEARCH_RESULT_BY_TYPE";
+const SEARCH_TITLE = "samurai_network/searchByTitleInMovie/SEARCH_TITLE";
+const SEARCH_ERROR_BY_TYPE = "samurai_network/searchByTypeInMovie/SEARCH_ERROR_BY_TYPE";
 const maxValue = 100;
 
 let initialState: InitialMovieStateType = {
@@ -132,13 +106,13 @@ export const MovieReducer = (state = initialState, action: MoviesActionType): In
     }
 }
 
-export const selectTypeAC = (selectType: 'series' | 'movie'): TypeSelectType => ({type: TYPE, selectType} as const);
-export const setActivePageMovieAC = (page: number): setPageUsersType => ({type: SET_PAGE_MOVIES, page} as const);
-export const setTotalCountMoviePagesAC = (totalCount: number): setTotalCountType => ({type: SET_TOTAL_COUNT, totalCount} as const);
-export const setMovieToggleFetchingAC = (preloader: boolean): setToggleFetchingType => ({type: TOGGLE_FETCHING, preloader} as const);
-export const setSearchErrorAC = (error: string): SearchErrorType => ({type: SEARCH_ERROR, error} as const);
-export const setSearchErrorByTypeAC = (errorByType: string): SearchErrorTypeByType => ({type: SEARCH_ERROR_BY_TYPE, errorByType} as const);
-export const setSearchResultAC = (searchResult: Array<MovieResponseType>): SearchResultType => ({type: SEARCH_RESULT, searchResult}as const);
-export const setSearchResultByTypeAC = (searchResultByType: Array<MovieResponseType>): SearchTypeByType => ({type: SEARCH_RESULT_BY_TYPE, searchResultByType}as const);
-export const setSearchTitleAC = (title: string): SearchTitle => ({type: SEARCH_TITLE, title}as const);
+export const selectTypeAC = (selectType: 'series' | 'movie') => ({type: TYPE, selectType} as const);
+export const setActivePageMovieAC = (page: number) => ({type: SET_PAGE_MOVIES, page} as const);
+export const setTotalCountMoviePagesAC = (totalCount: number) => ({type: SET_TOTAL_COUNT, totalCount} as const);
+export const setMovieToggleFetchingAC = (preloader: boolean) => ({type: TOGGLE_FETCHING, preloader} as const);
+export const setSearchErrorAC = (error: string) => ({type: SEARCH_ERROR, error} as const);
+export const setSearchErrorByTypeAC = (errorByType: string) => ({type: SEARCH_ERROR_BY_TYPE, errorByType} as const);
+export const setSearchResultAC = (searchResult: Array<MovieResponseType>) => ({type: SEARCH_RESULT, searchResult}as const);
+export const setSearchResultByTypeAC = (searchResultByType: Array<MovieResponseType>) => ({type: SEARCH_RESULT_BY_TYPE, searchResultByType}as const);
+export const setSearchTitleAC = (title: string) => ({type: SEARCH_TITLE, title}as const);
 
