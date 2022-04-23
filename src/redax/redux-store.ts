@@ -9,6 +9,7 @@ import {AuthActionType, AuthorizationReducer} from "./Authorization-reducer";
 import {MoviesActionType, MovieReducer} from "./Movie-reducer";
 import {NewsActionType, NewsReducer} from "./News-reducer";
 import {AppActionType, AppReducer} from "./App-reduser";
+import {MusicActionType, MusicReducer} from "./Music-reduser";
 
 export type AppStateType = ReturnType<typeof rootReducer>
 
@@ -22,6 +23,7 @@ const rootReducer = combineReducers({
     MovieReducer,
     NewsReducer,
     AppReducer,
+    MusicReducer,
 })
 
 export const store = createStore(rootReducer, applyMiddleware(thunkMiddleware));
@@ -35,7 +37,8 @@ export type GlobalActionType =
     | UserActionType
     | ActionsNavigateType
     | AuthActionType
-    | MoviesActionType;
+    | MoviesActionType
+    | MusicActionType;
 
 export type AppThunk<ReturnType = void> = ThunkAction<ReturnType, AppStateType, unknown, GlobalActionType> ;
 

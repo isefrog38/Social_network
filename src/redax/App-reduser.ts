@@ -1,7 +1,7 @@
 let IS_FETCHING = "samurai_network/isGlobalAppFetching/IS_FETCHING";
 
-type IsFetchingNewsActionType = ReturnType<typeof isFetchingNewsAC>;
-export type AppActionType = IsFetchingNewsActionType;
+export type AppActionType = ReturnType<typeof isFetchingNewsAC> ;
+
 export type AppInitialStateType = {
     isFetching: boolean
 };

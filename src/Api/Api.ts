@@ -11,37 +11,37 @@ export const instanceUsers = axios.create({
 
 export const UsersAPI = {
 
-    getUsers (activePage: number = 1, sizeUsersPage: number = 10)  {
+    getUsers(activePage: number = 1, sizeUsersPage: number = 10) {
         return instanceUsers.get(`users?page=${activePage}&count=${sizeUsersPage}`)
             .then(response => response.data);
     },
 
-    onPageChanged (page: number, sizeUsersPage: number) {
+    onPageChanged(page: number, sizeUsersPage: number) {
         return instanceUsers.get(`users?page=${page}&count=${sizeUsersPage}`)
             .then(response => response.data);
     },
 
-    getUserProfile (userId: string) {
+    getUserProfile(userId: string) {
         return instanceUsers.get(`profile/${userId}`)
             .then(response => response.data);
     },
 
-    updateStatus (status: string) {
+    updateStatus(status: string) {
         return instanceUsers.put(`profile/status/`, {status: status})
             .then(response => response.data);
     },
 
-    getStatus (userId: string) {
+    getStatus(userId: string) {
         return instanceUsers.get(`profile/status/${userId}`)
             .then(response => response.data);
     },
 
-    followFunction (id: number) {
+    followFunction(id: number) {
         return instanceUsers.post(`follow/${id}`)
             .then(response => response.data);
     },
 
-    unfollowFunction (id: number) {
+    unfollowFunction(id: number) {
         return instanceUsers.delete(`follow/${id}`)
             .then(response => response.data);
     },
@@ -57,19 +57,18 @@ export const instanceMovies = axios.create({
 
 
 export const MoviesAPI = {
-    searchFilmsByTitle (title: string) {
+    searchFilmsByTitle(title: string) {
         return instanceMovies.get(`?apikey=${apiKey}&s=${title}`)
     },
 
-    onPageMoviesChanged (title: string, page: number) {
+    onPageMoviesChanged(title: string, page: number) {
         return instanceMovies.get(`?apikey=${apiKey}&s=${title}&type=movie&page=${page}`)
     },
 
-    searchFilmsByType (title: string, type: string) {
+    searchFilmsByType(title: string, type: string) {
         return instanceMovies.get(`?apikey=${apiKey}&s=${title}&type=${type}`)
     },
 }
-
 
 
 export const instanceAuthLogin = axios.create({
@@ -81,17 +80,17 @@ export const instanceAuthLogin = axios.create({
 })
 
 export const AuthAPI = {
-    AuthUser () {
+    AuthUser() {
         return instanceUsers.get<ResponseGetAuthType>(`auth/me`)
             .then(response => response.data);
     },
 
-    SignIn (email: string, password: string, rememberMe: boolean, captcha: boolean) {
+    SignIn(email: string, password: string, rememberMe: boolean, captcha: boolean) {
         return instanceAuthLogin.post<ResponseType>(`auth/login`, {email, password, rememberMe, captcha})
             .then(response => response.data)
     },
 
-    LogOut () {
+    LogOut() {
         return instanceAuthLogin.delete<ResponseType>(`auth/login`)
             .then(response => response.data)
     }
