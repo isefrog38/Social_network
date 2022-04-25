@@ -3,7 +3,7 @@ import s from "./ClearButton.module.css";
 
 type ClearButtonType = {
     name: string
-    disabled: boolean
+    disabled?: boolean
     onClick: () => void
 }
 

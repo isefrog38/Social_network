@@ -1,36 +1,30 @@
-import {responseGlobalType} from "../Api/MusicAPI";
+import {GlobalTypeMusic, ResultsMusicType} from "../Type/API-types/MusicTypes";
+
 
 export type MusicActionType = | ReturnType<typeof setAllResultSearchAC> ;
 
 export type MusicInitialStateType = {
-    data: responseGlobalType
+    "resultCount": number | null
+    "results": ResultsMusicType[]
 };
 
 const MusicState: MusicInitialStateType = {
-    data: {
-        data: [],
-        ["paging"]: {
-            next: ''
-        }
-    }
+    resultCount: null,
+    results: []
 };
 
 
 export const MusicReducer = (state = MusicState, action: MusicActionType): MusicInitialStateType => {
     switch (action.type) {
             case "NEWBLABLA" :
-                console.log(action.data.data)
-            return {
-                ...state,
-                data: action.data
-            }
+            return { ...action.data }
         default:
             return state
     }
 }
 
 
-export const setAllResultSearchAC = (data: responseGlobalType) => ({type: "NEWBLABLA", data} as const );
+export const setAllResultSearchAC = (data: any) => ({type: "NEWBLABLA", data} as const );
 
 
 

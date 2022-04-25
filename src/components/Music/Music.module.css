@@ -1,0 +1,14 @@
+.inputBlock {
+    display: flex;
+    width: 95%;
+    min-height: 100px;
+    background-color: #0a1a24;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 1000px) {
+    .inputBlock {
+        width: 100%;
+    }
+}
