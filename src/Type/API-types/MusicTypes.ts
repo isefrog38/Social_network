@@ -30,7 +30,7 @@ export type ResultsMusicType = {
     "discNumber": number
     "trackCount": number
     "trackNumber": number
-    "trackTimeMillis": string
+    "trackTimeMillis": number
     "country": string
     "currency": string
     "primaryGenreName": string

@@ -71,7 +71,7 @@ const Element = ({track, active, setCurrentId}: PropsTypeElement) => {
         <li onClick={click} className={activeId === active ? s.active_li : ''}>
             <span><img className={s.image} src={track.artworkUrl100} alt={track.trackName}/></span>
             <span>{track.artistName} ({track.trackName})</span>
-            <span>{time(Number(track.trackTimeMillis))}</span>
+            <span>{time(track.trackTimeMillis)}</span>
         </li>
     )
 }

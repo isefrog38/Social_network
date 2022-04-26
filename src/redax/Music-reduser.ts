@@ -30,11 +30,11 @@ export const MusicReducer = (state = MusicState, action: MusicActionType): Music
             return {
                 ...state, showInfo: action.track
             }
-            case "SET_BOOKMARKS_TRACK" :
+        case "SET_BOOKMARKS_TRACK" :
             return {
                 ...state, bookmark: [...state.bookmark, action.trackId]
             }
-            case "DELETE_BOOKMARKS_TRACK" :
+        case "DELETE_BOOKMARKS_TRACK" :
             return {
                 ...state, bookmark: state.bookmark.filter(el => el !== action.trackId)
             }
@@ -46,8 +46,8 @@ export const MusicReducer = (state = MusicState, action: MusicActionType): Music
 
 export const setAllResultSearchAC = (data: GlobalTypeMusic) => ({type: "SET_MUSIC_DATA", data} as const);
 export const setShowInfoArtistAC = (track: ResultsMusicType | null) => ({type: "SET_INFO_TRACK", track} as const);
-export const setBookmarksTrackAC = (trackId: number ) => ({type: "SET_BOOKMARKS_TRACK", trackId} as const);
-export const deleteBookmarksTrackAC = (trackId: number ) => ({type: "DELETE_BOOKMARKS_TRACK", trackId} as const);
+export const setBookmarksTrackAC = (trackId: number) => ({type: "SET_BOOKMARKS_TRACK", trackId} as const);
+export const deleteBookmarksTrackAC = (trackId: number) => ({type: "DELETE_BOOKMARKS_TRACK", trackId} as const);
 
 
 
