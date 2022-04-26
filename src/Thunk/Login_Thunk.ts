@@ -1,5 +1,5 @@
 import {AuthAPI} from "../Api/Api";
-import {AppThunk} from "../redax/redux-store";
+import {AppThunk} from "../redax/store";
 import {setAuthUserDataAC} from "../redax/Authorization-reducer";
 
 export const AuthMeTC = (): AppThunk => async dispatch => {

@@ -5,7 +5,7 @@ import {AuthRedirect} from "../../HOC/AuthRedirect";
 import {Preloader} from "../SmallComponents/Preloader/Preloader";
 import {NavLink} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {AppStateType} from "../../redax/redux-store";
+import {AppStateType} from "../../redax/store";
 import {AppInitialStateType} from "../../redax/App-reduser";
 import {getFirstNewsTC} from "../../Thunk/News_Thunk";
 import {ArrowScroll} from "../SmallComponents/ArrowScroll/ArrowScroll";

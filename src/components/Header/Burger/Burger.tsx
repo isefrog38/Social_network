@@ -3,7 +3,7 @@ import s from "./Burger.module.css";
 import {NavLink} from "react-router-dom";
 import {useSelector} from "react-redux";
 import {NavigateBarType} from "../../../redax/Navigate-reducer";
-import {AppStateType} from "../../../redax/redux-store";
+import {AppStateType} from "../../../redax/store";
 import {ThemeType} from "../../../App";
 
 type BurgerType = {

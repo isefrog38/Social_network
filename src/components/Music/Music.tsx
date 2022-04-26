@@ -2,7 +2,7 @@ import React, {ChangeEvent, useEffect, useState} from "react";
 import s from './Music.module.css'
 import {AuthRedirect} from "../../HOC/AuthRedirect";
 import {useDispatch, useSelector} from "react-redux";
-import {AppStateType} from "../../redax/redux-store";
+import {AppStateType} from "../../redax/store";
 import {MusicInitialStateType} from "../../redax/Music-reduser";
 import {MusicTC} from "../../Thunk/Music_Thunk";
 import {InputForm} from "../SmallComponents/InputForm/InputForm";

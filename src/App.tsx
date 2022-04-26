@@ -9,7 +9,7 @@ import {NavbarContainer} from "./components/Navbar/NavbarContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import {HeaderContainer} from "./components/Header/HeaderContainer";
 import {useDispatch, useSelector} from "react-redux";
-import {AppStateType} from "./redax/redux-store";
+import {AppStateType} from "./redax/store";
 import {initialStateAuthorizationType} from "./redax/Authorization-reducer";
 import SignIn from "./components/LoginizationPage/SignIn/SignIn";
 import {SignUp} from "./components/LoginizationPage/SignUp/SignUp";

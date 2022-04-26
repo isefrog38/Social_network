@@ -1,4 +1,4 @@
-import {applyMiddleware, combineReducers, createStore} from "redux";
+import {applyMiddleware, combineReducers, compose, createStore} from "redux";
 import thunkMiddleware, {ThunkAction} from "redux-thunk";
 import {ProfileActionsType, ProfileReducer} from "./Profile-reducer";
 import {DialogsActionReducer, DialogsReducer} from "./Dialogs-reducer";
@@ -26,7 +26,12 @@ const rootReducer = combineReducers({
     MusicReducer,
 })
 
-export const store = createStore(rootReducer, applyMiddleware(thunkMiddleware));
+// export const store = createStore(rootReducer, applyMiddleware(thunkMiddleware));
+
+// @ts-ignore
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+export const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunkMiddleware)));
+
 
 export type GlobalActionType =
     | AppActionType
@@ -41,7 +46,3 @@ export type GlobalActionType =
     | MusicActionType;
 
 export type AppThunk<ReturnType = void> = ThunkAction<ReturnType, AppStateType, unknown, GlobalActionType> ;
-
-
-// @ts-ignore
-window.store = store;

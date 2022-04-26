@@ -24,7 +24,7 @@ export const DescriptionTrack = ({oneSong, close}: DescriptionTrackType) => {
                 alt={oneSong.trackName}/>
                 <div className={s.actions}>
                     <button className={s.play} onClick={onClick}>{!play ? "Play" : "Pause"}</button>
-                    <Bookmark />
+                    <Bookmark trackId={oneSong.trackId}/>
                 </div>
             </div>
             <div className={s.album_details}>

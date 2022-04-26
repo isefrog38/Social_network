@@ -14,11 +14,12 @@ type MusicResultsType = {
 export const MusicResults = ({state, trackInfo}: MusicResultsType) => {
 
     const [visible, setVisible] = useState<boolean>(false);
+    const [active, setActive] = useState<number | null>(null);
     const dispatch = useDispatch();
 
     const openDescription = (track: ResultsMusicType) => {
-        close();
         dispatch(setShowInfoArtistAC(track));
+        setActive(track.trackId);
         if (track) {
             setVisible(true);
         }
@@ -27,6 +28,7 @@ export const MusicResults = ({state, trackInfo}: MusicResultsType) => {
     const close = () => {
         dispatch(setShowInfoArtistAC(null));
         setVisible(false);
+        setActive(null);
     }
 
     return (
@@ -34,11 +36,12 @@ export const MusicResults = ({state, trackInfo}: MusicResultsType) => {
             <div className={s.background}/>
             <section>
                 {trackInfo && visible && <DescriptionTrack oneSong={trackInfo}
-                                              close={close}
+                                                           close={close}
                 />}
                 <div className={s.album_tracks}>
                     <ol>
                         {state.map(el => <Element key={el.trackId}
+                                                  active={active}
                                                   track={el}
                                                   setCurrentId={openDescription}
                         />)}
@@ -50,27 +53,25 @@ export const MusicResults = ({state, trackInfo}: MusicResultsType) => {
 };
 
 
-
-
-
-
-
 type PropsTypeElement = {
     track: ResultsMusicType
+    active: number | null
     setCurrentId: (track: ResultsMusicType) => void
 }
 
-const Element = (props: PropsTypeElement) => {
+const Element = ({track, active, setCurrentId}: PropsTypeElement) => {
+
+    let activeId = track.trackId;
 
     const click = () => {
-        props.setCurrentId(props.track);
+        setCurrentId(track);
     }
 
     return (
-        <li onClick={click}>
-            <span><img className={s.image} src={props.track.artworkUrl100} alt={props.track.trackName}/></span>
-            <span>{props.track.artistName} ({props.track.trackName})</span>
-            <span>{time(Number(props.track.trackTimeMillis))}</span>
+        <li onClick={click} className={activeId === active ? s.active_li : ''}>
+            <span><img className={s.image} src={track.artworkUrl100} alt={track.trackName}/></span>
+            <span>{track.artistName} ({track.trackName})</span>
+            <span>{time(Number(track.trackTimeMillis))}</span>
         </li>
     )
 }

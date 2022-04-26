@@ -1,7 +1,7 @@
 import React, {useCallback, useEffect} from 'react';
 import s from './UsersContainer.module.css';
 import {useDispatch, useSelector} from "react-redux";
-import {AppStateType} from "../../redax/redux-store";
+import {AppStateType} from "../../redax/store";
 import {InitialUsersStateType, setDisabledButtonFollowAC} from "../../redax/Users-reducer";
 import {Users} from "./Users/Users";
 import {Preloader} from "../SmallComponents/Preloader/Preloader";

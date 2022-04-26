@@ -1,16 +1,29 @@
 import React, {useState} from "react";
 import s from "../../components/Music/RenderResultSearchMusic/MusicOneSong.module.css";
+import {deleteBookmarksTrackAC, setBookmarksTrackAC} from "../../redax/Music-reduser";
+import {useDispatch} from "react-redux";
 
-export const Bookmark = () => {
+type BookmarkType = {
+    trackId: number
+}
 
-    const [onSave, setOnSave] = useState<boolean>(false);
+export const Bookmark = ({trackId}: BookmarkType) => {
+
+    const [onSave, setOnSave] = useState<"save" | "notSave">("notSave");
+    const dispatch = useDispatch();
 
     const onClickHandler = () => {
-        setOnSave(!onSave);
+        if (onSave === "save") {
+            setOnSave("notSave");
+            dispatch(deleteBookmarksTrackAC(trackId));
+        } else {
+            setOnSave("save");
+            dispatch(setBookmarksTrackAC(trackId));
+        }
     }
 
     return (
-        <div className={!onSave ? s.bookmark : s.bookmarkSave} onClick={onClickHandler}>
+        <div className={onSave !== "save" ? s.bookmark : s.bookmarkSave} onClick={onClickHandler}>
             <svg xmlns="http://www.w3.org/2000/svg" fill="#faa800" height="24"
                  viewBox="0 0 24 24"
                  width="24">

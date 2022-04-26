@@ -2,7 +2,7 @@ import React, {useCallback, useEffect} from 'react';
 import s from './ProfileContainer.module.css';
 import Profile from "./Profile";
 import {useDispatch, useSelector} from "react-redux";
-import {AppStateType} from "../../redax/redux-store";
+import {AppStateType} from "../../redax/store";
 import {ProfileStateType} from "../../redax/Profile-reducer";
 import {useParams} from 'react-router-dom';
 import {initialStateAuthorizationType} from "../../redax/Authorization-reducer";

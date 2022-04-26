@@ -13,10 +13,6 @@
     height: 100%;
 }
 
-@media (min-width: 50px) and (max-width: 1200px) {
-
-}
-
 
 .log_data_block {
     display: flex;
@@ -46,7 +42,23 @@
     box-shadow: 0px 2px 10px 1px rgba(60, 154, 221, 0.51);
 }
 
-
 .button:hover {
 
+}
+
+
+@media (max-width: 1000px) {
+    .log_data_block {
+        height: 40%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .text_log_data {
+        margin: 0;
+        font-size: 1rem;
+    }
+    .button {
+        width: 100%;
+    }
 }

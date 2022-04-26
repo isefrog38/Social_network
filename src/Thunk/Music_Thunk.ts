@@ -1,4 +1,4 @@
-import {AppThunk} from "../redax/redux-store";
+import {AppThunk} from "../redax/store";
 import {MusicApi} from "../Api/MusicAPI";
 import {setAllResultSearchAC} from "../redax/Music-reduser";
 

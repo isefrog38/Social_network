@@ -1,6 +1,6 @@
 import {useSelector} from "react-redux";
 import {Navbar} from "./Navbar";
-import {AppStateType} from "../../redax/redux-store";
+import {AppStateType} from "../../redax/store";
 import {NavigateBarType} from "../../redax/Navigate-reducer";
 import {SideBarType} from "../../redax/SideBar-reducer";
 

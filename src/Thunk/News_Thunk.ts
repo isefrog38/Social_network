@@ -1,4 +1,4 @@
-import {AppThunk} from "../redax/redux-store";
+import {AppThunk} from "../redax/store";
 import {NewsAPI} from "../Api/NewsAPI";
 import {getNewsAC, NewsResponseType} from "../redax/News-reducer";
 import {isFetchingNewsAC} from "../redax/App-reduser";

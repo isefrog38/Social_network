@@ -2,7 +2,7 @@ import {connect} from "react-redux";
 import {AllMessages} from "./AllMessages";
 import {Dispatch} from "redux";
 import {addMessageActionCreator, MessageType, onChangeMessageActionCreator} from "../../redax/Dialogs-reducer";
-import {AppStateType} from "../../redax/redux-store";
+import {AppStateType} from "../../redax/store";
 
 export type AllMessagePropsType = MapDispatchToProps & MapStateToProps;
 type MapStateToProps = {

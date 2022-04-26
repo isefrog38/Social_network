@@ -1,6 +1,6 @@
 import React from "react";
 import {useSelector} from "react-redux";
-import {AppStateType} from "../../redax/redux-store";
+import {AppStateType} from "../../redax/store";
 import {initialStateAuthorizationType} from "../../redax/Authorization-reducer";
 import Header from "./Header";
 import {ThemeType} from "../../App";

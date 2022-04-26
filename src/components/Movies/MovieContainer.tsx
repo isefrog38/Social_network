@@ -9,7 +9,7 @@ import {
     setSearchResultAC, setSearchResultByTypeAC, setSearchTitleAC,
     setTotalCountMoviePagesAC
 } from "../../redax/Movie-reducer";
-import {AppStateType} from "../../redax/redux-store";
+import {AppStateType} from "../../redax/store";
 import {MoviesAPI} from "../../Api/Api";
 import {AuthRedirect} from "../../HOC/AuthRedirect";
 
