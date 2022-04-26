@@ -1,4 +1,4 @@
-import React, {ChangeEvent, useState} from "react";
+import React, {ChangeEvent, useEffect, useState} from "react";
 import s from './Music.module.css'
 import {AuthRedirect} from "../../HOC/AuthRedirect";
 import {useDispatch, useSelector} from "react-redux";
@@ -14,6 +14,10 @@ const Music = () => {
     const state = useSelector<AppStateType, MusicInitialStateType>(state => state.MusicReducer);
     const dispatch = useDispatch();
 
+    useEffect(() => {
+        dispatch(MusicTC("top 100"))
+    }, [])
+
     const onChange = (e: ChangeEvent<HTMLInputElement>) => {
         setValue(e.currentTarget.value)
     };
@@ -21,7 +25,6 @@ const Music = () => {
     const onClick = () => {
         dispatch(MusicTC(value));
     };
-
 
     return (
         <div className={s.rootDiv}>
@@ -34,7 +37,7 @@ const Music = () => {
                 />
             </div>
 
-            {state.results.length !== 0 && <MusicResults state={state.results}/>}
+            {state.results.length !== 0 && <MusicResults state={state.results} trackInfo={state.showInfo}/>}
         </div>
     )
 }

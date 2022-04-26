@@ -3,53 +3,74 @@ import s from "./MusicOneSong.module.css";
 import {ResultsMusicType} from "../../../Type/API-types/MusicTypes";
 import {time} from "../../../Utils/Functions";
 import {DescriptionTrack} from "../DescriptionTrack/DescriptionTrack";
+import {useDispatch} from "react-redux";
+import {setShowInfoArtistAC} from "../../../redax/Music-reduser";
 
 type MusicResultsType = {
     state: ResultsMusicType[]
+    trackInfo: ResultsMusicType | null | undefined
 }
 
-export const MusicResults = ({state}: MusicResultsType) => {
+export const MusicResults = ({state, trackInfo}: MusicResultsType) => {
 
-    const [showInfo, setShowInfo] = useState<boolean>(false);
+    const [visible, setVisible] = useState<boolean>(false);
+    const dispatch = useDispatch();
+
+    const openDescription = (track: ResultsMusicType) => {
+        close();
+        dispatch(setShowInfoArtistAC(track));
+        if (track) {
+            setVisible(true);
+        }
+    }
+
+    const close = () => {
+        dispatch(setShowInfoArtistAC(null));
+        setVisible(false);
+    }
 
     return (
         <div className={s.main_page_class}>
             <div className={s.background}/>
             <section>
-                {showInfo && <DescriptionTrack />}
+                {trackInfo && visible && <DescriptionTrack oneSong={trackInfo}
+                                              close={close}
+                />}
                 <div className={s.album_tracks}>
                     <ol>
-                        {state.map(el => (
-                            <li onClick={() => setShowInfo(!showInfo)}>
-                                <span>{el.trackName}</span>
-                                <span>{el.artistName}</span>
-                                <span>{time(Number(el.trackTimeMillis))}</span>
-                            </li>
-                        ))}
+                        {state.map(el => <Element key={el.trackId}
+                                                  track={el}
+                                                  setCurrentId={openDescription}
+                        />)}
                     </ol>
                 </div>
             </section>
         </div>
-
-        // return (
-        //     <div>
-        //         {state.map(el => (
-        //             <div key={el.trackId} className={s.main_song_div}>
-        //                 <div className={s.photo_song}>
-        //                     <img className={s.image} src={el.artworkUrl100} alt={el.artworkUrl60}/>
-        //                 </div>
-        //                 <div className={s.description}>
-        //                     <div>Artist: {el.artistName}</div>
-        //                     <div className={s.music_style}>Music Style: {el.primaryGenreName}</div>
-        //                     <div>Track Name: {el.trackName}</div>
-        //                     <div className={s.album_name}>Album: {el.collectionName}</div>
-        //
-        //                     <audio controls className={s.audio_player}>
-        //                         <source src={el.previewUrl} type="audio/mpeg"/>
-        //                     </audio>
-        //                 </div>
-        //             </div>
-        //         ))}
-        //     </div>
     );
 };
+
+
+
+
+
+
+
+type PropsTypeElement = {
+    track: ResultsMusicType
+    setCurrentId: (track: ResultsMusicType) => void
+}
+
+const Element = (props: PropsTypeElement) => {
+
+    const click = () => {
+        props.setCurrentId(props.track);
+    }
+
+    return (
+        <li onClick={click}>
+            <span><img className={s.image} src={props.track.artworkUrl100} alt={props.track.trackName}/></span>
+            <span>{props.track.artistName} ({props.track.trackName})</span>
+            <span>{time(Number(props.track.trackTimeMillis))}</span>
+        </li>
+    )
+}

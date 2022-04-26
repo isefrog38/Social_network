@@ -22,7 +22,7 @@ export const SearchPanel: FC<SearchPanelType> = ({placeholderTitle, value, type,
         if (e.ctrlKey || e.key === "Enter") {
             onClickHandler && onClickHandler()
         } else {
-            setError('bla bla')
+            setError('error')
         }
     }
 

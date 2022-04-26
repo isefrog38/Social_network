@@ -1,3 +1,28 @@
+.main_login {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: rgba(147, 147, 147, 0.55) 0 2px 3px 1px;
+    background: linear-gradient(-45deg, #b3deb4, #d5acbc, #b3c8d9, rgba(217, 208, 160, 0.75));
+    animation: gradient 15s ease infinite;
+    background-size: 400% 400%;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
 .form_3 {
     display: flex;
     flex-direction: column;
@@ -11,6 +36,10 @@
     border-radius: 0.4em;
     border: 1px solid #191919;
     box-shadow: inset 0 0 2px 1px rgba(255,255,255,0.08), 0 16px 10px -8px rgba(0, 0, 0, 0.6);
+
+    position: absolute;
+    top: 100px;
+    left: 35%;
 }
 
 .form_3 label {
@@ -118,15 +147,6 @@
 }
 
 
-@media (min-width: 50px) and (max-width: 1000px) {
-    .form_3 {
-        width: 250px;
-    }
-    .label_rememberMe_block {
-        margin-right: 20px;
-    }
-}
-
 .clearfix {
     display: flex;
     flex-direction: column;
@@ -166,4 +186,21 @@
 .text_helper_small_text {
     font-weight: 500;
     font-size: 1rem;
+}
+
+
+@media (min-width: 50px) and (max-width: 1000px) {
+    .main_login {
+        height: 120%;
+    }
+    .form_3 {
+        position: static;
+        width: 250px;
+    }
+    .label_rememberMe_block {
+        margin-right: 20px;
+    }
+    .text_helper {
+        display: none;
+    }
 }
