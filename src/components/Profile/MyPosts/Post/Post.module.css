@@ -20,15 +20,6 @@
     box-shadow: 0 2px 5px 1px rgb(64 60 67 / 30%);
 }
 
-@media (min-width: 50px) and (max-width: 1000px) {
-    .post {
-        width: 89%;
-        padding: 20px;
-    }
-}
-
-
-
 .likesBlock {
     display: flex;
     justify-content: space-between;
@@ -109,4 +100,43 @@
     content: "";
     cursor: pointer;
     transition: background .4s;
+}
+
+@media (max-width: 1000px) {
+    .post {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .likesBlock {
+        width: 20%;
+    }
+
+    .like_number {
+        font-weight: 500;
+    }
+
+    .like:before{
+        left: 15px;
+
+        width: 15px;
+        height: 25px;
+    }
+
+    .like:after{
+        width: 15px;
+        height: 25px;
+    }
+
+    .active_like:before{
+        left: 15px;
+
+        width: 15px;
+        height: 25px;
+    }
+
+    .active_like:after{
+        width: 15px;
+        height: 25px;
+    }
 }
