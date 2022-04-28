@@ -5,9 +5,9 @@ import {
     setToggleFetchingAC,
     setTotalCountPagesAC,
     setUsersAC, unfollowAC
-} from "../redax/Users-reducer";
+} from "../Reducers-Store/Users-reducer";
 import {UsersAPI} from "../Api/Api";
-import {changeProfileForUser, getStatusAC, updateStatusAC} from "../redax/Profile-reducer";
+import {changeProfileForUser, getStatusAC, updateStatusAC} from "../Reducers-Store/Profile-reducer";
 
 export const getUsersTC = (activePage: number, sizeUsersPage: number) => (dispatch: Dispatch) => {
     dispatch(setToggleFetchingAC(true));

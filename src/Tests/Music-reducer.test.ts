@@ -4,7 +4,7 @@ import {
     setAllResultSearchAC,
     setBookmarksTrackAC,
     setShowInfoArtistAC
-} from "../redax/Music-reduser";
+} from "../Reducers-Store/Music-reduser";
 import {ResultsMusicType} from "../Type/API-types/MusicTypes";
 
 let startState: MusicInitialStateType;

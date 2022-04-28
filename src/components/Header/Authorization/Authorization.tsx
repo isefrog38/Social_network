@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import s from './Authorization.module.css';
-import {initialStateAuthorizationType} from "../../../redax/Authorization-reducer";
+import {initialStateAuthorizationType} from "../../../Reducers-Store/Authorization-reducer";
 import {NavLink} from "react-router-dom";
 
 type AuthorizationType = {

@@ -4,7 +4,7 @@ import {useDispatch} from "react-redux";
 import {logOutTC} from "../../Thunk/Login_Thunk";
 import {ClearButton} from "../SmallComponents/ClearButton/ClearButton";
 import {AuthRedirect} from "../../HOC/AuthRedirect";
-import {initialStateAuthorizationType} from "../../redax/Authorization-reducer";
+import {initialStateAuthorizationType} from "../../Reducers-Store/Authorization-reducer";
 
 type SettingsType = {
     stateAuth: initialStateAuthorizationType

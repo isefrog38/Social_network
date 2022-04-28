@@ -1,7 +1,7 @@
 import React from 'react';
 import s from "./Best-friends.module.css";
 import SideBar from "../SideBar/SideBar";
-import {SideBarType} from "../../../redax/SideBar-reducer";
+import {SideBarType} from "../../../Reducers-Store/SideBar-reducer";
 
 
 type BestFriendsType = {

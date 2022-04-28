@@ -2,7 +2,7 @@ import React from "react";
 import s from './Profile.module.css';
 import {ProfileInfo} from "./ProfileInfo/ProfileInfo";
 import {MyPostsContainer} from "./MyPosts/MyPostsContainer";
-import {AxiosResponseTypeProfile} from "../../redax/Profile-reducer";
+import {AxiosResponseTypeProfile} from "../../Reducers-Store/Profile-reducer";
 import {Preloader} from "../SmallComponents/Preloader/Preloader";
 
 type ProfileType = {

@@ -1,7 +1,7 @@
 import React from 'react';
 import {useSelector} from "react-redux";
-import {AppStateType} from "../../redax/store";
-import {initialStateAuthorizationType} from "../../redax/Authorization-reducer";
+import {AppStateType} from "../../Reducers-Store/store";
+import {initialStateAuthorizationType} from "../../Reducers-Store/Authorization-reducer";
 import Setting from "./Setting";
 
 export const SettingsContainer = () => {

@@ -1,7 +1,7 @@
 import React from "react";
 import './../Dialogs.module.css'
 import s from "./Message.module.css";
-import {MessageType} from "../../../redax/Dialogs-reducer";
+import {MessageType} from "../../../Reducers-Store/Dialogs-reducer";
 
 const Messages = ({message, id}: MessageType) => {
     return (

@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import {App} from "./App";
 import {HashRouter} from "react-router-dom";
-import {store} from "./redax/store";
+import {store} from "./Reducers-Store/store";
 import {Provider} from "react-redux";
 
 

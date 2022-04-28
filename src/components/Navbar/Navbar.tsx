@@ -1,8 +1,8 @@
 import React, {useState} from "react";
 import s from './Navbar.module.css';
 import {NavLink} from "react-router-dom";
-import {NavigateBarType} from "../../redax/Navigate-reducer";
-import {SideBarType} from "../../redax/SideBar-reducer";
+import {NavigateBarType} from "../../Reducers-Store/Navigate-reducer";
+import {SideBarType} from "../../Reducers-Store/SideBar-reducer";
 import BestFriends from "./BestFriends/Best-friends";
 
 type NavbarPropsType = {

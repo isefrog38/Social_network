@@ -1,8 +1,8 @@
 import React, {useCallback, useEffect} from 'react';
 import s from './UsersContainer.module.css';
 import {useDispatch, useSelector} from "react-redux";
-import {AppStateType} from "../../redax/store";
-import {InitialUsersStateType, setDisabledButtonFollowAC} from "../../redax/Users-reducer";
+import {AppStateType} from "../../Reducers-Store/store";
+import {InitialUsersStateType, setDisabledButtonFollowAC} from "../../Reducers-Store/Users-reducer";
 import {Users} from "./Users/Users";
 import {Preloader} from "../SmallComponents/Preloader/Preloader";
 import {changeFollowTC, changePageTC, changeUnFollowTC, getUsersTC} from "../../Thunk/ThunkUsers";

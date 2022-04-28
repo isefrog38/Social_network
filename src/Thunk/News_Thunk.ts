@@ -1,7 +1,7 @@
-import {AppThunk} from "../redax/store";
+import {AppThunk} from "../Reducers-Store/store";
 import {NewsAPI} from "../Api/NewsAPI";
-import {getNewsAC, NewsResponseType} from "../redax/News-reducer";
-import {isFetchingNewsAC} from "../redax/App-reduser";
+import {getNewsAC, NewsResponseType} from "../Reducers-Store/News-reducer";
+import {isFetchingNewsAC} from "../Reducers-Store/App-reduser";
 
 export const getFirstNewsTC = (): AppThunk => async dispatch => {
     dispatch(isFetchingNewsAC(true));

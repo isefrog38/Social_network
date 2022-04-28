@@ -2,14 +2,15 @@ import React, {ChangeEvent, useEffect, useState} from "react";
 import s from './Music.module.css'
 import {AuthRedirect} from "../../HOC/AuthRedirect";
 import {useDispatch, useSelector} from "react-redux";
-import {AppStateType} from "../../redax/store";
-import {MusicInitialStateType} from "../../redax/Music-reduser";
+import {AppStateType} from "../../Reducers-Store/store";
+import {MusicInitialStateType} from "../../Reducers-Store/Music-reduser";
 import {MusicTC} from "../../Thunk/Music_Thunk";
 import {InputForm} from "../SmallComponents/InputForm/InputForm";
 import {MusicResults} from "./RenderResultSearchMusic/MusicResults";
 
 
 const Music = () => {
+
     const [value, setValue] = useState<string>('');
     const state = useSelector<AppStateType, MusicInitialStateType>(state => state.MusicReducer);
     const dispatch = useDispatch();
@@ -37,7 +38,9 @@ const Music = () => {
                 />
             </div>
 
-            {state.results.length !== 0 && <MusicResults state={state.results} trackInfo={state.showInfo}/>}
+            {state.results.length !== 0 && <MusicResults state={state.results}
+                                                         trackInfo={state.showInfo}
+            />}
         </div>
     )
 }

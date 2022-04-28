@@ -2,8 +2,8 @@ import React, {FC, useState} from 'react';
 import s from "./Burger.module.css";
 import {NavLink} from "react-router-dom";
 import {useSelector} from "react-redux";
-import {NavigateBarType} from "../../../redax/Navigate-reducer";
-import {AppStateType} from "../../../redax/store";
+import {NavigateBarType} from "../../../Reducers-Store/Navigate-reducer";
+import {AppStateType} from "../../../Reducers-Store/store";
 import {ThemeType} from "../../../App";
 
 type BurgerType = {

@@ -1,6 +1,6 @@
 import {AuthAPI} from "../Api/Api";
-import {AppThunk} from "../redax/store";
-import {setAuthUserDataAC} from "../redax/Authorization-reducer";
+import {AppThunk} from "../Reducers-Store/store";
+import {setAuthUserDataAC} from "../Reducers-Store/Authorization-reducer";
 
 export const AuthMeTC = (): AppThunk => async dispatch => {
     const response = await AuthAPI.AuthUser()

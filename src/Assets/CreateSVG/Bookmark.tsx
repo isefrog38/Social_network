@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import s from "../../components/Music/RenderResultSearchMusic/MusicOneSong.module.css";
-import {deleteBookmarksTrackAC, setBookmarksTrackAC} from "../../redax/Music-reduser";
+import {deleteBookmarksTrackAC, setBookmarksTrackAC} from "../../Reducers-Store/Music-reduser";
 import {useDispatch} from "react-redux";
 
 type BookmarkType = {

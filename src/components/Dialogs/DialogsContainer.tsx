@@ -1,7 +1,7 @@
 import React from "react";
 import Dialogs from "./Dialogs";
-import {AppStateType} from "../../redax/store";
-import {DialogReducerPageType} from "../../redax/Dialogs-reducer";
+import {AppStateType} from "../../Reducers-Store/store";
+import {DialogReducerPageType} from "../../Reducers-Store/Dialogs-reducer";
 import {useSelector} from "react-redux";
 import {AuthRedirect} from "../../HOC/AuthRedirect";
 

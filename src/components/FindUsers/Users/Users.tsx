@@ -1,6 +1,6 @@
 import React, {memo} from 'react';
 import s from "./Users.module.css";
-import {UserType} from "../../../redax/Users-reducer";
+import {UserType} from "../../../Reducers-Store/Users-reducer";
 import {UsersBlock} from "./UsersBlock/UsersBlock";
 import {Pages} from "../../SmallComponents/Pagination/Pages";
 import {ArrowScroll} from "../../SmallComponents/ArrowScroll/ArrowScroll";

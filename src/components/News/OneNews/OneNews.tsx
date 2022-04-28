@@ -1,7 +1,7 @@
 import React from 'react';
 import {useParams, Navigate, NavLink} from "react-router-dom";
 import s from "./OneNews.module.css";
-import {NewsResponseType} from "../../../redax/News-reducer";
+import {NewsResponseType} from "../../../Reducers-Store/News-reducer";
 import {ArrowBackOrNext} from "../../SmallComponents/ArrowBack/ArrowBackOrNext";
 
 type OneNewsProps = {

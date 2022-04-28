@@ -1,6 +1,6 @@
-import {AppThunk} from "../redax/store";
+import {AppThunk} from "../Reducers-Store/store";
 import {MusicApi} from "../Api/MusicAPI";
-import {setAllResultSearchAC} from "../redax/Music-reduser";
+import {setAllResultSearchAC} from "../Reducers-Store/Music-reduser";
 
 
 export const MusicTC = (title: string): AppThunk => async dispatch => {

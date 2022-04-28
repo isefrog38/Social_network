@@ -1,7 +1,7 @@
 import React, {ComponentType} from 'react';
 import {Navigate} from "react-router-dom";
 import {useSelector} from "react-redux";
-import {AppStateType} from "../redax/store";
+import {AppStateType} from "../Reducers-Store/store";
 
 export function AuthRedirect<T>(Component: ComponentType<T>) {
 

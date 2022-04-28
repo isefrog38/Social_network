@@ -1,7 +1,7 @@
 import React from 'react';
 import s from "./SideBar.module.css";
 import {NavLink} from "react-router-dom";
-import {DialogType} from "../../../redax/Dialogs-reducer";
+import {DialogType} from "../../../Reducers-Store/Dialogs-reducer";
 
 
 const SideBar = (props: DialogType) => {

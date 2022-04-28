@@ -1,7 +1,7 @@
 import React, {memo} from 'react';
 import s from "./UsersBlock.module.css";
 import {NavLink} from "react-router-dom";
-import {UserType} from "../../../../redax/Users-reducer";
+import {UserType} from "../../../../Reducers-Store/Users-reducer";
 
 type UsersBlockType = UserType & {
     defaultAvatar: string

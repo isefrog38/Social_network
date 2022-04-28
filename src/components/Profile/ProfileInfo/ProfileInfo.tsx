@@ -1,6 +1,6 @@
 import React from "react";
 import s from './ProfileInfo.module.css';
-import {AxiosResponseTypeProfile} from "../../../redax/Profile-reducer";
+import {AxiosResponseTypeProfile} from "../../../Reducers-Store/Profile-reducer";
 import {RenameSpan} from "../../SmallComponents/RenameSpan/RenameSpanFunction";
 import twitter from "../../../Assets/socialIcon/twitter.png";
 import Vk from "../../../Assets/socialIcon/mail.png";

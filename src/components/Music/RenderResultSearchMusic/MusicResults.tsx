@@ -4,7 +4,7 @@ import {ResultsMusicType} from "../../../Type/API-types/MusicTypes";
 import {time} from "../../../Utils/Functions";
 import {DescriptionTrack} from "../DescriptionTrack/DescriptionTrack";
 import {useDispatch} from "react-redux";
-import {setShowInfoArtistAC} from "../../../redax/Music-reduser";
+import {setShowInfoArtistAC} from "../../../Reducers-Store/Music-reduser";
 
 type MusicResultsType = {
     state: ResultsMusicType[]

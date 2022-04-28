@@ -2,7 +2,7 @@ import React, {FC, memo} from 'react';
 import s from './ResultSearchMovie.module.css';
 import altarnativePoster from '../../../Assets/mini img/NoPoster.jpg';
 import {Pages} from "../../SmallComponents/Pagination/Pages";
-import {MovieResponseType} from "../../../redax/Movie-reducer";
+import {MovieResponseType} from "../../../Reducers-Store/Movie-reducer";
 
 type SearchResultType = {
     searchResult: Array<MovieResponseType>

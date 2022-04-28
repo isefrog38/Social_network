@@ -1,12 +1,12 @@
 import React, {useEffect} from "react";
 import s from "./News.module.css";
-import {NewsInitialStateType} from "../../redax/News-reducer";
+import {NewsInitialStateType} from "../../Reducers-Store/News-reducer";
 import {AuthRedirect} from "../../HOC/AuthRedirect";
 import {Preloader} from "../SmallComponents/Preloader/Preloader";
 import {NavLink} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {AppStateType} from "../../redax/store";
-import {AppInitialStateType} from "../../redax/App-reduser";
+import {AppStateType} from "../../Reducers-Store/store";
+import {AppInitialStateType} from "../../Reducers-Store/App-reduser";
 import {getFirstNewsTC} from "../../Thunk/News_Thunk";
 import {ArrowScroll} from "../SmallComponents/ArrowScroll/ArrowScroll";
 

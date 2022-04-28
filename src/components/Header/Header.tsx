@@ -3,7 +3,7 @@ import s from './Header.module.css';
 import LogoHeader from "../../Assets/mini img/logoHEADER.jpg";
 import {Burger} from "./Burger/Burger";
 import {Authorization} from "./Authorization/Authorization";
-import {initialStateAuthorizationType} from "../../redax/Authorization-reducer";
+import {initialStateAuthorizationType} from "../../Reducers-Store/Authorization-reducer";
 import {SearchPanel} from "../SmallComponents/SearchPanel/SearchPanel";
 import {Theme} from "../SmallComponents/ThemeSelect/Theme";
 import {Context, ThemeType} from "../../App";

@@ -8,8 +8,8 @@ import {
     setMovieToggleFetchingAC, setSearchErrorAC, setSearchErrorByTypeAC,
     setSearchResultAC, setSearchResultByTypeAC, setSearchTitleAC,
     setTotalCountMoviePagesAC
-} from "../../redax/Movie-reducer";
-import {AppStateType} from "../../redax/store";
+} from "../../Reducers-Store/Movie-reducer";
+import {AppStateType} from "../../Reducers-Store/store";
 import {MoviesAPI} from "../../Api/Api";
 import {AuthRedirect} from "../../HOC/AuthRedirect";
 

@@ -1,5 +1,5 @@
 import axios from "axios";
-import {NewsResponseType} from "../redax/News-reducer";
+import {NewsResponseType} from "../Reducers-Store/News-reducer";
 
 export const instanceNews = axios.create({
     baseURL: "https://virtualbrest.ru/",

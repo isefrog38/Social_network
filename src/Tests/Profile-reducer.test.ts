@@ -1,9 +1,9 @@
 import {
-    addPostActionCreator,
+    addPostActionCreator, deleteLikePostAC,
     ProfileReducer,
-    ProfileStateType,
+    ProfileStateType, setLikePostAC,
     updateNewPostTextActionCreator, updateStatusAC
-} from "../redax/Profile-reducer";
+} from "../Reducers-Store/Profile-reducer";
 
 let startState: ProfileStateType;
 
@@ -11,10 +11,10 @@ beforeEach(() => {
 
     startState = {
         myPostData: [
-            {id: 1, message: 'Hi, how are you?', likesCount: 12},
-            {id: 2, message: "It's my first post", likesCount: 90},
-            {id: 3, message: 'Yea ) ', likesCount: 24},
-            {id: 4, message: 'Second post', likesCount: 116},
+            {id: 1, message: 'Hi, how are you?', likesCount: 12, youLikes: false},
+            {id: 2, message: "It's my first post", likesCount: 91, youLikes: true},
+            {id: 3, message: 'Yea ) ', likesCount: 24, youLikes: false},
+            {id: 4, message: 'Second post', likesCount: 116, youLikes: false},
         ],
         newPostText: '',
         profileUser: null,
@@ -52,5 +52,27 @@ test("Change status in profile info", () => {
 
     expect(endState.status.length).not.toBe(0);
     expect(endState.status).toBe("Status id updated");
+
+});
+
+test("set like count in profile post", () => {
+
+    const action = setLikePostAC(startState.myPostData[0].id);
+
+    const endState = ProfileReducer(startState, action);
+
+    expect(endState.myPostData[0].likesCount).toBe(startState.myPostData[0].likesCount + 1);
+    expect(endState.myPostData[0].youLikes).toBe(true);
+
+});
+
+test("delete like count in profile post", () => {
+
+    const action = deleteLikePostAC(startState.myPostData[1].id);
+
+    const endState = ProfileReducer(startState, action);
+
+    expect(endState.myPostData[1].likesCount).toBe(startState.myPostData[1].likesCount - 1);
+    expect(endState.myPostData[0].youLikes).toBe(false);
 
 });

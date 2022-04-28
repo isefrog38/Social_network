@@ -1,8 +1,8 @@
 import {useSelector} from "react-redux";
 import {Navbar} from "./Navbar";
-import {AppStateType} from "../../redax/store";
-import {NavigateBarType} from "../../redax/Navigate-reducer";
-import {SideBarType} from "../../redax/SideBar-reducer";
+import {AppStateType} from "../../Reducers-Store/store";
+import {NavigateBarType} from "../../Reducers-Store/Navigate-reducer";
+import {SideBarType} from "../../Reducers-Store/SideBar-reducer";
 
 export const NavbarContainer = () => {
 
