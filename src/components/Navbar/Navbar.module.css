@@ -30,6 +30,20 @@
     justify-content: flex-start;
     border-radius: 10px;
     padding: 7px;
+    margin-bottom: 5px;
+}
+
+.item_div_active {
+    display: flex;
+    width: 200px;
+    height: 35px;
+    justify-content: flex-start;
+    border-radius: 10px;
+    padding: 7px;
+    margin-bottom: 5px;
+    /*active*/
+    background-color: rgba(234, 234, 234, 0.52);
+    box-shadow: 0 2px 5px 1px rgb(64 60 67 / 30%);
 }
 
 .item{

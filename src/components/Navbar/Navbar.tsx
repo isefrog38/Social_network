@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import s from './Navbar.module.css';
 import {NavLink} from "react-router-dom";
 import {NavigateBarType} from "../../redax/Navigate-reducer";
@@ -12,9 +12,13 @@ type NavbarPropsType = {
 
 export const Navbar = ({navigateBar, sideBar}: NavbarPropsType) => {
 
+    const [active, setActive] = useState<string | null>('');
+
+    const onClickHandler = (namePage: string) => setActive(namePage);
+
     const NavigateItems = navigateBar.map(el => (
-        <NavLink key={el.alt} to={el.to} className={s.item}>
-            <div className={s.item_div}>
+        <NavLink key={el.alt} to={el.to} className={s.item} onClick={() => onClickHandler(el.nameOfPage)}>
+            <div className={active === el.nameOfPage ? s.item_div_active : s.item_div}>
                 <img className={s.logo} src={el.srcImg} alt={el.alt}/>
                 {el.nameOfPage}
             </div>
