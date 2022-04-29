@@ -42,7 +42,7 @@
     justify-content: center;
     width: 20%;
     border-radius: 5px;
-    background-color: rgba(154, 98, 215, 0.7);
+    background-color: #0a1a24;
     color: white;
     margin: auto 0;
     padding: 5px 20px;
@@ -59,7 +59,7 @@
     margin: auto 0;
     width: 20%;
     border-radius: 5px;
-    background-color: rgba(154, 98, 215, 0.7);
+    background-color: #0a1a24;
     color: white;
     padding: 5px 20px;
     font-weight: 600;
@@ -85,7 +85,7 @@
         justify-content: center;
         width: 35%;
         border-radius: 5px;
-        background-color: rgba(154, 98, 215, 0.7);
+        background-color: #0a1a24;
         color: white;
         padding: 7px 20px;
         font-weight: 600;
@@ -101,7 +101,7 @@
         left: 7%;
         width: 35%;
         border-radius: 5px;
-        background-color: rgba(154, 98, 215, 0.7);
+        background-color: #0a1a24;
         color: white;
         padding: 7px 20px;
         font-weight: 600;
