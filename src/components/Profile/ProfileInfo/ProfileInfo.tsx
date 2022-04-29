@@ -1,4 +1,4 @@
-import React from "react";
+import React, {ChangeEvent} from "react";
 import s from './ProfileInfo.module.css';
 import {AxiosResponseTypeProfile} from "../../../Reducers-Store/Profile-reducer";
 import {RenameSpan} from "../../SmallComponents/RenameSpan/RenameSpanFunction";
@@ -8,11 +8,13 @@ import telegram from "../../../Assets/socialIcon/telegram.png";
 import facebook from "../../../Assets/socialIcon/facebook.png";
 import linkedIn from "../../../Assets/socialIcon/Linked.png";
 import git from "../../../Assets/socialIcon/git.png";
+import {useParams} from "react-router-dom";
 
 type ProfileInfoType = {
     statusTitle: string
     updateStatus: (status: string) => void
     profileState: null | AxiosResponseTypeProfile
+    setPhotoProfile: (el: File) => void
 }
 
 export const
@@ -24,8 +26,18 @@ export const
     Git = 'https://github.com/isefrog38',
     defaultAvatar = "https://as2.ftcdn.net/v2/jpg/03/08/68/53/1000_F_308685322_QENNJlJFHONQ8FVP2xVsiez6x1almqo2.jpg";
 
-export const ProfileInfo = ({profileState, updateStatus, statusTitle}: ProfileInfoType) => {
+export const ProfileInfo = ({profileState, updateStatus, statusTitle, setPhotoProfile}: ProfileInfoType) => {
+
+    let {userId} = useParams();
+    let myId = "22589";
+
     let state = profileState;
+
+    const onChangePhotoFile = (e: ChangeEvent<HTMLInputElement>) => {
+        if (e.target.files && e.target.files.length) {
+            setPhotoProfile(e.target.files[0])
+        }
+    }
 
     if (!state) return <></>
 
@@ -37,6 +49,12 @@ export const ProfileInfo = ({profileState, updateStatus, statusTitle}: ProfileIn
                         <img className={s.avatar_mini}
                              src={state.photos.large !== null ? state.photos.large : defaultAvatar}
                              alt={state.fullName}/>
+                        {!userId &&
+                            <input type={"file"} onChange={(e) => onChangePhotoFile(e)}
+                                   className={s.download_photo}>
+                                Download photo
+                            </input>
+                        }
                     </div>
                     <div className={s.main_n_and_s}>
                         <div className={s.name_and_status_block}>
@@ -47,14 +65,16 @@ export const ProfileInfo = ({profileState, updateStatus, statusTitle}: ProfileIn
                             </div>
                         </div>
                         <div className={s.social_link}>
-                            <div className={s.CNBlock}>
-                                <a href={Facebook}><img className={s.socialNetwork} src={facebook} alt="facebook"/></a>
-                                <a href={Twitter}><img className={s.socialNetwork} src={twitter} alt="twitter"/></a>
-                                <a href={LinkedIn}><img className={s.socialNetwork} src={linkedIn} alt="linkedIn"/></a>
-                                <a href={Telegram}><img className={s.socialNetwork} src={telegram} alt="telegram"/></a>
-                                <a href={Vkontakte}><img className={s.socialNetwork} src={Vk} alt="mail"/></a>
-                                <a href={Git}><img className={s.socialNetwork} src={git} alt="git"/></a>
-                            </div>
+                            { !userId || userId === myId &&
+                                <div className={s.CNBlock}>
+                                    <a href={Facebook}><img className={s.socialNetwork} src={facebook} alt="facebook"/></a>
+                                    <a href={Twitter}><img className={s.socialNetwork} src={twitter} alt="twitter"/></a>
+                                    <a href={LinkedIn}><img className={s.socialNetwork} src={linkedIn} alt="linkedIn"/></a>
+                                    <a href={Telegram}><img className={s.socialNetwork} src={telegram} alt="telegram"/></a>
+                                    <a href={Vkontakte}><img className={s.socialNetwork} src={Vk} alt="mail"/></a>
+                                    <a href={Git}><img className={s.socialNetwork} src={git} alt="git"/></a>
+                                </div>
+                            }
                         </div>
                         {/*
                         <div className={s.social_link}>

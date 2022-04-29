@@ -94,6 +94,7 @@
 
 .avatar {
     display: flex;
+    flex-direction: column;
     margin-right: 20px;
 }
 
@@ -101,6 +102,15 @@
     border: 1px solid;
     width: 300px;
     height: 300px;
+}
+
+.download_photo {
+    width: 100%;
+    background-color: #0a1a24;
+    color: white;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
 }
 
 @media (min-width: 50px) and (max-width: 1000px) {

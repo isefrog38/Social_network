@@ -4,9 +4,11 @@ import {AppStateType} from "../../Reducers-Store/store";
 import {initialStateAuthorizationType} from "../../Reducers-Store/Authorization-reducer";
 import Setting from "./Setting";
 
-export const SettingsContainer = () => {
+const SettingsContainer = () => {
 
     let state = useSelector<AppStateType, initialStateAuthorizationType>(state => state.AuthorizationReducer);
 
     return <Setting stateAuth={state}/>
 };
+
+export default SettingsContainer;

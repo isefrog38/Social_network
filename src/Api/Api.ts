@@ -45,7 +45,19 @@ export const UsersAPI = {
         return instanceUsers.delete(`follow/${id}`)
             .then(response => response.data);
     },
+
+    setProfilePhoto(image: File) {
+        let formData = new FormData();
+        formData.append("image", image)
+        return instanceUsers.put(`/profile/photo`, formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
+            .then(response => response.data);
+    },
 }
+
 
 /// next api
 

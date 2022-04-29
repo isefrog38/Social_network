@@ -4,7 +4,7 @@ import {useSelector} from "react-redux";
 import {AppStateType} from "../../Reducers-Store/store";
 import {NewsInitialStateType} from "../../Reducers-Store/News-reducer";
 
-export const NewsContainer = () => {
+const NewsContainer = () => {
 
     const stateNews = useSelector<AppStateType, NewsInitialStateType>(state => state.NewsReducer);
 
@@ -14,3 +14,5 @@ export const NewsContainer = () => {
         </>
     );
 };
+
+export default NewsContainer;

@@ -24,11 +24,12 @@ export type AxiosResponseTypeProfile = {
     "lookingForAJobDescription": string
     "fullName": string
     "userId": number
-    "photos": {
-        "small": string
-        "large": string
-    }
+    "photos": PhotosType
 };
+export type PhotosType = {
+    "small": string
+    "large": string
+}
 export type ProfileActionsType =
     | ReturnType<typeof addPostActionCreator>
     | ReturnType<typeof changeProfileForUser>
@@ -36,6 +37,7 @@ export type ProfileActionsType =
     | ReturnType<typeof updateStatusAC>
     | ReturnType<typeof setLikePostAC>
     | ReturnType<typeof deleteLikePostAC>
+    | ReturnType<typeof setPhotoProfileAC>
     | ReturnType<typeof getStatusAC>;
 
 export type ProfileStateType = {
@@ -53,6 +55,7 @@ const UPDATE_STATUS = "samurai_network/updateProfileStatus/UPDATE_STATUS";
 const GET_STATUS = "samurai_network/getProfileStatus/GET_STATUS";
 const SET_LIKE_POST = "samurai_network/setProfileLikesPost/SET_LIKE_POST";
 const DELETE_LIKE_POST = "samurai_network/setProfileLikesPost/DELETE_LIKE_POST";
+const SET_PHOTO_PROFILE = "samurai_network/setProfilePhoto/SET_PHOTO_PROFILE";
 
 let initialState: ProfileStateType = {
     myPostData: [
@@ -98,6 +101,11 @@ export const ProfileReducer = (state: ProfileStateType = initialState, action: P
                     ? {...el, likesCount: el.likesCount - 1, youLikes: false}
                     : el),
             }
+            case SET_PHOTO_PROFILE:
+            return {
+                ...state,
+                profileUser: {...state.profileUser, photos: action.photos}
+            }
         default:
             return state;
     }
@@ -110,3 +118,4 @@ export const updateStatusAC = (status: string) => ({type: UPDATE_STATUS, status}
 export const getStatusAC = (status: string) => ({type: GET_STATUS, status} as const);
 export const setLikePostAC = (likeId: number) => ({type: SET_LIKE_POST, likeId} as const);
 export const deleteLikePostAC = (likeId: number) => ({type: DELETE_LIKE_POST, likeId} as const);
+export const setPhotoProfileAC = (photos: PhotosType) => ({type: SET_PHOTO_PROFILE, photos} as const);

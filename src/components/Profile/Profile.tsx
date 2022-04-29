@@ -9,14 +9,16 @@ type ProfileType = {
     profile: null | AxiosResponseTypeProfile
     statusTitle: string
     updateStatus: (status: string) => void
+    setPhotoProfile: (el: File) => void
 }
 
-const Profile = ({profile, updateStatus, statusTitle}: ProfileType) => {
+const Profile = ({profile, updateStatus, statusTitle, setPhotoProfile}: ProfileType) => {
 
     if(!profile) return <Preloader />                // Preloader
     else return (
         <div className={s.main_profile_block}>
             <ProfileInfo
+                setPhotoProfile={setPhotoProfile}
                 profileState={profile}
                 statusTitle={statusTitle}
                 updateStatus={updateStatus}

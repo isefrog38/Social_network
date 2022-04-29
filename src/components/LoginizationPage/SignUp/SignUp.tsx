@@ -14,7 +14,7 @@ type FormikErrorType = {
     password?: string;
 };
 
-export const SignUp = ({theme}: SignUpType) => {
+const SignUp = ({theme}: SignUpType) => {
 
     const registrationForm = useFormik({
         initialValues: {name: "", email: "", password: "", rememberMe: false},
@@ -150,7 +150,7 @@ export const SignUp = ({theme}: SignUpType) => {
     );
 };
 
-
+export default SignUp;
 
 const MustContainItem = (props: any) => {
     const { data } = props;
