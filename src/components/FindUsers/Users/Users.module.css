@@ -12,14 +12,13 @@
 
 .blockButtonsPage{
     display: flex;
-    width: 600px;
+    width: auto;
     justify-content: space-between;
-    height: 55px;
+    height: auto;
     align-items: flex-end;
     box-shadow: 0 2px 5px 1px rgba(80, 85, 87, 0.52);
     border-radius: 5px;
     margin-bottom: 20px;
-    cursor: pointer;
     padding: 10px;
 }
 

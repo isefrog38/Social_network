@@ -32,7 +32,6 @@ const MovieContainer = () => {
         dispatch(setSearchResultByTypeAC(searchResultByType))
     }, [dispatch]);
     const setSearchTitle = useCallback((title: string) => dispatch(setSearchTitleAC(title)), [dispatch]);
-    /*const selectType = useCallback((selectType: SelectTypeMovieType) => dispatch(selectTypeAC(selectType)), [dispatch]);*/
 
     const searchFilm = async (searchTitle: string) => {
         setSearchTitle(searchTitle);
@@ -74,12 +73,6 @@ const MovieContainer = () => {
         setPreloader(false)
     };
 
-    let calculationPage = Math.ceil(stateMovie.totalUsersCountPage / stateMovie.sizeUsersPage);
-    let pages = [];
-    for (let i = 1; i <= calculationPage; i++) {
-        pages.push(i)
-    }
-
     return <Movie
             searchResultByType={stateMovie.searchResultByType}
             searchErrorByType={stateMovie.searchErrorByType}
@@ -88,7 +81,8 @@ const MovieContainer = () => {
             searchResult={stateMovie.searchResult}
             searchError={stateMovie.searchError}
             activePage={stateMovie.activePage}
-            pages={pages}
+            totalMovieCountPage={stateMovie.totalMovieCountPage}
+            sizeMoviePage={stateMovie.sizeMoviePage}
             preloader={stateMovie.preloader}
             onClickHandler={onClickHandlerPage}
         />

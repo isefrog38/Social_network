@@ -2,14 +2,15 @@ import React, {memo} from 'react';
 import s from "./Users.module.css";
 import {UserType} from "../../../Reducers-Store/Users-reducer";
 import {UsersBlock} from "./UsersBlock/UsersBlock";
-import {Pages} from "../../SmallComponents/Pagination/Pages";
 import {ArrowScroll} from "../../SmallComponents/ArrowScroll/ArrowScroll";
+import {Pagination} from "../../SmallComponents/Pagination/Pagination";
 
 type UsersType = {
+    sizeUsersPage: number
+    totalUsersCountPage: number
     users: UserType[]
     activePage: number
     onClickHandler: (page: number) => void
-    pages: number[]
     defaultAvatar: string
     disabled: Array<number>
     setDisabled: (isDisabled: boolean, userId: number) => void
@@ -19,13 +20,6 @@ type UsersType = {
 
 export const Users = memo((props: UsersType) => {
 
-    let PagesBlock = props.pages.map(page => <Pages
-                                                key={page}
-                                                onClickHandler={props.onClickHandler}
-                                                activePage={props.activePage}
-                                                page={page}
-                                            />
-    );
     let Users = props.users.map(user => <UsersBlock
                                                 key={user.id}
                                                 {...user}
@@ -40,11 +34,19 @@ export const Users = memo((props: UsersType) => {
     return (
         <div className={s.main_users_block}>
             <div className={s.blockButtonsPage}>
-                {PagesBlock}                             {/*блок с страницами*/}
+                <Pagination activePage={props.activePage}
+                            onClickHandler={props.onClickHandler}
+                            pageSize={props.sizeUsersPage}
+                            totalItemsCountPage={props.totalUsersCountPage}
+                />
             </div>
             {Users}                                   {/*блок с пользователями*/}
             <div className={s.blockButtonsPage}>
-                {PagesBlock}                                {/*блок с страницами*/}
+                <Pagination activePage={props.activePage}
+                            onClickHandler={props.onClickHandler}
+                            pageSize={props.sizeUsersPage}
+                            totalItemsCountPage={props.totalUsersCountPage}
+                />
             </div>
             <ArrowScroll />
         </div>

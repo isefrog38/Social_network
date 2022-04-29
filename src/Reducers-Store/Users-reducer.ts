@@ -34,12 +34,11 @@ const SET_PAGE_USERS = "samurai_network/setUserInProfile/SET_PAGE_USERS";
 const SET_TOTAL_COUNT = "samurai_network/setTotalCuntInUsersPage/SET_TOTAL_COUNT";
 const TOGGLE_FETCHING = "samurai_network/toggleFetching/TOGGLE_FETCHING";
 const DISABLED_FOLLOW_BUTTON = "samurai_network/disabledFollowButton/DISABLED_FOLLOW_BUTTON";
-const maxValue = 75;
 
 let initialState: InitialUsersStateType = {
     users: [],
     totalUsersCountPage: 0,
-    sizeUsersPage: 5,
+    sizeUsersPage: 10,
     activePage: 1,
     isFetching: false,
     isDisabled: [],
@@ -71,7 +70,7 @@ export const UsersReducer = (state = initialState, action: UserActionType): Init
         }
         case SET_TOTAL_COUNT : {
             return {
-                ...state, totalUsersCountPage: action.totalCount > maxValue ? maxValue : action.totalCount
+                ...state, totalUsersCountPage: action.totalCount
             }
         }
         case TOGGLE_FETCHING : {

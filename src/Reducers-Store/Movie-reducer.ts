@@ -24,8 +24,8 @@ export type InitialMovieStateType = {
     searchResultByType: Array<MovieResponseType>
     searchError: string
     searchErrorByType: string
-    totalUsersCountPage: number
-    sizeUsersPage: number
+    totalMovieCountPage: number
+    sizeMoviePage: number
     activePage: number
     preloader: boolean
 };
@@ -39,7 +39,6 @@ const SEARCH_RESULT = "samurai_network/searchResultByTitleInMovie/SEARCH_RESULT"
 const SEARCH_RESULT_BY_TYPE = "samurai_network/searchResultByTypeInMovie/SEARCH_RESULT_BY_TYPE";
 const SEARCH_TITLE = "samurai_network/searchByTitleInMovie/SEARCH_TITLE";
 const SEARCH_ERROR_BY_TYPE = "samurai_network/searchByTypeInMovie/SEARCH_ERROR_BY_TYPE";
-const maxValue = 100;
 
 let initialState: InitialMovieStateType = {
     type: 'movie',
@@ -48,8 +47,8 @@ let initialState: InitialMovieStateType = {
     searchResultByType: [],
     searchError: '',
     searchErrorByType: '',
-    totalUsersCountPage: 0,
-    sizeUsersPage: 10,
+    totalMovieCountPage: 0,
+    sizeMoviePage: 10,
     activePage: 1,
     preloader: false,
 };
@@ -73,7 +72,7 @@ export const MovieReducer = (state = initialState, action: MoviesActionType): In
         }
         case SET_TOTAL_COUNT : {
             return {
-                ...state, totalUsersCountPage: Number(action.totalCount) > maxValue ? maxValue : Number(action.totalCount)
+                ...state, totalMovieCountPage: Number(action.totalCount)
             }
         }
         case TOGGLE_FETCHING : {

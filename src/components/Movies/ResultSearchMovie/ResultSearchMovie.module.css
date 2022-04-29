@@ -99,17 +99,21 @@
 
 .pages_block {
     display: flex;
-    width: 97%;
+    width: auto;
     justify-content: center;
     align-items: flex-end;
     box-shadow: 0 2px 5px 1px rgba(80, 85, 87, 0.52);
-    border-radius: 10px;
+    border-radius: 5px;
     cursor: pointer;
     padding: 10px;
+    height: auto;
+    margin-bottom: 20px;
 }
 
-@media (min-width: 50px) and (max-width: 1000px) {
+@media (max-width: 1000px) {
     .pages_block {
+        display: flex;
+        flex-direction: column;
         width: 100%;
         padding: 0;
         border-radius: 20px;

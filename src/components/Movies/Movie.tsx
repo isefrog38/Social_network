@@ -11,25 +11,27 @@ type MovieType = {
     searchByType: (searchTitle: string) => void
     searchResultByType: Array<MovieResponseType>
     searchError: string
-    pages: number[]
     activePage: number
     searchErrorByType: string
     preloader: boolean
     searchResult: Array<MovieResponseType>
     onClickHandler: (page: number) => void
+    sizeMoviePage: number
+    totalMovieCountPage: number
 }
 
 export const Movie: FC<MovieType> = memo(({
                                               onClickHandler,
                                               activePage,
                                               preloader,
-                                              pages,
                                               searchError,
                                               searchResult,
                                               searchResultByType,
                                               searchByType,
                                               searchFilm,
                                               searchErrorByType,
+                                              totalMovieCountPage,
+                                              sizeMoviePage,
                                           }) => {
 
     return (
@@ -48,9 +50,10 @@ export const Movie: FC<MovieType> = memo(({
                         </div>
                     </div>
                     <ResultSearchMovie
+                        totalMovieCountPage={totalMovieCountPage}
+                        sizeMoviePage={sizeMoviePage}
                         searchResultByType={searchResultByType}
                         searchResult={searchResult}
-                        pages={pages}
                         onClickHandler={onClickHandler}
                         activePage={activePage}
                     />

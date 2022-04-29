@@ -1,43 +1,19 @@
 import React, {FC, memo} from 'react';
 import s from './ResultSearchMovie.module.css';
 import altarnativePoster from '../../../Assets/mini img/NoPoster.jpg';
-import {Pages} from "../../SmallComponents/Pagination/Pages";
 import {MovieResponseType} from "../../../Reducers-Store/Movie-reducer";
+import {Pagination} from "../../SmallComponents/Pagination/Pagination";
 
 type SearchResultType = {
+    sizeMoviePage: number
+    totalMovieCountPage: number
     searchResult: Array<MovieResponseType>
     searchResultByType: Array<MovieResponseType>
-    pages: number[]
     activePage: number
     onClickHandler: (page: number) => void
 }
 
-export const ResultSearchMovie: FC<SearchResultType> = memo(({searchResult, pages, activePage, onClickHandler, searchResultByType}) => {
-
-    /*useEffect(() => {
-
-        let func = () => {
-            return <>
-                <div className={s.type}>TYPE FILM</div>
-                <div className={s.year}>1995th year</div>
-            </>
-        };
-
-        window.addEventListener('mouseout', func);
-
-        return () => {
-            window.removeEventListener('mouseout', func)
-        }
-    })*/
-
-
-
-    let PagesBlock = pages.map(page => <Pages
-        key={page}
-        onClickHandler={onClickHandler}
-        activePage={activePage}
-        page={page}
-    />);
+export const ResultSearchMovie: FC<SearchResultType> = memo(({totalMovieCountPage, sizeMoviePage, searchResult, activePage, onClickHandler, searchResultByType}) => {
 
     const resultsSearch = searchResult.map(el => {
         return (
@@ -85,10 +61,20 @@ export const ResultSearchMovie: FC<SearchResultType> = memo(({searchResult, page
                     <div className={s.main_block_result_search}>
                         <div className={s.block_result_search}>
                             <div className={s.results}>
-                                <div className={s.pages_block} style={{margin: "0 0 20px 0"}}> {PagesBlock} </div>
+                                <div className={s.pages_block} style={{margin: "0 0 20px 0"}}>
+                                    <Pagination totalItemsCountPage={totalMovieCountPage}
+                                                pageSize={sizeMoviePage}
+                                                activePage={activePage}
+                                                onClickHandler={onClickHandler} />
+                                </div>
                                 {resultsSearch}
                                 {resultsSearchByType}
-                                <div className={s.pages_block} style={{margin: "-5px 0 0 0"}}> {PagesBlock} </div>
+                                <div className={s.pages_block} style={{margin: "-5px 0 0 0"}}>
+                                    <Pagination totalItemsCountPage={totalMovieCountPage}
+                                                pageSize={sizeMoviePage}
+                                                activePage={activePage}
+                                                onClickHandler={onClickHandler} />
+                                </div>
                             </div>
                         </div>
                     </div>
