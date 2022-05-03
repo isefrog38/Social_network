@@ -20,7 +20,7 @@ export const ProfileContainer = () => {
     const setUsersProfile = useCallback((userId: string) => dispatch(getUsersProfileTC(userId)), [dispatch]);
     const updateStatus = useCallback((status: string) => dispatch(updateStatusTC(status)), [dispatch]);
     const getStatus = useCallback((userId: string) => dispatch(getStatusTC(userId)), [dispatch]);
-    const setPhotoProfile = useCallback((file: File) => dispatch(setPhotoProfileTC(file)), [dispatch]);
+    const setPhotoProfile = useCallback((file: File) => dispatch(setPhotoProfileTC(file, `${id}`)), [dispatch]);
 
     useEffect(() => {
         if (!userId || userId === ":userId") {
@@ -36,6 +36,7 @@ export const ProfileContainer = () => {
         <div className={s.main_profile}>
             <ToolBar/>
             <Profile
+                myId={id}
                 setPhotoProfile={setPhotoProfile}
                 profile={stateProfile.profileUser}
                 updateStatus={updateStatus}

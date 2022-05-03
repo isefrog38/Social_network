@@ -6,18 +6,20 @@ import {AxiosResponseTypeProfile} from "../../Reducers-Store/Profile-reducer";
 import {Preloader} from "../SmallComponents/Preloader/Preloader";
 
 type ProfileType = {
+    myId: number | null
     profile: null | AxiosResponseTypeProfile
     statusTitle: string
     updateStatus: (status: string) => void
     setPhotoProfile: (el: File) => void
 }
 
-const Profile = ({profile, updateStatus, statusTitle, setPhotoProfile}: ProfileType) => {
+const Profile = ({profile, updateStatus, statusTitle, setPhotoProfile, myId}: ProfileType) => {
 
     if(!profile) return <Preloader />                // Preloader
     else return (
         <div className={s.main_profile_block}>
             <ProfileInfo
+                myId={myId}
                 setPhotoProfile={setPhotoProfile}
                 profileState={profile}
                 statusTitle={statusTitle}

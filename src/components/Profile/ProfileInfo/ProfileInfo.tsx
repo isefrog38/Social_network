@@ -11,6 +11,7 @@ import git from "../../../Assets/socialIcon/git.png";
 import {useParams} from "react-router-dom";
 
 type ProfileInfoType = {
+    myId: number | null
     statusTitle: string
     updateStatus: (status: string) => void
     profileState: null | AxiosResponseTypeProfile
@@ -26,10 +27,9 @@ export const
     Git = 'https://github.com/isefrog38',
     defaultAvatar = "https://as2.ftcdn.net/v2/jpg/03/08/68/53/1000_F_308685322_QENNJlJFHONQ8FVP2xVsiez6x1almqo2.jpg";
 
-export const ProfileInfo = ({profileState, updateStatus, statusTitle, setPhotoProfile}: ProfileInfoType) => {
+export const ProfileInfo = ({myId, profileState, updateStatus, statusTitle, setPhotoProfile}: ProfileInfoType) => {
 
     let {userId} = useParams();
-    let myId = "22589";
 
     let state = profileState;
 
@@ -40,7 +40,6 @@ export const ProfileInfo = ({profileState, updateStatus, statusTitle, setPhotoPr
     }
 
     if (!state) return <></>
-
     else return (
         <div className={s.main}>
             <div className={s.item}>
@@ -49,44 +48,49 @@ export const ProfileInfo = ({profileState, updateStatus, statusTitle, setPhotoPr
                         <img className={s.avatar_mini}
                              src={state.photos.large !== null ? state.photos.large : defaultAvatar}
                              alt={state.fullName}/>
-                        {!userId &&
-                            <input type={"file"} onChange={(e) => onChangePhotoFile(e)}
-                                   className={s.download_photo}>
-                                Download photo
-                            </input>
+                        {userId === ":userId" || userId === `${myId}`
+                            ? <input multiple
+                                   type={"file"}
+                                   onChange={(e) => onChangePhotoFile(e)}
+                                   className={s.download_photo}
+                            />
+                            : <></>
                         }
                     </div>
                     <div className={s.main_n_and_s}>
                         <div className={s.name_and_status_block}>
                             <h1 className={s.full_name}>{state.fullName}</h1>
                             <div className={s.status}>                               {/*status*/}
-                                <RenameSpan statusTitle={statusTitle}
-                                            setTitle={updateStatus}/>
+                                {userId === ":userId" || userId === `${myId}`
+                                    ? <RenameSpan statusTitle={statusTitle} setTitle={updateStatus}/>
+                                    : <span>{statusTitle}</span>
+                                }
                             </div>
                         </div>
                         <div className={s.social_link}>
-                            { !userId || userId === myId &&
+                            {userId === ":userId" || userId === `${myId}`
+                                ?
                                 <div className={s.CNBlock}>
-                                    <a href={Facebook}><img className={s.socialNetwork} src={facebook} alt="facebook"/></a>
+                                    <a href={Facebook}><img className={s.socialNetwork} src={facebook}
+                                                            alt="facebook"/></a>
                                     <a href={Twitter}><img className={s.socialNetwork} src={twitter} alt="twitter"/></a>
-                                    <a href={LinkedIn}><img className={s.socialNetwork} src={linkedIn} alt="linkedIn"/></a>
-                                    <a href={Telegram}><img className={s.socialNetwork} src={telegram} alt="telegram"/></a>
+                                    <a href={LinkedIn}><img className={s.socialNetwork} src={linkedIn}
+                                                            alt="linkedIn"/></a>
+                                    <a href={Telegram}><img className={s.socialNetwork} src={telegram}
+                                                            alt="telegram"/></a>
                                     <a href={Vkontakte}><img className={s.socialNetwork} src={Vk} alt="mail"/></a>
                                     <a href={Git}><img className={s.socialNetwork} src={git} alt="git"/></a>
                                 </div>
+                                :
+                                <div className={s.CNBlock}>
+                                    <div>{state.contacts.vk}</div>
+                                    <div>{state.contacts.github}</div>
+                                    <div>{state.contacts.facebook}</div>
+                                    <div>{state.contacts.twitter}</div>
+                                    <div>{state.contacts.instagram}</div>
+                                </div>
                             }
                         </div>
-                        {/*
-                        <div className={s.social_link}>
-                            <div className={s.CNBlock}>
-                                <div>{state.contacts.vk}</div>
-                                <div>{state.contacts.github}</div>
-                                <div>{state.contacts.facebook}</div>
-                                <div>{state.contacts.twitter}</div>
-                                <div>{state.contacts.instagram}</div>
-                            </div>
-                        </div>
-                        */}
                     </div>
                 </div>
             </div>

@@ -8,18 +8,19 @@ export type MyPostsUserType = {
     likesCount: number
     youLikes: boolean,
 };
+export type SocialLinkType = {
+    "facebook": string
+    "website": null
+    "vk": string
+    "twitter": string
+    "instagram": string
+    "youtube": null
+    "github": string
+    "mainLink": null
+};
 export type AxiosResponseTypeProfile = {
-    "aboutMe": string
-    "contacts": {
-        "facebook": string
-        "website": null
-        "vk": string
-        "twitter": string
-        "instagram": string
-        "youtube": null
-        "github": string
-        "mainLink": null
-    },
+    "aboutMe": string | undefined
+    "contacts": SocialLinkType,
     "lookingForAJob": boolean
     "lookingForAJobDescription": string
     "fullName": string
@@ -37,7 +38,6 @@ export type ProfileActionsType =
     | ReturnType<typeof updateStatusAC>
     | ReturnType<typeof setLikePostAC>
     | ReturnType<typeof deleteLikePostAC>
-    | ReturnType<typeof setPhotoProfileAC>
     | ReturnType<typeof getStatusAC>;
 
 export type ProfileStateType = {
@@ -55,7 +55,6 @@ const UPDATE_STATUS = "samurai_network/updateProfileStatus/UPDATE_STATUS";
 const GET_STATUS = "samurai_network/getProfileStatus/GET_STATUS";
 const SET_LIKE_POST = "samurai_network/setProfileLikesPost/SET_LIKE_POST";
 const DELETE_LIKE_POST = "samurai_network/setProfileLikesPost/DELETE_LIKE_POST";
-const SET_PHOTO_PROFILE = "samurai_network/setProfilePhoto/SET_PHOTO_PROFILE";
 
 let initialState: ProfileStateType = {
     myPostData: [
@@ -69,7 +68,7 @@ let initialState: ProfileStateType = {
     status: '',
 };
 
-export const ProfileReducer = (state: ProfileStateType = initialState, action: ProfileActionsType): ProfileStateType => {
+export const ProfileReducer = (state = initialState, action: ProfileActionsType): ProfileStateType => {
     switch (action.type) {
         case ADD_POST:
             let newPost = {
@@ -86,7 +85,7 @@ export const ProfileReducer = (state: ProfileStateType = initialState, action: P
         case UPDATE_STATUS:
             return {...state, status: action.status === '' ? 'This could be your status' : action.status}
         case GET_STATUS:
-            return {...state, status: action.status }
+            return {...state, status: action.status}
         case SET_LIKE_POST:
             return {
                 ...state,
@@ -101,21 +100,15 @@ export const ProfileReducer = (state: ProfileStateType = initialState, action: P
                     ? {...el, likesCount: el.likesCount - 1, youLikes: false}
                     : el),
             }
-            case SET_PHOTO_PROFILE:
-            return {
-                ...state,
-                profileUser: {...state.profileUser, photos: action.photos}
-            }
         default:
             return state;
     }
 };
 
 export const addPostActionCreator = () => ({type: ADD_POST} as const);
-export const changeProfileForUser = (profile: AxiosResponseTypeProfile) => ({type: SET_USER_PROFILE , profile} as const);
-export const updateNewPostTextActionCreator = (newPostText: string) => ({type: UPDATE_NEW_POST_TEXT, newPostText} as const );
-export const updateStatusAC = (status: string) => ({type: UPDATE_STATUS, status} as const );
+export const changeProfileForUser = (profile: AxiosResponseTypeProfile) => ({type: SET_USER_PROFILE, profile} as const);
+export const updateNewPostTextActionCreator = (newPostText: string) => ({type: UPDATE_NEW_POST_TEXT, newPostText} as const);
+export const updateStatusAC = (status: string) => ({type: UPDATE_STATUS, status} as const);
 export const getStatusAC = (status: string) => ({type: GET_STATUS, status} as const);
 export const setLikePostAC = (likeId: number) => ({type: SET_LIKE_POST, likeId} as const);
 export const deleteLikePostAC = (likeId: number) => ({type: DELETE_LIKE_POST, likeId} as const);
-export const setPhotoProfileAC = (photos: PhotosType) => ({type: SET_PHOTO_PROFILE, photos} as const);

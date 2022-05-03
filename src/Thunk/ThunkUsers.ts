@@ -7,7 +7,8 @@ import {
     setUsersAC, unfollowAC
 } from "../Reducers-Store/Users-reducer";
 import {UsersAPI} from "../Api/Api";
-import {changeProfileForUser, getStatusAC, setPhotoProfileAC, updateStatusAC} from "../Reducers-Store/Profile-reducer";
+import {changeProfileForUser, getStatusAC, updateStatusAC} from "../Reducers-Store/Profile-reducer";
+import {AppThunk} from "../Reducers-Store/store";
 
 export const getUsersTC = (activePage: number, sizeUsersPage: number) => (dispatch: Dispatch) => {
     dispatch(setToggleFetchingAC(true));
@@ -72,12 +73,13 @@ export const updateStatusTC = (status: string) => (dispatch: Dispatch) => {
         })
 }
 
-export const setPhotoProfileTC = (image: File) => (dispatch: Dispatch) => {
+export const setPhotoProfileTC = (image: File , id: string): AppThunk => (dispatch) => {
     UsersAPI.setProfilePhoto(image)
         .then(data => {
-                if (data.resultCode === 0) {
-                    dispatch(setPhotoProfileAC(data.data));
-                }
+            console.log(data)
+            if (data.resultCode === 0) {
+                dispatch(getUsersProfileTC(id));
+            }
         })
 }
 
